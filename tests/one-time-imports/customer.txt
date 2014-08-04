@@ -1,0 +1,736 @@
+-- File source: bucket.guidance.com/data-migration/UTF8/CustomerwithAddress20140523.zip
+
+Overview:
+
+
+   * Create temporary holding table for incoming data (mage_customerport)
+   * Load CSV file into mage_customerport
+   * Run a series of queries to extract information from mage_customerport and insert into various customer_entity tables and customer_address_entity tables
+   * Update Newsletter subscriber status with current subscription data
+   * Estimate of Total import time: 1 hr 15 minutes
+
+
+
+-- In order to run "load data infile" statements on the db, we need to grant FILE for magento
+grant FILE on *.* to `magento-dbuser`@`localhost`;
+revoke FILE on *.* from `magento-dbuser`@`localhost`;
+
+-- Create mage_customerport table to hold our CSV data
+CREATE TABLE `mage_customerport` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mage_customer_entity_id` int(11) DEFAULT NULL,
+  `mage_customer_address_entity_id` int(11) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `_website` varchar(255) DEFAULT NULL,
+  `_store` varchar(255) DEFAULT '1',
+  `confirmation` varchar(255) DEFAULT NULL,
+  `created_at` varchar(255) DEFAULT NULL,
+  `created_in` varchar(255) DEFAULT NULL,
+  `disable_auto_group_change` varchar(255) DEFAULT NULL,
+  `dob` varchar(255) DEFAULT NULL,
+  `firstname` varchar(255) DEFAULT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `group_id` varchar(255) DEFAULT '1',
+  `lastname` varchar(255) DEFAULT NULL,
+  `middlename` varchar(255) DEFAULT NULL,
+  `password_hash` varchar(255) DEFAULT NULL,
+  `prefix` varchar(255) DEFAULT NULL,
+  `reward_update_notification` varchar(255) DEFAULT '1',
+  `reward_warning_notification` varchar(255) DEFAULT '1',
+  `rp_token` varchar(255) DEFAULT NULL,
+  `store_id` varchar(255) DEFAULT '1',
+  `suffix` varchar(255) DEFAULT NULL,
+  `taxvat` varchar(255) DEFAULT NULL,
+  `website_id` varchar(255) DEFAULT '1',
+  `password` varchar(255) DEFAULT NULL,
+  `_address_city` varchar(255) DEFAULT NULL,
+  `_address_company` varchar(255) DEFAULT NULL,
+  `_address_country_id` varchar(255) DEFAULT NULL,
+  `_address_fax` varchar(255) DEFAULT NULL,
+  `_address_firstname` varchar(255) DEFAULT NULL,
+  `_address_lastname` varchar(255) DEFAULT NULL,
+  `_address_middlename` varchar(255) DEFAULT NULL,
+  `_address_postcode` varchar(255) DEFAULT NULL,
+  `_address_prefix` varchar(255) DEFAULT NULL,
+  `_address_region` varchar(255) DEFAULT NULL,
+  `_address_street` varchar(255) DEFAULT NULL,
+  `_address_suffix` varchar(255) DEFAULT NULL,
+  `_address_telephone` varchar(255) DEFAULT NULL,
+  `_address_vat_id` varchar(255) DEFAULT NULL,
+  `_address_default_billing_` varchar(255) DEFAULT NULL,
+  `_address_default_shipping_` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ -- Add Custom columns for TGC
+ -- No need to run this if you do not have custom customer attributes
+alter table mage_customerport add column `customerid` varchar(255) DEFAULT NULL;
+alter table mage_customerport add column `email_pref` varchar(255) DEFAULT NULL;
+alter table mage_customerport add column `audio_pref` varchar(255) DEFAULT NULL;
+alter table mage_customerport add column `video_pref` varchar(255) DEFAULT NULL;
+alter table mage_customerport add column `web_user_id` varchar(255) DEFAULT NULL;
+alter table mage_customerport add column `is_prospect` varchar(255) DEFAULT 0;
+alter table mage_customerport add column `free_lecture_prospect` varchar(255) DEFAULT 0;
+ -- End Custom columns for TGC
+
+-- Load Data infile
+
+load data infile '/tmp/tgc-imports/CustomerWithAddress20140327_all-unix-nobom.csv' into table `mage_customerport`
+fields terminated by ',' OPTIONALLY ENCLOSED BY '"' lines terminated by '\n' ignore 2 lines
+(  `email`,
+  `_website`,
+  `_store`,
+  `confirmation`,
+  `created_at`,
+  `created_in`,
+  `disable_auto_group_change`,
+  `dob`,
+  `firstname`,
+  `gender`,
+  `group_id`,
+  `lastname`,
+  `middlename`,
+  `password_hash`,
+  `prefix`,
+  `reward_update_notification`,
+  `reward_warning_notification`,
+  `rp_token`,
+  `store_id`,
+  `suffix`,
+  `taxvat`,
+  `website_id`,
+  `password`,
+  `_address_city`,
+  `_address_company`,
+  `_address_country_id`,
+  `_address_fax`,
+  `_address_firstname`,
+  `_address_lastname`,
+  `_address_middlename`,
+  `_address_postcode`,
+  `_address_prefix`,
+  `_address_region`,
+  `_address_street`,
+  `_address_suffix`,
+  `_address_telephone`,
+  `_address_vat_id`,
+  `_address_default_billing_`,
+  `_address_default_shipping_`,
+  `customerid`,
+  `email_pref`,
+  `audio_pref`,
+  `video_pref`,
+  `web_user_id`
+);
+
+Total time for load: 56 sec Local, 75 sec Stage
+
+-- Insert into Customer Entity
+insert into customer_entity
+(
+     entity_type_id,
+     attribute_set_id,
+     website_id,
+     email,
+     group_id,
+     increment_id,
+     store_id,
+     created_at,
+     updated_at,
+     is_active,
+     disable_auto_group_change,
+     dax_customer_id,
+     datamart_customer_pref,
+     web_user_id,
+     lock_expires,
+     num_failures,
+     free_lecture_prospect,
+     audio_format,
+     video_format
+)
+
+select
+     1, -- entity_type_id
+     0, -- attribute_set_id
+     1, -- website_id
+     email,
+     1, -- group_id
+     null, -- increment_id
+     0, -- store_id
+     created_at,
+     '', -- updated_at
+     1, -- is_active
+     0, -- disable_auto_group_change
+     TRIM(customerid), -- dax_customer_id
+     null, -- datamart_customer_pref
+     TRIM(web_user_id),
+     null, -- lock_expires
+     null, -- num_failures
+     free_lecture_prospect, -- free_lecture_prospect
+     case audio_pref
+               when 'mp3' then 1
+               when 'm4b' then 0
+               ELSE null
+     end as audio_format, -- audio_format
+     case video_pref
+               when 'wmv' then 1
+               when 'm4v' then 0
+               ELSE null
+     end as video_format -- video_format
+from mage_customerport
+where email != ''
+group by email
+
+ON DUPLICATE KEY UPDATE email = email
+;
+
+RUN TIME: 23 mins Local, 258 secs Stage
+
+-- This will write the new customer entity_id back to mage_customerport so that we can run our address entity imports
+
+update mage_customerport cp, customer_entity ce set
+cp.mage_customer_entity_id = ce.entity_id
+where ce.email = cp.email;
+
+RUN TIME: 150 secs Local, 180 secs Stage
+
+-- Unique to each customer, so we group by email to avoid duplicate values
+-- Firstname query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     5, -- firstname attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     firstname
+from mage_customerport
+where email != ''
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+RUN TIME: 12 mins Local, 76 secs Stage
+
+-- Middlename query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     6, -- middlename attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     middlename
+from mage_customerport
+where email != ''
+and middlename != ''
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+RUN TIME: 46 secs Local, 19 secs Stage
+
+-- Lastname query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     7, -- lastname attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     lastname
+from mage_customerport
+where email != ''
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+RUN TIME: 13 mins Local, 83 secs Stage
+
+-- Prefix query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     4, -- prefix attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     prefix
+from mage_customerport
+where email != ''
+and prefix != ''
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+RUN TIME: 2 mins Local, 25 secs Stage
+
+-- Suffix query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     8, -- suffix attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     suffix
+from mage_customerport
+where email != ''
+and suffix != ''
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+RUN TIME: 15 secs Local, 10 secs Stage
+
+-- Password query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     12, -- lastname attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     SHA2(`password`, 256)
+from mage_customerport
+where email != ''
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+RUN TIME: 14 mins Local, 104 secs Stage
+
+-- dob query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     11, -- dob attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     dob
+from mage_customerport
+where dob REGEXP '^([0-9]{2,4})-([0-1][0-9])-([0-3][0-9])$'
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+RUN TIME: 7 secs Local, 8 secs Stage
+
+-- gender query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     18, -- gender attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     gender
+from mage_customerport
+where gender in (1,2,'male','female')
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+RUN TIME: 7 secs Local, 8 secs Stage
+
+--
+-- No need to run these, not data supplied or errant data supplied
+--
+
+-- taxvat query
+insert into customer_entity_varchar
+(
+     entity_type_id,
+     attribute_id,
+     entity_id,
+     value
+)
+select
+     1,
+     15, -- taxvat attribute_id
+     mage_customer_entity_id, -- entity_id from customer_entity
+     taxvat
+from mage_customerport
+where email != ''
+and taxvat != ''
+group by email
+ON DUPLICATE KEY UPDATE `value` = `value`;
+
+
+-- Newsletter subscriber status
+insert into newsletter_subscriber
+(
+     store_id,
+     change_status_at,
+     customer_id,
+     subscriber_email,
+     subscriber_status,
+     subscriber_confirm_code
+)
+
+select
+     1,
+     '', -- change_status_at
+     mage_customer_entity_id, -- entity_id from customer_entity
+     email,
+     case email_pref
+               when 'Subscribe' then 1
+               when 'Unsubscribe' then 3
+               ELSE null
+     end as emailPref,
+     ''
+from mage_customerport
+where email != ''
+and email_pref in ('Subscribe','Unsubscribe')
+group by email
+ON DUPLICATE KEY UPDATE `subscriber_email` = `subscriber_email`;
+
+RUN TIME: 10 mins Local, 69 secs Stage
+
+--
+-- End Unique to each customer
+--
+
+--
+-- Begin Unique to each Address
+--
+
+          -- Alter Customer Address Entity table to add mage_customerport id row reference
+          alter table customer_address_entity add column mage_customerport_id INT;
+
+          RUN TIME: 1 sec
+
+          insert into customer_address_entity
+          (
+            entity_type_id,
+            attribute_set_id,
+            increment_id,
+            parent_id,
+            created_at,
+            updated_at,
+            is_active,
+            mage_customerport_id
+          )
+          select
+            2, -- entity_type_id
+            0, -- attribute_set_id
+            NULL, -- increment_id
+            mage_customer_entity_id, -- parent_id
+            created_at,
+            '', -- updated_at
+            1, -- is_active
+            id -- customerport_id so we have a backrefernce
+          from mage_customerport
+          where email != ''
+
+          ON DUPLICATE KEY UPDATE entity_id = entity_id
+          ;
+
+          RUN TIME: 291 secs Local, 73 secs Stage
+
+          -- Update Customerport with customer address entity id reference
+          update mage_customerport cp, customer_address_entity cae set
+          cp.mage_customer_address_entity_id = cae.entity_id
+          where cae.mage_customerport_id = cp.id;
+
+          RUN TIME: 119 secs Local, 195 secs Stage
+
+          insert into customer_entity_int
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               1,
+               13, -- _address_default_billing_
+               mage_customer_entity_id,
+               mage_customer_address_entity_id
+          from mage_customerport
+          where _address_default_billing_ = 1
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 59 secs Stage
+
+          insert into customer_entity_int
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               1,
+               14, -- _address_default_shipping_
+               mage_customer_entity_id,
+               mage_customer_address_entity_id
+          from mage_customerport
+          where _address_default_shipping_ = 1
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME: 5 min Local, 9 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               26, -- _address_city
+               mage_customer_address_entity_id,
+               _address_city
+          from mage_customerport
+          where _address_city != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME: 97 sec Local, 83 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               24, -- _address_company
+               mage_customer_address_entity_id,
+               _address_company
+          from mage_customerport
+          where _address_company != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME: 11 sec Local, 12 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               27, -- _address_country_id
+               mage_customer_address_entity_id,
+               _address_country_id
+          from mage_customerport
+          where _address_country_id != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME: 186 sec Local, 90 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               32, -- _address_fax
+               mage_customer_address_entity_id,
+               _address_fax
+          from mage_customerport
+          where _address_fax != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME: 8 sec Local, 9 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               20, -- _address_firstname
+               mage_customer_address_entity_id,
+               _address_firstname
+          from mage_customerport
+          where _address_firstname != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 112 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               22, -- _address_lastname
+               mage_customer_address_entity_id,
+               _address_lastname
+          from mage_customerport
+          where _address_lastname != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 127 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               21, -- _address_middlename
+               mage_customer_address_entity_id,
+               _address_middlename
+          from mage_customerport
+          where _address_middlename != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 37 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               30, -- _address_postcode
+               mage_customer_address_entity_id,
+               _address_postcode
+          from mage_customerport
+          where _address_postcode != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+
+          RUN TIME:  Local, 129 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               19, -- _address_prefix
+               mage_customer_address_entity_id,
+               _address_prefix
+          from mage_customerport
+          where _address_prefix != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 9 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               28, -- _address_region
+               mage_customer_address_entity_id,
+               _address_region
+          from mage_customerport
+          where _address_region != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 115 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               23, -- _address_suffix
+               mage_customer_address_entity_id,
+               _address_suffix
+          from mage_customerport
+          where _address_suffix != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 9 secs Stage
+
+          insert into customer_address_entity_varchar
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               31, -- _address_telephone
+               mage_customer_address_entity_id,
+               _address_telephone
+          from mage_customerport
+          where _address_telephone != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 113 secs Stage
+
+          insert into customer_address_entity_text
+          (
+               entity_type_id,
+               attribute_id,
+               entity_id,
+               `value`
+          )
+          select
+               2,
+               25, -- _address_street
+               mage_customer_address_entity_id,
+               REPLACE(_address_street, '|', '\n')
+          from mage_customerport
+          where _address_street != ''
+          ON DUPLICATE KEY UPDATE `value` = `value`;
+
+          RUN TIME:  Local, 77 secs Stage
+
+--
+-- End Unique to each Address
+--

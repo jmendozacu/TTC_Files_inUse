@@ -1,0 +1,21 @@
+<?php
+/**
+ * Remove tabs in my account if not enabled
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Bazaarvoice
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php if (!Mage::helper('tgc_bv')->isBvEnabled()): ?>
+    <script type="text/javascript">
+        jQuery('ul.vert-navigation > li').each(function() {
+            if (jQuery(this).text() == '<?php echo Tgc_Bazaarvoice_Helper_Data::QA_LABEL; ?>'
+                || jQuery(this).text() == '<?php echo Tgc_Bazaarvoice_Helper_Data::REVIEW_LABEL; ?>') {
+
+                jQuery(this).hide();
+            }
+        });
+    </script>
+<?php endif; ?>

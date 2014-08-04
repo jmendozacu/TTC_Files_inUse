@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Guidance_Paymentech>
+            <version>1</version>
+        </Guidance_Paymentech>
+    </modules>
+    <global>
+        <models>
+            <paymentech>
+                <class>Guidance_Paymentech_Model</class>
+            </paymentech>
+        </models>
+        <helpers>
+            <paymentech>
+                <class>Guidance_Paymentech_Helper</class>
+            </paymentech>
+        </helpers>
+    </global>
+    <default>
+        <payment>
+            <paymentech>
+                <active>0</active>
+                <title>Chase Paymentech</title>
+                <model>paymentech/payment_method</model>
+                <using_pbridge>1</using_pbridge>
+                <payment_action>authorize</payment_action>
+                <authorize_close_transaction>0</authorize_close_transaction>
+            </paymentech>
+        </payment>
+    </default>
+    <adminhtml>
+        <events>
+            <admin_system_config_changed_section_payment>
+                <observers>
+                    <enterprise_pbridge>
+                        <class>paymentech/observer</class>
+                        <method>updatePaymentProfileStatus</method>
+                    </enterprise_pbridge>
+                </observers>
+            </admin_system_config_changed_section_payment>
+        </events>
+    </adminhtml>
+</config>

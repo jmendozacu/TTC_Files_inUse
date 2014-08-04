@@ -1,0 +1,46 @@
+<?php
+/**
+ *
+ */
+/* @var $this Mage_Core_Block_Template */
+/* @var $catalogSearchHelper Mage_Catalogsearch_Helper_Data */
+$catalogSearchHelper =  $this->helper('catalogsearch');
+?>
+<form id="mobile_search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
+<div class="form-search">
+    <label for="mobile-search"><?php echo $this->__('Search site:') ?></label><input id="mobile-search" type="text" placeholder="<?php echo $this->__('Search for Courses') ?>" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" class="input-text" maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength();?>"/>&nbsp;<button type="submit" title="<?php echo $this->__('Search') ?>" class="button"><span><span><?php echo $this->__('Search') ?></span></span></button>
+    <div id="mobile_search_autocomplete" class="search-autocomplete"></div>
+    <script type="text/javascript">
+    //<![CDATA[
+        var mobileSearchForm = new Varien.searchForm('mobile_search_mini_form', 'mobile-search', '<?php echo $this->__('Search for Courses') ?>');
+        mobileSearchForm.initAutocomplete('<?php echo $catalogSearchHelper->getSuggestUrl() ?>', 'mobile_search_autocomplete');
+
+        jQuery(function($){
+            var keyupCounter = 0;
+            $('#search').on('keyup', function(e) {
+                if($('#search_autocomplete').css('display') === 'block') {
+                    if( e.which === 40 ) {
+                        if( keyupCounter === $('#search_autocomplete > ul li:not(.autocomplete-title)').length-1 ) {
+                            keyupCounter = 0;
+                        }
+                        keyupCounter++;
+                        $('#search_autocomplete > ul li').removeClass('selected');
+                        $($('#search_autocomplete > ul li:not(.autocomplete-title)')[keyupCounter]).addClass('selected');
+                    } else if( e.which === 38 ) {
+                        if( keyupCounter === 1 || keyupCounter === 0 ) {
+                            keyupCounter = $('#search_autocomplete > ul li:not(.autocomplete-title)').length;
+                        }
+                        keyupCounter--;
+                        $('#search_autocomplete > ul li').removeClass('selected');
+                        $($('#search_autocomplete > ul li:not(.autocomplete-title)')[keyupCounter]).addClass('selected');
+                    } else if(e.which === 13) {
+                    	var autoCompleteListItemUrl = $($('#search_autocomplete > ul li:not(.autocomplete-title)')[keyupCounter]).find('a').attr('href');
+                    	window.location = autoCompleteListItemUrl;
+                    }
+                }
+            })
+        });
+    //]]>
+    </script>
+</div>
+</form>

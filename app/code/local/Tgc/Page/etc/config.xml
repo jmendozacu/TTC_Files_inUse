@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Page
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Page
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Page>
+            <version>1</version>
+        </Tgc_Page>
+    </modules>
+    <global>
+        <blocks>
+            <tgc_page>
+                <class>Tgc_Page_Block</class>
+            </tgc_page>
+        </blocks>
+        <models>
+            <tgc_page>
+                <class>Tgc_Page_Model</class>
+            </tgc_page>
+        </models>
+        <helpers>
+            <tgc_page>
+                <class>Tgc_Page_Helper</class>
+            </tgc_page>
+        </helpers>
+        <page>
+            <layouts>
+                <one_column_about module="page" translate="label">
+                    <label>1 column for about us pages</label>
+                    <template>page/1column_about.phtml</template>
+                    <layout_handle>page_one_column_about</layout_handle>
+                    <is_default>1</is_default>
+                </one_column_about>
+            </layouts>
+        </page>
+    </global>
+</config>

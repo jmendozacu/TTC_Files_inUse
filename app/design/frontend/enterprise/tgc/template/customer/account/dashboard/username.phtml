@@ -1,0 +1,77 @@
+<?php
+/**
+ * Customer user name
+ */
+?>
+<div class="col2-set customer-username no-display">
+    <div class="row">
+        <div class="info-box">
+            <h6 class="box-title">
+                <div class="col-data-wrapper">
+                    <span class="col-label">
+                        <?php echo $this->__('Username') ?>
+                        <p><?php echo $this->__('appears in reviews') ?></p>
+                    </span>
+                    <span class="col-content"><?php echo $this->escapeHtml($this->getCustomer()->getUsername()) ?></span>
+                </div>
+                <span class="col-action">
+                    <a class="button secondary-btn" rel="nofollow" href="#"><?php echo $this->__('Edit') ?></a>
+                </span>
+            </h6>
+            <div class="box-content centered">
+                <div class="loader" style="display: none;">
+                    <div class="hover"></div>
+                    <div class="msg"><?php echo $this->__('Processing...'); ?></div>
+                </div>
+                <div class="notice-container" style="display: none;">
+                    <div class="hover"></div>
+                    <div class="msg"></div>
+                </div>
+                <form action="#" id="form-username">
+                    <ul class="form-list">
+                        <li class="fields">
+                            <div class="field">
+                                <label for="username"><?php echo $this->__('Create a Username') ?></label>
+                                <div class="input-box">
+                                    <input type="text" class="input-text required-entry" maxlength="255" placeholder="<?php echo $this->__('Enter a unique username') ?>" name="username" id="username" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="buttons-set form-buttons">
+                        <button type="submit" class="button" title="<?php echo $this->__('Save') ?>"><span><span><?php echo $this->__('Save') ?></span></span></button>
+                        <a class="cancel-btn button" rel="nofollow" href="#">Cancel</a>
+                    </div>
+                </form>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    var usernameForm = new customerDashboardForm({
+                        form:                          $('form-username'),
+                        formSubmitUrl:                 '<?php echo $this->getUrl('tgc_customer/dashboard/saveUsername'); ?>',
+                        formContainer:                 $('form-username').up('div'),
+                        autoHideFormContainerDelay:    3000,
+                        onFormSubmitSuccessCallback:   function () {$('form-username').up('div.info-box').down('.col-data-wrapper .col-content').update($('form-username').down('input[name="username"]').getValue().escapeHTML());},
+                        onFormContainerHideCallback:   function () {$('form-username').up('div.info-box').down('.box-title .col-action .button').removeClassName('disabled');$('form-username').up('div.info-box').removeClassName('show');},
+                        loaderHoverContainer:          $('form-username').up('div').down('.loader'),
+                        resultNoticeContainer:         $('form-username').up('div').down('.notice-container'),
+                        resultNoticeMessagesContainer: $('form-username').up('div').down('.notice-container .msg'),
+                        autoHideSuccessNoticeDelay:    3000,
+                        autoHideErrorNoticeDelay:      3000,
+                        successMsgPrefix:              '<span class="success-prefix"><?php echo $this->__('Success!')?></span> ',
+                        errorMsgPrefix:                '<span class="error-prefix"><?php echo $this->__('Error!')?></span> '
+                    });
+
+                    $('form-username').down('.cancel-btn').observe('click', function (event) {
+                        Event.stop(event);
+                        var form = $('form-username');
+                        form.up('div').hide();
+                        form.up('div.info-box').down('.box-title .col-action .button').removeClassName('disabled');
+                        form.up('div.info-box').removeClassName('show');
+                    });
+                    //]]>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+

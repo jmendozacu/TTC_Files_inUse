@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+-->
+<config>
+    <modules>
+        <Tgc_Newsletter>
+            <version>1</version>
+        </Tgc_Newsletter>
+    </modules>
+
+    <global>
+        <helpers>
+            <tgc_newsletter>
+                <class>Tgc_Newsletter_Helper</class>
+            </tgc_newsletter>
+        </helpers>
+
+        <models>
+            <tgc_newsletter>
+                <class>Tgc_Newsletter_Model</class>
+            </tgc_newsletter>
+            <newsletter>
+                <rewrite>
+                    <subscriber>Tgc_Newsletter_Model_Subscriber</subscriber>
+                </rewrite>
+            </newsletter>
+        </models>
+    </global>
+
+    <frontend>
+        <routers>
+            <newsletter>
+                <args>
+                    <modules>
+                        <tgc_newsletter before="Mage_Newsletter">Tgc_Newsletter</tgc_newsletter>
+                    </modules>
+                </args>
+            </newsletter>
+        </routers>
+    </frontend>
+
+    <default>
+        <newsletter>
+            <subscription>
+                <send_success>0</send_success>
+                <send_un>0</send_un>
+            </subscription>
+        </newsletter>
+    </default>
+</config>

@@ -1,0 +1,42 @@
+<?php
+/**
+ * Digital Library Left Nav
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_DigitalLibrary_Block_ResumePlaying */
+?>
+<?php if ($this->shouldShowBlock() && $this->hasCourseForResume()): ?>
+    <div id="resume-playing" class="course-notification">
+        <?php $data = $this->getCourseForResume(); ?>
+        <img class="course-img" src="<?php echo $data['image_url']; ?>" alt="" />
+        <p><span class="course-label"><?php echo $this->__('You were watching:'); ?></span><?php echo $this->__('Lecture') . ' ' . $data['lecture_number'] . ' of ' . $data['num_lectures'] . ': '; ?><strong><?php echo $data['title']; ?></strong></p>
+        <button class="button" id="resume-button" data-url="<?php echo $data['course_url']; ?>"><span><span><?php echo $this->hasCourseForResume() ? $this->__('Continue Watching') : $this->__('Start Watching'); ?></span></span></button>
+        <button class="close-button" id="resume-close">x</button>
+    </div>
+
+    <script type="text/javascript">
+        jQuery('button#resume-button').on('click', function() {
+            var href = jQuery(this).attr('data-url');
+            window.location.href =  href;
+        });
+
+        //click close x button in block
+        jQuery('button#resume-close').on('click', function() {
+            jQuery('div#resume-playing').hide();
+            jQuery.ajax({
+                type: 'POST',
+                url: '<?php echo $this->getWidgetUrl(); ?>',
+                data: {
+                    cookieName: '<?php echo $this->getCookieName(); ?>',
+                    cookieLifetime: '<?php echo $this->getCookieLifetime(); ?>'
+                }
+            });
+        });
+    </script>
+<?php endif; ?>

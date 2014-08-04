@@ -1,0 +1,42 @@
+<h2 class="conf-table-title"><?php echo $this->__('Your Order');?></h2>
+<h3 class="conf-table-subtitle-mob"><?php echo $this->__('Course Details');?></h3>
+<table id="shopping-cart-table" class="data-table cart-table">
+    <col class="col-details" width="relative_length" />
+    <col class="col-format" width="1" />
+    <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+        <col class="col-unit-price" width="1" />
+    <?php endif; ?>
+    <col class="col-qnty" width="1" />
+    <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+        <col class="b<?php if($this->helper('tax')->displayCartBothPrices()) echo 'col-total-excl'; else echo 'col-total'; ?>" width="1" />
+    <?php endif; ?>
+    <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+        <col class="<?php if($this->helper('tax')->displayCartBothPrices()) echo 'col-total-incl'; else echo 'col-total'; ?>" width="1" />
+    <?php endif; ?>
+    <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+    <thead>
+    <tr>
+        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Course Details') ?></span></th>
+        <!--                        <th class="col-edit" rowspan="--><?php //echo $mergedCells; ?><!--"></th>-->
+        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Format') ?></span></th>
+        <!--                        <th class="col-edit" rowspan="--><?php //echo $mergedCells; ?><!--"></th>-->
+        <th class="col-unit-price a-center" colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('price') ?></span></th>
+        <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+            <th class="col-unit-price"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+        <?php endif; ?>
+        <th rowspan="<?php echo $mergedCells; ?>" class="a-center"><?php echo $this->__('qty') ?></th>
+        <th class="a-center" colspan="<?php echo $mergedCells; ?>"><?php echo $this->__('Amount') ?></th>
+        <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+            <th class="col-total-incl"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+        <?php endif; ?>
+        <!--                        <th class="col-delete a-center" rowspan="--><?php //echo $mergedCells; ?><!--">&nbsp;</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($this->getItems() as $_item): ?>
+        <?php echo $this->getItemHtml($_item) ?>
+    <?php endforeach ?>
+    </tbody>
+</table>
+<?php echo $this->getChildHtml('totals'); ?>
+<script type="text/javascript">decorateTable('shopping-cart-table')</script>

@@ -1,0 +1,58 @@
+<?php
+/**
+ * BrightCove widget
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_DigitalLibrary_Block_BrightCove */
+?>
+<div id="brightCove-widget">
+    <div id="brightCove-player">
+
+        <div style="display:none;"></div>
+        <script language="JavaScript" type="text/javascript" src="<?php echo $this::JS_LOCATION; ?>"></script>
+        <object id="myExperience<?php echo $this->getMediaId(); ?>" class="BrightcoveExperience">
+            <param name="bgcolor" value="<?php echo $this->getBgColor(); ?>" />
+            <param name="width" value="<?php echo $this->getPlayerWidth(); ?>" />
+            <param name="height" value="<?php echo $this->getPlayerHeight(); ?>" />
+            <param name="playerID" value="<?php echo $this->getPlayerId(); ?>" />
+            <param name="playerKey" value="<?php echo $this->getPlayerKey(); ?>" />
+            <param name="isVid" value="<?php echo intval($this->getIsVid()); ?>" />
+            <param name="isUI" value="<?php echo intval($this->getIsUi()); ?>" />
+            <param name="dynamicStreaming" value="<?php echo $this->getDynamicStreaming(); ?>" />
+            <param name="@videoPlayer" value="<?php echo $this->getMediaId(); ?>" />
+
+            <!-- smart player api params -->
+            <param name="includeAPI" value="true" />
+            <param name="templateLoadHandler" value="onTemplateLoad" />
+            <param name="templateReadyHandler" value="onTemplateReady" />
+            <param name="wmode" value="transparent" />
+
+        </object>
+
+        <script type="text/javascript">brightcove.createExperiences();</script>
+        <script type="text/JavaScript">
+            var player, APIModules, modVP, modExp, modCon;
+
+            function onTemplateLoad(experienceID) {
+                player = brightcove.api.getExperience(experienceID);
+                modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER);
+                modExp = player.getModule(brightcove.api.modules.APIModules.EXPERIENCE);
+                modCon = player.getModule(brightcove.api.modules.APIModules.CONTENT);
+                modExp.addEventListener(brightcove.api.events.ExperienceEvent.TEMPLATE_READY, onTemplateReady);
+            }
+
+            function onTemplateReady(evt) {
+                <?php if ($this->getAutoStart() == 1): ?>
+                    modVP.loadVideoByReferenceID('<?php echo $this->getMediaId(); ?>');
+                <?php endif; ?>
+            }
+
+        </script>
+    </div>
+</div>

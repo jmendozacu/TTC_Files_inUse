@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Dax integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Dax
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+    <tgc_special_unsubscribe>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/freelecture-unsubscribe.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="dax.unsubscribe" template="freelectures/unsubscribe/unsubscribe-container.phtml">
+                <block type="core/template" name="unsubscribe.top.message" template="freelectures/unsubscribe/top-message.phtml" />
+                <block type="tgc_dax/subscription_unsubscribe" name="unsubscribe.form" template="dax/unsubscribe/form.phtml" />
+                <block type="core/template" name="unsubscribe.privacy.policy" template="freelectures/unsubscribe/privacy-policy.phtml" />
+            </block>
+        </reference>
+    </tgc_special_unsubscribe>
+</layout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * SeeWhy
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     SeeWhy
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_SeeWhy>
+            <version>0.1.0</version>
+        </Tgc_SeeWhy>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_cy>
+                <class>Tgc_SeeWhy_Helper</class>
+            </tgc_cy>
+        </helpers>
+        <models>
+            <tgc_cy>
+                <class>Tgc_SeeWhy_Model</class>
+            </tgc_cy>
+        </models>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <tgc_cy>
+                    <file>tgc_seewhy.xml</file>
+                </tgc_cy>
+            </updates>
+        </layout>
+        <events>
+            <http_response_send_before>
+                <observers>
+                    <add_seewhy_js>
+                        <class>tgc_cy/observer</class>
+                        <method>addSeeWhyJs</method>
+                    </add_seewhy_js>
+                </observers>
+            </http_response_send_before>
+        </events>
+        <routers>
+            <tgc_cy>
+                <use>standard</use>
+                <args>
+                    <module>Tgc_SeeWhy</module>
+                    <frontName>cy</frontName>
+                </args>
+            </tgc_cy>
+        </routers>
+    </frontend>
+    <default>
+        <tgc_seewhy>
+            <js>
+                <customer_code>AB45452213</customer_code>
+            </js>
+        </tgc_seewhy>
+    </default>
+</config>

@@ -1,0 +1,33 @@
+
+
+<div class="grid-full top-share">
+
+    <a class="print-link" href="javascript:window.print();"><?php echo $this->__('Print') ?></a>
+
+    <a class="emailto-link" rel="nofollow" href="#"><?php echo $this->__('Email') ?></a>
+
+    <div class="share-social">
+		<a class="feature feature-icon-hover feature-icon-share first v-centered-content" rel="nofollow" href="javascript:void(0)" title="<?php echo $this->__('Share') ?>">
+			<span class="v-center">
+				<span class="icon i-recommend-bw icon-color-productview"></span>
+			</span>
+			<span class="v-center"><?php echo $this->__('Share') ?></span>
+		</a>
+		<ul class="share-list" style="display:none;">
+			<li>
+				<a rel="nofollow" href="#"><?php echo $this->__('Facebook') ?></a>
+			</li>
+			<li>
+				<a rel="nofollow" href="#"><?php echo $this->__('Twitter') ?></a>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			jQuery(document).ready(function (){
+				jQuery(".share-social a.feature-icon-share").click(function (){
+					jQuery(".share-social .share-list").slideToggle();
+				});
+			});
+		</script>
+	</div>
+
+</div>

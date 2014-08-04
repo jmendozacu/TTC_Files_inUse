@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Tgc_Shipping>
+            <version>4</version>
+        </Tgc_Shipping>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_shipping>
+                <class>Tgc_Shipping_Helper</class>
+            </tgc_shipping>
+        </helpers>
+        <models>
+            <tgc_shipping>
+                <class>Tgc_Shipping_Model</class>
+                <resourceModel>tgc_shipping_resource</resourceModel>
+            </tgc_shipping>
+            <tgc_shipping_resource>
+                <class>Tgc_Shipping_Model_Resource</class>
+                <entities>
+                    <flatRate>
+                        <table>tgc_shipping_flat_rate</table>
+                    </flatRate>
+                </entities>
+            </tgc_shipping_resource>
+            <shipping>
+                <rewrite>
+                    <carrier_freeshipping>Tgc_Shipping_Model_Carrier_Freeshipping</carrier_freeshipping>
+                </rewrite>
+            </shipping>
+        </models>
+        <resources>
+            <tgc_shipping_setup>
+                <setup>
+                    <module>Tgc_Shipping</module>
+                </setup>
+            </tgc_shipping_setup>
+        </resources>
+    </global>
+    <default>
+        <carriers>
+            <tgc_flatrate>
+                <model><![CDATA[tgc_shipping/carrier_flatrate]]></model>
+                <active>1</active>
+                <name><![CDATA[Promotional Shipping]]></name>
+                <title><![CDATA[Flat Rate]]></title>
+                <sallowspecific>0</sallowspecific>
+                <sort_order>0</sort_order>
+                <specificerrmsg><![CDATA[This shipping method is currently unavailable. If you would like to ship using this shipping method, please contact us.]]></specificerrmsg>
+            </tgc_flatrate>
+        </carriers>
+    </default>
+</config>

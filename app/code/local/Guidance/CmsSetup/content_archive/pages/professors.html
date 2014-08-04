@@ -1,0 +1,78 @@
+ID:                 about-us/professors
+Status:             published
+Title:              Our Professors
+Layout:             one_column_about
+Stores:             default,uk_en,au_en
+---
+
+<div class="left_sidebar grid12-3">
+    {{block type="cms/block" block_id="about_us_menu" name="about.menu"}}
+</div>
+
+<div class="about grid12-9">
+    <div class="about_container">
+        <div class="left_border">
+            <div class="about_content">
+                <span class="page-active">active-professors</span>
+                <span class="mod_page_active">mob-professors</span>
+                <div class="main_content ourpages">
+                    <div class="top_content_img_mob">
+                        <div id="brightCove-player5" class="video_block_main">
+                            <div style="display:none;"></div>
+                            <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+                            <object id="myExperienceMob4" class="BrightcoveExperience">
+                                <param name="bgcolor" value="#ffffff" />
+                                <param name="width" value="298" />
+                                <param name="height" value="182" />
+                                <param name="playerID" value="5160" />
+                                <param name="playerKey" value="AQ~~,AAABC2NgoKk~,lQq4tda2_S2Nm0JCSi9lMedYhc3zQfd0" />
+                                <param name="isVid" value="1" />
+                                <param name="isUI" value="1" />
+                                <param name="dynamicStreaming" value="1" />
+                                <param name="@videoPlayer" value="Employee-RobertGreenberg" />
+                                <param name="includeAPI" value="true" />
+                                <param name="templateLoadHandler" value="onTemplateLoad" />
+                                <param name="templateReadyHandler" value="onTemplateReady" />
+                            </object>
+                        </div>
+                    </div>
+                    <div class="top_content_left professors">
+                        <p>Of the more than 500,000 college professors in the world, only the top 1% are selected to teach one of The Great Courses. Our esteemed faculty includes award-winning experts and professors from them most respected institutions in the world, selected by our customers exclusively for their ability to teach.</p>
+                    </div>
+                    <div class="top_content_right professors">
+                        <div id="brightCove-player6" class="video_block_main">
+                            <div style="display:none;"></div>
+                            <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+                            <object id="myExperience5160" class="BrightcoveExperience">
+                                <param name="bgcolor" value="#ffffff" />
+                                <param name="width" value="375" />
+                                <param name="height" value="236" />
+                                <param name="playerID" value="5160" />
+                                <param name="playerKey" value="AQ~~,AAABC2NgoKk~,lQq4tda2_S2Nm0JCSi9lMedYhc3zQfd0" />
+                                <param name="isVid" value="1" />
+                                <param name="isUI" value="1" />
+                                <param name="dynamicStreaming" value="1" />
+                                <param name="@videoPlayer" value="Employee-RobertGreenberg" />
+                                <param name="includeAPI" value="true" />
+                                <param name="templateLoadHandler" value="onTemplateLoad" />
+                                <param name="templateReadyHandler" value="onTemplateReady" />
+                            </object>
+                        </div>
+                    </div>
+               {{widget type="profs/professorSlider" num_professors="12"}}
+                <div style="clear:both"></div>
+                    <div class="our_professor_teach">
+                        {{block type="cms/block" block_id="watch_our_professor_teach" name="ourprofessors_teach.hero"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">brightcove.createExperiences();</script>
+<script type="text/JavaScript">
+    function onTemplateLoad(experienceID) {
+        brightcove.api.getExperience(experienceID);
+    }
+</script>

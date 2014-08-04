@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * StrongMail transactional email integration module
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_StrongMail>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Sales/>
+                <Mage_Customer/>
+                <Tgc_Customer/>
+            </depends>
+        </Tgc_StrongMail>
+    </modules>
+</config>

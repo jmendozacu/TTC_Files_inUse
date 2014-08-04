@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<layout>
+    <lectures_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="head">
+            <action method="addJs">
+                <script>jquery/jquery-freelectures.js</script>
+                <params>zzlast</params>
+            </action>
+            <action method="addJs">
+                <script>jquery/jquery-freelectures-validation.js</script>
+                <params>zzlast2</params>
+            </action>
+            <action method="addCss"><stylesheet>css/category-pdp.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/freelectures.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/cms.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/lectures.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="free_lectures_main" template="freelectures/main.phtml">
+                <block type="core/template" name="free_lectures_title"
+                       template="freelectures/free_lectures_title.phtml">
+                    <block type="cms/block" name="free_lectures_hero" as="free_lectures_hero">
+                        <action method="setBlockId">
+                            <block_id>free_lectures_hero</block_id>
+                        </action>
+                    </block>
+                </block>
+                <block type="core/template" name="free_lectures_information" template="freelectures/free_lectures_information.phtml">
+                    <block type="core/template" name="free_lectures_description" template="freelectures/free_lectures_description.phtml"/>
+                    <block type="lectures/freelectures_form" name="free_lectures_form" template="freelectures/free_lectures_form.phtml">
+                        <block type="lectures/freelectures_subform" name="freelectures.newcustomer" template="freelectures/forms/newcustomer.phtml" />
+                        <block type="lectures/freelectures_subform" name="freelectures.existingcustomer" template="freelectures/forms/existingcustomer.phtml" />
+                        <block type="lectures/freelectures_subform" name="freelectures.loggedin.notsubscribed" template="freelectures/forms/loggedin-notsubscribed.phtml" />
+                        <block type="lectures/freelectures_subform" name="freelectures.loggedin.subscribed" template="freelectures/forms/loggedin-subscribed.phtml" />
+                        <block type="lectures/freelectures_subform" name="freelectures.forgotpassword" template="freelectures/forms/forgotpassword.phtml" />
+                        <block type="lectures/freelectures_subform" name="freelectures.success.newaccount" template="freelectures/forms/success-new-accountcreated.phtml" />
+                    </block>
+                </block>
+                <!--<block type="cms/block" name="free_lectures_video_audio_collections" as="free_lectures_video_audio_collections">
+                    <action method="setBlockId"><block_id>free_lectures_video_audio_collections</block_id></action>
+                </block>-->
+                <block type="tgc_cms/freeCourses" name="free_lectures_video_audio_collections" as="free_lectures_video_audio_collections"/>
+                <block type="cms/block" name="free_lectures_about_tgc_blocks" as="free_lectures_about_tgc_blocks">
+                    <action method="setBlockId">
+                        <block_id>about_tgc_blocks</block_id>
+                    </action>
+                </block>
+            </block>
+        </reference>
+    </lectures_index_index>
+    <tgc_special_unsubscribeprospect>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/freelecture-unsubscribe.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/lectures.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="freelectures.unsubscribe" template="freelectures/unsubscribe/unsubscribe-container.phtml">
+                <block type="core/template" name="unsubscribe.top.message" template="freelectures/unsubscribe/top-message.phtml" />
+                <block type="lectures/freelectures_unsubscribe" name="unsubscribe.form" template="freelectures/unsubscribe/form.phtml" />
+                <block type="core/template" name="unsubscribe.privacy.policy" template="freelectures/unsubscribe/privacy-policy.phtml" />
+            </block>
+        </reference>
+    </tgc_special_unsubscribeprospect>
+</layout>

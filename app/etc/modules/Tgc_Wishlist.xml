@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * wishlist modifications to default magento implentation
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Wishlist
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Wishlist>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tgc_Wishlist>
+    </modules>
+</config>

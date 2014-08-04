@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tgc_Zmag>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tgc_Zmag>
+    </modules>
+</config>

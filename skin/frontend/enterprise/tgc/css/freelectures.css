@@ -1,0 +1,296 @@
+.lectures-index-index { font-size: 14px;}
+.lectures-index-index .main { padding-top: 30px;}
+.lectures-index-index .col-main.grid-full {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+#free_lectures_hero {
+    margin-bottom: -20px;
+    position: relative;
+}
+#free_lectures_hero .hero-text {
+    position: absolute;
+    width: 50%;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.5);
+    margin-left: 7%;
+    margin-top: 7%;
+}
+#free_lectures_hero .hero-text h2 {
+    color: #fff;
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+#free_lectures_hero .hero-text p {
+    color: #fff;
+    font-size: 22px;
+    line-height: 24px;
+}
+#free_lectures_hero .visible-xs {
+    display: none;
+}
+.lectures-index-index .messages {
+    margin-top: -30px;
+}
+.lectures-index-index h1 {
+    font-size: 29px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.lectures-index-index h3 {
+    font-size: 24px;
+    line-height: 1.2em;
+}
+.lectures-index-index p {
+    margin-bottom: 10px;
+}
+.lectures-index-index p.smaller {
+    font-size: 90%;
+}
+.lectures-index-index .block-content {
+    float: left;
+    margin: 20px 7%;
+    position: relative;
+}
+.lectures-index-index .block-content.lectures-list-full {
+    padding: 3%;
+    width: 86%;
+    border: 1px solid #b7b7b7;
+    background-color: #fff;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.lectures-index-index .block-content.lectures-list-full:after {
+    width: 100%;
+    min-height: 19px;
+    background: url(../images/tgc/free_lectures_box_shadow.png) no-repeat center top;
+    background-size: 100%;
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+}
+.lectures-index-index .lectures-list {
+    float: none;
+    width: 100%;
+    counter-reset: custom-counter;
+}
+.lectures-index-index .lectures-list dt {
+    position: relative;
+    padding-left: 37px;
+    color: #017bc8;
+}
+/*
+.lectures-index-index .lectures-list dt:before {
+    background-color: #E1E3E5;
+    color: #242d33;
+    content: counter(custom-counter);
+    counter-increment: custom-counter;
+    font-size: 22px;
+    height: 30px;
+    line-height: 24px;
+    margin-right: 5px;
+    padding: 0 4px;
+    text-align: center;
+    width: 22px;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font-family: freighttext_promedium;
+}
+*/
+
+.lectures-index-index .lectures-list dd {
+    padding-left: 38px;
+    color: #45555f;
+    font-size: 13px;
+}
+.lectures-index-index .block-content h3,
+.lectures-index-index .block-content h4 {
+    line-height: normal;
+    font-family: proxima_nova_rgregular, sans-serif;
+}
+.lectures-index-index .block-content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.lectures-index-index .block-content h4 {
+    font-size: 16px;
+    color: #45555f;
+    margin-bottom: 15px;
+}
+
+#free_lectures_information {
+    margin: 0 7%;
+    width: 86%;
+}
+#free_lectures_information .grid12-6 + .grid12-6 {
+    margin-right: 0;
+    width: 49%;
+}
+
+div#free_lectures_form {
+    background-color: #fff;
+    margin-left: 20px;
+    padding: 0 30px 20px;
+    border: 1px solid #B7B7B7;
+    position: relative;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+div#free_lectures_form:after {
+    background: url("../images/tgc/free_lectures_box_shadow.png") no-repeat scroll center top / 100% auto rgba(0, 0, 0, 0);
+    bottom: -20px;
+    content: " ";
+    left: 0;
+    min-height: 19px;
+    position: absolute;
+    width: 100%;
+}
+div#free_lectures_form h2 {
+    background: url(../images/tgc/dialog_bg_top.png) repeat-x left top;
+    color: #FFFFFF;
+    font: 600 21px/1 'proxima_nova_ltsemibold', sans-serif;
+    margin: 0 -30px 30px -30px;
+    padding: 13px 30px;
+    -moz-border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    text-shadow: none;
+}
+
+div#free_lectures_form label {
+    display: block;
+    font-weight: bold;
+    text-shadow: 0 1px 0 #fff;
+}
+div#free_lectures_form .input-text {
+    height: 32px;
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+div#free_lectures_form .action {
+    padding-top: 15px;
+}
+div#free_lectures_form .action a {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+div#free_lectures_form .action a:hover {
+    text-decoration: underline;
+}
+div#free_lectures_form input.button {
+    float: right;
+    font-size: 14px;
+    padding: 7px 14px;
+    margin-right: -1px;
+    cursor: pointer;
+    border-bottom: 1px solid #017bc8;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+div#free_lectures_form input.button:hover,
+div#free_lectures_form input.button:active,
+div#free_lectures_form input.button:focus {
+    background: #1c92e0;
+}
+
+div#free_lectures_form form div {
+    margin-bottom: 10px;
+}
+
+div#free_lectures_form .button {
+    float: right;
+}
+
+
+div#free_lectures_form .input-box {
+    margin-bottom: 15px;
+    width: 62%;
+}
+
+div#free_lectures_form .input-box.validation-passed:after,
+div#free_lectures_form .input-box.validation-error:after {
+    right: -30px;
+}
+.confirmpassword,
+.passwordblock,
+.forgotpasswordblock {
+    margin-bottom: 0!important;
+}
+
+
+.block-about-tgc {
+    clear: both;
+    margin: 5% 7%;
+    padding-top: 10px;
+}
+.block-about-tgc .blocks-about {
+    margin: 0 0 20px -1%;
+    width: 101%;
+}
+.block-about-tgc .blocks-about > div {
+    width: 18%;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.04);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-image: -ms-linear-gradient(top, #ECEDED 0%, #D8DADB 100%);
+    background-image: -moz-linear-gradient(top, #ECEDED 0%, #D8DADB 100%);
+    background-image: -o-linear-gradient(top, #ECEDED 0%, #D8DADB 100%);
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1, #00A3EF));
+    background-image: -webkit-linear-gradient(top, #ECEDED 0%, #D8DADB 100%);
+    background-image: linear-gradient(top,#ECEDED 0%, #D8DADB 100%);
+    -moz-box-shadow: 0 2px 0 #FFFFFF;
+    -webkit-box-shadow: 0 2px 0 #FFFFFF;
+    box-shadow: 0 2px 0 #FFFFFF;
+    margin-top: 10px;
+    min-height: 121px;
+}
+.block-about-tgc .blocks-about > div:hover {
+    background-image: -ms-linear-gradient(top, #d6e3ec 0%, #c6d5de 100%);
+    background-image: -moz-linear-gradient(top, #d6e3ec 0%, #c6d5de 100%);
+    background-image: -o-linear-gradient(top, #d6e3ec 0%, #c6d5de 100%);
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FFFFFF), color-stop(1, #00A3EF));
+    background-image: -webkit-linear-gradient(top, #d6e3ec 0%, #c6d5de 100%);
+    background-image: linear-gradient(top,#d6e3ec 0%, #c6d5de 100%);
+}
+.lte-ie8 .block-about-tgc .blocks-about > div {
+    background-color: #D8DADB;
+}
+.block-about-tgc .blocks-about > div a {
+    bottom: 0;
+    color: #45555f;
+    display: block;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+.block-about-tgc .blocks-about > div h4 {
+    font-size: 17px;
+    font-weight: bold;
+    color: #45555f;
+    font-family: 'proxima_nova_rgbold', sans-serif;
+    margin-bottom: 9px;
+    margin-top: 11px;
+    text-shadow: none;
+}
+.block-about-tgc .blocks-about > div p {
+    margin: 0 10px 15px;
+    line-height: 1.2;
+}

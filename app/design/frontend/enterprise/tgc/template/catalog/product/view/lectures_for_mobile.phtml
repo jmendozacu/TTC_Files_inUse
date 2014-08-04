@@ -1,0 +1,41 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * Course Overview Tab Template
+*/
+/* @var $this Mage_Catalog_Block_Product_View_Description */
+?>
+
+<?php
+    $product = $this->getProduct();
+    $lectures = $this->helper('lectures')->getLecturesForProduct($product);
+?>
+
+<div class="block-for-mobile-lectures">
+    Clone Content from Your Professor tab
+</div>
+<script type="text/javascript">
+    /*Code for showing more information about course*/
+    jQuery(function($) {
+        $('.block-for-mobile-lectures').html($('.course-overview-container .lectures-container').clone());
+        if($('.mobile-tab-panel-title').find('.counter').length === 0) {
+            $('.mobile-tab-panel-title').append('<span class="counter">' + ' <?php echo  '( ' . count($lectures) . ' )' ?> ' + '</span>');
+        }
+
+        $('.block-for-mobile-lectures .lectures-list li').on(customMousedownEvent, function() {
+            $('.lectures-list li').removeClass('tapped');
+            $(this).addClass('tapped');
+        }).on(customMouseupEvent, function() {
+                $('.lectures-list li').removeClass('tapped');
+            }).on('tap', function() {
+
+                if(!$(this).hasClass('active')) {
+                    $('.lectures-list li').removeClass('active');
+                    $(this).addClass('active');
+                } else {
+                    $(this).removeClass('active');
+                }
+            })
+    })
+</script>

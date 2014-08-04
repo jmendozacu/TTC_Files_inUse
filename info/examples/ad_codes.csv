@@ -1,0 +1,9 @@
+adcode,catalogcode,name,description,Active,start_date,stop_date,apply_special_shipping,special_shipping_price,allow_coupons
+Expected Records,7,,,0,,,0,0,0
+13252,4289,Web Lost Code,Web Lost Code,1,7/24/02,12/31/00,0,0,1
+13253,4289,Review Copies,Review Copies,1,7/24/02,12/31/00,0,0,1
+13305,4323,Orders with improper AdCodes,Orders with improper AdCodes,1,8/16/02,12/31/99,0,0,1
+16281,5265,Landed on the Home Page www.thegreatcourses.com,Landed on the Home Page,1,6/9/07,1/1/00,0,0,1
+17740,6093,Replacements,Replacements,1,1/1/90,1/1/34,0,0,1
+20017,6646,Employee Orders,Employee Orders,1,11/4/05,1/1/99,0,0,1
+20018,6646,Site License Payments,Site License Payments,1,11/4/05,1/1/99,0,0,1

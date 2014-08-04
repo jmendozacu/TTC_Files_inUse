@@ -1,0 +1,34 @@
+<?php
+/**
+ * Boutique
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Boutique
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php if ($this->getCollection()->getSize()): ?>
+
+    <?php if ($this->getUseContainer()): ?>
+        <div class="pager">
+    <?php endif ?>
+
+    <?php if ($this->getLastPageNum() > 1): ?>
+        <div class="pages gen-direction-arrows1" style="display:none;">
+            </ol>
+            <?php if (!$this->isLastPage()): ?>
+                <li class="next">
+                    <a class="next<?php if (!$this->getAnchorTextForNext()): ?> i-next<?php endif; ?>"
+                       href="<?php echo $this->getNextPageUrl() ?>" title="<?php echo $this->__('Next') ?>"></a>
+                </li>
+            <?php endif; ?>
+            </ol>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($this->getUseContainer()): ?>
+        </div>
+    <?php endif ?>
+
+<?php endif ?>

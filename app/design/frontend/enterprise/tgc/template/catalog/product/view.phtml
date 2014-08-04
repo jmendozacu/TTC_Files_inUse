@@ -1,0 +1,524 @@
+<?php
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php
+$_helper = $this->helper('catalog/output');
+$_product = $this->getProduct();
+$theme = $this->helper('ultimo');
+$professors = (array)Mage::helper('tgc_catalog')->getProfessors($_product);
+$professorImageHelper = Mage::helper('profs/image');
+?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div class="pdp-drawer-block">
+    <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+    <div class="product-pdp-recommended clearer"><?php echo $this->getChildHtml('pdp.recommended'); ?></div>
+</div>
+<div class="product-view">
+<?php echo $this->getChildHtml('drtv_ad'); ?>
+<?php echo $this->getChildHtml('space_ad'); ?>
+<div class="product-top-area clearfix">
+    <div class="left-part">
+        <div class="product-image-block">
+            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize(150, 210); ?>"
+                 alt="<?php echo $this->escapeHtml($_product->getName()) ?>"/>
+        </div>
+        <div class="product-data-block">
+            <h1 class="product-name">
+                <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+            </h1>
+            <div class="professor-container clearfix">
+                <?php if (count($professors) > 1): ?>
+                    <div class="name">
+                        <?php echo $this->__('Taught By Multiple Professors'); ?>
+                    </div>
+                    <div class="description"></div>
+                <?php else: ?>
+                    <div class="professor-data">
+                        <div class="name">
+                            <?php echo isset($professors[0]['name']) ? $professors[0]['name'] : ''; ?>
+                        </div>
+                        <div class="description">
+                            <?php echo isset($professors[0]['teaching']) ? $professors[0]['teaching'] : ''; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="bv-wrapper">
+                <?php if (Mage::helper('tgc_bv')->isBvEnabled()): ?>
+                    <?php echo $this->getChildHtml('bv_reviewsummary'); ?>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <div class="right-part">
+        <?php if ($_product->getPartner() && ($_partner = Mage::getModel('tgc_cms/partners')->load($_product->getPartner())) && $_partner->getImage()) : ?>
+            <div class="partners-container">
+                <div class="no-display">In partnership with</div>
+                <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$_partner->getImage(); ?>" alt=""/>
+            </div>
+        <?php endif ?>
+        <?php if ($_product->getCourseId()) : ?>
+            <div class="course-number">
+                Course No.&nbsp;
+                <?php echo $_product->getCourseId(); ?>
+            </div>
+        <?php endif ?>
+        <div class="block-for-social-buttons">
+            <?php echo $this->getChildHtml('share_links'); ?>
+        </div>
+    </div>
+</div>
+
+<div class="product-container-with-shadow">
+<form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post"
+      id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+    <div class="clearfix">
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>"/>
+            <input type="hidden" name="course_id" value="<?php echo $_product->getCourseId() ?>"/>
+            <input type="hidden" name="product_sku" value="<?php echo $_product->getSku() ?>"/>
+            <input type="hidden" name="related_product" id="related-products-field" value=""/>
+        </div>
+
+        <?php
+        //Product collaterals
+        $section = array();
+
+        //Related products. $section['related'] is set only if related products (or replacement) exist
+        $replaceRelated = $theme->getCfg('product_page/replace_related');
+        if ($replaceRelated == 1) //don't replace with static block
+        {
+            if ($tmpHtml = trim($this->getChildHtml('catalog.product.related')))
+                $section['related'] = $tmpHtml;
+            //$section['related'] = trim($this->getChildHtml('catalog.product.related'));
+        } elseif ($replaceRelated == 2) //if related is empty, replace with static block
+        {
+            if ($tmpHtml = trim($this->getChildHtml('catalog.product.related')))
+                $section['related'] = $tmpHtml;
+            else //related empty
+                if ($tmpHtml = $this->getChildHtml('block_product_replace_related'))
+                    $section['related'] = '<div class="block_product_replace_related">' . $tmpHtml . '</div>';
+        } elseif ($replaceRelated == 3) //replace with static block
+        {
+            if ($tmpHtml = $this->getChildHtml('block_product_replace_related'))
+                $section['related'] = '<div class="block_product_replace_related">' . $tmpHtml . '</div>';
+        }
+
+        //Up-sell products. $section['upsell'] is set only if up-sell products (or replacement) exist
+        $replaceUpsell = $theme->getCfg('product_page/replace_upsell');
+        if ($replaceUpsell == 1) //don't replace with static block
+        {
+            if ($tmpHtml = trim($this->getChildHtml('upsell_products')))
+                $section['upsell'] = ""; //the datamart upsells are already displayed in a different place on this page.  This prevents a second upsells block from being displayed.
+        } elseif ($replaceUpsell == 2) //if upsell is empty, replace with static block
+        {
+            if ($tmpHtml = trim($this->getChildHtml('upsell_products')))
+                $section['upsell'] = ""; //the datamart upsells are already displayed in a different place on this page.  This prevents a second upsells block from being displayed.
+            else //upsell empty
+                if ($tmpHtml = $this->getChildHtml('block_product_replace_upsell'))
+                    $section['upsell'] = '<div class="block_product_replace_upsell">' . $tmpHtml . '</div>';
+        } elseif ($replaceUpsell == 3) //replace with static block
+        {
+            if ($tmpHtml = $this->getChildHtml('block_product_replace_upsell'))
+                $section['upsell'] = '<div class="block_product_replace_upsell">' . $tmpHtml . '</div>';
+        }
+
+
+        //Assign related products to selected position
+        if (isset($section['related'])) {
+            $relatedPosition = $theme->getCfg('product_page/related_position');
+            //TODO:remove: $relatedPosition = 11;
+            switch ($relatedPosition) {
+                case 10:
+                    $p['secondaryCol'][0] = $section['related'];
+                    break;
+                case 11:
+                    $p['secondaryCol'][1] = $section['related'];
+                    break;
+                case 20:
+                    $p['collatSecondaryCol'] = $section['related'];
+                    break;
+            }
+        }
+
+
+        //Width (in grid units) of product page sections
+        $imgColUnits = $theme->getCfg('product_page/image_column');
+        $primaryColUnits = $theme->getCfg('product_page/primary_column');
+        $secondaryColUnits = $theme->getCfg('product_page/secondary_column');
+        $collatPrimaryColUnits = $imgColUnits + $primaryColUnits;
+        $collatSecondaryColUnits = $secondaryColUnits;
+        if (empty($secondaryColUnits)) {
+            $primaryColUnits += 12 - ($imgColUnits + $primaryColUnits);
+            $collatPrimaryColUnits = 9;
+            $collatSecondaryColUnits = 3;
+        }
+
+        //
+        if (!isset($section['related'])) {
+            $collatPrimaryColUnits = 12;
+            $collatSecondaryColUnits = 0;
+        }
+
+        //Grid classes
+        $imgColGridClass = 'grid12-5';
+        $primaryColGridClass = 'grid12-7';
+        $secondaryColGridClass = 'grid12-' . $secondaryColUnits;
+        $collForUpsellClass = 'grid12-full';
+        $collatPrimaryColGridClass = 'grid12-' . $collatPrimaryColUnits;
+        $collatSecondaryColGridClass = 'grid12-' . $collatSecondaryColUnits;
+        if (empty($secondaryColUnits)) {
+            $secondaryColGridClass = '';
+        }
+        ?>
+
+        <div class="product-img-column clearfix <?php echo $imgColGridClass; ?>">
+            <?php echo $this->getChildHtml('media') ?>
+            <?php //Product labels
+            echo $this->helper('ultimo/labels')->getLabels($_product);
+            ?>
+        </div>
+
+        <div class="product-shop <?php echo $primaryColGridClass; ?>">
+
+            <?php echo $this->getChildHtml('product_type_data') ?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                <?php if ($container2_html = $this->getChildChildHtml('container2', '', true, true)): ?>
+                    <div class="box-additional <?php echo $collatPrimaryColGridClass; ?>">
+                        <div class="container2-wrapper">
+                            <?php echo $container2_html; ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+
+            <?php echo $this->getChildHtml('alert_urls'); //alerts ?>
+
+            <?php if ($extrahint_html = $this->getChildHtml('extrahint')): //qty increments ?>
+                <div class="extrahint-wrapper"><?php echo $extrahint_html; ?></div>
+            <?php endif; ?>
+
+            <?php echo $this->getTierPriceHtml(); //tier prices ?>
+
+            <?php if (!$this->hasOptions()): //add to cart when no options ?>
+                <?php if ($_product->isSaleable()): ?>
+                    <div class="add-to-box">
+                        <?php echo $this->getChildHtml('addtocart') ?>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                <?php if ($container1_html = $this->getChildChildHtml('container1', '', true, true)): ?>
+                    <div class="container1-wrapper"><?php echo $container1_html; ?></div>
+                <?php endif; ?>
+            <?php endif; ?>
+
+
+            <?php echo $this->getChildHtml('other'); ?>
+
+            <?php if ($tmpHtml = $this->getChildHtml('block_product_primary_bottom')): ?>
+                <div class="feature-wrapper top-border block_product_primary_bottom"><?php echo $tmpHtml; ?></div>
+            <?php endif; ?>
+
+            <?php if ($tmpHtml = $this->getChildHtml('product_primary_bottom_placeholder')): //Placeholder for extensions ?>
+                <div class="feature-wrapper top-border"><?php echo $tmpHtml; ?></div>
+            <?php endif; ?>
+
+        </div>
+        <!-- end: product-shop -->
+
+    </div>
+</form>
+<script type="text/javascript">
+    //<![CDATA[
+    var userLoggedIn = <?php echo Mage::getSingleton('customer/session')->isLoggedIn()?"1":"0" ?>;
+    var productAddToCartForm = new VarienForm('product_addtocart_form');
+    productAddToCartForm.submit = function (button, url) {
+        if (this.validator.validate()) {
+            var form = this.form;
+            var oldUrl = form.action;
+
+            if (url) {
+                form.action = url;
+            }
+            var e = null;
+            try {
+
+                if (typeof window.tgc_tealiumObj == "object" && typeof window.tgc_tealiumObj.addToCartEventLink == "function") {
+                    var course_format_types = $('product_addtocart_form').getInputs('radio','media-format-radio');
+                    var media_format = jQuery('div#media-format-radio div.format-block.active label span.format-label').text();
+                    var product_id = window.utag_data.product_id;
+                    var product_sku = window.utag_data.product_sku;
+                    var price = jQuery('div#media-format-radio div.format-block.active label span.format-price').text();
+                    price = price.trim().replace('$', '').replace('£', '');
+                    <?php if ($this->getProduct()->getTypeId() == 'configurable'): ?>
+                        <?php $_children = $this->getProduct()->getTypeInstance(true)
+                            ->getUsedProducts(null, $this->getProduct()); ?>
+                        <?php $childCount = count($_children); ?>
+                        var tealiumProducts = [
+                            <?php $i = 1; foreach ($_children as $_child): ?>
+                                {format: '<?php echo $_child->getAttributeText('media_format'); ?>', product_id: '<?php echo $_child->getCourseId(); ?>', product_sku: '<?php echo $_child->getSku(); ?>'}<?php if ($i < $childCount): ?>,<?php endif; ?>
+                                <?php $i++; ?>
+                            <?php endforeach; ?>
+                        ];
+                        for (i = 0; i < tealiumProducts.length; i++) {
+                            if (tealiumProducts[i].format == media_format) {
+                                product_id = tealiumProducts[i].product_id;
+                                product_sku = tealiumProducts[i].product_sku;
+                            }
+                        }
+                    <?php endif; ?>
+                    if (window.tgc_tealiumObj.addToCartEventLink(media_format, product_id, product_sku, price)) {}
+                }
+
+                new Ajax.Request(form.action,
+                    {
+                        method: 'post',
+                        parameters: $(form.id).serialize(true),
+                        onSuccess: function (transport) {
+                            $(document.body).scrollTo();
+                            var response = transport.responseText;
+                            var data = response.evalJSON();
+                            $H(data).each(function (dataSet) {
+                                if (dataSet.key === "messages") {
+                                    $('messages_product_view').update(dataSet.value);
+                                    $('messages_product_view').down('ul.messages li[class*="-msg"]').insert('<a class="close-button" rel="nofollow" href="javascript:void(0)">Close</a>').observe('click', function() {
+                                        jQuery(this).parents('.pdp-drawer-block').animate({
+                                            height: "0",
+                                            opacity: 0
+                                        }, 500);
+                                    });
+                                    jQuery('.add-to-cart-btn').addClass('added').html('<span><span>Added to cart</span></span>');
+                                    jQuery('.pdp-drawer-block').animate({
+                                        height: "100%",
+                                        opacity: 1
+                                    }, 500);
+                                } else if (dataSet.key === "minicart") {
+                                    updateTopLinks();
+                                }
+                            });
+                        },
+                        onFailure: function () {
+                            Element.hide('formLoader');
+                        }
+                    });
+
+            } catch (e) {
+            }
+            this.form.action = oldUrl;
+            if (e) {
+                throw e;
+            }
+        }
+    }.bind(productAddToCartForm);
+
+    productAddToCartForm.submitLight = function (button, url) {
+        if (this.validator) {
+            var nv = Validation.methods;
+            delete Validation.methods['required-entry'];
+            delete Validation.methods['validate-one-required'];
+            delete Validation.methods['validate-one-required-by-name'];
+            if (this.validator.validate()) {
+                if (url) {
+                    this.form.action = url;
+                }
+                if (userLoggedIn) {
+                    try {
+                        new Ajax.Request(this.form.action,
+                            {
+                                method: 'post',
+                                parameters: $(this.form.id).serialize(true),
+                                onSuccess: function (transport) {
+                                    $(document.body).scrollTo();
+                                    var response = transport.responseText;
+                                    var data = response.evalJSON();
+                                    $H(data).each(function (dataSet) {
+                                        if (dataSet.key === "messages") {
+                                            $('messages_product_view').update(dataSet.value);
+                                            $('messages_product_view').down('ul.messages li[class*="-msg"]').insert('<a class="close-button" rel="nofollow" href="javascript:void(0)">Close</a>').observe('click', function() {
+                                                jQuery(this).parents('.pdp-drawer-block').animate({
+                                                    height: "0",
+                                                    opacity: 0
+                                                }, 500);
+                                            });
+                                            jQuery('.add-to-wishlist-btn').html('Added to wish list');
+                                            jQuery('.pdp-drawer-block').animate({
+                                                height: "100%",
+                                                opacity: 1
+                                            }, 500);
+                                        } else if (dataSet.key === "minicart") {
+                                            updateTopLinks();
+                                        }
+                                    });
+                                },
+                                onFailure: function () {
+                                    Element.hide('formLoader');
+                                }
+                            });
+
+                    } catch (e) {
+                    }
+                } else {
+                    $(document.body).scrollTo();
+
+                    if(!isMobile() || jQuery(window).width() > 767) {
+                        var loginForm = jQuery('.login-form-dropdown');
+                        var loginFormContainer = jQuery('.signed-out-container');
+                        var loginButton = jQuery('#login-form #send-not-ajax');
+
+                        loginButton.on(customClickEvent,function(e){
+                            e.preventDefault();
+                            var keepLogged;
+                            if (jQuery('#keep_logged').prop('checked')) {
+                                keepLogged = '1';
+                            } else {
+                                keepLogged = '0';
+                            }
+                            var optOut;
+                            if (jQuery('#opt_out_login').prop('checked')) {
+                                optOut = '1';
+                            } else {
+                                optOut = '0';
+                            }
+                            jQuery.ajax({
+                                type: 'POST',
+                                url: '<?php echo $this->getUrl('customer/account/loginPost'); ?>',
+                                data: {
+                                    login: {
+                                        username:    jQuery('#email').val(),
+                                        password:    jQuery('#pass').val(),
+                                        keep_logged: keepLogged,
+                                        opt_out: optOut
+                                    }
+                                },
+                                beforeSend: function(jqXHR) {
+                                    beforeAjax();
+                                },
+                                success: function(data, textStatus, jqXHR) {
+                                    if (data['status'] == 'success') {
+                                        if (!hideLoginForm) {
+                                            hideLoginForm = 1;
+                                            userLoggedIn = 1;
+                                            addToWish();
+                                        }
+                                        closeElementsHeader();
+                                        jQuery('div.signed-out-container').replaceWith(data['html']);
+                                        jQuery('.my-digital-library').show(500);
+                                        if (typeof getPageStatus == 'function') {
+                                            getPageStatus();
+                                        }
+                                        updateTopLinks();
+                                        jQuery('.login-form-dropdown').css('display','none');
+                                    } else {
+                                        jQuery('.messages-wrapper-error').css('display','block');
+                                        jQuery('form#login-form .input-error-msg').css('display', 'block').html(data['message']);
+                                    }
+                                },
+                                error: function(jqXHR, textStatus, errorThrown) {
+                                    jQuery('.messages-wrapper-error').css('display','block');
+                                    jQuery('form#login-form .input-error-msg').css('display', 'block').text('There was an error logging in. Please try again');
+                                },
+                                complete: function(jqXHR, textStatus) {
+                                    afterAjax();
+                                }
+                            });
+                        });
+
+                        if (loginForm.css('display')!=='block'){
+                            loginFormContainer.trigger(customClickEvent);
+                        }
+                    } else {
+                        jQuery('#mobile-nav-header .mobile-actions .account-action').click();
+                    }
+
+                    hideLoginForm = 0;
+                }
+            }
+            Object.extend(Validation.methods, nv);
+        }
+    }.bind(productAddToCartForm);
+
+    function updateTopLinks() {
+        jQuery.ajax({
+            type: 'POST',
+            url: globalHeader.updateLinksUrl,
+            success: function (data, textStatus, jqXHR) {
+                if (data['status'] == 'success') {
+                    jQuery('div#mini-cart').html(data['cartHtml']);
+                    jQuery('div#mini-wishlist').html(data['wishlistHtml']);
+                    var el = jQuery('<div></div>');
+                    el.html(data['cartHtml']);
+                    jQuery('.mob-cart-hint').html(jQuery('.bubble', el).html());
+                    if (jQuery('.bubble', el).html()>0){
+                        jQuery('.mob-cart-hint').css('display','block');
+                    }else{
+                        jQuery('.mob-cart-hint').css('display','none');
+                    }
+                }
+            }
+        });
+    }
+    //]]>
+</script>
+</div>
+<div class="clearfix">
+    <div class="box-additional box-tabs <?php echo $collatPrimaryColGridClass; ?>">
+        <?php $info_tabs_html = trim($this->getChildHtml('info_tabs'));
+        if ($info_tabs_html) echo $info_tabs_html; ?>
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+            jQuery(function ($) {
+                <?php //Start slider with professor upsells ?>
+                $(document).on('click touchend', '#tab-professor, #acctab-professor', startProfessorUpsellsSlider);
+
+            });
+            //]]>
+        </script>
+
+        <?php echo $this->getChildHtml('product_additional_data') ?>
+        <?php echo $this->getChildHtml('datamart_upsell') ?>
+    </div>
+    <!-- end: box-tabs -->
+
+    <?php
+    echo $this->getChildHtml('pdp_right_upsells');
+    ?>
+</div>
+
+<?php if (isset($p['collatSecondaryCol'])): ?>
+    <div class="box-additional box-sidebar custom-sidebar-right <?php echo $collatSecondaryColGridClass; ?>">
+        <div class="inner"><?php echo $p['collatSecondaryCol']; ?></div>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($section['upsell'])): ?>
+    <div class="box-additional box-up-sell <?php echo $collForUpsellClass; ?>"><?php echo $section['upsell']; ?></div>
+<?php endif; ?>
+
+
+</div> <!-- end: product-view -->
+
+<?php if (!Mage::helper('tgc_bv')->isBvEnabled()): ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#tab-tabreviews').hide();
+            jQuery('#tab-tabqa').hide();
+        });
+
+         <!-- Code for custom selects -->
+         jQuery(document).ready(function($) {
+             $('.super-attribute-select').coreUISelect();
+         });
+    </script>
+<?php endif; ?>

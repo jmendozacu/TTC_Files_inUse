@@ -1,0 +1,2 @@
+Production - admin.thegreatcourses.com -- 6f45f9fabf4fd680c0a8fbf8e703ce64f99ed045
+Stage - admin.tgc.stage.guidance.com -- 68461c014958b95e91f882a92670919516d07659

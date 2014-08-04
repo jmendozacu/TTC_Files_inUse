@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tgc_ManaPro>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <ManaPro_FilterPositioning/>
+                <Mana_Filters/>
+                <ManaPro_FilterAdmin/>
+                <Mana_Seo/>
+                <Guidance_Setup/>
+                <Tgc_Solr/>
+            </depends>
+        </Tgc_ManaPro>
+    </modules>
+</config>

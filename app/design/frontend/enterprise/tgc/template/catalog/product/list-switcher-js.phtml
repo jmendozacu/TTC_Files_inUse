@@ -1,0 +1,21 @@
+<script type="text/javascript">
+    var viewmode = '<?php echo $this->getMode() ?>';
+
+    if (jQuery(window).width() < 767) {
+        listRedir();
+    }
+    listRedirectResizeDetector = null;
+    jQuery(window).resize(function () {
+        if (jQuery(window).width() < 767) {
+            if (listRedirectResizeDetector) clearTimeout(listRedirectResizeDetector);
+            listRedirectResizeDetector = setTimeout(listRedir, 250);
+        }
+    });
+    function listRedir() {
+        var listUrl = "<?php echo $this->getRedirectUrl() ;?>";
+        if (viewmode === 'grid') {
+            setLocation(listUrl);
+            return false;
+        }
+    }
+</script>

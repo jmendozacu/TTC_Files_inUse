@@ -1,0 +1,52 @@
+<?php
+    $helper = $this->helper('tgc_datamart');
+?>
+<div id="radio_landing_media_code_popup" style="display: none;">
+    <a class="close-balloon" href="#">x</a>
+    <form action="<?php echo $this->getUrl('tgc/courses/radioOffer'); ?>" method="get">
+        <h1><?php echo $helper->__('Enter Your Radio Code:'); ?></h1>
+        <input type="text" name="mc" placeholder="<?php echo $helper->__('enter radio code'); ?>" class="input-text required-entry" />
+        <button type="submit" class="button"><span><span><?php echo $helper->__('Apply'); ?></span></span></button>
+    </form>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    function attachObserverToRadioLandingMediaCodePopupButtons () {
+        $$('.media-code-popup-button').each(function (el) {
+            if (el.hasClassName('media-code-popup-attached')) {
+                return;
+            }
+            el.observe('click', function (event) {
+                jQuery('#radio_landing_media_code_popup').trigger('openModal');
+            });
+        });
+    }
+    document.observe('dom:loaded', function () {
+        $('radio_landing_media_code_popup').down('form').observe('submit', function (event) {
+            var form = event.findElement();
+            var inputs = form.select('input');
+            var formValid = true;
+            for (var i = 0, length = inputs.length; i < length; ++i) {
+                if (!Validation.validate(inputs[i])) {
+                    formValid = false;
+                }
+                if (inputs[i].name == 'mc') {
+                    var mediaCodeInput = inputs[i];
+                }
+            }
+            if (!formValid) {
+                Event.stop(event);
+                return false;
+            }
+
+            if (typeof(mediaCodeInput) != 'undefined' && typeof window.tgc_tealiumObj == "object" && typeof window.tgc_tealiumObj.submitRadioCodeEvent == "function") {
+                window.tgc_tealiumObj.submitRadioCodeEvent();
+            }
+        });
+        jQuery('#radio_landing_media_code_popup').easyModal({
+            closeButtonClass: '.close-balloon'
+        });
+        attachObserverToRadioLandingMediaCodePopupButtons();
+    });
+//]]>
+</script>

@@ -1,0 +1,18 @@
+<div id="checkout_logos_containers">
+    <div class="checkout-logos"></div>
+    <div id="comodo-logo-table">
+        <script language="javascript" type="text/javascript">
+            //<![CDATA[
+            var tl_loc0 = (window.location.protocol == "https:") ? "https://secure.comodo.net/trustlogo/javascript/trustlogo.js" :
+                "http://www.trustlogo.com/trustlogo/javascript/trustlogo.js";
+            document.writeln('<scr' + 'ipt language="JavaScript" src="' + tl_loc0 + '" type="text\/javascript">' + '<\/scr' + 'ipt>');
+            //]]>
+        </script>
+        <script type="text/javascript"> TrustLogo("https://secureimages.teach12.com/images/comodo_logo.gif", "SC4", "none");</script>
+    </div>
+
+    <script language="javascript" type="text/javascript">
+        jQuery('#comodo-logo-table img').attr('src','<?php echo $this->getSkinUrl('images/comodosecure.png')?>');
+        jQuery('#comodo-logo-table').css('display','block');
+    </script>
+</div>

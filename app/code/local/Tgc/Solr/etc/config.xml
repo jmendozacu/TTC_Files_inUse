@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Solr search
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Solr
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Solr>
+            <version>3</version>
+        </Tgc_Solr>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_solr>
+                <class>Tgc_Solr_Helper</class>
+            </tgc_solr>
+        </helpers>
+        <blocks>
+            <tgc_solr>
+                <class>Tgc_Solr_Block</class>
+            </tgc_solr>
+            <enterprise_search>
+                <rewrite>
+                    <!-- Rewritten, because we need "search/result" URLs for the entire project -->
+                    <recommendations>Tgc_Solr_Block_Recommendations</recommendations>
+                    <suggestions>Tgc_Solr_Block_Suggestions</suggestions>
+                </rewrite>
+            </enterprise_search>
+        </blocks>
+        <models>
+            <tgc_solr>
+                <class>Tgc_Solr_Model</class>
+                <resourceModel>tgc_solr_resource</resourceModel>
+            </tgc_solr>
+            <tgc_solr_resource>
+                <class>Tgc_Solr_Model_Resource</class>
+            </tgc_solr_resource>
+            <enterprise_search>
+                <rewrite>
+                    <adapter_httpStream>Tgc_Solr_Model_Adapter_HttpStream</adapter_httpStream>
+                    <source_weight>Tgc_Solr_Model_Source_Weight</source_weight>
+                </rewrite>
+            </enterprise_search>
+            <enterprise_search_resource>
+                <rewrite>
+                    <engine>Tgc_Solr_Model_Resource_Engine</engine>
+                    <collection>Tgc_Solr_Model_Resource_Collection</collection>
+                </rewrite>
+            </enterprise_search_resource>
+            <catalogsearch_resource>
+                <rewrite>
+                    <fulltext>Tgc_Solr_Model_Resource_Fulltext</fulltext>
+                </rewrite>
+            </catalogsearch_resource>
+            <enterprise_catalogsearch>
+                <rewrite>
+                    <indexer_fulltext>Tgc_Solr_Model_Index_Fulltext</indexer_fulltext>
+                </rewrite>
+            </enterprise_catalogsearch>
+        </models>
+        <resources>
+            <solr_setup>
+                <setup>
+                    <module>Tgc_Solr</module>
+                    <class>Tgc_Solr_Model_Resource_Setup</class>
+                </setup>
+            </solr_setup>
+        </resources>
+        <index>
+            <indexer>
+                <catalogsearch_fulltext_solr>
+                    <model>tgc_solr/index_dummy</model>
+                    <action_model>
+                        <changelog>tgc_solr/index_action_refresh_changelog</changelog>
+                        <all>tgc_solr/index_action_refresh</all>
+                    </action_model>
+                    <index_table>catalogsearch_fulltext</index_table>
+                    <sort_order>101</sort_order>
+                </catalogsearch_fulltext_solr>
+            </indexer>
+        </index>
+    </global>
+    <frontend>
+        <routers>
+            <catalogsearch>
+                <args>
+                    <modules>
+                        <tgc_solr before="Mage_CatalogSearch">Tgc_Solr</tgc_solr>
+                    </modules>
+                </args>
+            </catalogsearch>
+        </routers>
+    </frontend>
+
+    <crontab>
+        <jobs>
+            <!-- Disable daily cronjob, because Solr will be reindexing changes by cron by changelog -->
+            <enterprise_search_index_reindex_all>
+                <run><model>tgc_solr/index_dummy::reindexAll</model></run>
+            </enterprise_search_index_reindex_all>
+        </jobs>
+    </crontab>
+</config>

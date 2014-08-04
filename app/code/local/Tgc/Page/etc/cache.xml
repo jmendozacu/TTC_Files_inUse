@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Page
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Page
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <placeholders>
+        <tgc_page_html_header>
+            <block>tgc_page/html_header</block>
+            <placeholder>HEADER</placeholder>
+            <container>Tgc_Page_Model_Container_Header</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_page_html_header>
+    </placeholders>
+</config>

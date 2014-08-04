@@ -1,0 +1,86 @@
+<?php
+/**
+ * Digital Library Account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_DigitalLibrary_Block_DownloadSettings */
+?>
+<?php
+$videoFormat = $this->getCustomerVideoFormat();
+$audioFormat = $this->getCustomerAudioFormat();
+?>
+<div id="download-settings">
+    <div class="page-title">
+        <h1><?php echo $this->__('Set Your Default Media File Formats') ?></h1>
+    </div>
+    <div id="step-1">
+        <form>
+            <div class="preference-block">
+                <div class="preference-block-title"><?php echo $this->__('Video File Format') ?></div>
+                <ul class="preferences-list">
+                    <li>
+                        <input class="video-format" id="itunes-video" name="video-format" value="m4v" type="radio" <?php if ($videoFormat == 'm4v'): ?>checked="true" <?php endif;?>/>
+                        <label for="itunes-video">iTunes (m4v)</label>
+                    </li>
+                    <li>
+                        <input class="video-format" id="windows-video" name="video-format" value="wmv" type="radio" <?php if ($videoFormat == 'wmv'): ?>checked="true" <?php endif;?>/>
+                        <label for="windows-video">Windows Media Player (wmv)</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="preference-block">
+                <div class="preference-block-title"><?php echo $this->__('Audio File Format') ?></div>
+                <ul class="preferences-list">
+                    <li>
+                        <input class="audio-format" id="itunes-audio" name="audio-format" value="m4b" type="radio" <?php if ($audioFormat == 'm4b'): ?>checked="true" <?php endif;?>/>
+                        <label for="itunes-audio">iTunes (m4b)</label>
+                    </li>
+                    <li>
+                        <input class="audio-format" id="windows-audio" name="audio-format" value="mp3" type="radio" <?php if ($audioFormat == 'mp3'): ?>checked="true" <?php endif;?>/>
+                        <label for="windows-audio">Windows Media Player (mp3)</label>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+
+    <div id="please-configure" style="display:none;">
+        <h2>Please Configure your Account  to Begin</h2>
+        <p>Please set your download preferences here before you continue. You can change these at any time.</p>
+        <button id="go-for-it" class="modalbtn"><?php echo $this->__('Go For It!'); ?></button>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#nav-download-prefs').addClass('active');
+    });
+
+    jQuery('input[name=video-format]:radio').change(function() {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::getUrl('digital-library/account/updateVideoFormat'); ?>',
+            data: {
+                format: jQuery(this).val()
+            }
+        });
+    });
+
+    jQuery('input[name=audio-format]:radio').change(function() {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::getUrl('digital-library/account/updateAudioFormat'); ?>',
+            data: {
+                format: jQuery(this).val()
+            }
+        });
+    });
+
+</script>

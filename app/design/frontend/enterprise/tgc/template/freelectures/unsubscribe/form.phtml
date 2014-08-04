@@ -1,0 +1,19 @@
+<div id="free_lectures_unsubscribe_form">
+    <?php if ($helperLectures->hasUserBeenUnsubscrited()): ?>
+        <div><b>You are successfully unsubscribed from free lectures.</b></div>
+    <?php elseif(!$helperLectures->isUnsubscribeRequestValid()): ?>
+        <div><b>This link you clicked on to reach this page is not valid. Therefore, this request to unsubscribe cannot be completed.</b></div>
+    <?php elseif(!$helperLectures->isSubscribed()):?>
+        <div><b>You are currently not subscribed to free lectures.</b></div>
+    <?php elseif ($helperLectures->isCustomerEligibleToUnsubscribe('request')): ?>
+        <form method="post" id="free-lectures-form-validate" action="<?php echo Mage::getUrl('*/*/unsubscribeexecute') ?>">
+            <div id="free-lectures-form-section-unsubscribe">
+                <div id="email_to_unsubscribe"><b>Email address to unsubscribe:</b> <?php echo $helperLectures->getEmailAddressToUnsubscribe() ?></div>
+                <div id="freelectures_unsubscribe_button"><input id="submitbutton" type="submit" value="Unsubscribe" class="button"/></div>
+            </div>
+            <input type="hidden" name="unsubscribe_email" value="<?php echo $helperLectures->getEmailToUnsubcribe() ?>" />
+        </form>
+    <?php else: ?>
+        <b>The email address this unsubscribe request is associated with is invalid or does not exist.</b>
+    <?php endif; ?>
+</div>

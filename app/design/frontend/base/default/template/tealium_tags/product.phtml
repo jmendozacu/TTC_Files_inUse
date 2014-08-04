@@ -1,0 +1,39 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$_product = $this->getProduct();
+$_category = Mage::registry('current_category');
+$_simple_skus = $helper->getSimpleSkus($_product);
+$_simple_ids = $helper->getSimpleIds($_product);
+$_simple_list_prices = $helper->getSimpleListPrices($_product);
+$_simple_default_prices = $helper->getSimpleDefaultPrices($_product);
+$_simple_priority_prices = $helper->getSimplePriorityPrices($_product);
+$priorityPrices = explode(',', $_simple_priority_prices);
+
+?>
+
+<!-- Tealium Product javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name: '<?php echo htmlspecialchars($_product->getName(), ENT_QUOTES); ?>',
+        page_type: "product",
+        product_id: "<?php echo $_product->getCourseId(); ?>",
+        product_sku: "<?php echo $_product->getSku(); ?>,<?php echo $_simple_skus; ?>",
+        product_name: '<?php echo htmlspecialchars($_product->getName(), ENT_QUOTES); ?>',
+        product_brand: "<?php echo htmlspecialchars($_product->getBrand(), ENT_QUOTES); ?>",
+        product_category: "<?php echo $_category ? htmlspecialchars($_category->getName(), ENT_QUOTES) : 'no_category'; ?>",
+        product_default_price: "<?php echo number_format($_product->getSpecialPrice(),2); ?>,<?php echo $_simple_default_prices; ?>",
+        product_list_price: "<?php echo number_format($_product->getPrice(),2); ?>,<?php echo $_simple_list_prices; ?>",
+        product_priority_price: "<?php echo max($priorityPrices); ?>,<?php echo $_simple_priority_prices; ?>",
+        user_id: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_USER_ID; ?>'),
+        is_logged_in: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_LOGGED_IN; ?>')
+    };
+</script>

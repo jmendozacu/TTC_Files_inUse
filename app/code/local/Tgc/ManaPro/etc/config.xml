@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tgc_ManaPro>
+            <version>0.2.3</version>
+        </Tgc_ManaPro>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_manapro>
+                <class>Tgc_ManaPro_Helper</class>
+            </tgc_manapro>
+            <mana_filters>
+                <rewrite>
+                    <data>Tgc_ManaPro_Helper_Data</data>
+                </rewrite>
+            </mana_filters>
+            <mana_seo>
+                <rewrite>
+                    <urlParser>Tgc_ManaPro_Helper_Seo_UrlParser</urlParser>
+                </rewrite>
+            </mana_seo>
+        </helpers>
+        <models>
+            <tgc_manapro>
+                <class>Tgc_ManaPro_Model</class>
+                <resourceModel>tgc_manapro_resource</resourceModel>
+            </tgc_manapro>
+            <tgc_manapro_resource>
+                <class>Tgc_ManaPro_Model_Resource</class>
+            </tgc_manapro_resource>
+            <manapro_filterpositioning>
+                <rewrite>
+                    <observer>Tgc_ManaPro_Model_FilterPositioning_Observer</observer>
+                </rewrite>
+            </manapro_filterpositioning>
+            <manapro_filtersuperslider>
+                <rewrite>
+                    <observer>Tgc_ManaPro_Model_FilterSuperSlider_Observer</observer>
+                </rewrite>
+            </manapro_filtersuperslider>
+            <manapro_filteradmin>
+                <rewrite>
+                    <session_observer>Tgc_ManaPro_Model_Session_Observer</session_observer>
+                </rewrite>
+            </manapro_filteradmin>
+            <mana_filters>
+                <rewrite>
+                    <solr_price>Tgc_ManaPro_Model_Solr_Price</solr_price>
+                </rewrite>
+            </mana_filters>
+            <core>
+                <rewrite>
+                    <url>Tgc_ManaPro_Model_Seo_Rewrite_Url</url>
+                </rewrite>
+            </core>
+        </models>
+        <resources>
+            <tgc_manapro>
+                <setup>
+                    <module>Tgc_ManaPro</module>
+                    <class>Guidance_Setup_Model_Resource_Setup</class>
+                </setup>
+            </tgc_manapro>
+        </resources>
+    </global>
+    <frontend>
+        <events>
+            <catalog_product_collection_load_after>
+                <observers>
+                    <tgc_manapro_onsale>
+                        <class>tgc_manapro/filter_allTypes_observer</class>
+                        <method>addOnSaleInfoToCollection</method>
+                    </tgc_manapro_onsale>
+                </observers>
+            </catalog_product_collection_load_after>
+            <catalog_product_load_after>
+                <observers>
+                    <tgc_manapro_onsale>
+                        <class>tgc_manapro/filter_allTypes_observer</class>
+                        <method>addOnSaleInfoIntoProductAfterLoad</method>
+                    </tgc_manapro_onsale>
+                </observers>
+            </catalog_product_load_after>
+        </events>
+    </frontend>
+
+    <mana_filters>
+        <display><!-- display options for individual filters -->
+            <all_types> <!-- available display options for "All Types" attribute filter -->
+                <checkboxes translate="title" module="manapro_filtercheckboxes">
+                    <title>Checkboxes (Form Elements)</title>
+                    <!-- this one is displayed in admin -->
+                    <block>mana_filters/filter</block>
+                    <model>mana_filters/filter_attribute</model>
+                    <solr_model>tgc_manapro/filter_allTypes_solr_attribute</solr_model>
+                    <solr_and_model>tgc_manapro/filter_allTypes_solr_and_attribute</solr_and_model>
+                    <solr_reverse_model>tgc_manapro/filter_allTypes_solr_reverse_attribute</solr_reverse_model>
+                    <resource>mana_filters/filter_attribute</resource>
+                    <and_resource>mana_filters/filter_and_attribute</and_resource>
+                    <reverse_resource>mana_filters/filter_reverse_attribute</reverse_resource>
+                    <template>manapro/filtercheckboxes/items.phtml</template>
+                    <!-- PHTML to be rendered -->
+                    <sort_order>200</sort_order>
+                    <!-- Position in "Display as" list. The item with least position is the default one. -->
+                    <popup_class>Mana/LayeredNavigation/Popup/Checkbox</popup_class>
+                </checkboxes>
+                <css_checkboxes translate="title" module="manapro_filtercheckboxes">
+                    <title>Checkboxes (Images)</title>
+                    <!-- this one is displayed in admin -->
+                    <block>mana_filters/filter</block>
+                    <model>mana_filters/filter_attribute</model>
+                    <solr_model>tgc_manapro/filter_allTypes_solr_attribute</solr_model>
+                    <solr_and_model>tgc_manapro/filter_allTypes_solr_and_attribute</solr_and_model>
+                    <solr_reverse_model>tgc_manapro/filter_allTypes_solr_reverse_attribute</solr_reverse_model>
+                    <resource>mana_filters/filter_attribute</resource>
+                    <and_resource>mana_filters/filter_and_attribute</and_resource>
+                    <reverse_resource>mana_filters/filter_reverse_attribute</reverse_resource>
+                    <template>manapro/filtercheckboxes/cssitems.phtml</template>
+                    <!-- PHTML to be rendered -->
+                    <sort_order>230</sort_order>
+                    <!-- Position in "Display as" list. The item with least position is the default one. -->
+                    <popup_class>Mana/LayeredNavigation/Popup/CssCheckbox</popup_class>
+                </css_checkboxes>
+            </all_types>
+        </display>
+    </mana_filters>
+</config>

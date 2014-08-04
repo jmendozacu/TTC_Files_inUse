@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Premiumrate
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Premiumrate>
+            <version>1</version>
+        </Tgc_Premiumrate>
+    </modules>
+    <global>
+        <models>
+            <tgc_premiumrate>
+                <class>Tgc_Premiumrate_Model</class>
+            </tgc_premiumrate>
+            <premiumrate_shipping>
+                <rewrite>
+                    <carrier_premiumrate>Tgc_Premiumrate_Model_Carrier_Premiumrate</carrier_premiumrate>
+                </rewrite>
+            </premiumrate_shipping>
+        </models>
+    </global>
+</config>

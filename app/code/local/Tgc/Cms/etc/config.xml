@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Cms>
+            <version>26</version>
+        </Tgc_Cms>
+    </modules>
+    <global>
+        <blocks>
+            <tgc_cms>
+                <class>Tgc_Cms_Block</class>
+            </tgc_cms>
+        </blocks>
+        <helpers>
+            <tgc_cms>
+                <class>Tgc_Cms_Helper</class>
+            </tgc_cms>
+            <cms>
+                <rewrite>
+                    <wysiwyg_images>Tgc_Cms_Helper_Wysiwyg_Images</wysiwyg_images>
+                </rewrite>
+            </cms>
+        </helpers>
+        <models>
+            <tgc_cms>
+                <class>Tgc_Cms_Model</class>
+                <resourceModel>tgc_cms_resource</resourceModel>
+            </tgc_cms>
+            <tgc_cms_resource>
+                <class>Tgc_Cms_Model_Resource</class>
+                <entities>
+                    <heroCarousel>
+                        <table>cms_hero_carousel</table>
+                    </heroCarousel>
+                    <categoryHeroCarousel>
+                        <table>cms_category_hero_carousel</table>
+                    </categoryHeroCarousel>
+                    <quotes>
+                        <table>cms_quotes</table>
+                    </quotes>
+                    <partners>
+                        <table>cms_partners</table>
+                    </partners>
+                </entities>
+            </tgc_cms_resource>
+        </models>
+        <resources>
+            <tgc_cms_setup>
+                <setup>
+                    <module>Tgc_Cms</module>
+                    <class>Tgc_Cms_Model_Resource_Setup</class>
+                </setup>
+            </tgc_cms_setup>
+        </resources>
+        <page>
+            <layouts>
+                <homepage_two_columns_right module="page" translate="label">
+                    <label>Homepage 2 columns with right bar</label>
+                    <template>page/homepage-2columns-right.phtml</template>
+                    <layout_handle>two_columns_right</layout_handle>
+                </homepage_two_columns_right>
+            </layouts>
+        </page>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Tgc_Cms_Adminhtml before="Mage_Adminhtml">Tgc_Cms_Adminhtml</Tgc_Cms_Adminhtml>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <events>
+            <adminhtml_cms_page_edit_tab_main_prepare_form>
+                <observers>
+                    <add_form_field_to_disable_pagetitle>
+                        <class>Tgc_Cms_Model_Observer</class>
+                        <method>addFormFieldToDisablePageTitle</method>
+                    </add_form_field_to_disable_pagetitle>
+                </observers>
+            </adminhtml_cms_page_edit_tab_main_prepare_form>
+        </events>
+        <layout>
+            <updates>
+                <tgc_cms>
+                    <file>tgc_cms.xml</file>
+                </tgc_cms>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

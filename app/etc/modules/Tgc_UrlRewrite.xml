@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module's main config
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_Tgc_UrlRewrite
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_UrlRewrite>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Enterprise_UrlRewrite/>
+            </depends>
+        </Tgc_UrlRewrite>
+    </modules>
+</config>

@@ -1,0 +1,63 @@
+ID:                 about-us/careers
+Status:             published
+Title:              Come Work With Us
+Layout:             one_column_about
+Stores:             default,uk_en, au_en
+---
+<div class="left_sidebar grid12-3">
+    {{block type="cms/block" block_id="about_us_menu" name="about.menu"}}
+</div>
+
+<div class="about grid12-9">
+    <div class="about_container">
+        <div class="left_border">
+            <div class="about_content">
+                <span class="page-active">active-careers</span>
+                <span class="mod_page_active">mob-careers</span>
+                <div class="main_content ourpages">
+                    <div class="top_content_left careers">
+                        <p>As The Great Courses continues to grow, The Teaching Company is continually seeking motivated, dynamic professionals to join our fast-paced, results-driven company.</p>
+                        <p>Our employees tell us they love coming to work every day. They appreciate a dynamic, rewarding environment filled with talented people who share their passion for learning.</p>
+                        <p>People are the driving force behind our success, which is why we take care of our associates with some of the best benefits in the business, along with challenging opportunities that promote professional growth and development.</p>
+                    </div>
+                    <div class="top_content_right careers">
+                        <div class="first_column">
+                            <img class="fc_first_img" src="{{media url="wysiwyg/careers_technician_image_1.jpg"}}" alt="Careers Technician">
+                            <img class="fc_last_img" src="{{media url="wysiwyg/careers_computer_image_1.jpg"}}" alt="Careers Computer">
+                        </div>
+                        <div class="second_column">
+                            <img src="{{media url="wysiwyg/careers_shipping_image_1.jpg"}}" alt="Shipping">
+                            <img src="{{media url="wysiwyg/careers_people_talkingimage_1.jpg"}}" alt="Careers People Talking">
+                        </div>
+                    </div>
+                    <div class="taleo_iframe">
+                        <iframe id="TTC_Taleo" style="border: 0px" src="http://ch.tbe.taleo.net/CH07/ats/careers/jobSearch.jsp?org=TTC&amp;cws=1">
+                        </iframe>
+                    </div>
+                    <div class="benefits">
+                        {{block type="cms/block" block_id="careers_benefits" name="careers.benefits"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(function($) {
+        iframeScroll = new IScroll('.taleo_iframe', {
+            scrollbars: true,
+            mouseWheel: true,
+            scrollX: true,
+            interactiveScrollbars: true,
+            shrinkScrollbars: 'scale',
+            fadeScrollbars: false,
+            click: true,
+            tap: true
+        });
+
+        iframeScroll.on('beforeScrollStart', function(){
+            iframeScroll.refresh();
+        });
+    })
+</script>

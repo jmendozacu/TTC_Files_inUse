@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module's config
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Wishlist
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Wishlist>
+            <version>0.0.1</version>
+        </Tgc_Wishlist>
+        <depends>
+            <Guidance_Reflection/>
+        </depends>
+    </modules>
+
+    <global>
+        <blocks>
+            <tgc_wishlist>
+                <class>Tgc_Wishlist_Block</class>
+            </tgc_wishlist>
+
+            <wishlist>
+                <rewrite>
+                    <customer_sidebar>Tgc_Wishlist_Block_Customer_Sidebar</customer_sidebar>
+                </rewrite>
+            </wishlist>
+        </blocks>
+
+        <helpers>
+            <tgc_wishlist>
+                <class>Tgc_Wishlist_Helper</class>
+            </tgc_wishlist>
+        </helpers>
+
+        <models>
+            <tgc_wishlist>
+                <class>Tgc_Wishlist_Model</class>
+            </tgc_wishlist>
+        </models>
+    </global>
+
+    <frontend>
+        <routers>
+            <tgc_wishlist>
+                <use>standard</use>
+                <args>
+                    <module>Tgc_Wishlist</module>
+                    <frontName>tgc_wishlist</frontName>
+                </args>
+            </tgc_wishlist>
+        </routers>
+
+        <layout>
+            <updates>
+                <tgc_wishlist>
+                    <file>tgc_wishlist.xml</file>
+                </tgc_wishlist>
+            </updates>
+        </layout>
+
+        <events>
+            <controller_action_predispatch_tgc_wishlist_index_toCartItems>
+                <observers>
+                    <tgc_wishlist_update_wishlist_items_options>
+                        <class>tgc_wishlist/observer</class>
+                        <method>updateWishlistItemsOptions</method>
+                    </tgc_wishlist_update_wishlist_items_options>
+                </observers>
+            </controller_action_predispatch_tgc_wishlist_index_toCartItems>
+
+            <controller_action_predispatch_wishlist_index_update>
+                <observers>
+                    <tgc_wishlist_update_wishlist_items_options>
+                        <class>tgc_wishlist/observer</class>
+                        <method>updateWishlistItemsOptions</method>
+                    </tgc_wishlist_update_wishlist_items_options>
+                </observers>
+            </controller_action_predispatch_wishlist_index_update>
+
+            <controller_action_predispatch_tgc_wishlist_index_cart>
+                <observers>
+                    <tgc_wishlist_update_wishlist_items_options>
+                        <class>tgc_wishlist/observer</class>
+                        <method>updateWishlistItemsOptions</method>
+                    </tgc_wishlist_update_wishlist_items_options>
+                </observers>
+            </controller_action_predispatch_tgc_wishlist_index_cart>
+
+            <wishlist_product_add_after>
+                <observers>
+                    <tgc_wishlist_catch_updated_item>
+                        <class>tgc_wishlist/observer</class>
+                        <method>catchUpdatedItem</method>
+                    </tgc_wishlist_catch_updated_item>
+                </observers>
+            </wishlist_product_add_after>
+            
+            <customer_session_auth_after>
+                <observers>
+                    <update_before_auth_url>
+                        <class>tgc_wishlist/observer</class>
+                        <method>changeAfterAuthUrl</method>
+                    </update_before_auth_url>
+                </observers>
+            </customer_session_auth_after>
+        </events>
+    </frontend>
+</config>

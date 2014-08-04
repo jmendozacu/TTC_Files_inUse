@@ -1,0 +1,24 @@
+<?php
+/**
+ * Digital Library Account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_DigitalLibrary_Block_Left */
+?>
+<div class="digital-library-leftnav">
+    <div class="block-title"><?php echo $this->__('My Digital Library') ?></div>
+    <ul class="vert-navigation">
+        <li id="nav-index"><a href="<?php echo $this->getUrl('*/*/index'); ?>"><?php echo $this->__('All Courses'); ?></a></li>
+        <li id="nav-audio"><a href="<?php echo $this->getUrl('*/*/audio'); ?>"><?php echo $this->__('Audio'); ?></a></li>
+        <li id="nav-video"><a href="<?php echo $this->getUrl('*/*/video'); ?>"><?php echo $this->__('Video'); ?></a></li>
+        <li id="nav-stream-faqs"><a href="<?php echo $this->getUrl('*/*/streamFaqs'); ?>"><?php echo $this->__('Streaming FAQs'); ?></a></li>
+        <li id="nav-download-faqs"><a href="<?php echo $this->getUrl('*/*/downloadFaqs'); ?>"><?php echo $this->__('Download FAQs'); ?></a></li>
+        <li id="nav-download-prefs"><a href="<?php echo $this->getUrl('*/*/downloadPrefs'); ?>"><?php echo $this->__('Download Preferences'); ?></a></li>
+    </ul>
+</div>

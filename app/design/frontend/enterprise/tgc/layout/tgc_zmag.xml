@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <tgc_zmag_dcatalog_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="setTitle" translate="title"><title>Digital Catalog</title></action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_zmag/dcatalog" name="digital.catalog" template="digital-catalog/digitalCatalog.phtml"/>
+        </reference>
+    </tgc_zmag_dcatalog_index>
+    <digitalcatalog_dcatalog_index>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="setTitle" translate="title"><title>Digital Catalog</title></action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_zmag/dcatalog" name="digital.catalog" template="digital-catalog/digitalCatalog.phtml"/>
+        </reference>
+    </digitalcatalog_dcatalog_index>
+</layout>

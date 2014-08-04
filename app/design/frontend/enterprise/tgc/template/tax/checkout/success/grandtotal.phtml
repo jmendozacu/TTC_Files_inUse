@@ -1,0 +1,26 @@
+<?php
+/**
+ * Checkout
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Checkout
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+/**
+ * @var $this Mage_Tax_Block_Checkout_Grandtotal
+ * @see Mage_Tax_Block_Checkout_Grandtotal
+ */
+?>
+<tr>
+    <td style="<?php echo $this->getStyle() ?>" class="a-right" colspan="<?php echo $this->getColspan(); ?>">
+        <strong>
+            <?php echo $this->__('Grand TOTAL'); ?>
+        </strong>
+    </td>
+    <td style="<?php echo $this->getStyle() ?>" class="a-right">
+        <strong>
+            <?php echo $this->helper('checkout')->formatPrice(Mage::helper('tgc_checkout')->getOrderGrandTotal()); ?>
+        </strong>
+    </td>
+</tr>

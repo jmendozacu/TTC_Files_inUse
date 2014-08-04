@@ -1,0 +1,11 @@
+ID:                 podcast/episode
+Status:             published
+Title:              Podcast Episode
+Layout:             one_column
+Stores:             default,uk_en, au_en
+---
+{{block type="core/template" template="podcast/episode.phtml"}}
+<div class="clearfix"></div>
+<div class="pe_recomendations pe_mob_hide">
+    {{block type="catalog/product_new" template="catalog/product/recomendations.phtml"}}
+</div>

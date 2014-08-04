@@ -1,0 +1,39 @@
+<?php
+$currentFormName = Tgc_Catalog_Helper_Freemarketinglecture::FORM_NOTSIGNEDIN_NEW_CUSTOMER;
+$shouldDisplayForm = $helperFreelectures->getFreelectureFormToDisplay() != Tgc_Catalog_Helper_Freemarketinglecture::FORM_NOTSIGNEDIN_NEW_CUSTOMER ? ' style="display:none"' : ''
+?>
+
+<form method="post" id="free-lectures-form-validate-newcustomer"
+      action="<?php echo Mage::getUrl('customer/account/freelecturePost') ?>" <?php echo $shouldDisplayForm ?>>
+    <h2>
+        Access Your FREE Courses Now! No purchase necessary.
+    </h2>
+    <div class="email-block">
+        <label>Email Address</label><input type="text" name="freelectures[email_address]"
+                                           class="input-text required-entry freelecture-email-valid"/>
+    </div>
+    <div>
+        <label class="passwordlabel">Create Password</label><input type="password" name="freelectures[password]" id="newcustomer-freelecture-password"
+                                                                class="input-text freelecture-password-required validate-tgc-password freelecture-password"/>
+    </div>
+    <div class="confirmpassword">
+        <label>Re-enter Password</label><input type="password" name="freelectures[password_confirm]" id="newcustomer-freelecture-password-confirm"
+                                               class="input-text freelecture-password-required freelecture-confirm-password-newcustomer"/>
+    </div>
+
+    <input type="hidden" class="should_log_customer_in" name="freelectures[should_log_customer_in]" value=""/>
+    <input type="hidden" id="current_freelectures_form" name="freelectures[current_freelectures_form]" value="<?php echo $currentFormName ?>" />
+    <div class="action freelectureRegisterButtons clearfix">
+        <a class="existingcustomer" rel="nofollow" href="#"><?php echo $this->__('Existing Customer?'); ?></a>
+        <a class="newcustomer" rel="nofollow" href="#" style="display: none;"><?php echo $this->__('New Customer?'); ?></a>
+
+        <input id="submitbutton" type="submit" value="Get FREE Lectures" class="button"/>
+    </div>
+</form>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var freeLecturesNewCustomerForm = new VarienForm('free-lectures-form-validate-newcustomer', true);
+
+    //]]>
+</script>

@@ -1,0 +1,20 @@
+<div id="free_lectures_unsubscribe_form">
+    <?php if ($helperDaxUnsubscribe->hasUserBeenUnsubscrited()): ?>
+        <div><b>You have been successfully unsubscribed from the email campaign.</b></div>
+    <?php elseif(!$helperDaxUnsubscribe->isUnsubscribeRequestValid()): ?>
+        <div><b>This link you clicked on to reach this page is not valid. Therefore, this request to unsubscribe cannot be completed.</b></div>
+    <?php elseif ($helperDaxUnsubscribe->isCustomerEligibleToUnsubscribe('request')): ?>
+        <form method="post" id="free-lectures-form-validate" action="<?php echo $helperDaxUnsubscribe->getUnsubscribePostUrl() ?>">
+            <div id="free-lectures-form-section-unsubscribe">
+                <div id="email_to_unsubscribe"><b>Email address to unsubscribe:</b> <?php echo $helperDaxUnsubscribe->getEmailAddressToUnsubscribe() ?></div>
+                <div id="freelectures_unsubscribe_button"><input id="submitbutton" type="submit" value="Unsubscribe" class="button"/></div>
+            </div>
+            <input type="hidden" name="em" value="<?php echo $helperDaxUnsubscribe->getEmailToUnsubcribe() ?>" />
+            <input type="hidden" name="cm_mmca1" value="<?php echo $helperDaxUnsubscribe->getWebKey() ?>" />
+            <input type="hidden" name="ai" value="<?php echo $helperDaxUnsubscribe->getAdCode() ?>" />
+            <input type="hidden" name="cm_mmc" value="<?php echo $helperDaxUnsubscribe->getEmailCampaign() ?>" />
+        </form>
+    <?php else: ?>
+        <b>The email address this unsubscribe request is associated with is invalid or does not exist.</b>
+    <?php endif; ?>
+</div>

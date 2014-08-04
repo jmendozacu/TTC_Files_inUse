@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * ProductGallery
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     ProductGallery
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_ProductGallery>
+            <version>1.13.1.0.4</version>
+        </Tgc_ProductGallery>
+    </modules>
+
+    <global>
+        <blocks>
+            <tgc_productgallery>
+                <class>Tgc_ProductGallery_Block</class>
+            </tgc_productgallery>
+        </blocks>
+
+        <helpers>
+            <tgc_productgallery>
+                <class>Tgc_ProductGallery_Helper</class>
+            </tgc_productgallery>
+        </helpers>
+
+        <models>
+            <tgc_productgallery>
+                <class>Tgc_ProductGallery_Model</class>
+            </tgc_productgallery>
+
+            <catalog>
+                <rewrite>
+                    <product_attribute_backend_media>Tgc_ProductGallery_Model_Catalog_Product_Attribute_Backend_Media</product_attribute_backend_media>
+                </rewrite>
+            </catalog>
+
+            <catalog_resource>
+                <rewrite>
+                    <product_attribute_backend_media>Tgc_ProductGallery_Model_Resource_Catalog_Product_Attribute_Backend_Media</product_attribute_backend_media>
+                </rewrite>
+            </catalog_resource>
+        </models>
+
+        <resources>
+            <tgc_productgallery_setup>
+                <setup>
+                    <module>Tgc_ProductGallery</module>
+                </setup>
+            </tgc_productgallery_setup>
+            <tgc_productgallery_attribute_setup>
+                <setup>
+                    <module>Tgc_ProductGallery</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </tgc_productgallery_attribute_setup>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <events>
+            <catalog_product_gallery_prepare_layout>
+                <observers>
+                    <tgc_productgallery_catalog_product_gallery_prepare_layout>
+                        <class>tgc_productgallery/observer</class>
+                        <method>setGalleryTemplate</method>
+                    </tgc_productgallery_catalog_product_gallery_prepare_layout>
+                </observers>
+            </catalog_product_gallery_prepare_layout>
+        </events>
+    </adminhtml>
+
+    <frontend>
+        <layout>
+            <updates>
+                <tgc_productgallery>
+                    <file>tgc_productgallery.xml</file>
+                </tgc_productgallery>
+            </updates>
+        </layout>
+    </frontend>
+
+    <default>
+        <catalog>
+            <product_brightcove_video>
+                <player_lib_url>http://admin.brightcove.com/js/BrightcoveExperiences.js</player_lib_url>
+                <player_id></player_id>
+                <player_key>AQ~~,AAABC2NgoKk~,lQq4tda2_S2Nm0JCSi9lMedYhc3zQfd0</player_key>
+            </product_brightcove_video>
+        </catalog>
+    </default>
+</config>

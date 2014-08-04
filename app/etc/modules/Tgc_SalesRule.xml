@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * SalesRule
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     SalesRule
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_SalesRule>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_SalesRule/>
+            </depends>
+        </Tgc_SalesRule>
+    </modules>
+</config>

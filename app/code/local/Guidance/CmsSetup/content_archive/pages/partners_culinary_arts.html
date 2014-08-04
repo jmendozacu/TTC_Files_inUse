@@ -1,0 +1,16 @@
+ID:                 partners/culinary-arts
+Status:             published
+Title:              Culinary Arts
+Layout:             one_column
+Stores:             default,uk_en, au_en
+---
+{{block type="cms/block" block_id="cularts_top_info" name="cularts.top.info"}}
+{{block type="tgc_cms/partners_products" name="partner.products" show_partner="Culinary Institute of America"}}
+<div class="partner_page partner_page_culinary culinary_quotes quotes">
+    <div class="partner_content">
+        <div class="partner_customer_quotes">
+            {{widget type="tgc_cms/quotes" title="What People Are Saying" display_type="2"}}
+        </div>
+    </div>
+</div>
+{{block type="cms/block" block_id="partner_professors_culinary" name="partner.professors.culinary"}}

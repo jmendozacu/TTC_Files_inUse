@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Description
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_SimpleProductPricing
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_SimpleProductPricing>
+            <version>2</version>
+        </Tgc_SimpleProductPricing>
+    </modules>
+    <global>
+        <resources>
+            <tgc_simpleProductPricing_setup>
+                <setup>
+                    <module>Tgc_SimpleProductPricing</module>
+                </setup>
+            </tgc_simpleProductPricing_setup>
+        </resources>
+    </global>
+</config>

@@ -1,0 +1,193 @@
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- ViewVC :: http://www.viewvc.org/ -->
+<head>
+<title>[svn] Log of /openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf</title>
+<meta name="generator" content="ViewVC 1.1.5" />
+<link rel="shortcut icon" href="/view/*docroot*/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="/view/*docroot*/styles.css" type="text/css" />
+
+</head>
+<body>
+<div class="vc_navheader">
+<table><tr>
+<td><strong><a href="/view?sortdir=down&amp;view=roots"><span class="pathdiv">/</span></a><a href="/view/?sortdir=down">[svn]</a><span class="pathdiv">/</span><a href="/view/openimages/?sortdir=down">openimages</a><span class="pathdiv">/</span><a href="/view/openimages/trunk/?sortdir=down">trunk</a><span class="pathdiv">/</span><a href="/view/openimages/trunk/src/?sortdir=down">src</a><span class="pathdiv">/</span><a href="/view/openimages/trunk/src/main/?sortdir=down">main</a><span class="pathdiv">/</span><a href="/view/openimages/trunk/src/main/webapp/?sortdir=down">webapp</a><span class="pathdiv">/</span><a href="/view/openimages/trunk/src/main/webapp/oiplayer/?sortdir=down">oiplayer</a><span class="pathdiv">/</span><a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/?sortdir=down">plugins</a><span class="pathdiv">/</span>flowplayer-3.2.7.swf</strong></td>
+<td style="text-align: right;"></td>
+</tr></table>
+</div>
+<div style="float: right; padding: 5px;"><a href="http://www.viewvc.org/" title="ViewVC Home"><img src="/view/*docroot*/images/viewvc-logo.png" alt="ViewVC logotype" width="240" height="70" /></a></div>
+<h1>Log of /openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf</h1>
+
+<p style="margin:0;">
+
+<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/?sortdir=down"><img src="/view/*docroot*/images/back_small.png" class="vc_icon" alt="Parent Directory" /> Parent Directory</a>
+
+| <a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?sortdir=down&amp;view=log"><img src="/view/*docroot*/images/log.png" class="vc_icon" alt="Revision Log" /> Revision Log</a>
+
+
+
+
+</p>
+
+<hr />
+<table class="auto">
+
+
+
+<tr>
+<td>Links to HEAD:</td>
+<td>
+(<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?view=markup&amp;sortdir=down">view</a>)
+(<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?view=co">download</a>)
+(<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?content-type=text%2Fplain&amp;view=co">as text</a>)
+(<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?view=annotate&amp;sortdir=down">annotate</a>)
+</td>
+</tr>
+
+
+
+<tr>
+<td>Sticky Revision:</td>
+<td><form method="get" action="/view" style="display: inline">
+<div style="display: inline">
+<input type="hidden" name="orig_pathtype" value="FILE"/><input type="hidden" name="orig_view" value="log"/><input type="hidden" name="orig_path" value="openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf"/><input type="hidden" name="sortdir" value="down"/><input type="hidden" name="view" value="redirect_pathrev"/>
+
+<input type="text" name="pathrev" value="" size="6"/>
+
+<input type="submit" value="Set" />
+</div>
+</form>
+
+</td>
+</tr>
+</table>
+ 
+
+
+
+
+
+
+
+<div>
+<hr />
+
+<a name="rev46123"></a>
+
+
+Revision <a href="/view?view=revision&amp;sortdir=down&amp;revision=46123"><strong>46123</strong></a> -
+
+
+(<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?revision=46123&amp;view=markup&amp;sortdir=down">view</a>)
+
+
+(<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?revision=46123&amp;view=co">download</a>)
+(<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?revision=46123&amp;content-type=text%2Fplain&amp;view=co">as text</a>)
+(<a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?annotate=46123&amp;sortdir=down">annotate</a>)
+
+
+
+- <a href="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf?r1=46123&amp;sortdir=down&amp;view=log">[select for diffs]</a>
+
+
+
+
+<br />
+
+Added
+
+<em>Fri Dec  9 11:02:18 2011 UTC</em>
+(2 years, 3 months ago)
+by <em>andre</em>
+
+
+
+
+
+
+
+<br />File length: 120221 byte(s)
+
+
+
+
+
+
+
+
+
+
+
+<pre class="vc_log">upgraded flowplayer to 3.2.7, some details in css</pre>
+</div>
+
+ 
+
+
+ <hr />
+<p><a name="diff"></a>
+This form allows you to request diffs between any two revisions of this file.
+For each of the two "sides" of the diff,
+
+enter a numeric revision.
+
+</p>
+<form method="get" action="/view/openimages/trunk/src/main/webapp/oiplayer/plugins/flowplayer-3.2.7.swf" id="diff_select">
+<table cellpadding="2" cellspacing="0" class="auto">
+<tr>
+<td>&nbsp;</td>
+<td>
+<input type="hidden" name="sortdir" value="down"/><input type="hidden" name="view" value="diff"/>
+Diffs between
+
+<input type="text" size="12" name="r1"
+value="46123" />
+
+and
+
+<input type="text" size="12" name="r2" value="46123" />
+
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>
+Type of Diff should be a
+<select name="diff_format" onchange="submit()">
+<option value="h" selected="selected">Colored Diff</option>
+<option value="l" >Long Colored Diff</option>
+<option value="f" >Full Colored Diff</option>
+<option value="u" >Unidiff</option>
+<option value="c" >Context Diff</option>
+<option value="s" >Side by Side</option>
+</select>
+<input type="submit" value=" Get Diffs " />
+</td>
+</tr>
+</table>
+</form>
+
+
+
+
+
+<hr />
+<table>
+<tr>
+<td><address><a href="mailto:<a href="mailto:svn-admin@mmbase.org">svn-admin@mmbase.org</a>"><a href="mailto:svn-admin@mmbase.org">svn-admin@mmbase.org</a></a></address></td>
+<td style="text-align: right;"><strong><a href="/view/*docroot*/help_log.html">ViewVC Help</a></strong></td>
+</tr>
+<tr>
+<td>Powered by <a href="http://viewvc.tigris.org/">ViewVC 1.1.5</a></td>
+<td style="text-align: right;">&nbsp;</td>
+</tr>
+</table>
+</body>
+</html>
+
+

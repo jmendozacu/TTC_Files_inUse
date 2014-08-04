@@ -1,0 +1,30 @@
+<?php
+    $formId    = $this->getFormId() ? $this->getFormId() : 'form-validate';
+    $zipId     = $formId . '_zip';
+    $countryId = 'address-form_country'
+?>
+<label for="<?php echo $zipId ?>" class="required"><?php echo $this->__('Zip Code') ?></label>
+<div class="input-box">
+    <input type="text" name="postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" title="<?php echo $this->__('Zip/Postal Code') ?>" id="<?php echo $zipId ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?>" />
+</div>
+<script type="text/javascript">
+//<!--
+    document.observe('dom:loaded', function () {
+        setZipValidator($('<?php echo $countryId ?>'));
+
+        $('<?php echo $countryId ?>').on('change', function (event) {
+            setZipValidator(event.element());
+        });
+    })
+
+    function setZipValidator(element) {
+        if ('US' == element.getValue()) {
+            $('<?php echo $zipId ?>').addClassName('validate-zip');
+            $('<?php echo $zipId ?>').removeClassName('validate-zip-international');
+        } else {
+            $('<?php echo $zipId ?>').removeClassName('validate-zip');
+            $('<?php echo $zipId ?>').addClassName('validate-zip-international');
+        }
+    }
+//-->
+</script>

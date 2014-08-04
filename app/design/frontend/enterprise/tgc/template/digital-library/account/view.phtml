@@ -1,0 +1,481 @@
+<?php
+/**
+ * Digital Library Account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_DigitalLibrary_Block_View */
+?>
+<?php
+$course   = $this->getCourse();
+$lectures = $this->getLectures();
+$format   = $this->getFormat();
+$transcriptUrl = $this->getTranscriptUrl($course);
+$streamingAvailable = $this->isStreamingAvailable();
+?>
+<div id="player-view" class="player-page">
+    <div class="top-area clearfix">
+        <div class="photo-block">
+            <img src="<?php echo $this->helper('infortis/image')->getImg($course, 75, 110, 'thumbnail'); ?>" alt="<?php echo $course->getName(); ?>" />
+        </div>
+        <div class="course-data">
+            <div class="top-part">
+                <div class="course-title"><?php echo $course->getName(); ?></div>
+                <div class="course-number"><?php echo $this->__('Course No. ') . $course->getCourseId(); ?></div>
+                <?php if (count($this->getProfessorInfo($course)) > 0): ?>
+                    <span class="professor-name show-for-mobile">
+                        <?php if ($this->hasMultipleProfessors($course)): ?>
+                            <?php echo $this->__('Taught By Multiple Professors') ;?>
+                        <?php else :?>
+                            <?php foreach ($this->getProfessorInfo($course) as $professor): ?>
+                                <?php echo $this->escapeHtml($professor->getTitle() . ' ' . $professor->getFirstName() . ' ' . $professor->getLastName()); ?>
+                            <?php endforeach; ?>
+                        <?php endif ?>
+                    </span>
+                <?php endif ?>
+            </div>
+            <div class="bottom-part">
+                <ul>
+                    <?php if ($this->getProfessorInfo($course)): ?>
+                        <li class="professor-name hide-for-mobile">
+                            <?php if ($this->hasMultipleProfessors($course)) : ?>
+                                <?php echo $this->__('Taught By Multiple Professors') ;?>
+                            <?php else :?>
+                                <?php foreach ($this->getProfessorInfo($course) as $professor): ?>
+                                    <?php echo $this->escapeHtml($professor->getTitle() . ' ' . $professor->getFirstName() . ' ' . $professor->getLastName()); ?>
+                                <?php endforeach; ?>
+                            <?php endif ?>
+                        </li>
+                    <?php endif ?>
+                    <?php if ($guidebookUrl = $this->getGuidebookUrl($course)): ?>
+                        <li class="view-guidebook">
+                            <a href="javascript:void(0);" onclick="openInNewTab('<?php echo $guidebookUrl; ?>');"><?php echo $this->__('View the Course Guidebook'); ?></a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (!$transcriptUrl && $price = $this->getTranscriptPrice($course)): ?>
+                        <li class="purchase-transcript">
+                            <a href="javascript:void(0)" onclick="showTranscriptDialog();"><?php echo $this->__('Purchase a Transcript for "') . $this->getTranscriptPrice($course) . '"'; ?></a>
+                            <div class="purchase-transcript-popup clearer" style="display:none;">
+                                <img src="<?php echo Mage::helper('catalog/image')->init($course, 'thumbnail')->resize(80)->__toString(); ?>" alt=""/>
+                                <div class="text-block"><?php echo $this->__('Transcript for %s was successfully added to your cart!', '<b>'.$this->escapeHtml($course->getName()).'</b>'); ?> </div>
+                                <a class="button" href="<?php echo Mage::helper('checkout/cart')->getCartUrl(); ?>" title="<?php echo $this->__('Proceed to Checkout'); ?>">
+                                    <?php echo $this->__('Proceed to Checkout'); ?>
+                                </a>
+                                <a href="javascript:void(0)" class="close-button">Close</a>
+                            </div>
+                        </li>
+                    <?php elseif ($transcriptUrl): ?>
+                        <li class="purchase-transcript">
+                            <a href="javascript:void(0);" onclick="openInNewTab('<?php echo $transcriptUrl; ?>');"><?php echo $this->__('Download the transcript for this course'); ?></a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <?php if ($streamingAvailable): ?>
+        <div id="brightCove-player" class="brightCove-player clearfix">
+            <div style="display:none;"></div>
+            <script language="JavaScript" type="text/javascript" src="<?php echo Tgc_DigitalLibrary_Block_BrightCove::JS_LOCATION; ?>"></script>
+            <object id="myExperience" class="BrightcoveExperience">
+                <param name="bgcolor" value="#fff" />
+                <param name="width" value="900" />
+                <param name="height" value="<?php echo $format == 1 ? 400 : 200; ?>" />
+                <param name="playerID" value="1613907825001" />
+                <param name="playerKey" value="AQ~~,AAABC2NgoKk~,lQq4tda2_S2Nm0JCSi9lMedYhc3zQfd0" />
+                <param name="isVid" value="true" />
+                <param name="isUI" value="true" />
+                <param name="dynamicStreaming" value="true" />
+                <param name="@videoPlayer" value="<?php echo isset($lectures[0]) ? $this->getMediaId($lectures[0]) : ''; ?>" />
+                <param name="wmode" value="transparent" />
+                <!-- smart player api params -->
+                <param name="includeAPI" value="true" />
+                <param name="templateLoadHandler" value="onTemplateLoad" />
+                <param name="templateReadyHandler" value="onTemplateReady" />
+
+            </object>
+            <script type="text/javascript">brightcove.createExperiences();</script>
+        </div>
+        <div id="nav-bar" class="nav-bar">
+            <span class="prev inactive"><?php echo $this->__('Prev'); ?></span>
+            <span class="title"></span>
+            <span class="next inactive"><?php echo $this->__('Next'); ?></span>
+        </div>
+    <?php else: ?>
+        <div id="nav-bar" class="nav-bar nostreaming">
+            <span class="title"><?php echo $this->__('Lecture Download'); ?></span>
+        </div>
+    <?php endif; ?>
+    <div class="lecture-list-wrapper">
+        <div class="lecture-list-table">
+            <table id="lecture-list" width="100%" class="lecture-list">
+                <?php foreach ($lectures as $lecture): ?>
+                <?php $progressPercent = $this->getProgressPercent($lecture); ?>
+                        <tr id="lecture-<?php echo $lecture['lecture_number']; ?>" data-number="<?php echo $lecture['lecture_number']; ?>" data-lecture="<?php echo $this->getMediaId($lecture); ?>" data-duration="<?php echo $lecture['duration']; ?>" data-entity="<?php echo $lecture['id']; ?>" data-progress="<?php echo intval($lecture['progress']); ?>">
+                    <td class="lecture-number">
+                        <?php echo $lecture['lecture_number']; ?>.
+                    </td>
+                    <td class="title">
+                                <?php echo $lecture['title']; ?><span class="description" style="display:none;"><?php echo $lecture['description']; ?></span>
+                    </td>
+                            <td class="duration hide-for-mobile">
+                        <?php echo $this->convertDuration($lecture['duration']); ?>
+                    </td>
+                    <?php if ($streamingAvailable): ?>
+                        <td class="progress">
+                            <span class="duration show-for-mobile"><?php echo $this->convertDuration($lecture['duration']); ?></span>
+                            <div class="course-progress-bar">
+                                <div class="progress" style="width: <?php echo $progressPercent?>%"></div>
+                            </div>
+                            <div class="text-progress">
+                                <?php echo $progressPercent == 100 ? 'Completed' : $progressPercent . '%'; ?>
+                            </div>
+                        </td>
+                        <td>
+                             <button class="play-button <?php echo $progressPercent > 0 ? 'resume' : 'play'; ?>"><?php echo $progressPercent > 0 ? 'Resume' : 'Play'; ?></button>
+                        </td>
+                    <?php else: ?>
+                        <td class="progress">
+                            <span class="duration show-for-mobile"><?php echo $this->convertDuration($lecture['duration']); ?></span>
+                        </td>
+                    <?php endif; ?>
+                    <?php if ($lecture['is_downloadable'] && $this->canDownload($lecture['id'], $format)): ?>
+                        <td class="hide-for-mobile">
+                             <button class="download-button"><?php echo $this->__('Download'); ?></button>
+                        </td>
+                    <?php endif; ?>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
+    <div id="course-starter-materials" class="course-starter-materials hide">
+        <h2><?php echo $this->__('Show Course Starter Materials'); ?></h2>
+        <div class="data-block clearfix" style="display: none;">
+            <div class="left-part">
+                <h3>
+                    <?php echo $this->__('Course Summary by ') ?>
+                    <?php if ($this->hasMultipleProfessors($course)): ?>
+                        <?php echo $this->__('Taught By Multiple Professors') ;?>
+                    <?php else :?>
+                        <?php
+                            $isFirst = true;
+                            foreach ($this->getProfessorInfo($course) as $professor): ?><?php if (!$isFirst): ?><?php echo ', '; ?><?php else: ?><?php $isFirst = false; ?><?php endif; ?><a href="<?php echo Mage::helper('profs')->getProfessorUrl($professor)?>"><?php echo $this->escapeHtml($professor->getTitle() . ' ' . $professor->getFirstName() . ' ' . $professor->getLastName()) ?></a>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </h3>
+                <div class="course-summary"><?php echo $this->filterCms($course->getCourseSummary()); ?></div>
+            </div>
+            <div class="right-part">
+                <?php if ($this->filterCms($course->getBibliography())): ?>
+                    <div class="bibliography gray-block-with-border">
+                        <?php echo $this->filterCms($course->getBibliography()); ?>
+                    </div>
+                <?php endif ?>
+                <?php if ($this->filterCms($course->getRecommendedLinks())): ?>
+                    <div class="recomended-links gray-block-with-border">
+                        <h4><?php echo $this->__('Recomended Links') ?></h4>
+                        <?php echo $this->filterCms($course->getRecommendedLinks()); ?>
+                    </div>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+    <?php echo $this->getChildHtml('recomendations');?>
+</div>
+
+<script type="text/JavaScript">
+    decorateTable('lecture-list');
+
+    function showTranscriptDialog() {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::getUrl('digital-library/course/purchaseTranscript'); ?>',
+            data: {
+                courseId: '<?php echo $course->getCourseId(); ?>'
+            },
+            success: function(data, textStatus, jqXHR) {
+                jQuery('.purchase-transcript-popup').prependTo('.main-container').slideDown();
+                jQuery('.purchase-transcript-popup .close-button').one(customClickEvent, function() {jQuery('.purchase-transcript-popup').slideUp()})
+            }
+        });
+    }
+    <?php if ($streamingAvailable): ?>
+    var player, modExp, seekPoint, videoPlayer, APIModules, captionsModule, mediaEvent, counter = 0, currentAction, currentLecture, currentProgress, numLectures = <?php echo count($lectures); ?>;
+
+    var customClickEvent;
+    if( (navigator.userAgent.match(/Android/i)) ||
+        (navigator.userAgent.match(/webOS/i)) ||
+        (navigator.userAgent.match(/iPhone/i)) ||
+        (navigator.userAgent.match(/iPad/i)) ||
+        (navigator.userAgent.match(/iPod/i)) ||
+        (navigator.userAgent.match(/BlackBerry/i)) ||
+        (navigator.userAgent.match(/Windows Phone/i))
+    ) {
+        customClickEvent = 'touchend';;
+    } else {
+        customClickEvent = 'click';
+    }
+
+    function onTemplateLoad(experienceID) {
+        player = brightcove.api.getExperience(experienceID);
+        APIModules = brightcove.api.modules.APIModules;
+        modExp = player.getModule(APIModules.EXPERIENCE);
+        mediaEvent = brightcove.api.events.MediaEvent;
+        modExp.addEventListener(brightcove.api.events.ExperienceEvent.TEMPLATE_READY, onTemplateReady);
+    }
+
+    function onTemplateReady(evt) {
+        videoPlayer = player.getModule(APIModules.VIDEO_PLAYER);
+        videoPlayer.addEventListener(mediaEvent.COMPLETE, onMediaComplete);
+        videoPlayer.addEventListener(mediaEvent.PROGRESS, onMediaProgress);
+        videoPlayer.addEventListener(mediaEvent.PLAY, onMediaStart);
+        videoPlayer.addEventListener(mediaEvent.STOP, onMediaStop);
+
+        updateNavBar();
+        <?php if ($this->getLast()): ?>
+            jQuery('tr#lecture-<?php echo $this->getLast(); ?>').find('button.play-button').trigger(customClickEvent);
+            //setTimeout(function() {pauseVideo(jQuery('tr#lecture-<?php echo $this->getLast(); ?>').attr('data-number')); }, 1000);
+        <?php endif; ?>
+        if (jQuery(window).width() < 768 ) {
+            jQuery(document).ready(function() {
+                modExp.setSize(jQuery('#brightCove-player').outerWidth(), jQuery('#brightCove-player').outerHeight());
+
+            })
+            jQuery(window).resize(function() {
+                modExp.setSize(jQuery('#brightCove-player').outerWidth(), jQuery('#brightCove-player').outerHeight());
+
+            })
+
+        }
+    }
+
+    var onMediaComplete = function(evt) {
+        var duration = evt.duration;
+        saveProgress(duration, currentLecture);
+        setLectureAsWatched(currentLecture);
+        jQuery('tr#lecture-' + currentLecture + ' td.progress .text-progress').text('Completed');
+        jQuery('tr#lecture-' + currentLecture + ' td.progress' + ' .course-progress-bar .progress').removeClass('playing');
+        var playButton = jQuery('tr#lecture-' + currentLecture +' button.play-button');
+        jQuery(playButton).text('Play');
+        jQuery(playButton).removeClass('pause').removeClass('resume').addClass('play');
+        if (currentLecture < numLectures) {
+            var nextVideo = Number(currentLecture) + 1;
+            playVideo(nextVideo);
+            updateNavBar();
+        }
+    }
+
+    var onMediaProgress = function(evt) {
+        var duration = evt.duration;
+        var position = Math.round(evt.position);
+        var progress = Math.round((position/duration) * 100);
+        jQuery('tr#lecture-' + currentLecture).attr('data-progress', position);
+
+        if (progress != currentProgress) {
+            currentProgress = progress;
+            saveProgress(position, currentLecture);
+            jQuery('tr#lecture-' + currentLecture + ' td.progress .text-progress').text(progress + '%');
+            jQuery('tr#lecture-' + currentLecture + ' td.progress' + ' .course-progress-bar .progress').css({'width' : progress + '%'});
+        }
+    }
+
+    var onMediaStop = function(evt) {
+        var position = Math.round(evt.position);
+        saveProgress(position, currentLecture);
+        pauseVideo(currentLecture);
+    }
+
+    var onMediaStart = function(evt) {
+        markActive(currentLecture);
+        currentAction = 'play';
+        var playButton = jQuery('tr#lecture-' + currentLecture +' button.play-button');
+        jQuery(playButton).text('Pause');
+        jQuery(playButton).removeClass('play').removeClass('resume').addClass('pause');
+        jQuery('tr#lecture-' + currentLecture + ' td.progress' + ' .course-progress-bar .progress').addClass('playing');
+    }
+
+    jQuery('#lecture-list tr button.play-button').on(customClickEvent, function() {
+        var id = jQuery(this).closest('tr').attr('data-number');
+        if (currentAction == 'play' && currentLecture == id) {
+            pauseVideo(id);
+        } else {
+            pauseVideo(currentLecture);
+            playVideo(id);
+        }
+        updateNavBar();
+    });
+
+    jQuery('#nav-bar span.next').on(customClickEvent, function() {
+        if (currentLecture >= numLectures) {
+            return;
+        }
+        var id = Number(currentLecture) + 1;
+        playVideo(id);
+        updateNavBar();
+    });
+
+    jQuery('#nav-bar span.prev').on(customClickEvent, function() {
+        if (currentLecture <= 1) {
+            return;
+        }
+        var id = Number(currentLecture) - 1;
+        playVideo(id);
+        updateNavBar();
+    });
+
+    jQuery('#lecture-list tr button.download-button').on(customClickEvent, function() {
+        var id = jQuery(this).closest('tr').attr('data-entity');
+        downloadLecture(id);
+    });
+
+    function pauseVideo(id) {
+        var progressText = jQuery('tr#lecture-' + id + ' td.progress .text-progress').text();
+        if (progressText == 'Completed') {
+            return;
+        }
+        currentAction = 'pause';
+        var playButton = jQuery('tr#lecture-' + id +' button.play-button');
+        jQuery(playButton).text('Resume');
+        jQuery(playButton).removeClass('play').removeClass('pause').addClass('resume');
+        jQuery('tr#lecture-' + currentLecture + ' td.progress' + ' .course-progress-bar .progress').removeClass('playing');
+        videoPlayer.pause();
+    }
+
+    function playVideo(id) {
+        var row = jQuery('tr#lecture-' + id);
+        seekPoint = jQuery(row).attr('data-progress');
+        var duration = jQuery(row).attr('data-duration');
+        if ((duration - seekPoint) < 10) {
+            seekPoint = 0;
+        }
+        if (currentLecture != id) {
+            markInactive(currentLecture);
+            pauseVideo(currentLecture);
+            markActive(id);
+        }
+        var lectureId = jQuery(row).attr('data-lecture');
+        videoPlayer.loadVideoByReferenceID(lectureId);
+        videoPlayer.removeEventListener(mediaEvent.PROGRESS, onMediaProgress);
+        videoPlayer.addEventListener(mediaEvent.PROGRESS, seekVideoPoint);
+        currentAction = 'play';
+        currentLecture = id;
+        var playButton = jQuery('tr#lecture-' + id +' button.play-button');
+        jQuery(playButton).text('Pause');
+        jQuery(playButton).removeClass('play').removeClass('resume').addClass('pause');
+        jQuery('tr#lecture-' + currentLecture + ' td.progress' + ' .course-progress-bar .progress').addClass('playing');
+        videoPlayer.play();
+    }
+
+    var seekVideoPoint = function(evt) {
+        var position = Math.round(evt.position);
+        if (position >= seekPoint) {
+            videoPlayer.removeEventListener(mediaEvent.PROGRESS, seekVideoPoint);
+            videoPlayer.addEventListener(mediaEvent.PROGRESS, onMediaProgress);
+            seekPoint = 0;
+        } else {
+            videoPlayer.seek(seekPoint);
+        }
+    }
+
+    function markActive(id) {
+        jQuery('tr#lecture-' + id).addClass('active');
+    }
+
+    function markInactive(id) {
+        jQuery('tr#lecture-' + id).removeClass('active');
+    }
+
+    function updateNavBar() {
+        if (typeof currentLecture == 'undefined') {
+            currentLecture = 1;
+            videoPlayer.cueVideo(jQuery('tr#lecture-' + currentLecture).attr('data-lecture'));
+            markActive(currentLecture);
+        }
+
+        if (currentLecture > 1) {
+            jQuery('#nav-bar span.prev').removeClass('inactive');
+        } else {
+            jQuery('#nav-bar span.prev').addClass('inactive');
+        }
+
+        if (currentLecture < numLectures) {
+            jQuery('#nav-bar span.next').removeClass('inactive');
+        } else {
+            jQuery('#nav-bar span.next').addClass('inactive');
+        }
+
+        var title = '<span class="lecture-number">Lecture ' + currentLecture + ': </span>' + jQuery('tr#lecture-' + currentLecture + ' td.title').html();
+        jQuery('#nav-bar span.title').html(title);
+    }
+
+    function saveProgress(position, id) {
+        jQuery('tr#lecture-' + id).attr('data-progress', position);
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::getUrl('digital-library/course/saveProgress'); ?>',
+            data: {
+                position: position,
+                id: jQuery('tr#lecture-' + id).attr('data-entity'),
+                format: '<?php echo $format; ?>'
+            }
+        });
+    }
+
+    function setLectureAsWatched(id) {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::getUrl('digital-library/course/setWatched'); ?>',
+            data: {
+                id: jQuery('tr#lecture-' + id).attr('data-entity'),
+                format: '<?php echo $format; ?>'
+            }
+        });
+    }
+
+    <?php endif; ?>
+
+    function downloadLecture(id) {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::getUrl('digital-library/course/downloadLecture'); ?>',
+            data: {
+                lecture: id,
+                course: '<?php echo $course->getId(); ?>',
+                format: '<?php echo $format; ?>'
+            },
+            success: function(data, textStatus, jqXHR) {
+                if (data['status'] == 'noaccess') {
+                    alert(data['message']);
+                } else if (data['status'] == 'success') {
+                    if (data['status'] != false) {
+                        window.open(data['url']);
+                    } else {
+                        alert('There was an error with your download. Please try again later or contact customer service.');
+                    }
+                }
+            }
+        });
+    }
+
+    jQuery('div#course-starter-materials > h2').on(customClickEvent, function() {
+        jQuery('div#course-starter-materials').toggleClass('hide');
+        jQuery('div#course-starter-materials > div').slideToggle(500);
+        if (jQuery('div#course-starter-materials').hasClass('hide')) {
+            jQuery('div#course-starter-materials').find('h2').text('<?php echo $this->__('Show Course Starter Materials'); ?>');
+        } else {
+            jQuery('div#course-starter-materials').find('h2').text('<?php echo $this->__('Hide Course Starter Materials'); ?>');
+        }
+    });
+
+    function openInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+
+</script>

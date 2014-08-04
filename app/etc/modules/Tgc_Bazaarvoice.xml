@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Bazaarvoice
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Bazaarvoice
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Bazaarvoice>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Bazaarvoice_Connector/>
+                <Tgc_Catalog/>
+            </depends>
+        </Tgc_Bazaarvoice>
+    </modules>
+</config>

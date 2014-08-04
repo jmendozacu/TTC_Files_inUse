@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Digital Library
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_DigitalLibrary>
+            <version>11</version>
+        </Tgc_DigitalLibrary>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_dl>
+                <class>Tgc_DigitalLibrary_Helper</class>
+            </tgc_dl>
+            <tgc_digitallibrary>
+                <class>Tgc_DigitalLibrary_Helper</class>
+            </tgc_digitallibrary>
+        </helpers>
+        <blocks>
+            <tgc_dl>
+                <class>Tgc_DigitalLibrary_Block</class>
+            </tgc_dl>
+        </blocks>
+        <models>
+            <tgc_dl>
+                <class>Tgc_DigitalLibrary_Model</class>
+                <resourceModel>tgc_dl_resource</resourceModel>
+            </tgc_dl>
+            <tgc_dl_resource>
+                <class>Tgc_DigitalLibrary_Model_Resource</class>
+                <entities>
+                    <accessRights>
+                        <table>digital_library_access_rights</table>
+                    </accessRights>
+                    <crossPlatformResume>
+                        <table>digital_library_cross_platform_resume</table>
+                    </crossPlatformResume>
+                    <purchaseHistory>
+                        <table>digital_library_purchase_history</table>
+                    </purchaseHistory>
+                    <mergeAccounts>
+                        <table>digital_library_merge_accounts</table>
+                    </mergeAccounts>
+                    <akamaiContent>
+                        <table>digital_library_akamai_content</table>
+                    </akamaiContent>
+                </entities>
+            </tgc_dl_resource>
+        </models>
+        <resources>
+            <digital_library_setup>
+                <setup>
+                    <class>Tgc_DigitalLibrary_Model_Resource_Setup</class>
+                    <module>Tgc_DigitalLibrary</module>
+                </setup>
+            </digital_library_setup>
+        </resources>
+        <importexport>
+            <import_entities>
+                <access_rights translate="label">
+                    <model_token>tgc_dl/import_entity_accessRights</model_token>
+                    <label>Media Access Rights</label>
+                </access_rights>
+                <cross_platform_resume translate="label">
+                    <model_token>tgc_dl/import_entity_crossPlatformResume</model_token>
+                    <label>Cross Platform Resume Data</label>
+                </cross_platform_resume>
+                <purchase_history translate="label">
+                    <model_token>tgc_dl/import_entity_purchaseHistory</model_token>
+                    <label>Customer Purchase History</label>
+                </purchase_history>
+                <merge_accounts translate="label">
+                    <model_token>tgc_dl/import_entity_mergeAccounts</model_token>
+                    <label>Customer Merged Accounts</label>
+                </merge_accounts>
+                <akamai_content translate="label">
+                    <model_token>tgc_dl/import_entity_akamaiContent</model_token>
+                    <label>Akamai Transcripts and Guidebooks</label>
+                </akamai_content>
+            </import_entities>
+        </importexport>
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <add_media_access_rights_for_customer>
+                        <class>tgc_dl/observer</class>
+                        <method>addMediaAccessRights</method>
+                    </add_media_access_rights_for_customer>
+                </observers>
+            </sales_order_place_after>
+        </events>
+    </global>
+    <frontend>
+        <routers>
+            <tgc_digitallibrary_courses>
+                <use>standard</use>
+                <args>
+                    <module>Tgc_DigitalLibrary</module>
+                    <frontName>digital-library</frontName>
+                </args>
+            </tgc_digitallibrary_courses>
+        </routers>
+        <layout>
+            <updates>
+                <tgc_digital_library>
+                    <file>digital-library.xml</file>
+                </tgc_digital_library>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <access_rights>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_DigitalLibrary</module>
+                    <frontName>dl_accessRights</frontName>
+                </args>
+            </access_rights>
+            <cross_platform_resume>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_DigitalLibrary</module>
+                    <frontName>dl_crossPlatformResume</frontName>
+                </args>
+            </cross_platform_resume>
+            <merge_accounts>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_DigitalLibrary</module>
+                    <frontName>dl_mergeAccounts</frontName>
+                </args>
+            </merge_accounts>
+            <akamai_content>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_DigitalLibrary</module>
+                    <frontName>dl_akamaiContent</frontName>
+                </args>
+            </akamai_content>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <tgc_dl>
+                    <file>digital-library.xml</file>
+                </tgc_dl>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

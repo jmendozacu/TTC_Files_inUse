@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Digital Library
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <menu>
+        <tgc_dax>
+            <children>
+                <access_rights module="tgc_dl" translate="title">
+                    <title>Digital Access Rights</title>
+                    <sort_order>20</sort_order>
+                    <action>dl_accessRights/adminhtml_accessRights</action>
+                </access_rights>
+                <cross_platform_resume module="tgc_dl" translate="title">
+                    <title>Cross Platform Resume</title>
+                    <sort_order>30</sort_order>
+                    <action>dl_crossPlatformResume/adminhtml_crossPlatformResume</action>
+                </cross_platform_resume>
+                <akamai_content module="tgc_dl" translate="title">
+                    <title>Akamai Transcripts and Guidebooks</title>
+                    <sort_order>40</sort_order>
+                    <action>dl_akamaiContent/adminhtml_akamaiContent</action>
+                </akamai_content>
+            </children>
+        </tgc_dax>
+        <customer>
+            <children>
+                <merge_accounts module="tgc_dl" translate="title">
+                    <title>Customer Merged Accounts</title>
+                    <sort_order>5150</sort_order>
+                    <action>dl_mergeAccounts/adminhtml_mergeAccounts</action>
+                </merge_accounts>
+            </children>
+        </customer>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <tgc_dax>
+                        <children>
+                            <access_rights>
+                                <title>Manage Digital Access Rights</title>
+                                <sort_order>20</sort_order>
+                            </access_rights>
+                            <cross_platform_resume>
+                                <title>Cross Platform Resume</title>
+                                <sort_order>30</sort_order>
+                            </cross_platform_resume>
+                            <akamai_content>
+                                <title>Akamai Transcripts and Guidebooks</title>
+                                <sort_order>40</sort_order>
+                            </akamai_content>
+                        </children>
+                    </tgc_dax>
+                    <customer>
+                        <children>
+                            <merge_accounts>
+                                <title>Manage Customer Merged Accounts</title>
+                                <sort_order>5150</sort_order>
+                            </merge_accounts>
+                        </children>
+                    </customer>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

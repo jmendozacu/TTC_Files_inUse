@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Feed xmlns="http://www.bazaarvoice.com/xs/PRR/SyndicationFeed/3.3" name="Teachco"
+      extractDate="2013-11-06T10:36:12.436-06:00">
+    <Product id="2368" removed="false">
+        <Source>Teachco</Source>
+        <ExternalId>2368</ExternalId>
+        <Name>High School Level—Geometry</Name>
+        <Description>Professor Noggle's lectures on geometry are exceptionally clear and well organized. He has an
+            evident love for the topic, and a real gift for conveying the elegance and precision of geometric concepts
+            and demonstrations. You will learn how geometrical concepts link new theorems and ideas to previous ones.
+            This helps you see geometry as a unified body of knowledge whose concepts build upon one another.
+        </Description>
+        <CategoryItems>
+            <CategoryItem id="902">
+                <ExternalId>902</ExternalId>
+                <CategoryId>226119</CategoryId>
+                <CategoryName>High School</CategoryName>
+            </CategoryItem>
+        </CategoryItems>
+        <ProductPageUrl>http://www.teach12.com/ttcx/CourseDescLong2.aspx?cid=105</ProductPageUrl>
+        <ProductReviewsUrl>http://reviews.teach12.com/3456/105/reviews.htm</ProductReviewsUrl>
+        <ImageUrl>http://images.teach12.com/tgc/media/courses/105t.jpg</ImageUrl>
+        <ReviewStatistics>
+            <AverageOverallRating>4.6154</AverageOverallRating>
+            <OverallRatingRange>5</OverallRatingRange>
+            <TotalReviewCount>26</TotalReviewCount>
+            <RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+            <RecommendedCount>14</RecommendedCount>
+            <AverageRatingValues>
+                <AverageRatingValue id="Presentation">
+                    <AverageRating>4.4286</AverageRating>
+                    <RatingDimension id="Presentation" displayType="NORMAL">
+                        <ExternalId>Presentation</ExternalId>
+                        <RatingRange>5</RatingRange>
+                        <Label1>Professor Presentation</Label1>
+                    </RatingDimension>
+                </AverageRatingValue>
+                <AverageRatingValue id="Value">
+                    <AverageRating>4.7333</AverageRating>
+                    <RatingDimension id="Value" displayType="NORMAL">
+                        <ExternalId>Value</ExternalId>
+                        <RatingRange>5</RatingRange>
+                        <Label1>Course Value</Label1>
+                    </RatingDimension>
+                </AverageRatingValue>
+                <AverageRatingValue id="InformationQuality">
+                    <AverageRating>4.7333</AverageRating>
+                    <RatingDimension id="InformationQuality" displayType="NORMAL">
+                        <ExternalId>InformationQuality</ExternalId>
+                        <RatingRange>5</RatingRange>
+                        <Label1>Course Content</Label1>
+                    </RatingDimension>
+                </AverageRatingValue>
+            </AverageRatingValues>
+            <RatingDistribution>
+                <RatingDistributionItem>
+                    <RatingValue>2</RatingValue>
+                    <Count>3</Count>
+                </RatingDistributionItem>
+                <RatingDistributionItem>
+                    <RatingValue>4</RatingValue>
+                    <Count>1</Count>
+                </RatingDistributionItem>
+                <RatingDistributionItem>
+                    <RatingValue>5</RatingValue>
+                    <Count>22</Count>
+                </RatingDistributionItem>
+            </RatingDistribution>
+        </ReviewStatistics>
+    </Product>
+    <Product id="131" removed="false">
+        <Source>Teachco</Source>
+        <ExternalId>1942</ExternalId>
+        <Name>High School Level-World History: The Fertile Crescent to The American Revolution</Name>
+        <Description>Professor Linwood Thompson teaches history by using costumes, research, and acting skills to
+            portray representative characters from eras of history ranging from 3500 B.C. to the 1780s. He sees to it
+            that students enjoy themselves naturally while learning world history thoroughly—a winning combination.
+        </Description>
+        <CategoryItems>
+            <CategoryItem id="902">
+                <ExternalId>902</ExternalId>
+                <CategoryId>226119</CategoryId>
+                <CategoryName>High School</CategoryName>
+            </CategoryItem>
+        </CategoryItems>
+        <ProductPageUrl>http://www.teach12.com/ttcx/CourseDescLong2.aspx?cid=131</ProductPageUrl>
+        <ProductReviewsUrl>http://reviews.teach12.com/3456/131/reviews.htm</ProductReviewsUrl>
+        <ImageUrl>http://images.teach12.com/tgc/media/courses/131t.jpg</ImageUrl>
+        <ReviewStatistics>
+            <AverageOverallRating>4.175</AverageOverallRating>
+            <OverallRatingRange>5</OverallRatingRange>
+            <TotalReviewCount>40</TotalReviewCount>
+            <RatingsOnlyReviewCount>1</RatingsOnlyReviewCount>
+            <RecommendedCount>27</RecommendedCount>
+            <AverageRatingValues>
+                <AverageRatingValue id="Presentation">
+                    <AverageRating>4.5</AverageRating>
+                    <RatingDimension id="Presentation" displayType="NORMAL">
+                        <ExternalId>Presentation</ExternalId>
+                        <RatingRange>5</RatingRange>
+                        <Label1>Professor Presentation</Label1>
+                    </RatingDimension>
+                </AverageRatingValue>
+                <AverageRatingValue id="Value">
+                    <AverageRating>4.1667</AverageRating>
+                    <RatingDimension id="Value" displayType="NORMAL">
+                        <ExternalId>Value</ExternalId>
+                        <RatingRange>5</RatingRange>
+                        <Label1>Course Value</Label1>
+                    </RatingDimension>
+                </AverageRatingValue>
+                <AverageRatingValue id="InformationQuality">
+                    <AverageRating>4.2</AverageRating>
+                    <RatingDimension id="InformationQuality" displayType="NORMAL">
+                        <ExternalId>InformationQuality</ExternalId>
+                        <RatingRange>5</RatingRange>
+                        <Label1>Course Content</Label1>
+                    </RatingDimension>
+                </AverageRatingValue>
+            </AverageRatingValues>
+            <RatingDistribution>
+                <RatingDistributionItem>
+                    <RatingValue>1</RatingValue>
+                    <Count>2</Count>
+                </RatingDistributionItem>
+                <RatingDistributionItem>
+                    <RatingValue>3</RatingValue>
+                    <Count>5</Count>
+                </RatingDistributionItem>
+                <RatingDistributionItem>
+                    <RatingValue>4</RatingValue>
+                    <Count>15</Count>
+                </RatingDistributionItem>
+                <RatingDistributionItem>
+                    <RatingValue>5</RatingValue>
+                    <Count>18</Count>
+                </RatingDistributionItem>
+            </RatingDistribution>
+        </ReviewStatistics>
+    </Product>
+</Feed>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <podcasts_admin_adminhtml_podcast_index>
+        <reference name="content">
+            <block type="podcast/adminhtml_podcast" name="podcast" />
+        </reference>
+    </podcasts_admin_adminhtml_podcast_index>
+    <podcasts_admin_adminhtml_podcast_edit>
+        <update handle="editor" />
+        <reference name="head">
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+            <action method="addJs"><script>lib/flex.js</script></action>
+            <action method="addJs"><script>lib/FABridge.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
+        </reference>
+    </podcasts_admin_adminhtml_podcast_edit>
+</layout>

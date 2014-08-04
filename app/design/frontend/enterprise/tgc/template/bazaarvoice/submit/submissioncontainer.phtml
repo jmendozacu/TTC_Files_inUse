@@ -1,0 +1,8 @@
+<?php if(Mage::getStoreConfig("bazaarvoice/general/enable_bv") == "1"): ?>
+<div id="BVSubmissionContainer"></div>
+<script type="text/javascript">
+    $BV.ui('submission_container', {
+        userToken: '<?php echo Mage::helper('tgc_bv')->encryptReviewerId(Mage::getSingleton('customer/session')->getCustomer()->getWebUserId()); ?>'
+    });
+</script>
+<?php endif;?>

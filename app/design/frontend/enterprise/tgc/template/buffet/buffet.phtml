@@ -1,0 +1,44 @@
+<div class="buffet_page">
+    <ul class="buffet_products">
+        <?php for ($i = 1; $i <= 4; $i++): ?>
+            <li class="clearfix">
+                <div class="grid-full">
+                    <div class="grid12-4 course-video">
+                        <a href="#" rel="nofollow">
+                            <span class="course-play-video">
+                                <img src="<?php echo $this->getSkinUrl('images/tgc/icon_play_large.png') ?>" alt="Play Video" />
+                            </span>
+                            <img src="http://placehold.it/290x200"/>
+                        </a>
+                    </div>
+
+                    <div class="grid12-8">
+                        <div class="course-title">
+                            <span class="course-type">Course | </span>Understanding the World's Greatest Structures: Science and Innovation from Antiquity to Modernity
+                        </div>
+                        <div class="course-professor">Professor Richard Brettell</div>
+                        <div class="course-formats">Available Formats: <strong>Video Download, Audio Download, DVD, CD</strong></div>
+                        <p>Do you dream of exploring the masterpieces of the Louvre Museum in Paris? Whether you're planning your first visit to this world-class museum, returning for a second look, or simply playing the role of armchair art critic, you'll enjoy the pleasures that await you in this tour of France's greatest treasures. In Museum Masterpieces: The Louvre, expert art critic and historian Richard Brettell takes you on an unforgettable journey through one of the world's greatest museums. This 12-lecture series begins with an overview of the Louvre's colorful history as royal palace, art academy, and national showcase.</p>
+                    </div>
+                </div>
+                <div class="grid-full">
+                    <div class="grid12-4">&nbsp;</div>
+                    <div class="grid12-8">
+                        <div class="action">
+                            <div class="grid12-5 a-left">
+                                <a rel="nofollow" href="#" class="view-list">View Lecture List (##)</a>
+                            </div>
+
+                            <div class="grid12-7 a-right">
+                                <select>
+                                    <option>Select Format</option>
+                                </select>
+                                <a rel="nofollow" href="#" class="button">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        <?php endfor; ?>
+    </ul>
+</div>

@@ -1,0 +1,205 @@
+/*
+ * Zoom on product page
+ */
+
+
+
+/* Basic zoom styles %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* This is the moving lens square underneath the mouse pointer. */
+.cloud-zoom-lens {
+    border:1px solid #ccc;
+    margin:-1px; /* Set this to minus the border thickness. */
+    background-color:#fff;
+    cursor:move;
+}
+
+/* This is the zoom window. */
+.cloud-zoom-big {
+    border:1px solid #e5e5e5;
+    overflow:hidden;
+}
+
+/* This is the loading message. */
+.cloud-zoom-loading {
+    color:white;
+    background:#222;
+    padding:0.25em;
+    border:1px solid #000;
+}
+
+#wrap {
+    /* Decrease default z-index */
+    z-index:99 !important;
+}
+
+/* Zoom position: "inside"
+-------------------------------------------------------------- */
+.product-image .mousetrap {
+    z-index:100 !important;
+
+    /* For responsive layout */
+    width:100% !important;
+    height:100% !important;
+}
+.zoom-inside #wrap { overflow:hidden; }
+
+/* No borders if zoom position is "inside" */
+.zoom-inside .cloud-zoom-big { border:none; }
+
+/* Display images without Cloud Zoom
+-------------------------------------------------------------- */
+/* Hide zoom area */
+.simple-mode .cloud-zoom-big,
+.simple-mode .cloud-zoom-lens { display:none !important; }
+.simple-mode .cloud-zoom-lens { cursor:default !important; }
+
+
+/* Zoom button (enlarge the main image)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.zoom-btn-small {
+    position:absolute;
+    right:4px;
+    bottom:0;
+    padding:0 1em;
+    line-height:2.6666em;
+    z-index:100;
+    background-color:#fff;
+    background-color:rgba(255,255,255, 0.7);
+    color:#333;
+}
+.zoom-btn-small:hover { background-color:#fff; }
+
+/* Use lightbox without cloud zoom */
+.zoom-btn-large {
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    padding:0;
+    z-index:100;
+    cursor:pointer;
+
+    text-indent:-9999px;
+    overflow:hidden;
+}
+.zoom-btn-large:hover { background-color:rgba(255, 255, 255, 0.15); }
+
+
+
+/* Skins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* Default skin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.img-box .product-image { position:relative; /* Labels (e.g. "sale") are positioned relative to this box */ }
+.img-box .product-image.product-image-zoom { z-index:9; } /*TODO: obsolete*/
+
+/* Thumbnails */
+.img-box .more-images { margin-top:10px; }
+.img-box .more-images .thumbnails li { float:left; }
+.img-box .more-images .thumbnails li.last { margin-right:0; }
+.img-box .more-images .thumbnails li{
+    margin:0;
+    display:block;
+    text-decoration:none;
+}
+.img-box-style1 .more-images .thumbnails li a {
+    border:1px solid #d9dbdc;
+    display: block;
+    margin:0 4px;
+    padding:0;
+}
+.img-box-style1 .more-images .thumbnails li a:hover { border-color:#999; position:relative; }
+.img-box-style1 .more-images .thumbnails li a {
+    border: 1px solid #b8babb;
+    display: block;
+    position: relative;
+}
+.img-box-style1 .more-images .thumbnails li a.cboxElement {
+    height: 70px;
+    padding: 3px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.img-box-style1 .more-images .thumbnails li a.cboxElement img{
+    max-height: 100%;
+}
+.img-box-style1 .more-images .thumbnails li a.cboxElement:before {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #b8babb;
+    content: '';
+    display: block;
+    left: 50%;
+    margin-left: -7px;
+    position: absolute;
+    top: -6px;
+}
+.img-box-style1 .more-images .thumbnails li a.cboxElement:after {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #fff;
+    content: '';
+    display: block;
+    left: 50%;
+    margin-left: -6px;
+    position: absolute;
+    top: -5px;
+}
+
+/* Image pop-up */
+.product-image-popup { margin:0 auto; }
+.product-image-popup .nav { font-weight:bold; text-align:center; }
+.product-image-popup .image { display:block; margin:10px 0;  }
+.product-image-popup .image-label { margin:0 0 10px; }
+
+
+/* Skin 1: with thin borders
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.img-box-style1 .product-image {
+    outline: 1px solid #d9dbdc;
+    overflow: hidden;
+    padding: 0;
+}
+.img-box-style1 .product-image object {
+    float: left;
+}
+.img-box-style1 .more-images { margin-top: 0; }
+.img-box-style1 .more-images.count-1 { padding-top: 14px; }
+.img-box-style1 .more-images .viewport { padding-top: 14px; }
+.img-box-style1 .more-images .thumbnails { padding:1px 0; /* Prevent from cutting off thumbnails */ }
+
+
+
+/* Skin 2: with shadows
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.img-box-style2 .product-image {
+    padding:10px;
+    box-shadow:0 3px 10px rgba(0,0,0, 0.15);
+}
+.img-box-style2 .zoom-btn-small { bottom:10px; right:10px; } /* Depends on product image padding */
+.img-box-style2 .more-images { margin-top:10px; }
+.img-box-style2 .more-images .thumbnails { padding:5px 0 10px; /* Prevent from cutting off thumbnails */ }
+.img-box-style2 .more-images .thumbnails li a {
+    margin:0 3px;
+    padding:5px;
+    box-shadow:0 1px 3px rgba(0,0,0, 0.15);
+}
+.img-box-style2 .more-images .thumbnails li a:hover {
+    box-shadow:0 1px 3px rgba(0,0,0, 0.30);
+}
+
+
+/* Thumbnails carousel %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+.itemslider-thumbnails { max-width: 82.5%!important; } /* count-3 is default */
+.itemslider-thumbnails.count-1 { max-width: 100%!important; }
+.itemslider-thumbnails.count-2 { max-width: 100%!important; }

@@ -1,0 +1,23 @@
+id:     notifications_preferences
+title:  Privacy Policy popup
+status: enabled
+stores: default,uk_en, au_en
+---
+<p>Select the items that you would like to receive from The Teaching Company, then click "Save".</p>
+
+<p>Changes to email preferences can take up to 1 week. </p>
+
+<div class="privacy-wrapper">
+    <p>The Great Courses® will never share or sell your e-mail address.</p>
+
+    <div class="privacy-policy">
+        <a rel="nofollow" href="#" class="tool-tip-link"> Privacy Policy</a>
+
+        <div class="privacy-popup tool-tip" style="display: none">
+            <div class="tooltip-text">
+                {{block type="cms/block" block_id="privacy_policy_popup"}}
+            </div>
+            <a rel="nofollow" href="#" class="btn-remove">Close</a>
+        </div>
+    </div>
+</div>

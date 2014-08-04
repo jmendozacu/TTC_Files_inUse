@@ -1,0 +1,33 @@
+<?php /* @var $this Infortis_UltraMegamenu_Block_Navigation */ ?>
+<?php
+/**
+ * Sidebar menu
+ */
+?>
+
+<?php if($category): //this is category object for page that is being viewed, the constructor determines this when block is instantiated ?>
+    <div id="mobile-layered-nav" class="mobile-layered-nav">
+        <select onchange="setLocation(this.value)">
+            <optgroup>
+                <?php if($category->getLevel() > 2 && $showParentsChildren): //category pages for those categories with level of 1 or 0 should never be viewed. ?>
+                    <option class="parent_category_name" value="<?php echo Mage::helper('catalog/category')->getCategoryUrl($parentCategory) ?>"><?php echo $parentCategory['name'] ?></option>
+                <?php endif; ?>
+                <?php if(!$showParentsChildren): ?>
+                    <option value=""><?php echo $currentCategoryName ?></option>
+                <?php endif; ?>
+
+                <?php foreach($childrenCategories as $childCategory): //all child categories of the current category are shown in dropdown ?>
+                    <?php $selected = $this->getIsCategorySelected($childCategory) ? ' selected="selected"' : ''; ?>
+                    <option value="<?php echo $childCategory->getUrl(); ?>"<?php $selected ?>><?php echo $childCategory->getName() ?></option>
+                <?php endforeach; ?>
+
+                <?php if($showParentsChildren): //if the current category has no children, then the parent's children are showed instead. ?>
+                    <?php foreach($parentsChildrenCategories as $parentChildCategory): ?>
+                        <?php $selected = $this->getIsCategorySelected($parentChildCategory) ? ' selected="selected"' : ''; ?>
+                        <option value="<?php echo $parentChildCategory->getUrl(); ?>"<?php echo $selected ?>><?php echo $parentChildCategory->getName() ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </optgroup>
+        </select>
+    </div>
+<?php endif; ?>

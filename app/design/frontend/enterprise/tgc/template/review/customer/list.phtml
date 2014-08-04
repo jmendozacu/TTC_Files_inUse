@@ -1,0 +1,105 @@
+<?php
+/**
+ *
+ */
+$_heroHelper = $this->helper('tgc_cms');
+?>
+
+<div class="page-title">
+    <h1><?php echo $this->__('All Your Reviews') ?></h1>
+
+    <div class="review-direction-select sort-by">
+        <label><?php echo $this->__('Sort by') ?></label>
+        <select onchange="setLocation(this.value)">
+            <?php foreach ($this->getAvailableOrders() as $_key => $_order): ?>
+                <option
+                    value="<?php echo $this->getOrderUrl($_key); ?>"<?php if ($this->getCurrentDirection() == $_key): ?> selected="selected"<?php endif; ?>>
+                    <?php echo $this->__($_order) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $reviews = $this->getReviews(); ?>
+<?php if (count($reviews) > 0): ?>
+
+    <div class="review-summary">
+        <?php $bz_summary_data = $this->getSummaryData(); ?>
+        <span><strong><?php echo $this->__('Reviews') ?>: </strong><?php echo $bz_summary_data['review_count'] ?></span>
+        <span><strong><?php echo $this->__('Average Rating') ?>: </strong>
+            <?php echo $bz_summary_data['average_rating'] ?></span>
+        <span class="hide-for-mobile"><strong><?php echo $this->__('Last Review') ?>
+                : </strong><?php echo $bz_summary_data['last_review'] ?></span>
+        <span class="hide-for-mobile"><strong><?php echo $this->__('Active Since') ?>
+                : </strong><?php echo $bz_summary_data['active_since'] ?></span>
+        <span><strong><?php echo $this->__('Helpful Votes') ?>: </strong><?php echo $bz_summary_data['helpful_votes'] ?></span>
+        <?php //Zend_Debug::dump($this->getSummaryData()); ?>
+    </div>
+    <ul class="review-details">
+        <?php foreach ($reviews as $review): ?>
+            <li class="detail">
+                <?php $bz_review_data = $this->getReviewData($review); ?>
+                <?php //Zend_Debug::dump($this->getReviewData($review)); ?>
+                <h3 class="course-name"><a
+                        href="<?php echo $bz_review_data['go_to_review_url'] ?>"><?php echo $bz_review_data['course_name'] ?></a>
+                </h3>
+
+                <div class="date show-for-mobile"><?php echo $bz_review_data['review_date'] ?></div>
+
+                <div class="grid12-4">
+                    <div class="all-ratings">
+                        <div><span class="label"><?php echo $this->__('Overall Rating') ?></span>
+
+                            <div class="rating-box">
+                                <div class="rating"
+                                     style="width:<?php echo ceil($bz_review_data['overall_rating']) * 20 ?>%;"></div>
+                            </div>
+                        </div>
+                        <?php foreach ($bz_review_data['secondary_ratings'] as $rating) : ?>
+                            <div>
+                                <span class="label"><?php echo $rating['label']; ?></span>
+
+                                <div class="rating-box secondary-rating">
+                                    <div class="rating"
+                                         style="width:<?php echo ceil($rating['rating']) * 20 ?>%;"></div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                        <p class="nickname"><strong><?php echo $this->__('By') ?>
+                                : </strong><?php echo $bz_review_data['user_nickname'] ?></p>
+
+                        <p class="location"><strong><?php echo $this->__('From') ?>
+                                : </strong><?php echo $bz_review_data['user_location'] ?></p>
+                    </div>
+                </div>
+                <div class="grid12-8 review-text">
+                    <div class="title-box">
+                        <h4><?php echo $_heroHelper->truncateTextByWords($bz_review_data['review_title'], 50, ''); ?></h4>
+
+                        <div class="date hide-for-mobile"><strong><?php echo $this->__('Date') ?>
+                                : </strong><?php echo $bz_review_data['review_date'] ?></div>
+                    </div>
+                    <p><?php echo $bz_review_data['review_text'] ?></p>
+
+                    <p><strong><?php echo $bz_review_data['total_positive_feedback'] ?></strong> out of
+                        <strong><?php echo $bz_review_data['total_feedback'] ?></strong> found this review helpful.</p>
+                </div>
+                <div class="review-links">
+                    <a href="<?php echo $bz_review_data['go_to_review_url'] ?>"><?php echo $this->__('Go to this Review') ?>
+                        »</a>
+                    <a href="<?php echo $bz_review_data['update_review_url'] ?>"><?php echo $this->__('Update your Review') ?>
+                        »</a>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <p><?php echo $this->__('You have submitted no reviews.') ?></p>
+<?php endif; ?>
+<!-- Code for custom select -->
+<script type="text/javascript">
+    jQuery(function($) {
+        $('.sort-by select').coreUISelect();
+    });
+</script>

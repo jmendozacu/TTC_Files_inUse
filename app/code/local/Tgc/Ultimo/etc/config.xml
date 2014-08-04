@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Infortis Ultimo module extension config
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_Ultimo
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Ultimo>
+            <version>1</version>
+        </Tgc_Ultimo>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_ultimo>
+                <class>Tgc_Ultimo_Helper</class>
+            </tgc_ultimo>
+            <ultimo>
+                <rewrite>
+                    <labels>Tgc_Ultimo_Helper_Labels</labels>
+                </rewrite>
+            </ultimo>
+        </helpers>
+    </global>
+</config>

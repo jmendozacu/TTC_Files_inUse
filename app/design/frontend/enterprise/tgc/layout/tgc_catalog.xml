@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Tgc Catalog
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Catalog
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <tgc_catalog_index_index>
+
+    </tgc_catalog_index_index>
+
+</layout>

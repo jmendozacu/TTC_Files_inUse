@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * DataMart integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DataMart
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <menu>
+        <tgc_datamart translate="title" module="tgc_datamart">
+            <title>DataMart</title>
+            <sort_order>15</sort_order>
+            <children>
+                <customer_upsell module="tgc_datamart" translate="title">
+                    <title>Customer Upsells</title>
+                    <sort_order>30</sort_order>
+                    <action>datamart_customerUpsell/adminhtml_customerUpsell</action>
+                </customer_upsell>
+                <anonymous_upsell module="tgc_datamart" translate="title">
+                    <title>Anonymous Upsells</title>
+                    <sort_order>40</sort_order>
+                    <action>datamart_anonymousUpsell/adminhtml_anonymousUpsell</action>
+                </anonymous_upsell>
+            </children>
+        </tgc_datamart>
+        <cms>
+            <children>
+                <landing_pages module="tgc_datamart" translate="title">
+                    <title>Manage Landing Pages</title>
+                    <sort_order>120</sort_order>
+                    <children>
+                        <categories translate="title">
+                            <title>Categories</title>
+                            <sort_order>10</sort_order>
+                            <action>datamart_emailLanding/adminhtml_emailLanding</action>
+                        </categories>
+                        <media_codes translate="title">
+                            <title>Media Codes</title>
+                            <sort_order>20</sort_order>
+                            <action>datamart_emailLanding/adminhtml_emailLanding_mediaCode</action>
+                        </media_codes >
+                        <banners translate="title">
+                            <title>Banners</title>
+                            <sort_order>30</sort_order>
+                            <action>datamart_emailLanding/adminhtml_emailLanding_banner</action>
+                        </banners>
+                        <design translate="title">
+                            <title>Designs</title>
+                            <sort_order>40</sort_order>
+                            <action>datamart_emailLanding/adminhtml_emailLanding_design</action>
+                        </design>
+                    </children>
+                </landing_pages>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <tgc_datamart module="tgc_datamart" translate="title">
+                        <title>DataMart Integration</title>
+                        <sort_order>5140</sort_order>
+                        <children>
+                            <customer_upsell>
+                                <title>Manage Customer Upsells</title>
+                                <sort_order>30</sort_order>
+                            </customer_upsell>
+                            <anonymous_upsell>
+                                <title>Manage Anonymous Upsells</title>
+                                <sort_order>40</sort_order>
+                            </anonymous_upsell>
+                        </children>
+                    </tgc_datamart>
+                    <cms>
+                        <children>
+                            <landing_pages module="tgc_datamart" translate="title">
+                                <title>Manage Landing Pages</title>
+                                <sort_order>90</sort_order>
+                                <children>
+                                    <categories translate="title">
+                                        <title>Manage Email Landing Page URLs</title>
+                                        <sort_order>10</sort_order>
+                                    </categories>
+                                    <media_codes translate="title">
+                                        <title>Media Codes</title>
+                                        <sort_order>20</sort_order>
+                                    </media_codes>
+                                    <banners translate="title">
+                                        <title>Manage Landing Page Banners</title>
+                                        <sort_order>30</sort_order>
+                                    </banners>
+                                    <design translate="title">
+                                        <title>Manage Email Landing Page Designs</title>
+                                        <sort_order>40</sort_order>
+                                    </design>
+                                </children>
+                            </landing_pages>
+                        </children>
+                    </cms>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <datamart translate="title" module="tgc_datamart">
+                                        <title>DataMart Integration System Config</title>
+                                    </datamart>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

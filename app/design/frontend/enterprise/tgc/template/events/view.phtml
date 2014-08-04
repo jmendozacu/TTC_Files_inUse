@@ -1,0 +1,198 @@
+<link rel="stylesheet" href="<?php echo Mage::getBaseUrl('js').'events'. DS .'lightbox'. DS;?>css/lightbox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('js').'events'. DS .'lightbox'. DS .'js'. DS;?>lightbox.js"></script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "dc20c671-3d88-4c19-b79b-7a996fe07904"});</script>
+<?php if (Mage::helper('events')->isEnableMapShow()) :?>
+<script type="text/javascript">
+jQuery(document).ready(function () {
+	var cursorX;
+	var cursorY;
+	if (window.Event) {
+		document.captureEvents(Event.MOUSEMOVE);
+	}
+	document.onmousemove = getCursorXY;
+	jQuery(".mapThis").each(function() {
+		var dPlace = jQuery(this).attr("place");
+		var dZoom = jQuery(this).attr("zoom");
+		var dText = jQuery(this).html();
+		jQuery(this).html('<a onmouseover="mapThis.show(this);" style="text-decoration:none; border-bottom:1px dotted #999" href="http://maps.google.com/maps?q=' + dPlace + '&z=' + dZoom + '">' + dText + '</a>');
+	});
+});
+	var mapThis=function(){
+		var tt;
+		var errorBox;
+		return{
+			show:function(v){
+				if (tt == null) {
+					var pNode = v.parentNode;
+					pPlace = jQuery(pNode).attr("place");
+					pZoom = parseInt(jQuery(pNode).attr("zoom"));
+					pText = jQuery(v).html();
+					tt = document.createElement('div');
+					jQuery(tt).html('<a href="http://maps.google.com/maps?q=' + pPlace + '&z=11" target="new"><img border=0 src="http://maps.google.com/maps/api/staticmap?center=' + pPlace + '&zoom=' + pZoom + '&size=300x300&sensor=false&format=png&markers=color:blue|' + pPlace + '"></a>');
+					tt.addEventListener('mouseover', function() { mapHover = 1; }, true);
+					tt.addEventListener('mouseout', function() { mapHover = 0; }, true);
+					tt.addEventListener('mouseout', mapThis.hide, true);
+					document.body.appendChild(tt);
+				}
+				fromleft = cursorX;
+				fromtop = cursorY;
+				fromleft = fromleft - 25;
+				fromtop = fromtop - 25;
+				tt.style.cssText = "position:absolute; left:" + fromleft + "px; top:" + fromtop + "px; z-index:999; display:block; padding:1px; margin-left:5px; background-color:#333; width:302px; -moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.5);";
+				tt.style.display = 'block';
+			},
+			hide:function(){
+				tt.style.display = 'none';
+				tt = null;
+			}
+	};
+}();
+function getCursorXY(e) {
+	cursorX = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
+	cursorY = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+}
+</script>
+<?php endif;?>
+<?php
+	$item 			= $this->getEvents();
+	$isExpiredEvent	= Mage::helper('events')->isExpiredEvent($item['event_id']);
+	$product 		= $this->getEventProduct();
+	$catalog 		= Mage::getModel('catalog/product');
+	$_product 		= $catalog->load($product); //echo '<pre>';print_r($_product);exit;
+	$typeProduct 	= $_product['type_id'];
+	$stockLevel 	= (int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty(); //echo $stockLevel;exit;
+	/* @param int $stockLevel @return int stock level in number */
+	$prefix 		= $this->getRequest()->getParam('pfx');
+	$medPath 		= Mage::getBaseUrl('media').'events'. DS .'mediums';
+	$path 			= Mage::getBaseUrl('media');
+	$event_img 	    = $item['event_image'];
+    $location       = $this->getLocation($item['event_venu']);
+    $location_img   = $location->getLocationImage();
+//    $event_header_bg_image = $location_img;
+/*    if($item['event_image'] != '')
+    {
+        $event_header_bg_image = $event_img;
+    }*/
+// By default, use image of the Location, unless Event Image is provided
+    if ($location_img != ''){
+        $event_header_bg_image = $path . $location_img;
+    }
+    else{
+        $event_header_bg_image = $path . $event_img;
+    }
+
+	$expiredStatus 	= Mage::helper('events')->getNotificationType(1);
+	$stockOut		= Mage::helper('events')->getNotificationType(0);
+	/* store configuration for notification types */
+	$prevUrlLink	= '';
+
+	if (!Mage::helper('events')->isEnableBreadcrumbs())
+	{
+		$prevUrl = $location->getLocationUrl();
+		$prevUrlLink = "<a href='".$prevUrl."'>".$this->__('&#171 Back to Events') . " </a>";
+	}
+?>
+<div class="event_title_container">
+    <h1><?php echo $this->__('Cultural Events')?></h1>
+</div>
+<?php if ($item): ?>
+    <div class="evt_det_img_cont">
+        <?php if ($event_header_bg_image) :?>
+            <div class="evt_det_img">
+                <img src="<?php echo str_replace("\\","/", $event_header_bg_image); ?>"/>
+            </div>
+        <?php endif; ?>
+        <?php if ($item['event_venu']) :?>
+            <div class="evt_det_img_venue">
+                <div class="evt_det_img_text">
+                    <span class="venue_desc"><?php echo $this->__('Cultural Events in:')?></span>
+                    <span class="venue_name"><?php echo $item['location_name'] ?></span>
+                </div>
+                <div class="evt_det_venu_background"></div>
+            </div>
+        <?php endif; ?>
+    </div>
+    <div class="clearfix"></div>
+    <div class="evt_det_back"><?php echo $prevUrlLink; ?></div>
+    <div class="evt_det_event_data evt_det_event_container">
+        <div class="event_data_img_cont">
+            <img src="<?php echo str_replace("\\","/", Mage::getBaseUrl('media').$item['event_type_icon']); ?>"/>
+        </div>
+        <div class="event_data">
+            <div class="event_data_type">
+                <span><?php echo $item['event_type_name'];?></span>
+            </div>
+            <div class="event_data_title">
+                <span><?php echo $item['event_title'];?></span>
+            </div>
+            <div class="event_data_loc_desc">
+                <span><?php echo $item['event_date_location_description'];?></span>
+            </div>
+            <div class="event_data_content">
+                <?php echo $item['event_content'];?>
+            </div>
+            <div class="event_data_more">
+                <div class="event_data_share tooltip">
+                    <div class="mobile_share js-action-icon">
+                        <img src="<?php echo $this->getSkinUrl('images/mobile_share.png') ?>"/>
+                    </div>
+                    <div class="mobile_share_tooltip tooltip-balloon">
+                        <?php echo $this->getChildHtml('social.links') ?>
+                    </div>
+<!--                    <div class="event_share">
+                        <?php /* echo $this->getChildHtml('social.links') */?>
+                    </div>-->
+                </div>
+                <?php if($item['event_website_link'] != ''):?>
+                <div class="more_details"><a href="<?php echo $item['event_website_link'];?>" target="_blank">Visit Website For More Details &#187</a></div>
+                <div class="more_details mobile_more_details"><a href="<?php echo $item['event_website_link'];?>" target="_blank">Visit Website &#187</a></div>
+                <?php endif; ?>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <?php $similar_events = $this->getSimilarEvents($item['event_id'], $item['event_venu'], $item['event_type']);?>
+    <div class="evt_det_more">
+        <?php if($similar_events->getSize()):?>
+        <div class="evt_det_similar_events evt_list_events">
+            <h3>Similar Events</h3>
+            <ul class="list_events_content">
+                <?php foreach($similar_events as $similar): ?>
+                    <li>
+                    <div class="list_event_data">
+                        <div class="list_event_data_img_cont">
+                            <img src="<?php echo str_replace("\\","/", Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$similar->getTypeIcon());  ?>"/>
+                        </div>
+                        <div class="event_data">
+                            <div class="event_data_type">
+                                <span><?php echo $similar->getType();?></span>
+                            </div>
+                            <div class="list_data_title event_data_title">
+                                <a rel="nofollow" href="<?php echo Mage::helper('events')->customUrl($similar->getEventUrlPrefix()); ?>">
+                                    <span class="mobile_share_type"><?php echo $similar->getType();?>: </span>
+                                    <span><?php echo $similar->getEventTitle();?></span>
+                                </a>
+                            </div>
+                            <div class="list_data_loc_desc event_data_loc_desc">
+                                <span><?php echo $similar->getEventDateLocationDescription();?></span>
+                            </div>
+                            <div class="list_data_content event_data_content">
+                                <div class="list_content_container">
+                                    <?php echo $similar->getEventContent();?>
+                                </div>
+                                <a href="<?php echo Mage::helper('events')->customUrl($similar->getEventUrlPrefix()); ?>"><span class="read_on"><?php echo $this->__('Read on &#187') ?></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <?php endif; // End similar events ?>
+        <div class="recomendations">
+            <?php echo $this->getChildHtml('recomendations') ?>
+        </div>
+    </div>
+<?php endif;?>

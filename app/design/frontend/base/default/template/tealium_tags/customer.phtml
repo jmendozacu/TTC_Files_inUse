@@ -1,0 +1,36 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$customer_id = "n/a";
+$customer_email = "n/a";
+$customer_type = "n/a";
+
+if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+    $customer = Mage::getSingleton('customer/session')->getCustomer();
+    $customer_id = $customer->getEntityId();
+    $customer_email = $customer->getEmail();
+    $groupId = $customer->getGroupId();
+    $customer_type = Mage::getModel('customer/group')->load($groupId)->getCode();
+}
+?>
+
+<!-- Tealium Customer page javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name: "<?php echo htmlspecialchars($this->getLayout()->getBlock('head')->getTitle(), ENT_QUOTES); ?>",
+        page_type: "<?php echo $this->getTealiumType(); ?>",
+        customer_id: "<?php echo $customer_id; ?>",
+        customer_email: "<?php echo $customer_email; ?>",
+        customer_type: "<?php echo $customer_type; ?>",
+        user_id: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_USER_ID; ?>'),
+        is_logged_in: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_LOGGED_IN; ?>')
+    };
+</script>

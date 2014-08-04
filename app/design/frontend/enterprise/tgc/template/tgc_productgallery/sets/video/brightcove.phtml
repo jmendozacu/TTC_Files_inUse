@@ -1,0 +1,66 @@
+<?php
+/**
+ * ProductGallery
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     ProductGallery
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php if ($this->canShow()): ?>
+    <?php
+        $productId = $this->getProduct()->getId();
+        $playerLibLoaded = Mage::registry('brighcove_player_lib_loaded');
+        if (!$playerLibLoaded) {
+            Mage::register('brighcove_player_lib_loaded', true);
+        }
+        $baseImageData = $this->getProductBaseImageData();
+    ?>
+    <div id="product_course_brightcove_video_player_container_<?php echo $productId; ?>" style="z-index: 9999;" class="clearfix">
+        <div style="display:none"></div>
+        <?php if (!$playerLibLoaded): ?>
+        <script language="JavaScript" type="text/javascript" src="<?php echo $this->getPlayerLibUrl(); ?>"></script>
+        <?php endif; ?>
+        <object id="ProductCourseExperience<?php echo $productId; ?>" class="BrightcoveExperience">
+            <param name="bgcolor" value="#FFFFFF" />
+            <param name="width" value="100" />
+            <param name="height" value="100" />
+            <param name="playerID" value="<?php echo $this->getPlayerId() . '_' . $productId; ?>" />
+            <param name="playerKey" value="<?php echo $this->getPlayerKey(); ?>" />
+            <param name="isVid" value="true" />
+            <param name="isUI" value="true" />
+            <param name="dynamicStreaming" value="true" />
+            <?php if (isset($baseImageData['brightcove_id']) && $baseImageData['brightcove_id']): ?>
+            <param name="@videoPlayer" value="ref:<?php echo $baseImageData['brightcove_id']; ?>" />
+            <?php endif;?>
+
+            <!-- smart player api params -->
+            <param name="includeAPI" value="true"/>
+            <param name="templateLoadHandler" value="productCourseBrightcoveVideoPlayerOnTemplateLoad<?php echo $productId; ?>"/>
+        </object>
+    </div>
+
+    <div id="product_course_brightcove_video_play_button_container_<?php echo $productId; ?>" class="promo-video-play"
+         style="display: none;">
+        <a href="javascript:void(0)" rel="nofollow" class="play-button"><?php echo $this->__('Play Video'); ?></a>
+    </div>
+
+    <script type="text/javascript">
+        var productCourseBrightcoveVideoManager<?php echo $productId; ?> = new Product.GalleryBrightcove({
+            brightcoveExperienceId: 'ProductCourseExperience<?php echo $productId; ?>',
+            baseImageData: <?php echo Mage::helper('core')->jsonEncode($baseImageData); ?>,
+            thumbnailsWithVideoData: <?php echo ($this->getGalleryImagesWithVideo() ? Mage::helper('core')->jsonEncode($this->getGalleryImagesWithVideo()) : '[]')?>,
+            playerContainer: $('product_course_brightcove_video_player_container_<?php echo $productId; ?>'),
+            playButtonContainer: $('product_course_brightcove_video_play_button_container_<?php echo $productId; ?>'),
+            baseImageContainer: $('product_course_brightcove_video_player_container_<?php echo $productId; ?>').up().down('.course-promo-video'),
+            thumbnailsContainer: null
+        });
+
+        function productCourseBrightcoveVideoPlayerOnTemplateLoad<?php echo $productId; ?>(experienceId) {
+            productCourseBrightcoveVideoManager<?php echo $productId; ?>.playerOnTemplateLoad(experienceId);
+        };
+
+        (function () {brightcove.createExperiences();}).delay(0.1);
+    </script>
+<?php endif; ?>

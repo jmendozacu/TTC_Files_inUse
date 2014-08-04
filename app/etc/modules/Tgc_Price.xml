@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Tgc_Price>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Ayasoftware_SimpleProductPricing/>
+                <Mage_Catalog/>
+                <Mage_Customer/>
+            </depends>
+        </Tgc_Price>
+    </modules>
+</config>

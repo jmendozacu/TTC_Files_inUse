@@ -1,0 +1,36 @@
+<?php
+/**
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Wishlist
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php if($this->getWishlist()->getItemsCount()): ?>
+    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" onclick="toCartWItems();" class="button purchase btn-tocart-items disabled"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+    <script type="text/javascript">
+        toCartWItems = function() {
+            if (typeof(wishlistForm) == 'undefined') {
+                return;
+            }
+
+            var itemsSelected = $$('input[name="wishlist_item[]"]:checked');
+            if (itemsSelected.length == 0) {
+                return;
+            }
+
+            wishlistForm.form.action = '<?php echo $this->getUrl('tgc_wishlist/index/toCartItems', array('wishlist_id' => $this->getWishlist()->getId())); ?>';
+            wishlistForm.form.submit();
+        };
+
+        $$('#wishlist-select-all,input[name="wishlist_item[]"]').each(function (el) {
+            el.observe('change', function (event) {
+                if ($$('input[name="wishlist_item[]"]:checked').length) {
+                    $$('.btn-tocart-items').first().removeClassName('disabled');
+                } else {
+                    $$('.btn-tocart-items').first().addClassName('disabled');
+                }
+            });
+        });
+    </script>
+<?php endif; ?>

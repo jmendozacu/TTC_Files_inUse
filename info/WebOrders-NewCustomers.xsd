@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="orderIdType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="websiteType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Admin"/>
+            <xs:enumeration value="US"/>
+            <xs:enumeration value="UK"/>
+            <xs:enumeration value="Australia"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="storeIdType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="admin"/>
+            <xs:enumeration value="default"/>
+            <xs:enumeration value="uk_en"/>
+            <xs:enumeration value="au_en"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="stringType">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="lineNumberType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="dateTimeType">
+        <xs:restriction base="xs:string">
+            <xs:whiteSpace value="collapse"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="currencyCodeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="USD"/>
+            <xs:enumeration value="GBP"/>
+            <xs:enumeration value="AUD"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="mediaFormatType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="DVD"/>
+            <xs:enumeration value="CD"/>
+            <xs:enumeration value="Audio Download"/>
+            <xs:enumeration value="Video Download"/>
+            <xs:enumeration value="CD Soundtrack"/>
+            <xs:enumeration value="Soundtrack Download"/>
+            <xs:enumeration value="Digital Soundtrack"/>
+            <xs:enumeration value="Transcript Book"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="decimalType">
+        <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="paymentMethodIdType">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="paymentTypeType">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+            <xs:enumeration value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="paymentMethodType">
+        <xs:all>
+            <xs:element name="PaymentMethodID" type="paymentMethodIdType"/>
+            <xs:element name="PaymentmethodDesc" type="xs:string"/>
+            <xs:element name="PaymentType" type="paymentTypeType"/>
+            <xs:element name="PaymentTypeDesc" type="xs:string"/>
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:simpleType name="cardExpireType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{2}/[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="checkNumberType">
+        <xs:restriction base="xs:integer">
+            <xs:length value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="shippingMethodIdType">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="switchType">
+        <xs:restriction base="xs:integer">
+            <xs:enumeration value="0"/>
+            <xs:enumeration value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="shippingMethodType">
+        <xs:all>
+            <xs:element name="ShippingMethodID" type="shippingMethodIdType"/>
+            <xs:element name="Description" type="xs:string"/>
+            <xs:element name="InvoiceDesc" type="xs:string"/>
+            <xs:element name="Active" type="switchType"/>            
+        </xs:all>
+    </xs:complexType>
+    
+    <xs:simpleType name="csridType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="webUS"/>
+            <xs:enumeration value="webUK"/>
+            <xs:enumeration value="webAU"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="giftCertType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="mail"/>
+            <xs:enumeration value="email"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="order_id" type="orderIdType"/>
+    <xs:element name="dax_customer_id" type="xs:token"/>
+    <xs:element name="web_user_id" type="xs:token"/>
+    <xs:element name="email" type="stringType"/>
+    <xs:element name="paymentech_profile_id" type="xs:token"/>
+    <xs:element name="shipping_method" type="stringType"/>
+    <xs:element name="billing_prefix" type="stringType"/>
+    <xs:element name="billing_firstname" type="stringType"/>
+    <xs:element name="billing_middlename" type="stringType"/>
+    <xs:element name="billing_lastname" type="stringType"/>
+    <xs:element name="billing_suffix" type="stringType"/>
+    <xs:element name="billing_street_full" type="stringType"/>
+    <xs:element name="billing_city" type="stringType"/>
+    <xs:element name="billing_region" type="stringType"/>
+    <xs:element name="billing_country" type="stringType"/>
+    <xs:element name="billing_postcode" type="stringType"/>
+    <xs:element name="billing_telephone" type="stringType"/>
+    <xs:element name="billing_company" type="stringType"/>
+    <xs:element name="billing_fax" type="stringType"/>
+    <xs:element name="shipping_prefix" type="stringType"/>
+    <xs:element name="shipping_firstname" type="stringType"/>
+    <xs:element name="shipping_middlename" type="stringType"/>
+    <xs:element name="shipping_lastname" type="stringType"/>
+    <xs:element name="shipping_suffix" type="stringType"/>
+    <xs:element name="shipping_street_full" type="stringType"/>
+    <xs:element name="shipping_city" type="stringType"/>
+    <xs:element name="shipping_region" type="stringType"/>
+    <xs:element name="shipping_country" type="stringType"/>
+    <xs:element name="shipping_postcode" type="stringType"/>
+    <xs:element name="shipping_telephone" type="stringType"/>
+    <xs:element name="shipping_company" type="stringType"/>
+    <xs:element name="shipping_fax" type="stringType"/>
+    <xs:element name="created_at" type="dateTimeType"/>
+    <xs:element name="updated_at" type="dateTimeType"/>
+    <xs:element name="tax_amount" type="decimalType"/>
+    <xs:element name="shipping_amount" type="decimalType"/>
+    <xs:element name="shipping_tax_amount" type="decimalType"/>
+    <xs:element name="discount_amount" type="decimalType"/>
+    <xs:element name="coupon_code" type="xs:token"/>
+    <xs:element name="ad_code" type="xs:token"/>
+    <xs:element name="gift_certificate" type="decimalType"/>
+    <xs:element name="subtotal" type="decimalType"/>
+    <xs:element name="grand_total" type="decimalType"/>
+    <xs:element name="currency" type="currencyCodeType"/>
+    <xs:element name="order_status" type="stringType"/>
+    <xs:element name="line_number" type="lineNumberType"/>
+    <xs:element name="sku" type="xs:token"/>
+    <xs:element name="name" type="stringType"/>
+    <xs:element name="qty" type="decimalType"/>
+    <xs:element name="final_price" type="decimalType"/>
+    <xs:element name="list_price" type="decimalType"/>
+    <xs:element name="media_format" type="mediaFormatType"/>
+    <xs:element name="code" type="stringType"/>
+    <xs:element name="title" type="stringType"/>
+    <xs:element name="percent" type="decimalType"/>
+    <xs:element name="amount" type="decimalType"/>
+
+    <xs:element name="Item">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="line_number" minOccurs="1"/>
+                <xs:element ref="sku" minOccurs="1"/>
+                <xs:element ref="name" minOccurs="1"/>
+                <xs:element ref="qty" minOccurs="1"/>
+                <xs:element ref="final_price"/>
+                <xs:element ref="list_price" minOccurs="1"/>
+                <xs:element ref="media_format" minOccurs="1"/>
+                <xs:element ref="tax_amount" minOccurs="1"/>
+                <xs:element ref="gift_certificate"/>
+                <xs:element name="TaxbleFlag"/>
+                <xs:element name="GiftcertCode" type="xs:string"/>
+                <xs:element name="Giftcerttype" type="giftCertType"/>
+                <xs:element name="GiftcertRecipientFirstName" type="xs:string"/>
+                <xs:element name="GiftcertRecipientLastName" type="xs:string"/>
+                <xs:element name="Giftcertmessage" type="xs:string"/>
+                <xs:element name="Giftcertrecipientemailaddress" type="xs:string"/>
+                <xs:element name="Giftcertsendername" type="xs:string"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Tax">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="code"/>
+                <xs:element ref="title"/>
+                <xs:element ref="percent"/>
+                <xs:element ref="amount"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Taxes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Tax" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="OrderItems">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Item" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:simpleType name="authResultType">
+        <xs:restriction base="xs:string">
+            <xs:length value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="Order">
+        <xs:complexType>
+            <xs:all>
+                <xs:element ref="order_id" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="dax_customer_id"/>
+                <xs:element ref="web_user_id" minOccurs="1"  maxOccurs="1"/>
+                <xs:element ref="email" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="Paymentmethod" type="paymentMethodType" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="CardType" type="xs:string"/>
+                <xs:element name="CardExpire" type="cardExpireType"/>
+                <xs:element name="CheckNumber" type="checkNumberType"/>
+                <xs:element name="MerchantOrderID" type="orderIdType" minOccurs="1" maxOccurs="1"/>
+                <xs:element ref="paymentech_profile_id"/>
+                <xs:element name="ShipMethod" type="shippingMethodType"/>
+                <xs:element name="CSRID" type="csridType" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="TransactionReference" type="xs:string"/>
+                <xs:element name="AuthAmount" type="decimalType"/>
+                <xs:element name="AuthResult" type="authResultType"/>
+                <xs:element name="AuthCode" type="xs:string"/>
+                <xs:element name="AuthDate" type="xs:string"/>
+                <xs:element name="AVSResponseCode" type="xs:string"/>
+                
+                <xs:element ref="billing_prefix"/>
+                <xs:element ref="billing_firstname" minOccurs="1"/>
+                <xs:element ref="billing_middlename"/>
+                <xs:element ref="billing_lastname" minOccurs="1"/>
+                <xs:element ref="billing_suffix"/>
+                <xs:element ref="billing_street_full" minOccurs="1"/>
+                <xs:element ref="billing_city" minOccurs="1"/>
+                <xs:element ref="billing_region"/>
+                <xs:element ref="billing_country" minOccurs="1"/>
+                <xs:element ref="billing_postcode"/>
+                <xs:element ref="billing_telephone"/>
+                <xs:element ref="billing_company"/>
+                <xs:element ref="billing_fax"/>
+                <xs:element ref="shipping_prefix"/>
+                <xs:element ref="shipping_firstname" minOccurs="1"/>
+                <xs:element ref="shipping_middlename"/>
+                <xs:element ref="shipping_lastname" minOccurs="1"/>
+                <xs:element ref="shipping_suffix"/>
+                <xs:element ref="shipping_street_full" minOccurs="1"/>
+                <xs:element ref="shipping_city"/>
+                <xs:element ref="shipping_region"/>
+                <xs:element ref="shipping_country" minOccurs="1"/>
+                <xs:element ref="shipping_postcode"/>
+                <xs:element ref="shipping_telephone"/>
+                <xs:element ref="shipping_company"/>
+                <xs:element ref="shipping_fax"/>
+                <xs:element ref="created_at" minOccurs="1"/>
+                <xs:element ref="updated_at" minOccurs="1"/>
+                <xs:element ref="tax_amount"/>
+                <xs:element ref="Taxes"/>
+                <xs:element ref="shipping_amount"/>
+                <xs:element ref="shipping_tax_amount"/>
+                <xs:element ref="discount_amount"/>
+                <xs:element ref="coupon_code"/>
+                <xs:element ref="ad_code"/>
+                <xs:element ref="gift_certificate"/>
+                <xs:element ref="subtotal" minOccurs="1"/>
+                <xs:element ref="grand_total" minOccurs="1"/>
+                <xs:element ref="currency" minOccurs="1"/>
+                <xs:element ref="order_status"/>
+                <xs:element ref="OrderItems"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Orders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Order" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

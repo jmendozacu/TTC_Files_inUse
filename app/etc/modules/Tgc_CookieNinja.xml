@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Cookie Ninja
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     CookieNinja
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_CookieNinja>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Tgc_Customer/>
+                <Mage_Core/>
+                <Mage_Catalog/>
+                <Enterprise_UrlRewrite/>
+                <Guidance_Setup/>
+            </depends>
+        </Tgc_CookieNinja>
+    </modules>
+</config>

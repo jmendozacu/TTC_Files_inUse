@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+	<!-- Product page -->
+    <catalog_product_view>
+
+		<reference name="head">
+			<!-- CSS -->
+			<action method="addItem"
+				ifconfig="cloudzoom/lightbox/enable"><type>skin_css</type><name>css/infortis/_shared/colorbox.css</name></action>
+
+			<!-- js -->
+            <action method="addJs"><script>jquery/jquery-1.9.1.min.js</script></action>
+            <action method="addJs"><script>jquery/jquery.noconflict.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/jquery-migrate-1.2.1.min.js</name></action>
+
+            <action method="addJs"
+				ifconfig="cloudzoom/general/enable"><script>infortis/jquery/plugins/jquery.cloudzoom.min.js</script></action>
+			<action method="addJs"
+				ifconfig="cloudzoom/lightbox/enable"><script>infortis/jquery/plugins/jquery.colorbox.min.js</script></action>
+
+			<action method="addJs"><script>infortis/jquery/plugins/jquery.easing.min.js</script></action>
+			<action method="addJs"><script>infortis/jquery/plugins/jquery.flexslider.min.js</script></action>
+			<action method="addJs"><script>infortis/jquery/plugins/jquery.jcarousel.min.js</script></action>
+        </reference>
+
+        <reference name="product.info">
+            <action method="unsetChild"><name>product.info.media</name></action>
+            <block type="tgc_catalog/infortis_cloudzoom_product_view_media" name="product.info.media" as="media" template="infortis/cloudzoom/product/view/media.phtml">
+				<block type="infortis_cloudzoom/product_view_lightboxconfig" name="product.info.lightboxconfig" as="lightboxConfig" template="infortis/cloudzoom/product/view/lightbox_config.phtml" />
+			</block>
+            <block type="tgc_catalog/infortis_cloudzoom_product_view_media" name="product.info.media" as="media_vertical" template="infortis/cloudzoom/product/view/media-vertical.phtml">
+				<block type="infortis_cloudzoom/product_view_lightboxconfig" name="product.info.lightboxconfig" as="lightboxConfig" template="infortis/cloudzoom/product/view/lightbox_config.phtml" />
+			</block>
+			<block type="tgc_catalog/infortis_cloudzoom_product_view_media" name="product.info.media" as="media_advanced" template="infortis/cloudzoom/product/view/media-advanced.phtml">
+				<block type="infortis_cloudzoom/product_view_lightboxconfig" name="product.info.lightboxconfig" as="lightboxConfig" template="infortis/cloudzoom/product/view/lightbox_config.phtml" />
+			</block>
+        </reference>
+
+    </catalog_product_view>
+
+
+
+	<!-- Reviews page -->
+    <review_product_list>
+
+		<update handle="catalog_product_view" />
+
+    </review_product_list>
+
+</layout>

@@ -1,0 +1,25 @@
+ID:                 my-account
+Status:             published
+Title:              My Account
+Layout:             one_column
+Stores:             au_en
+---
+<div class="left_sidebar grid12-3">{{block type="cms/block" block_id="page_menu" name="page.menu"}}</div>
+<div style="display: none;"><span class="page-active">active-my-account</span> <span class="mod_page_active">mob-my-account</span></div>
+<div class="about grid12-9">
+    <div class="about_container">
+        <div class="left_border">
+            <div class="about_content">
+                <h3>Do I have an online account?</h3>
+                <p>If you have ever placed an order with the Great Courses and provided an email address to us, you have an online account and password. If you cannot locate your password, Click <a href="{{store direct_url="customer/account/forgotpassword"}}">here</a> to recover it. If you&rsquo;ve forgotten your e-mail address, please contact us with the information provided at the right and a customer service agent will assist you.</p>
+                <div class="divider">&nbsp;</div>
+                <h3>Why do I need an account?</h3>
+                <p>Your account gives you access to many free benefits, including free online lectures, course starter materials, professor-recommended links, and the ability to stream select purchases to your computer or mobile device. You also have access to your order history, billing and shipping information for quick ordering. You can manage your account information by visiting <a href="{{store direct_url='customer/account'}}">My Account</a>.</p>
+                <div class="divider">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

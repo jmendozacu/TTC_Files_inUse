@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Digital Library
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <placeholders>
+        <tgc_dl_resumeplaying>
+            <block>tgc_dl/resumePlaying</block>
+            <placeholder>DIGITAL_LIBRARY_RESUMEPLAYING</placeholder>
+            <container>Tgc_DigitalLibrary_Model_Container_ResumePlaying</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_dl_resumeplaying>
+    </placeholders>
+</config>

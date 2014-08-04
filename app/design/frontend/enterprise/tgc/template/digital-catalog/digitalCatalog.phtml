@@ -1,0 +1,30 @@
+<?php
+/**
+ * User: mhidalgo
+ * Date: 06/03/14
+ * Time: 12:44
+ */
+?>
+<?php
+    $zmag = $this->getZmag();
+    $id = $zmag->getId();
+    if (isset($id)) {
+?>
+    <script src="http://api.viewer.zmags.com/viewer/viewer.js" type="text/javascript"></script>
+    <input id="hdnPublicationId" class="ActivePublicationId" type="hidden" name="ActivePublicationId"/>
+    <div class="catalogInstructions">
+
+        <?php echo $zmag->getPageInstructions() ?>
+
+    </div>
+
+    <div id="myViewerContent" style="height: 500px; margin: 0 auto; padding-bottom: 40px; width: 100%;"></div>
+    <script type="text/javascript">
+        var viewer = new com.zmags.api.Viewer();
+        viewer.setPublicationID("<?php echo $zmag->getPublicationId() ?>");
+        viewer.setParentElementID("myViewerContent");
+        viewer.show();
+    </script>
+<?php } else { ?>
+    <div class="zmag-empty"><?php echo $this->__('Digital catalog is not available now, please try again in some minutes') ?></div>
+<?php } ?>

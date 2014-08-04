@@ -1,0 +1,8 @@
+id:     my-block
+title:  Title of my block
+status: disabled
+stores: christmasltd_en, oktoberfesthaus_en
+---
+<h1>This is my block</h1>
+
+NOTE: This is an example only, you should not be using the content directory of this module.  See the README.md for how to implement this functionality in your own CMS module.

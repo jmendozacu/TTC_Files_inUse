@@ -1,0 +1,21 @@
+<?php
+/**
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Guidance
+ * @package     Tgc
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+$cmspage = Mage::getSingleton('cms/page');
+?>
+
+<?php if($cmspage->getData('page_title_is_page_headline')): ?>
+    <div class="page-title">
+        <h1><?php echo $cmspage->getTitle(); ?></h1>
+    </div>
+<?php endif; ?>
+
+<?php if($_heading = $this->getContentHeading()): ?>
+    <div>
+        <h3><?php echo $_heading; ?></h3>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <Tgc_DefaultShippingPrice>
+            <version>1.0.0</version>
+        </Tgc_DefaultShippingPrice>
+    </modules>
+    <global>
+        <events>
+            <controller_action_predispatch_checkout_cart_index>
+                <observers>
+                    <controller_action_predispatch>
+                    	<type>singleton</type>
+                        <class>Tgc_DefaultShippingPrice_Model_Observer</class>
+                        <method>setDefaultShippingAddress</method>
+                    </controller_action_predispatch>
+                </observers>
+            </controller_action_predispatch_checkout_cart_index>
+        </events>
+    </global>
+</config>

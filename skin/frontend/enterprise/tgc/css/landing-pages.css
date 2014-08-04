@@ -1,0 +1,202 @@
+/*Buffet landing page*/
+.buffet-landing-page .main {
+    padding-top: 15px;
+}
+
+.landing-banner-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+
+}
+
+.buffet-landing-page .set-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 23%;
+    padding-left: 2.5%;
+    height: 100%;
+    text-align: center;
+    background: url(../images/tgc/banner-set.png) no-repeat;
+}
+
+.buffet-landing-page .set-text {
+    margin-top: 25px;
+}
+
+.buffet-landing-page .set-text h2 {
+    color: #3b4850;
+    font: 30px/1 "Arial Black", Gadget, sans-serif;
+}
+
+.buffet-landing-page .set-text h4 {
+    color: #3b4850;
+    font: 19px/1 Arial, Helvetica, sans-serif;
+    text-shadow: none;
+}
+
+.buffet-landing-page .set-container .b-core-ui-select {
+    width: 185px;
+}
+
+.buffet-landing-page .set-container .buffet-select-wrapper {
+    margin: 15px auto;
+}
+
+.buffet-landing-page .course-wrapper {
+    margin-bottom: 20px;
+}
+
+.buffet-landing-page .course-list .course_overview {
+    margin-bottom: 20px;
+}
+
+.buffet-landing-page .course-wrapper:before {
+    content: '';
+    display: block;
+    width: 100%;
+    margin: auto;
+    height: 1px;
+    border-bottom: 1px solid #fff;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZDVkNWQ1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgPC9yYWRpYWxHcmFkaWVudD4KICA8cmVjdCB4PSItNTAiIHk9Ii01MCIgd2lkdGg9IjEwMSIgaGVpZ2h0PSIxMDEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(213,213,213,1) 50%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(50%,rgba(213,213,213,1)), color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(213,213,213,1) 50%,rgba(255,255,255,0) 100%);
+    background: -o-radial-gradient(center, ellipse cover,  rgba(213,213,213,1) 50%,rgba(255,255,255,0) 100%);
+    background: -ms-radial-gradient(center, ellipse cover,  rgba(213,213,213,1) 50%,rgba(255,255,255,0) 100%);
+    background: radial-gradient(ellipse at center,  rgba(213,213,213,1) 50%,rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5d5d5', endColorstr='#00ffffff',GradientType=1 );
+}
+
+.buffet-landing-page li.course-item:after {
+    width: 100%;
+}
+.buffet-landing-page .course-list .course-item {
+    padding: 20px 0 0;
+}
+
+.buffet-landing-page .available-formats,
+.buffet-landing-page .course-list .course-item .professor-info {
+    color: #5c6f7c;
+    text-shadow: 0 1px 0 #FFF;
+}
+
+.buffet-landing-page .course-list .course-item .professor-info {
+    margin-bottom: 0;
+}
+
+.buffet-landing-page .available-formats {
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.buffet-landing-page .available-formats .formats {
+    font-family: 'proxima_nova_thextrabold', sans-serif;
+}
+
+.buffet-select-wrapper { display: inline-block; margin-right: 10px; text-align: left; }
+
+.buffet-landing-page .course-item .add-to-cart-form-container { text-align: right; margin: -45px 20px 10px 0; }
+
+.buffet-landing-page .course-item .available-formats .title {
+    font-family: 'proxima_nova_rgregular', sans-serif;
+    font-weight: 400;
+}
+
+.landing-page-footer { margin-bottom: 20px; position: relative; }
+.landing-page-footer .gray-block-with-border { padding: 40px 50px 20px; position: relative; }
+.landing-page-footer .gray-block-with-border h4 { margin-top: 10px; }
+
+.landing-page-footer .grid12-4,
+.landing-page-header .grid12-4 {
+    text-align: right;
+    float: right;
+}
+
+.landing-page-header .grid12-4 .button { margin: 20px 20px 20px 0; }
+
+.landing-page-footer .grid12-4 .buffet-checkout-logos,
+.landing-page-footer .grid12-4 .button {
+    margin-right: 20px;
+}
+
+.buffet-checkout-logos  {
+    margin-top: 20px;
+}
+
+.buffet-checkout-logos .checkout-logos {
+    margin: 0;
+    position: static;
+    float: none;
+    display: inline-block;
+}
+
+.buffet-checkout-logos #comodo-logo-table {
+    display:inline!important;
+}
+
+.landing-page-footer q:before {
+    content: '“ ';
+    position: absolute;
+    top: 60px;
+    margin-left: -30px;
+}
+
+.landing-page-footer q:after {
+    content: ' ”';
+    position: absolute;
+    bottom: 33px;
+}
+
+.landing-page-footer q:before,
+.landing-page-footer q:after {
+    font-size: 90px;
+}
+
+.landing-page-footer h2 {
+    display: inline;
+}
+
+.landing-page-footer .block-vertnav {
+    padding: 30px 50px 20px;
+}
+
+/*Radio landing page*/
+.radio-landing-page .grid12-4 .button {
+    margin-top: 0;
+}
+
+.radio-banner {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.radio-banner .right-side {
+    width: 83%;
+    position: relative;
+    margin: 0;
+}
+
+.radio-banner .left-side {
+    width: 17%;
+    text-align: center;
+    margin: 0;
+    position: relative;
+}
+
+.radio-banner .right-side .banner-text {
+    width: 90%;
+    height: 70%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.radio-banner .right-side p {
+    font: 400 14px/18px 'proxima_nova_rgregular', sans-serif;
+}
+

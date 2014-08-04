@@ -1,0 +1,28 @@
+<?php
+$session = Mage::getSingleton('customer/session');
+?>
+
+<div class="header-container box-sizing-mixin" id="mobile-nav-header">
+    <a href="" class="mobile-nav-trigger mobile-actions"></a>
+    <div class="logo-mobile">
+        <?php if ($this->getIsHomePage()):?>
+            <h1 class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getSkinUrl('images/logo-mobile.png') ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <?php else:?>
+            <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getSkinUrl('images/logo-mobile.png') ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+    </div>
+    <div class="mobile-actions">
+        <a href="" class="search-action"></a>
+        <?php if ($session->isLoggedIn()): ?>
+            <a href="" class="account-action-logged"></a>
+        <?php else: ?>
+            <a href="" class="account-action">
+                <span class="mob-header-hint mob-account-hint">?</span>
+            </a>
+        <?php endif; ?>
+        <a href="<?php echo $this->getUrl('checkout/cart')?>" class="cart-action">
+            <span class="mob-header-hint mob-cart-hint" <?php if ((int)Mage::getModel('checkout/cart')->getQuote()->getItemsQty()<1){ ?>style="display: none"<?php }?>><?php echo (int)Mage::getModel('checkout/cart')->getQuote()->getItemsQty(); ?></span>
+        </a>
+    </div>
+
+</div> <!-- end: header-container -->

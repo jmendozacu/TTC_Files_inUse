@@ -1,0 +1,65 @@
+<?php
+/**
+ * Boutique
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @boutique    Tgc
+ * @package     Boutique
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_Boutique_Block_BoutiqueHeroCarousel */
+?>
+<?php
+$helper     = $this->helper('tgc_boutique');
+$collection = $this->getCollection();
+$processor  = Mage::helper('cms')->getPageTemplateProcessor();
+?>
+<?php if ($this->shouldShowWidget() && $collection && ($collection->getSize())): ?>
+    <div id="boutique-hero-slider-tab" class="category-hero-module">
+        <?php $iterator = 0; ?>
+        <?php foreach ($collection as $item): ?>
+            <?php $iterator++; ?>
+            <div id="pane-<?php echo $iterator; ?>">
+                <div class="tab-desktop" style="height: 100%;">
+                    <?php echo $processor->filter($item->getDescription()); ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php $iterator = 0; ?>
+        <ul class="clearer">
+            <?php foreach ($collection as $item): ?>
+                <?php $iterator++; ?>
+                <li>
+                    <a href="#pane-<?php echo $iterator; ?>">
+                        <strong><?php echo $helper->truncateTextByWords($item->getTabTitle(), $this::HERO_HEADLINE_MAX_LENGTH); ?></strong><?php echo $helper->truncateTextByWords($item->getTabDescription(), $this::HERO_TAB_MAX_LENGTH); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+            <?php $tabWidth = (100 / $collection->getSize()); ?>
+            jQuery(function($) {
+                $("#boutique-hero-slider-tab").sliderTabs({
+                    tabHeight: 'auto',
+                    position: "bottom",
+                    tabArrowWidth: 0,
+                    mousewheel: false,
+                    transition: 'fade',
+                    transitionSpeed: 500
+                });
+
+                $(document).ready(function() {
+                    $('#boutique-hero-slider-tab .ui-slider-tabs-list li').each(function() {
+                        var _that = $(this);
+                        $(this).css({'width' : '<?php echo $tabWidth . '%'; ?>', 'max-width' : 'inherit', 'height' : $(this).parent().height()});
+                        $(this).find('a').css({'height' : _that.parent().height()});
+                    });
+                });
+            });
+        //]]>
+    </script>
+<?php endif; ?>

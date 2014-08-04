@@ -1,0 +1,78 @@
+ID:                 about-us
+Status:             published
+Title:              About The Great Courses
+Layout:             one_column_about
+Stores:             default,uk_en, au_en
+---
+
+<div class="left_sidebar grid12-3">
+    {{block type="cms/block" block_id="about_us_menu" name="about.menu"}}
+</div>
+<div class="about grid12-9">
+    <div class="about_container">
+        <div class="left_border">
+            <div class="about_content">
+                <span class="mod_page_active">mob-about</span>
+                <div class="content_hero">
+                    <img src="{{media url="wysiwyg/aboutus_main_banner_1.jpg"}}"/>
+
+                </div>
+                <div class="about_intro">
+                    <div class="infograph">
+                        <img src="{{media url="wysiwyg/infographic_aboutus_main_1.jpg"}}"/>
+                        <div class="infog"> <a href="#" class="infographic">See How a Course becomes a Great Course</a></div>
+                    </div>
+                    <p>The Great Courses are uniquely crafted for lifelong learners like you, with engaging, immersive learning experiences you can’t get in a lecture hall.
+                    <p><b>The secret ingredient is YOU</b>. Our customers are involved at every step of the process, helping to choose course subjects and select professors from the thousands we screen each year.
+                    <p>The course creation process that follows involves so much more than just placing a camera in the back of a classroom. We surround the world’s greatest teachers with a team of experts who collaborate on crafting a customized and entertaining educational journey that’s both comprehensive and fascinating.
+                    <p>What you don’t get are the trappings of a university that you no longer need or want. There are no exams. No homework assignments. No prerequisites. <b>You can choose the format that fits your life:</b> video or audio, discs or digital. Watch on a TV, laptop, or tablet while taking notes in the free companion guidebook. Listen on your mobile device while going about your day.
+                    <p>From concept, to development, to custom content & visual design, each of The Great Courses is an unparalleled educational experience designed with people like you in mind.
+                </div>
+                <div class="infograph_mobile">
+                    <img src="{{skin url="images/tgc/infographic.jpg"}}"/>
+                </div>
+                <div class="about_quotes_lines">
+                    <p class="quote">Not since my own dissertation defense had I felt “tested” in the way I was by The Great Courses test lectures. That they were willing to devote such time, money, and resources to vetting lecturers made clear the company’s commitment to producing the highest quality courses. The emphasis on quality was just as clear in every later stage of production, from the editorial feedback to the preparation of the visual aids and the meticulous way in which the taping was done, with every syllable being checked and double checked, and every “fix” reviewed two or three times.</p>
+                    <p class="after_quote">– Professor Don Howard, Ph.D., Boston University University of Notre Dame</p>
+                </div>
+                <div class="about_quotes">
+                    <p class="quote">Turning a college classroom course into a Great Course is an awesome experience. Nothing hones a course better than having to shape it into a disciplined experience with the advice and guidance of the Great Courses experts. The course becomes clearer.  The experience vastly improves your teaching when you carry it back to the classroom and make all your classroom courses better.</p>
+                    <p class="after_quote">– Professor  Edward J Larson J.D., Harvard University; Ph.D., University of Wisconsin-Madison Pepperdine University</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="infograph_tablet">
+        <img src="{{skin url="images/tgc/infographic.jpg"}}"/>
+    </div>
+</div>
+
+<div class="popup_overlay">
+    <div class="popup_infograph">
+        <div class="infograph_head">
+            <a href="#" class="close_popup"></a>
+            <div class="share_buttons">
+                <button id="embed-infographic" type="submit" class="button" title="EMBED THIS INFOGRAPHIC" name="infographic">
+                    <span class="info_sp">EMBED THIS INFOGRAPHIC</span>
+                </button>
+
+            </div>
+            <textarea class="container-for-embeded-content no-display"><img src="{{skin url="images/tgc/infographic.jpg"}}" alt="The Greatest Courses Approach"/></textarea>
+            <div class="infograph_content">
+                <img src="{{skin url="images/tgc/infographic.jpg"}}" alt="The Greatest Courses Approach"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    (function($) {
+        var embedbtn = $('#embed-infographic');
+        var embedcontainer = $('.container-for-embeded-content');
+        embedbtn.on(customClickEvent, function() {
+            embedcontainer.toggleClass('no-display');
+        })
+
+    })(jQuery)
+</script>

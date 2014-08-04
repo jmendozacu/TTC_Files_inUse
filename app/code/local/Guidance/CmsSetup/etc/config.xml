@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Guidance_CmsSetup>
+            <version>10.7</version>
+        </Guidance_CmsSetup>
+    </modules>
+    <global>
+        <models>
+            <cmssetup>
+                <class>Guidance_CmsSetup_Model</class>
+            </cmssetup>
+            <cms_resource>
+                <rewrite>
+                    <page>Guidance_CmsSetup_Model_Resource_Page</page>
+                </rewrite>
+            </cms_resource>
+        </models>
+        <helpers>
+            <cmssetup>
+                <class>Guidance_CmsSetup_Helper</class>
+            </cmssetup>
+        </helpers>
+        <resources>
+            <cmssetup_setup>
+                <setup>
+                    <module>Guidance_CmsSetup</module>
+                    <class>Guidance_CmsSetup_Model_Resource_Setup</class>
+                </setup>
+            </cmssetup_setup>
+        </resources>
+        <events>
+            <controller_action_predispatch_adminhtml_cms_block_save>
+                <observers>
+                    <remove_hash>
+                        <model>cmssetup/hashCleaner</model>
+                        <method>allowCleanUp</method>
+                    </remove_hash>
+                </observers>
+            </controller_action_predispatch_adminhtml_cms_block_save>
+            <controller_action_predispatch_adminhtml_cms_page_save>
+                <observers>
+                    <remove_hash>
+                        <model>cmssetup/hashCleaner</model>
+                        <method>allowCleanUp</method>
+                    </remove_hash>
+                </observers>
+            </controller_action_predispatch_adminhtml_cms_page_save>
+            <model_save_before>
+                <observers>
+                    <remove_hash>
+                        <model>cmssetup/hashCleaner</model>
+                        <method>cleanUp</method>
+                    </remove_hash>
+                </observers>
+            </model_save_before>
+        </events>
+    </global>
+</config>

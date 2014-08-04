@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<config>
+    <modules>
+        <RocketWeb_Podcast>
+            <active>true</active>
+            <codePool>community</codePool>
+        </RocketWeb_Podcast>
+    </modules>
+</config>

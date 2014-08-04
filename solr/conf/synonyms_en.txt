@@ -1,0 +1,62 @@
+# The ASF licenses this file to You under the Apache License,Version 2.0
+# (the "License"); you may not use this file except in compliance with
+# the License.  You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#-----------------------------------------------------------------------
+#some test synonym mappings unlikely to appear in real input text
+#aaafoo => aaabar
+#bbbfoo => bbbfoo bbbbar
+#cccfoo => cccbar cccbaz
+#fooaaa,baraaa,bazaaa
+
+# synonyms
+
+
+
+Brown,Brown University
+Photograph,photography,photo,pictures,image,camera,nat geo,National Geographic
+Photography,photograph,photography,photo,picture,image,camera,nat geo,National Geographic
+National Geographic,Nat geo,photography,photograph,photo,picture,image,camera
+writing,write,writer,author,authors,literature,lit,sentences,sentence,manuscript,words,reading,shakespeare
+latin,language,linguistics,languages
+wine,Cabernet Sauvignon,Merlot,Cabernet Franc,Pinot Noir,Grenache,Syrah,Viognier,Chardonnay,Zinfandel,Malbec,Bonarda,Sauvignon Blanc,Shiraz,Petite Syrah,Riesling,Gewurztraminer,Sylvaner,Tempranillo,Albarino,Garnacha,Palomino,Pinotage,Chenin Blanc
+psychology,psych,psyche,psychologies
+calculus,calc, calculuss
+cooking,cook,culinary,bake,baking,cuisine,cookery,food,meals,Culinary Institute America,gourmet
+meditation,meditate,contemplate,think,relaxation,relax
+physics,Einstein,gravitation, mechanics,Thermodynamics,Electromagnetism,Relativity,Quantum
+Chemistry,chem,chemical
+shakespeare,shakespeares,playwright,poet
+brain,brains,mind,mental,cerebral,intellect,intellectual,rational,cognitive,memory,think
+Music,opera,jazz,song,acoustic,tune,singing,melody,song,instrumental,harmony
+nutrition,health,food,vitamins,fitness,fit,fitness,healing,aging
+math,mathematics,numbers,number,algebra,geometry
+Biology,bio 
+influence,influencer,leader,leaders,leadership,conflict,communication,professional
+Mindfulness,mind,mindful,mindfulnes,mindfull,mindfulness
+algebra,algebras
+Economics,econ
+American,US,America,USA,united states,U.S.,US.,U.S
+astronomy,sky,tyson
+storytelling,story,fables
+Statistics,stats
+Geology,geo
+Rome,italy
+
+#notice we use "gib" instead of "GiB" so any WordDelimiterFilter coming
+#after us won't split it into two words.
+
+# Synonym mappings can be used for spelling correction too
+pixima => pixma
+critque => critique
+cs => c.s.
+meterology => meteorology
+ts => t.s.

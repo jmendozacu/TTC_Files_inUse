@@ -1,0 +1,95 @@
+<?php
+$order = $this->_getOrder();
+$quote = $this->getQuote();
+$paymentInformation = $order->getPayment()->getMethodInstance()->getTitle();
+$billingAddress =  $order->getBillingAddress()->format('html');
+$shippingAddress = $order->getShippingAddressId() ? $order->getShippingAddress()->format('html') : '';
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('Thank you. Your order is complete') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="confirmation-main-col clearfix box-sizing-mixin">
+    <div class="confirmation-first-col clearfix box-sizing-mixin">
+        <?php if ($this->getOrderId()):?>
+            <?php if ($this->getCanViewOrder()) :?>
+                <p class="confirmation-order-number"><?php echo $this->__('Your confirmation # is: %s.', sprintf('<span>%s</span>', $this->escapeHtml($this->getOrderId()))) ?></p>
+            <?php  else :?>
+                <p><?php echo $this->__('Your confirmation # is: %s.', $this->escapeHtml($this->getOrderId())) ?></p>
+            <?php endif;?>
+            <?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()) :?>
+                <p class="confirmation-thank-you">
+                    Thank you for your purchase. We'll send you an electronic copy of this receipt. You can also <a class="link-print-order" onclick="popWin('<?php echo $this->getUrl('sales/order/print', array('order_id' => $order->getEntityId())); ?>','printorder','width=800,height=600,top=0,left=0,resizable=yes,scrollbars=yes'); return false;" href="javascript:void(0);">print this page</a> for your records.
+                </p>
+            <?php endif;?>
+            <p class="confirmation-thank-you-mobile">
+                <?php echo $this->__('Thank you for your purchase. We\'ll send you an electronic copy of this receipt.'.' You can view your order and past orders in the My Account section under <a href="/sales/order/history/">Order History</a>', $this->getPrintUrl()) ?>
+            </p>
+            <p><?php echo $this->__('Now you can stream your digital courses instantly or download them to your computer to enjoy later -- all from your Digital Library');?></p>
+        <?php endif;?>
+
+        <?php if ($this->getAgreementRefId()): ?>
+            <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+        <?php endif;?>
+
+        <?php if ($profiles = $this->getRecurringProfiles()):?>
+            <p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+            <ul class="disc">
+                <?php foreach($profiles as $profile):?>
+                    <?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
+                    <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
+                <?php endforeach;?>
+            </ul>
+        <?php endif;?>
+
+        <div class="buttons-set">
+            <button type="button" class="button" title="<?php echo $this->__('go to my digital library') ?>" onclick="window.location='/digital-library/account/'"><span><span><?php echo $this->__('go to my digital library') ?></span></span></button>
+        </div>
+    </div>
+    <div class="confirmation-second-col clearfix box-sizing-mixin">
+        <div class="conf-payment-info conf-info-box">
+            <h2>Payment Information</h2>
+            <p><?php echo $paymentInformation; ?></p>
+        </div>
+        <div class="conf-billing-info conf-info-box">
+            <h2>Billing Address</h2>
+            <p><?php echo $billingAddress; ?></p>
+        </div>
+        <?php if (!empty($shippingAddress)): ?>
+            <div class="conf-shipping-info conf-info-box">
+                <h2>Shipping Address</h2>
+                <p><?php echo $shippingAddress; ?></p>
+            </div>
+        <?php endif; ?>
+    </div>
+    <div class="confirmation-order-details-table checkout-cart-index cart clearfix box-sizing-mixin">
+        <?php echo $this->getChildHtml('confirmation.order');?>
+    </div>
+</div>
+<div class="confirmation-seconday-col clearfix box-sizing-mixin">
+    <div class="cs_information">
+        <?php echo $this->getChildHtml('cart-customer-services'); ?>
+        <?php echo $this->getChildHtml('cart-more-services'); ?>
+        <div class="customer_more_images">
+            <div class="float_left cms_image_1"><img src=<?php echo $this->getSkinUrl('images/SatisfactionGuarenteed.png')?>></div>
+            <div class="float_left cms_image_2" id="comodo-logo-table">
+                <div style="float: right;">
+                    <script language="javascript" type="text/javascript">
+                        //<![CDATA[
+                        var tl_loc0 = (window.location.protocol == "https:") ? "https://secure.comodo.net/trustlogo/javascript/trustlogo.js" :
+                            "http://www.trustlogo.com/trustlogo/javascript/trustlogo.js";
+                        document.writeln('<scr' + 'ipt language="JavaScript" src="' + tl_loc0 + '" type="text\/javascript">' + '<\/scr' + 'ipt>');
+                        //]]>
+                    </script>
+
+                    <script type="text/javascript"> TrustLogo("https://secureimages.teach12.com/images/comodo_logo.gif", "SC4", "none");</script>
+
+                </div>
+            </div>
+        </div>
+        <script language="javascript" type="text/javascript">
+            jQuery('#comodo-logo-table img').attr('src','<?php echo $this->getSkinUrl('images/SecuredLogo.png')?>');
+            jQuery('#comodo-logo-table').css('display','block');
+        </script>
+    </div>
+</div>

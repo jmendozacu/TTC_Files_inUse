@@ -1,0 +1,33 @@
+-- File source: bucket.guidance.com/data-migration/BasketConversion20140418.csv
+
+-- Convert line-endings
+dos2unix /tmp/tgc-imports/CreditCardProfiles.csv
+
+-- Check for BOM. If BOM is present you'll see: 00000000  ef bb bf ...
+hd -n 3 /tmp/tgc-imports/CreditCardProfiles.csv
+
+-- Remove BOM
+tail -c +4 /tmp/tgc-imports/BasketConversion20140418.csv > /tmp/tgc-imports/BasketConversion20140418-nobom.csv
+
+-- Check for BOM. If BOM is present you'll see: 00000000  ef bb bf ...
+hd -n 3 /tmp/tgc-imports/BasketConversion20140418-nobom.csv
+
+-- Check for extra blank rows at the end of the file/table
+tail -10 /tmp/tgc-imports/BasketConversion20140418-nobom.csv
+
+load data infile '/tmp/tgc-imports/BasketConversion20140418-nobom.csv' into table `tgc_checkout_cart_migrate`
+fields terminated by ',' lines terminated by '\n' ignore 2 lines
+(web_user_id, dax_customer_id, adcode, sku, quantity);
+
+-- Delete records with bad data
+delete from `tgc_checkout_cart_migrate` where sku = '';
+delete from `tgc_checkout_cart_migrate` where sku is null';
+
+
+Load data runtime: 12.7 seconds
+Status Checks:
+Approx 672k rows?:
+Value is_claimed = 0?:
+Data appearing in columns makes sense?:
+
+Estimate of Total import time: 5 minutes

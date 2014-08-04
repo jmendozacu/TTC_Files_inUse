@@ -1,0 +1,50 @@
+<?php
+/**
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DataMart
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php if ($this->canShow()): ?>
+<?php
+    $product = $this->getProduct();
+    $configurableOptionsBlock = $this->getChild('buffet.landing.page.set.configurable.options');
+?>
+<div class="set-container">
+    <?php if ($this->getText()): ?>
+    <div class="set-text"><?php echo $this->getText(); ?></div>
+    <?php endif; ?>
+    <div class="add-to-cart-form-container">
+        <form id="add_to_cart_form_<?php echo $product->getId(); ?>" action="<?php echo Mage::helper('checkout/cart')->getAddUrl($product); ?>" method="post">
+            <input type="hidden" name="product" value="<?php echo $product->getId() ?>"/>
+            <input type="hidden" name="course_id" value="<?php echo $product->getCourseId() ?>"/>
+            <input type="hidden" name="product_sku" value="<?php echo $product->getSku() ?>"/>
+
+            <?php if ($product->isConfigurable() && $configurableOptionsBlock): ?>
+            <?php echo $configurableOptionsBlock->setProduct($product)->toHtml(); ?>
+            <button onclick="if(!jQuery(this).hasClass('disabled')){addToCart($(this).up('form'));}else{customTooltip.show(this, '<?php echo $this->__('Select a Format First'); ?>', 'top' );}" class="button purchase add-to-cart-button disabled" title="<?php echo $this->__('Add set to Cart') ?>" type="button">
+                <span>
+                    <span><?php echo $this->__('Add to Cart'); ?></span>
+                </span>
+            </button>
+            <?php else: ?>
+            <button class="button purchase add-to-cart-button" title="<?php echo $this->__('Add to Cart') ?>" type="button" onclick="addToCart($(this).up('form'));">
+                <span>
+                    <span><?php echo $this->__('Add to Cart'); ?></span>
+                </span>
+            </button>
+            <?php endif; ?>
+        </form>
+    </div>
+</div>
+<?php endif; ?>
+<script type="text/javascript">
+    //<![CDATA[
+    (function($) {
+        $(document).ready(function() {
+            $('.buffet-landing-page .super-attribute-select').coreUISelect();
+        });
+    })(jQuery);
+    //]]>
+</script>

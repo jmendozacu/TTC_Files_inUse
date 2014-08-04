@@ -1,0 +1,9 @@
+ID:                 my-page
+Status:             published
+Title:              My page
+Layout:             one_column
+Content heading:    My Hedaing
+---
+My page content
+
+NOTE: This is an example only, you should not be using the content directory of this module.  See the README.md for how to implement this functionality in your own CMS module. 

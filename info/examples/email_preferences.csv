@@ -1,0 +1,5 @@
+web_key,customerid,email,date,action,email_campaign
+12345,S12354652,l@l.com,1/30/14 0:00,unsubscribe,email-_-ChineseNwYrSNI20140129-_-footer-_-UnSub
+12346,S15286522,testing@test.com,1/27/14 0:00,unsubscribe,email-_-NwYrSNI20140129-_-footer-_-UnSub
+96980,S123585214,i@test.com,1/31/14 17:37,unsubscribe,email-_-ChineseNwYrSNI20140129-_-footer-_-UnSub
+96980,S322566552,bjohn@guidance.com,2/3/14 17:37,subscribe,newsletter_unsubscribe

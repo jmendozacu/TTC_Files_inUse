@@ -1,0 +1,46 @@
+<?php
+/**
+ * Digital Library Account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Testimonials About Professor Template
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+
+/* @var $this Tgc_Professors_Block_Professor */
+?>
+<?php
+    /* @var $professor Tgc_Professors_Model_Professor */
+	$professor = $this->getParentBlock()->getParentBlock()->getProfessor();
+?>
+<div class="data-block testimonials <?php if(count($professor->getTestimonial()) == 0) echo 'no-display' ;?>">
+    <div class="title">Testimonials</div>
+    <?php echo $professor->getTestimonial()?>
+</div>
+
+<script type="text/javascript">
+    /*Code to init flex slider for testimonials about professor on mobile devices*/
+    jQuery(function($) {
+        if( /*$(window).width()<768 ||*/
+            ($(window).width()<768 && navigator.userAgent.match(/Android/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/webOS/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/iPhone/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/iPad/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/iPod/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/BlackBerry/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/Windows Phone/i))
+        ) {
+            $('.data-block.testimonials').flexslider({
+                namespace: "",
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                itemWidth: 240,
+                slideshow: false,
+                maxItems: 4,
+                minItems: 0
+            })
+        }
+    })
+</script>

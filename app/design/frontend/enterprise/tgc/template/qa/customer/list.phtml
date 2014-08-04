@@ -1,0 +1,219 @@
+<?php
+/**
+ * Q and A my account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Bazaarvoice
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_Bazaarvoice_Block_Qa */
+$_heroHelper = $this->helper('tgc_cms');
+?>
+<div class="page-title">
+    <h1><?php echo $this->__('All Your Questions and Answers') ?></h1>
+
+    <div class="qa-direction-select sort-by">
+        <label><?php echo $this->__('Sort by') ?></label>
+        <select onchange="setLocation(this.value)">
+            <?php foreach($this->getAvailableOrders() as $_key => $_order): ?>
+                <option
+                    value="<?php echo $this->getOrderUrl($_key); ?>"<?php if ($this->getCurrentDirection() == $_key): ?> selected="selected"<?php endif; ?>>
+                    <?php echo $this->__($_order) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $items = $this->getItems(); ?>
+<?php if (count($items) > 0): ?>
+    <div class="qa-summary">
+        <?php $qa_summary = $this->getSummaryData(); ?>
+        <p>
+            <span><strong><?php echo $this->__('Questions') ?>:</strong><?php echo $qa_summary['questions']; ?></span>
+            <span><strong><?php echo $this->__('Answers') ?>:</strong><?php echo $qa_summary['answers']; ?></span>
+            <span><strong><?php echo $this->__('Helpful Votes') ?>:
+                </strong><?php echo $qa_summary['helpful_votes']; ?></span>
+            <span class="hide-for-mobile"><strong><?php echo $this->__('Last Q or A') ?>
+                    :</strong><?php echo $qa_summary['last_qa']; ?></span>
+            <span class="hide-for-mobile"><strong><?php echo $this->__('Active Since') ?>:
+                </strong><?php echo $qa_summary['active_since']; ?></span>
+        </p>
+        <p>
+            <span><strong><?php echo $this->__('Featured Questions') ?>:
+                </strong><?php echo $qa_summary['featured_question']; ?></span>
+            <span><strong><?php echo $this->__('Featured Answers') ?>:
+                </strong><?php echo $qa_summary['featured_answers']; ?></span>
+            <span class="hide-for-mobile"><strong><?php echo $this->__('Best Answers') ?>:
+                </strong><?php echo $qa_summary['best_answers']; ?></span>
+            <span><strong><?php echo $this->__('Community Rank') ?>
+                    :</strong><?php echo $qa_summary['community_rank']; ?></span>
+        </p>
+    </div>
+    <?php foreach ($items as $item): ?>
+        <?php if ($item['type'] == Tgc_Bazaarvoice_Block_Qa::QUESTIONS_TYPE): ?>
+            <div class="user-question">
+                <?php //Zend_Debug::dump($item); ?>
+                <?php $user_q = $item; ?>
+                <div class="date lable">
+                <strong><?php echo $this->__('Date') ?>: </strong><?php echo $user_q['date']; ?>
+                </div>
+                <div class="course">
+                    <div class="course-img grid12-1 hide-for-mobile">
+                    <img src="<?php echo $user_q['product_image_url']; ?>"
+                             alt="<?php echo $user_q['product_name']; ?>" width="55" height="80"/>
+                    </div>
+                    <div class="course-text grid12-11">
+                        <h4 class="title"><a
+                                href="<?php echo $user_q['ask_question_url']; ?>"><?php echo $user_q['product_name']; ?></a>
+                        </h4>
+
+                        <p><?php echo $_heroHelper->truncateTextByWords($user_q['product_description'], 400, '...'); ?></p>
+
+                        <div class="qa-links">
+                            <a href="<?php echo $user_q['ask_question_url']; ?>"><?php echo $this->__('See all Q&A for this product') ?>
+                                »</a>
+                            <a href="<?php echo $user_q['ask_question_url']; ?>"><?php echo $this->__('ask a new question about this product') ?>
+                                »</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="course-qa">
+                    <div class="question-summary"><p><?php echo $user_q['question_summary']; ?></p>
+                        <?php if (!empty($user_q['answers'])): ?>
+                            <a href="#" rel="nofollow" class="read-all-answers"><?php echo $this->__('read all answers to this question') ?> »</a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="question-details">
+                        <p><strong><?php echo $this->__('Details') ?>
+                                : </strong><?php echo $user_q['question_details']; ?></p>
+
+                        <p class="days-ago"><?php echo $user_q['date']; ?></p>
+                        <?php if (!empty($user_q['answers'])): ?>
+                            <a href="#" rel="nofollow" class="read-all-answers"><?php echo $this->__('read all answers to this question') ?> »</a>
+                        <?php endif; ?>
+
+                        <p><span class="nickname"><strong><?php echo $this->__('By') ?>
+                                    : </strong><?php echo $user_q['user_nickname']; ?></span>
+                            <a class="all-my-qa" href="<?php echo $user_q['see_all_qa_url']; ?>"><?php echo $this->__('read all my Q&A') ?></a></p>
+                    </div>
+                </div>
+                <div class="all-answers" style="display: none;">
+                    <?php foreach ($user_q['answers'] as $answers) : ?>
+                        <div class="answer">
+                            <div class="photo grid12-1">
+                                <img src="<?php echo $answers['user_photo']; ?>"
+                                     alt="<?php echo $answers['user_name']; ?>"
+                                     width="38" height="38"/>
+                            </div>
+                            <div class="answer-text grid12-11">
+                                <p><strong><?php echo $answers['user_name']; ?>
+                                        : </strong><?php echo $answers['answer']; ?>
+                                </p>
+
+                                <div class="days-ago"><?php echo $answers['answer_date']; ?></div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php else: ?>
+            <div class="user-answers">
+                <?php //Zend_Debug::dump($item); ?>
+                <?php $answers = $item; ?>
+                <div class="date lable">
+                    <strong><?php echo $this->__('Date') ?>: </strong><?php echo $answers['date']; ?>
+                </div>
+                <div class="course">
+                    <div class="course-img grid12-1 hide-for-mobile">
+                        <img src="<?php echo $answers['product_image_url']; ?>"
+                             alt="<?php echo $answers['product_name']; ?>" width="55" height="80"/>
+                    </div>
+                    <div class="course-text grid12-11">
+                        <h4 class="title"><a
+                                href="<?php echo $answers['ask_question_url']; ?>"><?php echo $answers['product_name']; ?></a>
+                        </h4>
+
+                        <p><?php echo $_heroHelper->truncateTextByWords($answers['product_description'], 400, '...'); ?></p>
+
+                        <div class="qa-links">
+                            <a href="<?php echo $answers['ask_question_url']; ?>"><?php echo $this->__('See all Q&A for this product') ?>
+                                »</a>
+                            <a href="<?php echo $answers['ask_question_url']; ?>"><?php echo $this->__('ask a new question about this product') ?>
+                                »</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="course-qa">
+                    <div class="question-summary"><p><?php echo $answers['question_summary']; ?></p>
+                        <?php if (!empty($answers['all_answers'])): ?>
+                            <a href="#" rel="nofollow" class="read-all-answers"><?php echo $this->__('read all answers to this question') ?> »</a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="question-details">
+                        <p><strong><?php echo $this->__('Details') ?>
+                                : </strong><?php echo $answers['question_details']; ?></p>
+
+                        <p class="days-ago"><?php echo $answers['date']; ?></p>
+                        <?php if (!empty($answers['all_answers'])): ?>
+                            <a href="#" rel="nofollow" class="read-all-answers"><?php echo $this->__('read all answers to this question') ?> »</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
+                <div class="all-answers" style="display: none; ">
+                    <?php foreach ($answers['all_answers'] as $allanswers) : ?>
+                        <div class="answer">
+                            <div class="photo grid12-1">
+                                <img src="<?php echo $allanswers['user_photo']; ?>"
+                                     alt="<?php echo $allanswers['user_name']; ?>"
+                                     width="38" height="38"/>
+                            </div>
+                            <div class="answer-text grid12-11">
+                                <p><strong><?php echo $allanswers['user_name']; ?>
+                                        : </strong><?php echo $allanswers['answer']; ?>
+                                </p>
+
+                                <div class="days-ago"><?php echo $allanswers['answer_date']; ?></div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="lable"><?php echo $this->__('Your UserName Answer') ?></div>
+                <div class="user-rank">
+                    <strong><?php echo $answers['user_rank']; ?></strong> <?php echo $this->__('Contributor') ?></div>
+                <div class="my-answer">
+                <p><strong><?php echo $this->__('YourAnswer') ?>: </strong>
+                        <span><?php echo $answers['user_answer']; ?></span></p>
+
+                    <div class="days-ago"><?php echo $answers['answer_date']; ?></div>
+                    <div class="helpful-or-not"><?php echo $this->__('Was this answer helpful?') ?>
+                        <span class="helpful"><strong><?php echo $answers['helpful_votes']; ?></strong></span>
+                        <span class="not-helpful"><strong><?php echo $answers['not_helpful_votes']; ?></strong></span>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<?php else: ?>
+    <p><?php echo $this->__('You have no questions or answers.') ?></p>
+<?php endif; ?>
+<script type="text/javascript">
+    (function ($) {
+        var readAll = $('.course-qa .read-all-answers');
+
+        /*Show/hide all answers*/
+        $(readAll).on('click', function (e) {
+            e.preventDefault();
+            $(this).parents('.course-qa').next('.all-answers').toggle();
+        });
+
+        <!-- Code for custom select -->
+        $('.sort-by select').coreUISelect();
+    })(jQuery);
+</script>

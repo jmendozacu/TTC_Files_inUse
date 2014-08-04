@@ -1,0 +1,25 @@
+<?php
+/**
+ * Digital Library Account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_DigitalLibrary_Block_Account */
+?>
+<div>
+    <h1><?php echo $this->__('All Your Courses are here. Stream online or on the go via our apps.'); ?></h1>
+    <div>
+        <?php echo $this->getChildHtml('index_list'); ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#nav-index').addClass('active');
+    });
+</script>

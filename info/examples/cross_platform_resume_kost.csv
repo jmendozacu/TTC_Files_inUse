@@ -1,0 +1,3 @@
+dax_customer_id,course_id,format,lecture_number,progress,last_view_date,watched
+Expected Records,1,0,0,0,0,0
+10985237,1920,0,9,1500,2014-04-04 15:45:24,0

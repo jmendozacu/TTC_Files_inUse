@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Dax integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Dax
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <email_unsubscribe_adminhtml_emailunsubscribe_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage DAX Email Unsubscribes</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dax/adminhtml_emailUnsubscribe" name="emailUnsubscribe" />
+        </reference>
+    </email_unsubscribe_adminhtml_emailunsubscribe_index>
+
+    <email_unsubscribe_adminhtml_emailunsubscribe_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit DAX Email Unsubscribes</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dax/adminhtml_emailUnsubscribe_edit_tabs" name="emailUnsubscribe_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_dax/adminhtml_emailUnsubscribe_edit" name="emailUnsubscribe_edit" />
+        </reference>
+    </email_unsubscribe_adminhtml_emailunsubscribe_edit>
+
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/systemConfigValidation.js</name></action>
+        </reference>
+    </adminhtml_system_config_edit>
+
+    <add_dax_columns_to_order_grid>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>is_exported</columnId>
+                <arguments module="tgc_dax" translate="header">
+                    <header>Exported</header>
+                    <index>is_exported</index>
+                    <renderer>Tgc_Dax_Block_Sales_Order_Renderer_IsExported</renderer>
+                    <filter>Tgc_Dax_Block_Sales_Order_Grid_Filter_IsExported</filter>
+                    <filter_index>orders.is_exported</filter_index>
+                    <width>70px</width>
+                </arguments>
+                <after>status</after>
+            </action>
+            <action method="addColumnAfter">
+                <columnId>dax_received</columnId>
+                <arguments module="tgc_dax" translate="header">
+                    <header>Received</header>
+                    <index>dax_received</index>
+                    <renderer>Tgc_Dax_Block_Sales_Order_Renderer_DaxReceived</renderer>
+                    <filter>Tgc_Dax_Block_Sales_Order_Grid_Filter_DaxReceived</filter>
+                    <filter_index>orders.dax_received</filter_index>
+                    <width>70px</width>
+                </arguments>
+                <after>is_exported</after>
+            </action>
+            <action method="addColumnAfter">
+                <columnId>dax_order_id</columnId>
+                <arguments module="tgc_dax" translate="header">
+                    <header>DAX Order ID</header>
+                    <index>dax_order_id</index>
+                    <type>text</type>
+                    <filter_index>orders.dax_order_id</filter_index>
+                    <renderer>Tgc_Dax_Block_Sales_Order_Renderer_DaxOrderId</renderer>
+                    <width>80px</width>
+                </arguments>
+                <after>status</after>
+            </action>
+        </reference>
+    </add_dax_columns_to_order_grid>
+
+    <adminhtml_sales_order_grid>
+        <update handle="add_dax_columns_to_order_grid" />
+    </adminhtml_sales_order_grid>
+
+    <adminhtml_sales_order_index>
+        <update handle="add_dax_columns_to_order_grid" />
+    </adminhtml_sales_order_index>
+
+    <daxtest_adminhtml_order_export>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>DAX order Export Test</title>
+            </action>
+        </reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page.phtml</template></action>
+        </reference>
+    </daxtest_adminhtml_order_export>
+
+</layout>

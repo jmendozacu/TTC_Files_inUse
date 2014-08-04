@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * GiftCard
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     GiftCard
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_GiftCard>
+            <version>1</version>
+        </Tgc_GiftCard>
+    </modules>
+    <global>
+        <events>
+            <sales_order_save_commit_after>
+                <observers>
+                    <enterprise_giftcard_generate_giftcardaccounts>
+                        <type>disabled</type>
+                        <class>enterprise_giftcard/observer</class>
+                        <method>generateGiftCardAccounts</method>
+                    </enterprise_giftcard_generate_giftcardaccounts>
+                </observers>
+            </sales_order_save_commit_after>
+        </events>
+    </global>
+</config>

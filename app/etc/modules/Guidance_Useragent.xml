@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * utilities to get information about classes through PHP Reflection API
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Guidance
+ * @package     Useragent
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Guidance_Useragent>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Guidance_Useragent>
+    </modules>
+</config> 

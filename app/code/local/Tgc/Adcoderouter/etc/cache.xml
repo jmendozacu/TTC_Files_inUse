@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <placeholders>
+        <pid_message>
+            <block>adcoderouter/pid</block>
+            <placeholder>PID</placeholder>
+            <container>Tgc_Adcoderouter_Model_Pagecache_Container_Pid</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </pid_message>
+        <spacead_message>
+            <block>tgc_catalog/product_view</block>
+            <placeholder>SPACEAD_TOPNOTE</placeholder>
+            <container>Tgc_Adcoderouter_Model_Pagecache_Container_Spacead_Topnote</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </spacead_message>
+        <rightupsells_spacead>
+            <block>tgc_catalog/product_spacead</block>
+            <placeholder>SPACEAD_RIGHTSIDEBAR</placeholder>
+            <container>Tgc_Adcoderouter_Model_Pagecache_Container_Spacead_Rightsidebar</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </rightupsells_spacead>
+        <rightupsells_sets>
+            <block>catalog/product</block>
+            <placeholder>SETS_RIGHTSIDEBAR</placeholder>
+            <container>Tgc_Adcoderouter_Model_Pagecache_Container_Setsrightsidebar</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </rightupsells_sets>
+    </placeholders>
+</config>

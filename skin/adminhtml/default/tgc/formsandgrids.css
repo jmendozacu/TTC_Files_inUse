@@ -1,0 +1,46 @@
+/* forms and grids css */
+
+#note_redirect_querystring.adcoderedirectadminform-note, #note_pid.adcoderedirectadminform-note {
+    width: 850px;
+}
+
+.adminhtml-adcoderedirectlist-edit .fieldset-wide .form-list td.value input.input-text,
+.adminhtml-adcoderedirectlist-edit .fieldset-wide .form-list td.value textarea {
+    width: 23% !important;
+}
+
+/*Adjusting widths of fields on the "Lectures" tab on the admin edit product page. */
+
+.fieldset-wide .form-list td.value input#lecture_id.input-text,
+.fieldset-wide .form-list td.value input#lecture_number.input-text,
+.fieldset-wide .form-list td.value input#default_course_number.input-text,
+.fieldset-wide .form-list td.value input#original_lecture_number.input-text,
+.fieldset-wide .form-list td.value input#audio_brightcove_id.input-text,
+.fieldset-wide .form-list td.value input#video_brightcove_id.input-text,
+.fieldset-wide .form-list td.value input#akamai_download_id.input-text,
+.fieldset-wide .form-list td.value input#audio_duration.input-text,
+.fieldset-wide .form-list td.value input#video_duration.input-text,
+.fieldset-wide .form-list td.value input#audio_download_filesize.input-text,
+.fieldset-wide .form-list td.value input#video_download_filesize_pc.input-text,
+.fieldset-wide .form-list td.value input#video_download_filesize_mac.input-text
+{
+    width: 25.5% !important;
+}
+
+.fieldset-wide .form-list td.value input.speciallongformfieldwidth,
+.form-list td.value textarea.speciallongformfieldwidth
+{
+    width: 50% !important;
+}
+
+.fieldset-wide .form-list td.value input#duration.input-text {
+    width: 10% !important;
+}
+
+.fieldset-wide .form-list td.value span#required_fields_note {
+    color: red; font-size: 1.2em;
+}
+
+.requiredcustom {
+    color: #FF0000;
+}

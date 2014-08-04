@@ -1,0 +1,219 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+$coreHelper = Mage::helper('core');
+$addressHelper = Mage::helper('tgc_customer/address');
+$defaultBillingAddress = $this->getPrimaryBillingAddress();
+$defaultShippingAddress = $this->getPrimaryShippingAddress();
+$additionalAddresses = $this->getAdditionalAddresses();
+$addressTemplate = '<span class="street-1">{{var street1}}</span><span class="street-2">{{var street2}}</span><span class="city-reg-zip">{{var city}}, {{var region}} {{var postcode}}</span><span class="country">{{var country}}</span>';
+$addressRowTemplate = <<<HTML
+    <div class="loader" style="display: none;">
+        <div class="hover"></div>
+        <div class="msg">{$this->__('Processing...')}</div>
+    </div>
+    <div class="notice-container" style="display: none;">
+        <div class="hover"></div>
+        <div class="msg"></div>
+    </div>
+    <div class="grid12-8 left-col">
+        <div class="grid12-4">
+            <h6 class="label">{$this->__('Name')}:</h6>
+            <span>{{var firstname}}</span>
+            <br />
+            <span>{{var lastname}}</span>
+        </div>
+        <div class="grid12-5">
+            <h6 class="label">{$this->__('Address')}:</h6>
+            <address>
+                {$addressTemplate}
+            </address>
+        </div>
+        <div class="grid12-3">
+            <h6 class="label">{$this->__('Phone')}:</h6>
+            <span>{{var telephone}}</span>
+        </div>
+    </div>
+    <div class="grid12-4 right-col">
+        <a class="button secondary-btn small" rel="nofollow" href="#">{$this->__('Edit')}</a>
+        <a rel="nofollow" class="delete-btn button small" href="#">{$this->__('Delete')}</a>
+    </div>
+HTML;
+$newAddressRowFullTemplate = <<<HTML
+    <li class="fieldset">
+        <h5 class="legend">{$this->__('Additional Address')}</h5>
+        <ul class="form-list">
+            <li class="fields" style="position: relative;">
+                {$addressRowTemplate}
+            </li>
+        </ul>
+    </li>
+HTML;
+?>
+<div class="col2-set customer-addresses">
+    <div class="info-box">
+        <h6 class="box-title">
+            <div class="col-data-wrapper">
+                <span class="col-label"><?php echo $this->__('Addresses Info') ?></span>
+                <span class="col-content">
+                    <div class="default-billing"<?php if (!$defaultBillingAddress): ?> style="display: none;"<?php endif; ?>>
+                        <span class="title"><?php echo $this->__('Billing:'); ?></span>
+                        <span class="address"><?php echo !$defaultBillingAddress ? '' : $defaultBillingAddress->getConfig()->getFormatByCode('default')->getRenderer()->render($defaultBillingAddress, $addressTemplate); ?></span>
+                    </div>
+                    <div class="default-shipping"<?php if (!$defaultShippingAddress): ?> style="display: none;"<?php endif; ?>>
+                        <span class="title"><?php echo $this->__('Shipping:'); ?></span>
+                        <span class="address"><?php echo !$defaultShippingAddress ? '' : $defaultShippingAddress->getConfig()->getFormatByCode('default')->getRenderer()->render($defaultShippingAddress, $addressTemplate); ?></span>
+                    </div>
+                    <i class="no-addresses"<?php if ($defaultBillingAddress || $defaultShippingAddress || $additionalAddresses): ?> style="display: none;"<?php endif; ?>><?php echo $this->__('you have no saved addresses') ?></i>
+                </span>
+            </div>
+            <span class="col-action">
+                <a class="button secondary-btn" rel="nofollow" href="#"><?php echo $this->__('Manage') ?></a>
+            </span>
+        </h6>
+        <ol class="box-content">
+            <li class="fieldset default-billing-row<?php if ($defaultBillingAddress): ?> address-<?php echo $defaultBillingAddress->getId(); ?>"<?php else: ?>" style="display: none;"<?php endif; ?>>
+                <h5 class="legend"><?php echo $this->__('Default Billing Address'); ?></h5>
+                <ul class="form-list">
+                    <li class="fields" style="position: relative;">
+                        <?php if ($defaultBillingAddress): ?>
+                        <?php
+                            $additionalAddressData = array(
+                                'id'                  => $defaultBillingAddress->getId(),
+                                'is_default_billing'  => true,
+                                'is_default_shipping' => $defaultShippingAddress && $defaultBillingAddress->getId() == $defaultShippingAddress->getId()
+                            );
+                        ?>
+                        <input type="hidden" name="address_data" value="<?php echo $addressHelper->escapeHtml($coreHelper->jsonEncode($additionalAddressData + $addressHelper->prepareAttributesForOutput($defaultBillingAddress))); ?>" />
+                        <?php echo $defaultBillingAddress->getConfig()->getFormatByCode('default')->getRenderer()->render($defaultBillingAddress, $addressRowTemplate); ?>
+                        <?php endif; ?>
+                    </li>
+                </ul>
+            </li>
+            <li class="fieldset default-shipping-row<?php if ($defaultShippingAddress): ?> address-<?php echo $defaultShippingAddress->getId(); ?>"<?php else: ?>" style="display: none;"<?php endif; ?>>
+                <h5 class="legend"><?php echo $this->__('Default Shipping Address'); ?></h5>
+                <ul class="form-list">
+                    <li class="fields" style="position: relative;">
+                        <?php if ($defaultShippingAddress): ?>
+                        <?php
+                            $additionalAddressData = array(
+                                'id'                  => $defaultShippingAddress->getId(),
+                                'is_default_billing'  => $defaultBillingAddress && $defaultShippingAddress->getId() == $defaultBillingAddress->getId(),
+                                'is_default_shipping' => true
+                            );
+                        ?>
+                        <input type="hidden" name="address_data" value="<?php echo $addressHelper->escapeHtml($coreHelper->jsonEncode($additionalAddressData + $addressHelper->prepareAttributesForOutput($defaultShippingAddress))); ?>" />
+                        <?php echo $defaultShippingAddress->getConfig()->getFormatByCode('default')->getRenderer()->render($defaultShippingAddress, $addressRowTemplate); ?>
+                        <?php endif; ?>
+                    </li>
+                </ul>
+            </li>
+            <?php if ($additionalAddresses):?>
+            <?php foreach ($additionalAddresses as $additionalAddress): ?>
+            <li class="fieldset address-<?php echo $additionalAddress->getId(); ?>">
+                <h5 class="legend"><?php echo $this->__('Additional Address'); ?></h5>
+                <ul class="form-list">
+                    <li class="fields" style="position: relative;">
+                        <?php
+                            $additionalAddressData = array(
+                                'id'                  => $additionalAddress->getId(),
+                                'is_default_billing'  => false,
+                                'is_default_shipping' => false
+                            );
+                        ?>
+                        <input type="hidden" name="address_data" value="<?php echo $addressHelper->escapeHtml($coreHelper->jsonEncode($additionalAddressData + $addressHelper->prepareAttributesForOutput($additionalAddress))); ?>" />
+                        <?php echo $additionalAddress->getConfig()->getFormatByCode('default')->getRenderer()->render($additionalAddress, $addressRowTemplate); ?>
+                    </li>
+                </ul>
+            </li>
+            <?php endforeach; ?>
+            <?php endif; ?>
+            <li id="add_new_address_row" class="fieldset add-new-address" style="display: none;">
+                <p class="required"><?php echo $this->__('All fields required unless noted as optional') ?></p>
+                <h5 class="legend"><?php echo $this->__('Additional Address') ?></h5>
+                <ul class="form-list">
+                    <li class="fields" style="position: relative;">
+                        <div class="loader" style="display: none;">
+                            <div class="hover"></div>
+                            <div class="msg"><?php echo $this->__('Processing...'); ?></div>
+                        </div>
+                        <div class="notice-container" style="display: none;">
+                            <div class="hover"></div>
+                            <div class="msg"></div>
+                        </div>
+                        <?php echo $this->getChildHtml('customer_address_edit')?>
+                    </li>
+                </ul>
+            </li>
+            <div class="buttons-set form-buttons additional-buttons">
+                <a id="add_new_address_button" class="add-btn button" rel="nofollow" href="#"><?php echo $this->__('Add a New Address') ?></a>
+                <button id="addresses_edit_cancel" type="button" class="button cancel-btn" title="<?php echo $this->__('Done') ?>"><span><span><?php echo $this->__('Done') ?></span></span></button>
+            </div>
+        </ol>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        var addressForm = new customerDashboardAddressForm({
+            form:                           $('address-form'),
+            formSubmitUrl:                  '<?php echo $this->getUrl('tgc_customer/dashboard/saveAddress'); ?>',
+            formContainer:                  $('address-form').up('.fields'),
+            autoHideFormContainerDelay:     3000,
+            onFormSubmitSuccessCallback:    null,
+            onFormContainerHideCallback:    null,
+            loaderHoverContainer:           $('address-form').up('.form-list').down('.loader'),
+            resultNoticeContainer:          $('address-form').up('.form-list').down('.notice-container'),
+            resultNoticeMessagesContainer:  $('address-form').up('.form-list').down('.notice-container .msg'),
+            autoHideSuccessNoticeDelay:     3000,
+            autoHideErrorNoticeDelay:       3000,
+            successMsgPrefix:               '<span class="success-prefix"><?php echo $this->__('Success!')?></span> ',
+            errorMsgPrefix:                 '<span class="error-prefix"><?php echo $this->__('Error!')?></span> ',
+            addressDeleteUrl:               '<?php echo $this->getUrl('tgc_customer/dashboard/deleteAddress'); ?>',
+            addressListContainer:           $('address-form').up('.box-content'),
+            newAddressFormDisplayContainer: $('address-form').up('.fieldset'),
+            newAddressFormContainer:        $('address-form').up('.form-list'),
+            addNewAddressButton:            $('add_new_address_button'),
+            addressesListCloseButton:       $('addresses_edit_cancel'),
+            addressesListCloseButtonClickCallback: function (event) {
+                var button = event.findElement();
+                button.up('.box-content').hide();
+                button.up('div.info-box').down('.box-title .col-action .button').removeClassName('disabled');
+                button.up('div.info-box').removeClassName('show');
+            },
+            formCancelButton:               $('address-form').down('.cancel-btn'),
+            addressEditButtonsSelector:     '.secondary-btn',
+            addressDeleteButtonsSelector:   '.delete-btn',
+            addressEditFormContainerUpSelector: '.form-list',
+            addressEditFormContainerDataRowSelector: '.fields',
+            defaultBillingOneLineContainer: $('address-form').up('.info-box').down('.box-title .default-billing .address'),
+            defaultShippingOneLineContainer: $('address-form').up('.info-box').down('.box-title .default-shipping .address'),
+            defaultNoAddressesOneLineContainer: $('address-form').up('.info-box').down('.box-title .no-addresses'),
+            addressOneLineTemplate:         new Template('<?php echo addcslashes(str_replace("\n", '', $addressTemplate), "'");?>', /(^|.|\r|\n)(\{{var\s*(\w+)\s*}})/),
+            addressRowTemplate:             new Template('<?php echo addcslashes(str_replace("\n", '', $addressRowTemplate), "'");?>', /(^|.|\r|\n)(\{{var\s*(\w+)\s*}})/),
+            newAddressRowFullTemplate:      new Template('<?php echo addcslashes(str_replace("\n", '', $newAddressRowFullTemplate), "'");?>', /(^|.|\r|\n)(\{{var\s*(\w+)\s*}})/)
+        });
+    </script>
+</div>

@@ -1,0 +1,55 @@
+id:     customer_service_page_menu
+title:  Customer Service UK Page Menu
+status: enabled
+stores: uk_en
+---
+<div class="block">
+    <div class="block_content">
+        <div class="block_title">Customer Service & Help</div>
+        <ul id="page-menu" class="vert-navigation">
+            <li><a class="active-contact-us" href="{{store direct_url="support/contact-us"}}">Contact Us</a></li>
+            <li><a class="active-shopping" href="{{store direct_url="support/shopping"}}">Shopping</a></li>
+            <li><a class="active-ordering-shipping" href="{{store direct_url="support/ordering-shipping"}}">Ordering &amp; Shipping</a></li>
+            <li><a class="active-returns-exchanges" href="{{store direct_url="support/returns-exchanges"}}">Returns, Exchangesand Our Lifetime Guarantee</a></li>
+            <li><a class="active-my-account" href="{{store direct_url="support/my-account"}}">My Account</a></li>
+            <li><a class="active-downloads" href="{{store direct_url="support/downloads"}}">Downloads</a></li>
+            <li><a class="active-streaming" href="{{store direct_url="support/streaming"}}">Streaming</a></li>
+            <li><a class="active-browser-related-questions" href="{{store direct_url="support/browser-related-questions"}}">Browser-related Questions</a></li>
+            <li><a class="active-copyright-information" href="{{store direct_url="support/copyright-information"}}">Copyright Information</a></li>
+            <li><a class="active-privacy-policy" href="{{store direct_url="support/privacy-policy"}}">Privacy Policy</a></li>
+            <li><a class="active-cookies" href="{{store direct_url="support/cookies"}}">Cookie Policy</a></li>
+            <li><a class="active-terms-conditions" href="{{store direct_url="support/terms-conditions"}}">Terms &amp; Conditions</a></li>
+        </ul>
+    </div>
+</div>
+<div class="about_mobile_nav">
+    <div class="block_title">Customer Service & Help</div>
+    <select class="about_nav_select" onchange="setLocation(this.value)">
+    <option class="mob-contact-us" value="{{store direct_url="support/contact-us"}}">Contact Us</option>
+    <option class="mob-shopping" value="{{store direct_url="support/shopping"}}">Shopping</option>
+    <option class="mob-ordering-shipping" value="{{store direct_url="support/ordering-shipping"}}">Ordering &amp; Shipping</option>
+    <option class="mob-returns-exchanges" value="{{store direct_url="support/returns-exchanges"}}">Returns, Exchanges and Our Lifetime Guarantee</option>
+    <option class="mob-my-account" value="{{store direct_url="support/my-account"}}">My Account</option>
+    <option class="mob-downloads" value="{{store direct_url="support/downloads"}}">Downloads</option>
+    <option class="mob-streaming" value="{{store direct_url="support/streaming"}}">Streaming</option>
+    <option class="mob-browser-related-questions" value="{{store direct_url="support/browser-related-questions"}}">Browser-related Questions</option>
+    <option class="mob-copyright-information" value="{{store direct_url="support/copyright-information"}}">Copyright Information</option>
+    <option class="mob-privacy-policy" value="{{store direct_url="support/privacy-policy"}}">Privacy Policy</option>
+    <option class="mob-cookies" value="{{store direct_url="support/cookies"}}">Cookie Policy</option>
+    <option class="mob-terms-conditions" value="{{store direct_url="support/terms-conditions"}}">Terms &amp; Conditions</option> </select></div>
+<script type="text/javascript">// <![CDATA[
+jQuery(document).ready(function () {
+    if (jQuery(".mod_page_active").length > 0) {
+        jQuery("." + jQuery(".mod_page_active").text()).attr('selected', true);
+    }
+
+    if (jQuery(".page-active").length > 0) {
+        var text = jQuery("." + jQuery(".page-active").text()).text();
+        jQuery("." + jQuery(".page-active").text()).parent().addClass("current");
+        jQuery(".current").find("a").remove();
+        jQuery(".current").append("<strong>" + text + "</strong>");
+    }
+
+    jQuery('.about_nav_select').coreUISelect();
+});
+// ]]></script>

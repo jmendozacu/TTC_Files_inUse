@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Dax integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Dax
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <menu>
+        <tgc_dax translate="title" module="tgc_dax">
+            <title>DAX</title>
+            <sort_order>20</sort_order>
+            <children>
+                <email_unsubscribe module="tgc_dax" translate="title">
+                    <title>Email Subscribes and Unsubscribes</title>
+                    <sort_order>10</sort_order>
+                    <action>dax_emailUnsubscribe/adminhtml_emailUnsubscribe</action>
+                </email_unsubscribe>
+            </children>
+        </tgc_dax>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <tgc_dax module="tgc_dax" translate="title">
+                        <title>DAX Integration</title>
+                        <sort_order>5150</sort_order>
+                        <children>
+                            <email_unsubscribe>
+                                <title>Manage DAX Email Subscribes and Unsubscribes</title>
+                                <sort_order>10</sort_order>
+                            </email_unsubscribe>
+                        </children>
+                    </tgc_dax>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <dax translate="title" module="tgc_dax">
+                                        <title>DAX Integration System Config</title>
+                                    </dax>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

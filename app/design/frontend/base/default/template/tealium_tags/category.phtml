@@ -1,0 +1,54 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$_category  = $this->getCurrentCategory();
+$parent = false;
+$grandparent = false;
+
+// check for parent and grandparent
+if ($_category->getParentId()) {
+    $parent = Mage::getModel('catalog/category')->load($_category->getParentId());
+
+    if ($parent->getParentId()) {
+        $grandparent = Mage::getModel('catalog/category')->load($parent->getParentId());
+    }
+}
+
+// Set the section and subcategory with parent and grandparent
+$section = "n/a";
+$category = "n/a";
+$subcategory = "n/a";
+
+if ($grandparent) {
+    $section = $grandparent->getName();
+    $category = $parent->getName();
+    $subcategory = $_category->getName();
+} elseif ($parent) {
+    $section = $parent->getName();
+    $category = $_category->getName();
+} else {
+    $category = $_category->getName();
+}
+
+?>
+
+<!-- Tealium Category javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name: "<?php echo htmlspecialchars($_category->getName(), ENT_QUOTES); ?>",
+        page_type: "category",
+        page_section_name: "<?php echo $section; ?>",
+        page_category_name: "<?php echo $category; ?>",
+        page_subcategory_name: "<?php echo $subcategory; ?>",
+        user_id: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_USER_ID; ?>'),
+        is_logged_in: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_LOGGED_IN; ?>')
+    };
+</script>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Sales
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Sales>
+            <version>1</version>
+        </Tgc_Sales>
+    </modules>
+    <global>
+        <blocks>
+            <tgc_sales>
+                <class>Tgc_Sales_Block</class>
+            </tgc_sales>
+        </blocks>
+        <models>
+            <tgc_sales>
+                <class>Tgc_Sales_Model</class>
+            </tgc_sales>
+            <sales>
+                <rewrite>
+                    <quote>Tgc_Sales_Model_Quote</quote>
+                    <quote_address>Tgc_Sales_Model_Quote_Address</quote_address>
+                </rewrite>
+            </sales>
+        </models>
+        <helpers>
+            <tgc_sales>
+                <class>Tgc_Sales_Helper</class>
+            </tgc_sales>
+        </helpers>
+        <resources>
+            <tgc_sales_setup>
+                <setup>
+                    <module>Tgc_Sales</module>
+                    <class>Tgc_Sales_Model_Resource_Setup</class>
+                </setup>
+            </tgc_sales_setup>
+        </resources>
+        <fieldsets>
+            <sales_convert_quote_item>
+                <is_transcript_product>
+                    <to_order_item>*</to_order_item>
+                </is_transcript_product>
+                <transcript_parent_item_id>
+                    <to_order_item>*</to_order_item>
+                </transcript_parent_item_id>
+                <transcript_type>
+                    <to_order_item>*</to_order_item>
+                </transcript_type>
+            </sales_convert_quote_item>
+        </fieldsets>
+        <events>
+            <checkout_cart_product_add_after>
+                <observers>
+                    <flag_transcript_products>
+                        <class>tgc_sales/observer</class>
+                        <method>flagTranscriptProducts</method>
+                    </flag_transcript_products>
+                </observers>
+            </checkout_cart_product_add_after>
+            <sales_quote_item_collection_products_after_load>
+                <observers>
+                    <eliminate_transcript_items_with_no_parent>
+                        <class>tgc_sales/observer</class>
+                        <method>eliminateTranscriptItemsWithNoParent</method>
+                    </eliminate_transcript_items_with_no_parent>
+                </observers>
+            </sales_quote_item_collection_products_after_load>
+        </events>
+        <sales>
+            <quote>
+               <item>
+                  <product_attributes>
+                    <set_members />
+                    <media_format />
+                  </product_attributes>
+               </item>
+            </quote>
+        </sales>
+    </global>
+</config>

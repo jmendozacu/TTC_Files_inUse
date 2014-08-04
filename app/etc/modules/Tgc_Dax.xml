@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * DAX integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Dax
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Dax>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_ImportExport/>
+                <Mage_Dataflow/>
+                <Mage_Sales/>
+                <Guidance_Setup/>
+            </depends>
+        </Tgc_Dax>
+    </modules>
+</config>

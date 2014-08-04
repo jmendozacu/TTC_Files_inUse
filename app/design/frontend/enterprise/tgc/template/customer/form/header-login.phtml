@@ -1,0 +1,243 @@
+<?php
+/**
+ * Customer login
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Customer
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** @var $this Tgc_Customer_Block_Form_Login */
+?>
+<div class="header-container clearfix">
+<div class="login-form-dropdown clearfix">
+    <a href="#" class="close-balloon"></a>
+    <form action="<?php echo $this->getUrl('customer/account/headerLogin'); ?>" method="post" id="login-form">
+        <h2><?php echo $this->__('Existing Customer Sign In') ?></h2>
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <div class="messages-wrapper-error messages-wrapper" style="display: block;">
+            <ul>
+                <li class="error-msg">
+                    <a href="#" class="close-balloon pos-balloon-rel"></a>
+                    <div class="input-error-msg " style="display: block;"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="registered-users grid12-5">
+            <div class="content">
+                <ul class="form-list">
+                    <li class="clearfix">
+                        <label for="email" class="required"><?php echo $this->__('Email') ?></label>
+
+                        <div class="input-box">
+                            <input type="text" name="login[username]"
+                                   value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email"
+                                   placeholder="Enter Your E-mail" class="input-text required-entry validate-email"
+                                   title="<?php echo $this->__('Email') ?>"/>
+                        </div>
+                    </li>
+                    <li class="clearfix last">
+                        <label for="pass" class="required"><?php echo $this->__('Password') ?></label>
+
+                        <div class="input-box">
+                            <input type="password" name="login[password]" placeholder="Enter Your Password"
+                                   class="input-text required-entry validate-tgc-password" id="pass"
+                                   title="<?php echo $this->__('Password') ?>"/>
+                        </div>
+                        <a class="forgot-pass-link" href="#"
+                           class="f-right"><?php echo $this->__('Forgot password?') ?></a>
+                </ul>
+                <input type="hidden" class="referringelement" name="referringelement" />
+            </div>
+        </div>
+        <div class="submit grid12-3">
+            <div class="input-box">
+                <input type="checkbox" class="keep_logged_js" name="login[keep_logged]" title="<?php echo $this->__('Keep me logged in') ?>" value="1"
+                       id="keep_logged"/>
+                <label for="keep_logged" class="keep_logged_label_js"><?php echo $this->__('Keep me logged in') ?></label>
+            </div>
+
+
+            <div class="buttons-set">
+                <button type="submit" class="button small" title="<?php echo $this->__('Sign In') ?>" name="send" id="send-not-ajax">
+                    <span><span><?php echo $this->__('Sign In') ?></span></span></button>
+            </div>
+        </div>
+        <div class="new-users grid12-4">
+            <div class="create-account-block">
+                <div>I am a New Customer</div>
+                <a id="create-account-button" title="<?php echo $this->__('Create an Account') ?>"><?php echo $this->__('Create an Account') ?></a>
+            </div>
+        </div>
+    </form>
+    <form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="form-register"
+          enctype="multipart/form-data" style="display:none;">
+        <div>
+            <h2><?php echo $this->__('Create Your Account') ?><span class="back-link"><a class="back-to-login-form" rel="nofollow" href="#"><?php echo $this->__('Already have an Account?') ?></a></span></h2>
+
+            <div class="messages-wrapper-error messages-wrapper">
+                <ul>
+                    <li class="error-msg">
+                        <a class="close-balloon pos-balloon-rel" href="#"></a>
+                        <div class="input-error-msg"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="messages-wrapper-success messages-wrapper">
+                <ul>
+                    <li class="success-msg pos-balloon-rel">
+                        <a class="close-balloon" href="#"></a>
+                        <div class="input-success-msg"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="reg1 grid12-4">
+                <ul class="form-list">
+                    <li class="fields">
+                        <div class="field email">
+                            <label for="email_address" class="required"><?php echo $this->__('Email') ?></label>
+
+                            <div class="input-box">
+                                <input type="text" name="email" id="email_address" placeholder="Enter Your E-mail"
+                                       value="<?php echo $this->escapeHtml($this->getFormData()->getEmail()) ?>"
+                                       title="<?php echo $this->__('Email') ?>"
+                                       class="input-text validate-email required-entry"/>
+                            </div>
+                        </div>
+                        <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getFormData())->setForceUseCustomerAttributes(true)->toHtml() ?>
+                    </li>
+                </ul>
+            </div>
+            <div class="reg2 grid12-4">
+                <ul class="form-list">
+                    <li class="fields">
+                        <div class="field input-password">
+                            <label for="password" class="required"><?php echo $this->__('Password') ?></label>
+                            <div class="input-box create-account-password">
+                                <input type="password" name="password" placeholder="Create Your Password" id="password"
+                                       title="<?php echo $this->__('Password') ?>"
+                                       class="input-text required-entry validate-tgc-password"
+                                />
+                                <div class="custom-tooltip left"><div class="tooltip-arrow"></div>Please enter a password that is between 5 and 20 characters long.</div>
+                            </div>
+                        </div>
+                        <div class="field input-confirm-password">
+                            <label for="confirmation"
+                                   class="required"><?php echo $this->__('Confirm') ?></label>
+                            <div class="input-box">
+                                <input type="password" name="confirmation" placeholder="Confirm Password"
+                                       title="<?php echo $this->__('Confirm Password') ?>" id="confirmation"
+                                       class="input-text required-entry validate-cpassword"/>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="reg3 grid12-4 ajax-new-account-links">
+                <div class="input-box">
+                    <input type="checkbox" name="accept_terms" title="<?php echo $this->__('Accept Terms') ?>" value="1" id="accept_terms" class="accept_terms"/>
+                    <label for="accept_terms">I accept the <a id="header-terms" class="js-action-detached-tooltip"
+                           rel="nofollow" href="#">Terms and Conditions</a> and <a href="#"
+                           rel="nofollow" id="header-privacy-policy"
+                           class="js-action-detached-tooltip">  Privacy Policy</a>
+                        <?php echo $this->__('The Great Courses will never rent or sell your email to third parties.') ?>
+                    </label>
+                </div>
+                <div class="tooltip-text tooltip-balloon header-terms tooltip-detached">
+                    <a class="close-balloon" rel="nofollow" href="#">x</a>
+                    <div class="tooltip-text-desc">
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('terms_and_conditions')->toHtml() ?>
+                    </div>
+                </div>
+
+                <div class="tooltip-text tooltip-balloon header-privacy-policy tooltip-detached">
+                    <a class="close-balloon" rel="nofollow" href="#">x</a>
+                    <div class="tooltip-text-desc">
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('protecting_your_privacy')->toHtml() ?>
+                    </div>
+                </div>
+
+                <?php if (Mage::app()->getStore()->getCode() == 'uk_en'): ?>
+                    <div class="input-box">
+                        <input type="checkbox" name="optout" title="<?php echo $this->__('opt_out') ?>" value="1" id="optout"/>
+                        <label for="optout">
+                            Opt-in for Free lectures, articles, and offer emails.
+                            <a href="#" rel="nofollow" id="header-optout" class="js-action-detached-tooltip">View Details</a>
+                        </label>
+                    </div>
+
+                    <div class="tooltip-text tooltip-balloon header-optout tooltip-detached">
+                        <a class="close-balloon" rel="nofollow" href="#">x</a>
+                        <div class="tooltip-text-desc">
+                            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('uk_opt_out')->toHtml() ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="buttons-set form-buttons">
+                    <button type="submit" id="submit-registration-form" class="button small disabled submit-button"
+                            title="<?php echo $this->__('Create Account') ?>">
+                        <span><span><?php echo $this->__('Create Account') ?></span></span></button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form action="<?php echo $this->getUrl('customer/account/forgotpasswordpost') ?>" method="post"
+          id="form-forgot-password" style="display:none;">
+        <h2><?php echo $this->__('Forgot Your Password'); ?><span class="back-link"><a class="back-to-login-form" rel="nofollow" href="#"><?php echo $this->__('Back to Login') ?></a></span></h2>
+
+
+        <div class="messages-wrapper-error messages-wrapper">
+            <ul>
+                <li class="error-msg">
+                    <a class="close-balloon pos-balloon-rel" href="#"></a>
+                    <div class="input-error-msg "></div>
+                </li>
+            </ul>
+        </div>
+        <div class="messages-wrapper-success messages-wrapper">
+            <ul>
+                <li class="success-msg">
+                    <a class="close-balloon pos-balloon-rel" href="#"></a>
+                    <div class="input-success-msg"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="forgot-password-text">
+            <p><?php echo $this->__('Please enter your e-mail address associated with your Great Courses account. We will send you an email so you can reset your password. If you have problems, please '); ?>
+                <a href="/contact-us"><?php echo $this->__('Contact Us.'); ?></a></p>
+            <ul class="form-list grid12-6">
+                <li>
+                    <label for="email_address" class="required"><?php echo $this->__('Email') ?></label>
+
+                    <div class="input-box">
+                        <input type="text" name="email" alt="email" id="forgot_pass_email_address"
+                               class="input-text required-entry validate-email" placeholder="Enter Your E-mail"
+                               value="<?php echo $this->escapeHtml($this->getEmailValue()) ?>"/>
+                    </div>
+                </li>
+            </ul>
+            <div class="buttons-set form-buttons grid12-6">
+                <button id="forgot-password-submit" type="submit" class="button small">
+                    <span><span><?php echo $this->__('Send Email') ?></span></span></button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var loginForm = new VarienForm('login-form', true);
+    var registerForm = new VarienForm('form-register', true);
+    var forgotPasswordForm = new VarienForm('form-forgot-password', true);
+    <?php if($this->getShowAddressFields()): ?>
+    new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
+    <?php endif; ?>
+
+    Form.getElements('form-register').each(function(element) {
+        element.setAttribute('autocomplete', 'off');
+    });
+    //]]>
+</script>

@@ -1,0 +1,16 @@
+ID:                 partners/national-geographic
+Status:             published
+Title:              National Geographic
+Layout:             one_column
+Stores:             default,uk_en, au_en
+---
+{{block type="cms/block" block_id="natgeo_top_info" name="natgeo.top.info"}}
+{{block type="tgc_cms/partners_products" name="partner.products" show_partner="National Geographic"}}
+<div class="partner_page quotes">
+    <div class="partner_content">
+        <div class="partner_customer_quotes">
+            {{widget type="tgc_cms/quotes" title="What People Are Saying" display_type="2"}}
+        </div>
+    </div>
+</div>
+{{block type="cms/block" block_id="partner_professors" name="partner.professors"}}

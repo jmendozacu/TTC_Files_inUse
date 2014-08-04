@@ -1,0 +1,95 @@
+<?php echo $this->getChildHtml('login_before') ?>
+<div class="account-login clearer">
+
+    <form id="onepage-login-form" action="<?php echo $this->getPostAction() ?>" method="post">
+        <fieldset>
+            <?php echo $this->getBlockHtml('formkey'); ?>
+            <ul class="form-list checkout_login_cont">
+                <li>
+                    <h2><?php echo $this->__('What is your email address?')?></h2>
+                    <div class="checkout_login_email checkout_login_content_cont checkout_login_content_cont_email">
+                        <label><?php echo $this->__('Email Address')?></label>
+                        <div class="input-box">
+                            <input type="text" class="input-text required-entry validate-email" id="login-email" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>"/>
+                        </div>
+                    </div>
+                </li>
+                <li class="break-row"></li>
+                <?php echo $this->getChildHtml('form.additional.info'); ?>
+                <li>
+                    <h2 class="large_title"><?php echo $this->__('Do you have a password for TheGreatCourses.com?')?></h2>
+                    <div class="input-box checkout_login_content_cont checkout_login_content_cont_pwd">
+                        <div class="control_input_cont">
+                            <input type="radio" name="have_password" id="no_have_pass" value="0" checked="checked" onclick="enablePassword(false)" class="radio">
+                            <label for="no_have_pass"><?php echo $this->__("No, I'm a new customer");?></label>
+                        </div>
+                        <div class="have_pass_cont">
+                            <div class="control_input_cont">
+                                <input type="radio" name="have_password" id="have_pass" value="1" onclick="enablePassword(true);" class="radio">
+                                <label for="have_pass"><?php echo $this->__('Yes, I have a password');?></label>
+                                <div class="input_pass_cont">
+                                    <input disabled type="password" class="input-text validate-tgc-password" id="login-password" name="login[password]"/>
+                                    <a href="<?php echo Mage::getBaseUrl() ?>customer/account/forgotpassword/referringpage/checkout">Forgot Your Password?</a>
+                                    <input type="hidden" name="login[keep_logged]" title="" value="0" id="keep_logged3"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="break-row"></li>
+                <li class="buttons-set checkout_login_content_cont">
+                    <input name="context" type="hidden" value="checkout">
+                    <button type="submit" id="checkout-sigin" class="button medium primary" onclick="return evaluateLogin()">
+                        <span><span>Continue</span></span></button>
+                </li>
+            </ul>
+        </fieldset>
+    </form>
+    <script type="text/javascript">
+        //<![CDATA[
+        var onepagePersistantLoginForm = new VarienForm('onepage-login-form', true);
+        $('login-email').observe('keypress', bindLoginPost);
+        $('login-password').observe('keypress', bindLoginPost);
+        $('keep_logged3').observe('click', bindLoginPost);
+        function bindLoginPost(evt) {
+            if (evt.keyCode == Event.KEY_RETURN) {
+                setTimeout(function(){evaluateLogin();}, 100);
+            }
+        }
+        var checkoutRegistration = new VarienForm('checkout-registration', true);
+        //]]>
+    </script>
+</div>
+<script type="text/javascript">
+    function evaluateLogin(){
+        if (jQuery('input:checked[name="have_password"]').val() == 1){
+            onepagePersistantLoginForm.submit();
+        }
+        else{
+            if (jQuery('#login-email').hasClass('validation-failed') || !jQuery('#login-email').hasClass('validation-passed')){
+                onepagePersistantLoginForm.submit();
+                jQuery('#login-email').focus();
+            }
+            else{
+                jQuery('#billing-new-address-form input[name="billing[email]"]').val(jQuery('#login-email').val());
+                jQuery('#billing-new-address-form input[name="billing[email]"]').parent('li').hide();
+                checkout.setMethod();
+            }
+            return false;
+        }
+    }
+    function enablePassword(enable){
+        if (enable){
+            $('login-password').enable();
+            $('login-password').focus();
+            jQuery('#login-password').addClass('required-entry');
+        }
+        else{
+            jQuery('#login-password').removeClass('required-entry validation-failed validation-error validation-passed');
+            jQuery('#login-password').parents('.input-box').removeClass('validation-error');
+            jQuery('.control_input_cont .input_pass_cont .validation-advice').remove();
+            $('login-password').disable();
+        }
+
+    }
+</script>

@@ -1,0 +1,85 @@
+<?php
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterCheckboxes
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+/**
+ * Template for showing options for filter as a HTML list
+ * @author Mana Team
+ * Injected instead of standard catalog/layer/filter.phtml in Mana_Filters_Block_Filter_Attribute constructor.
+ * This template is overridden by copying (template body was pasted from catalog/layer/filter.phtml
+ * and modified as needed). All changes are marked with comments.
+ */
+/* @var $this Mana_Filters_Block_Filter */
+
+?>
+<ol class="m-filter-css-checkboxes <?php echo $this->getFilterOptions()->getIsReverse() ? 'm-reverse' : '' ?>">
+<?php foreach ($this->getItems() as $_item): ?>
+    <?php if (!Mage::helper('tgc_bv')->isBvEnabled() && $_item->getFilter()->getRequestVar() == 'average_rating'): ?>
+        <script type="text/javascript">
+            jQuery('#average_rating_checkbox').closest('dt').hide();
+        </script>
+    <?php else: ?>
+        <?php $_itemUrl = $this->urlEscape($_item->getMSelected() ? $_item->getRemoveUrl() : $_item->getUrl()); ?>
+        <li <?php echo $this->getListItemClass($_item) ?> >
+            <?php // MANA BEGIN ?>
+                <?php if (!$this->getFilterOptions()->getDisableNoResultOptions() || $_item->getCount() || $_item->getMSelected()): ?>
+                    <a class="<?php echo $_item->getMShowSelected() ? 'm-checkbox-checked' : 'm-checkbox-unchecked' ?>"
+                       onclick="this.className='<?php echo $_item->getMShowSelected() ? 'm-checkbox-unchecked' : 'm-checkbox-checked' ?>';setLocation('<?php echo $_itemUrl ?>');return false;"
+                       href="<?php echo $_itemUrl ?>" title="<?php echo $this->escapeHtml($_item->getLabel()) ?>">
+
+                        <span class="link-text">
+                            <?php echo $this->escapeHtml($_item->getLabel()) ?>
+
+                            <span class="count">
+                                <?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+                                    (<?php echo $_item->getCount() ?>)
+                                <?php endif; ?>
+                            </span>
+                        </span>
+                    </a>
+                <?php else: ?>
+                    <a class="<?php echo $_item->getMShowSelected() ? 'm-checkbox-checked' : 'm-checkbox-unchecked' ?>"
+                       href="javascript:void(0)" rel="nofollow" title="<?php echo $this->escapeHtml($_item->getLabel()) ?>">
+
+                        <span class="link-text">
+                            <?php echo $this->escapeHtml($_item->getLabel()) ?>
+
+
+                            <span class="count">
+                                <?php if (Mage::getStoreConfigFlag('mana_filters/display/count')) : ?>
+                                    (<?php echo $_item->getCount() ?>)
+                                <?php endif; ?>
+                            </span>
+                        </span>
+                    </a>
+                <?php endif; ?>
+            <?php // MANA END ?>
+        </li>
+    <?php endif; ?>
+<?php endforeach ?>
+</ol>
+<?php echo Mage::helper('mana_core')->getNamedHtml('mana_filters/markup', 'after_items', array('block' => $this)) ?>
+
+<?php if (Mage::helper('tgc_bv')->isBvEnabled()): ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            <?php for ($i = 1; $i <= 5; $i++): ?>
+                var targetOl = jQuery('ol.m-filter-css-checkboxes');
+                jQuery(targetOl).each(function() {
+                    jQuery(jQuery(this).find('a')).html(function(i, t) {
+                        return t.replace('<?php echo $i; ?>-stars-and-up', '<span class="rating-<?php echo $i; ?>-star">&nbsp;</span> & Up');
+                    });
+                });
+                <?php endfor; ?>
+            <?php for ($i = 1; $i <= 5; $i++): ?>
+                var star<?php echo $i; ?> ='<div class="ratings"><div class="rating-box"><div class="rating" style="width: <?php echo $i*20 ; ?>%"></div></div></div>'
+                $$('.rating-<?php echo $i; ?>-star').each(function(item) {
+                    item.update(star<?php echo $i; ?>);
+                });
+                <?php endfor; ?>
+        });
+    </script>
+<?php endif; ?>

@@ -1,0 +1,234 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: aborria
+ * Date: 20/02/14
+ * Time: 12:19
+ * To change this template use File | Settings | File Templates.
+ */
+
+$podcast = $this->getPodcast();
+$helper = Mage::helper('tgc_podcast');
+list($prev, $next) = $this->getPrevNext($this->getCurrentPodcastList(), $podcast->getPodcastId());
+$prevPodcast = $prev != -1 ? $this->getPodcast($prev) : $prev;
+$nextPodcast = $next != -1 ? $this->getPodcast($next) : $next;
+
+$heroImage = $helper->getPageBackgroundImage();
+$logoImage = $helper->getPageLogoImage();
+$processor = Mage::helper('cms')->getPageTemplateProcessor();
+
+//Check if hero image has a valid value, otherwise, use a default image from skin
+$heroTail = substr($heroImage, strlen($heroImage) - 18, strlen($heroImage));
+if ($heroTail == '/Podcasts/Channel/') {
+    $heroImage = $this->getSkinUrl('images/podcast/podcast_header.png');
+}
+//Check if logo image has a valid value, otherwise, use a default image from skin
+$logoTail = substr($logoImage, strlen($logoImage) - 18, strlen($logoImage));
+if ($logoTail == '/Podcasts/Channel/') {
+    $logoImage = $this->getSkinUrl('images/podcast/podcast_header_icon.png');
+}
+
+$userAgent = Mage::helper('Guidance_Useragent');
+$deviceType = $userAgent->getDeviceType();
+$osName = $userAgent->getOsName();
+
+?>
+
+<div class="podcast_header pe_mob_hide">
+    <div class="ph_img">
+        <img src="<?php echo $heroImage ?>"/>
+    </div>
+    <div class="ph_content">
+        <div class="ph_icon">
+            <img src="<?php echo $logoImage ?>"/>
+        </div>
+        <div class="ph_title">
+            <div>
+                <img src="<?php echo $this->getSkinUrl('images/podcast/podcast_header_shape.png') ?>"/>
+            </div>
+            <div class="ph_title_cont">
+                <h1><?php echo $helper->getPageTitle(); ?><span class="trademark">&trade;</span></h1>
+
+                <h2><?php echo $helper->getPageSubtitle(); ?></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="pe_navigation pe_mob_hide">
+    <div class="pe_nav_links float_left">
+        <a href="<?php echo $this->getUrl('podcasts') ?>">&#171; <?php echo $this->__('Back To Podcasts'); ?></a>
+    </div>
+    <div class="pe_nav_links float_right">
+        <?php if (is_object($prevPodcast)): ?>
+            <a class=""
+               href="<?php echo $helper->getPodcastUrl($prevPodcast); ?>">
+                &#171; <?php echo $this->__('Previous Episode'); ?></a>
+        <?php else: ?>
+            &#171; <?php echo $this->__('Previous Episode'); ?>
+        <?php endif; ?>
+        <span class="pe_nav_separator">&#124;</span>
+        <?php if (is_object($nextPodcast)): ?>
+            <a class=""
+               href="<?php echo $helper->getPodcastUrl($nextPodcast); ?>"><?php echo $this->__('Next Episode'); ?>
+                &#187;</a>
+        <?php else: ?>
+            <?php echo $this->__('Next Episode'); ?> &#187;
+        <?php endif; ?>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="pe_mob_title pe_mobile">
+    <h3><?php echo $podcast->getTitle(); ?></h3>
+</div>
+<div class="pe_content">
+    <div class="pe_image pe_mob_hide">
+        <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $podcast->getEpisodeImage() ?>"/>
+    </div>
+    <div class="pe_info">
+        <h3 class="pe_mob_hide"><?php echo $podcast->getTitle(); ?></h3>
+
+        <div class="pe_short_desc pe_mob_hide">
+            <span class="ep-page-episode"><?php echo $podcast->getEpisodeNumber(); ?></span><br>
+            <span><?php echo Mage::getModel('core/date')->date('F, Y', $podcast->getCreatedTime()); ?></span>
+        </div>
+        <div class="pe_mobile pe_img_mobile">
+            <img
+                src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $podcast->getEpisodeImage() ?>"/>
+        </div>
+        <div class="pe_desc pe_mob_hide">
+            <?php echo $processor->filter($podcast->getLongContent()); ?>
+            <button class="play-audio-button" type="button" name="" value="" title="<?php echo $this->__('Play'); ?>" class="button"><span><span><?php echo $this->__('Play'); ?></span></span></button>
+        </div>
+        <div class="pe_info_buttons clearfix">
+            <div class="pe_headset_button">
+                <img src="<?php echo $this->getSkinUrl('images/podcast/podcast_mob_headsets.png') ?>"/>
+            </div>
+            <button class="play-audio-button" type="button" name="" value="" title="<?php echo $this->__('Play'); ?>" class="button"><span><span><?php echo $this->__('Play'); ?></span></span></button>
+        </div>
+    </div>
+    <div class="pe_list_cont">
+        <div class="pm_share pm_box pe_mobile itunes-mob">
+            <div class="itunes-store">
+                <a href="https://itunes.apple.com/us/podcast/torch-great-courses-podcast/id670966237?mt=2">Subscribe on
+                    iTunes&reg;</a>
+            </div>
+            <?php /*
+            <div class="body_social_networks">
+                <div class="body_social_text"><span><?php echo $this->__('Share:');?></span></div>
+                <div class="social_container">
+                    <a href="#"><div class="social-button facebook"></div></a>
+                    <a href="#"><div class="social-button twitter"></div></a>
+                    <a href="#"><div class="social-button pinterest"></div></a>
+                    <a href="#"><div class="social-button youtube"></div></a>
+                </div>
+            </div> */?>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="pe_normal_list pm_box">
+            <h4 class="pe_mob_hide"><?php echo $this->__('In This Podcast Listen To:') ?></h4>
+            <?php echo $processor->filter($podcast->getShortContent()); ?>
+
+            <div class="pe_shape pe_mob_hide">
+                <img src="<?php echo $this->getSkinUrl('images/podcast/podcast_header_shape.png') ?>"/>
+            </div>
+            <div class="itunes-store">
+                <a href="https://itunes.apple.com/us/podcast/torch-great-courses-podcast/id670966237?mt=2">Subscribe on
+                    iTunes®</a>
+            </div>
+
+            <?php /* disabling individual page sharing for launch
+               <div class="pe_share pe_mob_hide">
+                            <div class="body_social_networks">
+                                <div class="body_social_text"><span>
+            <?php echo $this->__('Share:');?></span></div>
+                                <div class="social_container">
+                                    <a href="#"><div class="social-button facebook"></div></a>
+                                    <a href="#"><div class="social-button twitter"></div></a>
+                                    <a href="#"><div class="social-button pinterest"></div></a>
+                                    <a href="#"><div class="social-button youtube"></div></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div> */ ?>
+
+        </div>
+    </div>
+</div>
+<div class="pm_navigation pe_mobile">
+    <ul>
+        <li>
+            <?php if (is_object($prevPodcast)): ?>
+                <a class="prev pm_arrow"
+                   href="<?php echo $helper->getPodcastUrl($prevPodcast); ?>"><?php echo $this->__('Previous'); ?></a>
+            <?php else: ?>
+                <span class="prev pm_arrow disabled"><?php echo $this->__('Previous'); ?></span>
+            <?php endif; ?>
+        </li>
+        <li>
+            <?php if (is_object($nextPodcast)): ?>
+                <a class="next pm_arrow"
+                   href="<?php echo $helper->getPodcastUrl($nextPodcast); ?>"><?php echo $this->__('Next'); ?></a>
+            <?php else: ?>
+                <span class="next pm_arrow disabled"><?php echo $this->__('Next'); ?></span>
+            <?php endif; ?>
+        </li>
+    </ul>
+</div>
+<div class="clearfix"></div>
+<div class="pe_recomendations pe_mob_hide">
+    <!-- here goes the recommendation's block -->
+    <?php
+    echo $this->getChildHtml('podcast_related_courses');
+    ?>
+</div>
+
+<script type="text/javascript">
+    (function($) {
+        $(document).ready(function() {
+            podcastPlaying = false;
+            $('.play-audio-button').on(customClickEvent, function() {
+                var waitForPlayer;
+
+                //$(this).hide().removeClass('playing').text('play');
+
+                if($(window).width() >= 768) {
+                    $('#brightCove-widget').css({
+                        'position' : 'relative',
+                        'left' : 0
+                    });
+                }
+
+                <?php if ($deviceType == 'tablet' && $osName == 'iOS'):?>
+                if (podcastPlaying==false){
+                    if (iframePlayer != undefined){
+                        iframePlayer.postMessage('play','*');
+                        $('.play-audio-button span span').text('pause');
+                        podcastPlaying = true;
+                    }
+                }else{
+                    iframePlayer.postMessage('pause','*');
+                    $('.play-audio-button span span').text('play');
+                    podcastPlaying = false;
+                }
+                <?php else: ?>
+                if (podcastPlaying==false){
+                    waitForPlayer = setInterval(function() {
+                        if( modExp !== undefined ) {
+                            modVP._canPlayWithoutUserInteraction = true;
+                            modVP.play();
+                            podcastPlaying = true;
+                            $('.play-audio-button span span').text('pause');
+                            clearInterval(waitForPlayer);
+                        }
+                    }, 500);
+                }else{
+                    podcastPlaying = false;
+                    $('.play-audio-button span span').text('play');
+                    modVP.pause();
+                }
+                <?php endif; ?>
+            })
+        });
+    })(jQuery)
+</script>

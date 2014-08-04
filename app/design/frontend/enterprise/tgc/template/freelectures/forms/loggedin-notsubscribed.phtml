@@ -1,0 +1,21 @@
+<?php
+$currentFormName = Tgc_Catalog_Helper_Freemarketinglecture::FORM_SIGNEDIN_UNSUBSCRIBED;
+$shouldDisplayForm = $helperFreelectures->getFreelectureFormToDisplay() != $currentFormName ? ' style="display:none"' : ''
+?>
+
+<form method="post" id="free-lectures-form-validate-notsubscribed"
+      action="<?php echo Mage::getUrl('customer/account/freelecturePost') ?>" <?php echo $shouldDisplayForm ?>>
+    <h2>
+        Access Your FREE Courses Now! No purchase necessary.
+    </h2>
+    <div>Please click the button below to get your free lecture.</div>
+    <input type="hidden" id="current_freelectures_form_loggedinnotsubscribed" name="freelectures[current_freelectures_form]" value="<?php echo $currentFormName ?>" />
+    <input id="submitbutton" type="submit" value="Get FREE Lectures" class="button"/><br /><br />
+</form>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var freeLecturesNotSubscribedForm = new VarienForm('free-lectures-form-validate-notsubscribed', true);
+
+    //]]>
+</script>

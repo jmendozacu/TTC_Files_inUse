@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tgc_GiftCardAccount>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Enterprise_GiftCardAccount />
+            </depends>
+        </Tgc_GiftCardAccount>
+    </modules>
+</config>

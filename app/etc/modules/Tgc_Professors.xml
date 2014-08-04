@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Tgc_Professors>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Tgc_Professors>
+    </modules>
+</config>

@@ -1,0 +1,71 @@
+ID:                 about-us/heritage
+Status:             published
+Title:              Our Heritage
+Layout:             one_column_about
+Stores:             default,uk_en, au_en
+---
+
+<div class="left_sidebar grid12-3">
+    {{block type="cms/block" block_id="about_us_menu" name="about.menu"}}
+</div>
+<div class="about grid12-9">
+    <div class="about_container">
+        <div class="left_border">
+            <div class="about_content">
+                <span class="page-active">active-heritage</span>
+                <span class="mod_page_active">mob-heritage</span>
+                <div class="content_hero heritage">
+                    <img src="{{skin url="images/tgc/heritage_banner.jpg"}}"/>
+                </div>
+                <div class="left_column heritage">
+                    <span class="articl_title">The Great Courses Story</span>
+                    <p>It all began with just a few videotapes—and a brilliant inspiration.</p>
+                    <p>Tom Rollins, the founder of The Great Courses, was a law student at Harvard University and was
+                        facing an important exam on the U.S. Federal Rules of Evidence—an exam for which he wasn’t
+                        prepared.</p>
+                    <p>Dreading the notoriously boring subject but knowing his success depended on understanding the
+                        material, Rollins obtained videotapes of 10 lectures by a noted authority on the subject,
+                        Professor Irving Younger. Rollins planted himself in front of his television late at night and
+                        put the first tape into his VCR. What he discovered changed his life.</p>
+                    <p>The tapes were unlike anything Rollins had experienced in his Harvard lecture halls. Professor
+                        Younger’s lectures were outrageously insightful, impressively thorough, and engagingly witty.
+                        Most important: They hammered home the concepts in a way that made the subject both accessible
+                        and interesting. They made learning not a chore to be accomplished but an adventure to be
+                        experienced.</p>
+                </div>
+                <div class="right_column heritage">
+                    {{block type="cms/block" block_id="heritage_our_values" name="our.values"}}
+                </div>
+                <div class="bottom_content heritage">
+                    <p>Rollins played all 10 hours of those lectures nearly nonstop. A few days later he passed his
+                        exam and went on to make an “A” in the course.</p>
+                    <p>He never forgot the unique power of recorded lectures by a great teacher—the way that a bright
+                        mind could ignite a passion for lifelong learning. And years later, in 1990, Rollins founded
+                        The Great Courses to share that unforgettable experience with the rest of the world.</p>
+                    <p class="rollins_concept_title">Rollins’s concept was simple:</p>
+                    <ol>
+                        <li>
+                            <p>Find the top 1% of college professors in the world, selected entirely for
+                            their ability to teach.</p>
+                        </li>
+                        <li>
+                            <p>Use feedback from customers to help craft courses into formats
+                            uniquely designed for the lifelong learner.</p>
+                        </li>
+                    </ol>
+                    <p>After more than 20 years and 10 million courses taken, The Great Courses still adheres to the
+                        strict principles on which the company was founded, supporting every course with a
+                        <a href="{{store direct_url="about-us/guarantee"}}">100% Lifetime Satisfaction Guarantee</a>. We invite
+                        you to learn more about <a href="{{store direct_url="about-us/professors"}}">Our Professors</a> and
+                        <a href="{{store direct_url="about-us/team"}}">Our Team</a> who make it all possible; and
+                        <a href="{{store direct_url="about-us/customers"}}">Our Customers</a>, a discerning community of lifelong learners who
+                        demand “the best of the best.”</p>
+                </div>
+                <div class="our_values_slider_mob">
+                    <p class="our_values_title">Our Values</p>
+                    {{block type="cms/block" block_id="heritage_our_values_slider" name="ourvalues.slider"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

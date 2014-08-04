@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layoutUpdate>
+	<catalog_product_view>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/simple_product_pricing.js</name>
+			</action>
+		</reference>
+		<reference name="product.info.extrahint">
+            <block type="catalog/product_view" name="product.spptierprices" as="spptierprices" template="catalog/product/view/spptierprices.phtml" />
+        </reference>
+	</catalog_product_view>
+    
+	<spp_ajax_co>
+		<reference name="content">
+			<block output="toHtml" type="catalog/product_view" name="product.tierprices" as="tierprices" template="catalog/product/view/tierprices.phtml" />
+		</reference>
+	</spp_ajax_co>
+	
+</layoutUpdate>

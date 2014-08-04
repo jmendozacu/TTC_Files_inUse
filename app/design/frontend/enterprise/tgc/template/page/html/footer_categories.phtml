@@ -1,0 +1,20 @@
+<?php $_helper = Mage::helper('catalog/category') ?>
+<?php $_categories = $_helper->getStoreCategories() ?>
+
+
+<?php if (count($_categories) > 0): ?>
+
+    <div class="block-for-links">
+        <h4 class="title-for-links-list">Course Categories</h4>
+        <ul class="footer-categories-list clearfix">
+            <?php foreach($_categories as $_category): ?>
+                <li>
+                    <a href="<?php echo $_helper->getCategoryUrl($_category); ?>">
+                        <?php echo $_category->getName() ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+<?php endif; ?>

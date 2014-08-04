@@ -1,0 +1,48 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+
+<div class="cart-empty">
+    <div class="page-title">
+        <h1><?php echo $this->__('Your Shopping Cart is Empty') ?></h1>
+    </div>
+    <div class="cart_empty_content">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <?php echo $this->getChildHtml('checkout_cart_empty_widget'); ?>
+        <p>
+            <?php echo $this->__("Please note: If you've just placed an order with us, these items will no longer appear in your shopping cart. <br/> However, you should receive an automated e-mail shortly confirming our receipt of your order.<br/>You can also <a href='%s'>View Orders</a> in your account section.", $this->getUrl('sales/order/history')); ?>
+        </p>
+    </div>
+    <div class="clearfix_mobile"></div>
+    <div class="cs_information">
+        <?php echo $this->getChildHtml('cart-customer-services'); ?>
+    </div>
+    <div class="clearfix"></div>
+    <div class="recomendations">
+        <?php echo $this->getChildHtml('recomendations'); ?>
+    </div>
+    <?php echo $this->getChildHtml('shopping.cart.table.after'); ?>
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<layout>
+    <adminhtml_professor_index>
+        <reference name="content">
+            <block type="profs/adminhtml_professor" name="container"/>
+        </reference>
+    </adminhtml_professor_index>
+    <adminhtml_professor_edit>
+        <reference name="content">
+            <block type="profs/adminhtml_professor_edit" name="container"/>
+        </reference>
+    </adminhtml_professor_edit>
+    <adminhtml_institution_index>
+        <reference name="content">
+            <block type="profs/adminhtml_institution" name="container"/>
+        </reference>
+    </adminhtml_institution_index>
+    <adminhtml_institution_edit>
+        <reference name="content">
+            <block type="profs/adminhtml_institution_edit" name="container"/>
+        </reference>
+    </adminhtml_institution_edit>
+</layout>

@@ -1,0 +1,55 @@
+<?php
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_Cms_Block_HomepageCategory */
+?>
+<?php
+$collection = $this->getCollection();
+?>
+<?php if ($this->shouldShowWidget() && $collection && ($collection->getSize())): ?>
+    <h3 class="section-title"><?php echo $this->getTitle(); ?></h3>
+    <div class="itemslider-wrapper itemslider-categories">
+        <div class="itemslider itemslider-horizontal">
+            <ul class="slides products-grid">
+                <?php foreach ($collection as $category): ?>
+                <li class="category-slide">
+                    <a href="<?php echo $category->getUrl(); ?>">
+                        <img src="<?php echo $this->getThumbUrl($category); ?>" alt="<?php echo $category->getName(); ?>"/>
+                        <span class="category-name"><?php echo $this->escapeHtml($category->getName()); ?></span>
+                    </a>
+                </li>
+                <?php endforeach; ?>
+            </ul> <!-- end: slides -->
+        </div> <!-- end: itemslider -->
+
+    </div> <!-- end: new-itemslider-wrapper -->
+    <script type="text/javascript">
+        //<![CDATA[
+            jQuery(function($) {
+                var widthForSliderImage = 180;
+                if($(window).width() < 768) {
+                    widthForSliderImage = 170;
+                }
+                $('.itemslider-categories .itemslider').flexslider({
+                    namespace:"",
+                    animation:"slide",
+                    animationLoop: false,
+                    controlNav: false,
+                    itemWidth: widthForSliderImage,
+                    slideshow: false,
+                    maxItems: 5,
+                    minItems: 1
+
+                })
+            });
+        //]]>
+    </script>
+<?php endif; ?>

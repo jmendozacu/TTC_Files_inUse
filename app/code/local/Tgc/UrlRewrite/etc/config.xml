@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Url Rewrite module's config
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_UrlRewrite
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_UrlRewrite>
+            <version>1</version>
+        </Tgc_UrlRewrite>
+    </modules>
+    <global>
+        <models>
+            <tgc_urlRewrite>
+                <class>Tgc_UrlRewrite_Model</class>
+            </tgc_urlRewrite>
+            <enterprise_urlrewrite>
+                <rewrite>
+                    <matcher_redirect>Tgc_UrlRewrite_Model_Matcher_Redirect</matcher_redirect>
+                </rewrite>
+            </enterprise_urlrewrite>
+        </models>
+    </global>
+</config>

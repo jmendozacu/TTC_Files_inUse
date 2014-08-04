@@ -1,0 +1,40 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$terms = array();
+
+$searchCriterias = $this->getSearchCriterias();
+foreach (array('left', 'right') as $side) {
+    if(@$searchCriterias[$side]) {
+        foreach($searchCriterias[$side] as $criteria) {
+            $terms[] = $this->htmlEscape($this->helper('catalog')->__($criteria['name'])) .
+                ":" . $this->htmlEscape($criteria['value']);
+        }
+    }
+}
+
+if (empty($terms)) {
+    $terms[] = "no-criteria";
+}
+
+?>
+
+<!-- Tealium Search Results page javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name: "advanced search results",
+        page_type: "advanced search",
+        search_results: "<?php echo $this->getResultCount(); ?>",
+        search_keyword: "<?php echo implode(',', $terms) ?>",
+        user_id: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_USER_ID; ?>'),
+        is_logged_in: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_LOGGED_IN; ?>')
+    };
+</script>

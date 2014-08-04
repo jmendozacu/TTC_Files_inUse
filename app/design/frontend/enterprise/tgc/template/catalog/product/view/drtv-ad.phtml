@@ -1,0 +1,19 @@
+<?php if($adcodeHelper->isDrtvAd()): ?>
+    <div class="drtv-ad-desktop-version">
+        <?php echo $this->getChildHtml('drtv_static_block_desktop'); ?>
+    </div>
+    <div class="drtv-ad-mobile-version">
+        <?php echo $this->getChildHtml('drtv_static_block_mobile'); ?>
+    </div>
+
+<?php endif ?>
+
+<script type="text/javascript">
+    (function($) {
+        if(isTouchable) {
+            $('.drtv-ad-desktop-version').hide();
+        } else {
+            $('.drtv-ad-mobile-version').hide();
+        }
+    })(jQuery)
+</script>

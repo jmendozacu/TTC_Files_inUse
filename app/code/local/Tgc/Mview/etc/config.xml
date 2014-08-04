@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Description
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_Mview
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Mview>
+            <version>1</version>
+        </Tgc_Mview>
+    </modules>
+    <global>
+        <models>
+            <tgc_mview>
+                <class>Tgc_Mview_Model</class>
+                <resourceModel>tgc_mview_resource</resourceModel>
+            </tgc_mview>
+            <tgc_mview_resource>
+                <class>Tgc_Mview_Model_Resource</class>
+                <entities>
+                    <custom_trigger>
+                        <table>tgc_mview_custom_trigger</table>
+                    </custom_trigger>
+                </entities>
+            </tgc_mview_resource>
+            <enterprise_mview>
+                <rewrite>
+                    <action_changelog_subscription_create>Tgc_Mview_Model_Action_Changelog_Subscription_Create</action_changelog_subscription_create>
+                    <subscriber>Tgc_Mview_Model_Subscriber</subscriber>
+                </rewrite>
+            </enterprise_mview>
+            <enterprise_mview_resource>
+                <rewrite>
+                    <subscriber>Tgc_Mview_Model_Resource_Subscriber</subscriber>
+                </rewrite>
+            </enterprise_mview_resource>
+        </models>
+        <resources>
+            <tgc_mview_setup>
+                <setup>
+                    <module>Tgc_Mview</module>
+                </setup>
+            </tgc_mview_setup>
+        </resources>
+    </global>
+</config>

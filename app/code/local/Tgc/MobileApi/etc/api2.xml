@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <api2>
+        <resource_groups>
+            <mapi translate="title" module="Tgc_MobileApi">
+                <title>Mobile</title>
+                <sort_order>10</sort_order>
+            </mapi>
+        </resource_groups>
+        <resources>
+            <login translate="title" module="Tgc_MobileApi">
+                <group>mapi</group>
+                <model>mapi/login</model>
+                <title>Login</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <guest>
+                        <create>1</create>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <email>E-mail</email>
+                    <password>Password</password>
+                    <website>Website Code</website>
+                    <notification>Notification</notification>
+                    <message>Message</message>
+                    <user>User</user>
+                    <banner>Banner</banner>
+                </attributes>
+                <routes>
+                    <login_get>
+                        <route>LoginGet/:email/:password</route>
+                        <action_type>entity</action_type>
+                    </login_get>
+                    <login_get_no_password>
+                        <route>LoginGet/:email</route>
+                        <action_type>entity</action_type>
+                    </login_get_no_password>
+                    <login_get_no_credentials>
+                        <route>LoginGet</route>
+                        <action_type>entity</action_type>
+                    </login_get_no_credentials>
+                    <login_post_json>
+                        <route>LoginPostJson</route>
+                        <action_type>collection</action_type>
+                    </login_post_json>
+                </routes>
+                <versions>1</versions>
+            </login>
+            <forgot_password translate="title" module="Tgc_MobileApi">
+                <group>mapi</group>
+                <model>mapi/forgotPassword</model>
+                <title>Forgot Password</title>
+                <sort_order>20</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <email>E-mail</email>
+                </attributes>
+                <routes>
+                    <forgot_password_website>
+                        <route>ForgotPassword/:email/:website</route>
+                        <action_type>entity</action_type>
+                    </forgot_password_website>
+                    <forgot_password>
+                        <route>ForgotPassword/:email</route>
+                        <action_type>entity</action_type>
+                    </forgot_password>
+                </routes>
+                <versions>1</versions>
+            </forgot_password>
+            <login_status translate="title" module="Tgc_MobileApi">
+                <group>mapi</group>
+                <model>mapi/loginStatus</model>
+                <title>Login Status</title>
+                <sort_order>15</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <notification>Notification</notification>
+                    <message>Message</message>
+                    <user>User</user>
+                    <banner>Banner</banner>
+                </attributes>
+                <routes>
+                    <login_status>
+                        <route>LoginStatus/:id</route>
+                        <action_type>entity</action_type>
+                    </login_status>
+                </routes>
+                <versions>1</versions>
+            </login_status>
+            <all_courses translate="title" module="Tgc_MobileApi">
+                <group>mapi</group>
+                <model>mapi/course_collection</model>
+                <title>All Courses</title>
+                <sort_order>30</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <contentlength>Content Length</contentlength>
+                    <courseList>Courses</courseList>
+                </attributes>
+                <routes>
+                    <order_all_course_only>
+                        <route>GetOrdersAllCourseOnly/:userId</route>
+                        <action_type>entity</action_type>
+                    </order_all_course_only>
+                </routes>
+                <versions>1</versions>
+            </all_courses>
+            <course translate="title" module="Tgc_MobileApi">
+                <group>mapi</group>
+                <model>mapi/course</model>
+                <title>Course</title>
+                <sort_order>40</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <contentlength>Content Length</contentlength>
+                    <courseList>Courses</courseList>
+                </attributes>
+                <routes>
+                    <course_by_id>
+                        <route>GetCourseById/:userId/:courseId</route>
+                        <action_type>entity</action_type>
+                    </course_by_id>
+                </routes>
+                <versions>1</versions>
+            </course>
+            <update_lecture_progress translate="title" module="Tgc_MobileApi">
+                <group>mapi</group>
+                <model>mapi/updateLectureProgress</model>
+                <title>Update Lecture Progress</title>
+                <sort_order>50</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <notification>Notification</notification>
+                </attributes>
+                <routes>
+                    <update_lecture_progress>
+                        <route>UpdateLectureProgress/:userId/:progress/:courseId/:lectureNumber</route>
+                        <action_type>entity</action_type>    
+                    </update_lecture_progress>
+                </routes>
+                <versions>1</versions>
+            </update_lecture_progress>
+            <free_lectures_signup translate="title" module="Tgc_MobileApi">
+                <group>mapi</group>
+                <model>mapi/freeLecturesSignup</model>
+                <title>Free Lectues Signup</title>
+                <sort_order>60</sort_order>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes>
+                    <response>Response</response>
+                </attributes>
+                <routes>
+                    <free_lecture_signup>
+                        <route>FreeLecturesSignupGet/:firstName/:lastName/:email/:password/:adcode/:userAgent</route>
+                        <action_type>entity</action_type>
+                    </free_lecture_signup>
+                </routes>
+                <versions>1</versions>
+            </free_lectures_signup>
+        </resources>
+    </api2>
+</config>

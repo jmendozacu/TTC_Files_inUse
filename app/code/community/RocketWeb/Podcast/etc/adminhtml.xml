@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <cms>
+            <children>
+                <rocketweb_podcast translate="title" module="cms">
+                    <title>Podcast</title>
+                    <action>podcasts_admin/adminhtml_podcast</action>
+                    <sort_order>40</sort_order>
+                </rocketweb_podcast>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <rocketweb_podcast translate="title">
+                                <title>Podcast</title>
+                                <sort_order>40</sort_order>
+                            </rocketweb_podcast>
+                        </children>
+                    </cms>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <rocketweb_podcast translate="title" module="podcast">
+                                        <title>Rocket Web Podcast</title>
+                                        <sort_order>1005000</sort_order>
+                                    </rocketweb_podcast>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>    
+</config>

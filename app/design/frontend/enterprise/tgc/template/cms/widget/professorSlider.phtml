@@ -1,0 +1,120 @@
+<?php
+/**
+ * Professor slider
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Professors
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_Professors_Block_ProfessorSlider */
+?>
+<?php
+$collection = $this->getCollection();
+?>
+<div class="professors_slider">
+    <?php if ($collection && ($collection->getSize())): ?>
+        <div class="ourpages_slider_block">
+            <div class="ourpages_slider_container">
+                <div class="itemslider_ourpages">
+                    <ul class="slides ourpages">
+                        <?php foreach ($collection as $prof): ?>
+                            <li>
+                                <div class="slides_left_column">
+                                    <img src="<?php echo $this->getProfImage($prof); ?>" alt="<?php echo $this->renderName($prof); ?>">
+                                </div>
+                                <div class="slides_right_column">
+                                    <p class="quote"><?php echo $prof->getQuote(); ?></p>
+                                    <p class="after_quote"><?php echo $this->renderName($prof); ?><br><?php echo $prof->getTeachingName(); ?>. <?php echo $prof->getAmName(); ?></p>
+                                </div>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+                <div class="itemslider-wrapper about-pages-carousel">
+                    <div class="itemslider itemslider-horizontal">
+                        <div class="viewport">
+                            <ul class="slides carousel-item">
+                                <?php foreach ($collection as $prof): ?>
+                                    <li class="about-pages-carousel-item drop-shadow tiny-shadow">
+                                        <div class="slide_content">
+                                            <div class="top_content">
+                                                <div class="down_arrow"></div>
+                                                <p class="quote mobile"><?php echo $prof->getQuote(); ?></p>
+                                            </div>
+                                            <div class="bottom_content">
+                                                <a rel="nofollow" href="#">
+                                                    <img src="<?php echo $this->getProfImage($prof); ?>" alt="<?php echo $this->renderName($prof); ?>">
+                                                </a>
+                                                <p class="after_quote mobile"><strong><?php echo $this->renderName($prof); ?></strong><br><?php echo $prof->getTeachingName(); ?>. <?php echo $prof->getAmName(); ?></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <ul class="direction-nav">
+                            <li><a class="prev disabled" rel="nofollow" href="#">Previous</a>
+                            </li>
+                            <li><a rel="nofollow" class="next" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            jQuery(function($) {
+                var item_width;
+                if( ($(window).width()<768 && navigator.userAgent.match(/Android/i)) ||
+                    ($(window).width()<768 && navigator.userAgent.match(/webOS/i)) ||
+                    ($(window).width()<768 && navigator.userAgent.match(/iPhone/i)) ||
+                    ($(window).width()<768 && navigator.userAgent.match(/iPad/i)) ||
+                    ($(window).width()<768 && navigator.userAgent.match(/iPod/i)) ||
+                    ($(window).width()<768 && navigator.userAgent.match(/BlackBerry/i)) ||
+                    ($(window).width()<768 && navigator.userAgent.match(/Windows Phone/i))
+                    ) {
+                    item_width = 255;
+                    setTimeout(function() {
+                        $('.slides.carousel-item').each(function(){
+                            var ul = $(this);
+                            var max_h = 0;
+                            ul.find('.about-pages-carousel-item .slide_content .top_content').each(function(){
+                                if ($(this).height() > max_h){max_h = $(this).height()}
+                            });
+                            ul.find('.about-pages-carousel-item .slide_content .top_content').height(max_h)
+                        });
+                    }, 700)
+                } else {
+                    item_width = 105;
+                }
+                $('.about-pages-carousel .itemslider').flexslider({
+                    namespace: "",
+                    animation: "slide",
+                    controlNav: false,
+                    animationLoop: false,
+                    slideshow: false,
+                    itemWidth: item_width,
+                    itemHeight: 87,
+                    itemMargin: 5,
+                    maxItems: 6,
+                    minItems: 1,
+                    asNavFor: '.itemslider_ourpages'
+                });
+
+                $('.itemslider_ourpages').flexslider({
+                    namespace: "",
+                    directionNav: false,
+                    animation: "slide",
+                    controlNav: false,
+                    animationLoop: false,
+                    slideshow: false,
+                    sync: ".about-pages-carousel .itemslider"
+                });
+            });
+        </script>
+    <?php endif; ?>
+</div>

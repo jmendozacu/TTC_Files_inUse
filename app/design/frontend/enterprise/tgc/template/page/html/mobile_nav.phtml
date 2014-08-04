@@ -1,0 +1,296 @@
+<?php
+$session = Mage::getSingleton('customer/session');
+
+$_helper = Mage::helper('catalog/category');
+$_categories = $_helper->getStoreCategories();
+?>
+<script type="text/javascript">
+    function doMobileAjaxLogout() {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::helper('customer')->getLogoutUrl(); ?>',
+            success: function(data, textStatus, jqXHR) {
+                if (data['status'] == 'success') {
+                    window.location = '<?php echo Mage::getUrl(); ?>';
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('There was an error logging you out. Please try again');
+            }
+        });
+    }
+</script>
+<div id="mobile-nav-container" class="pushmenu">
+    <div class="closePushmenu"></div>
+    <div class="background-area pushmenu-left">
+        <div class="mobile-search">
+            <div class="ease-arrow-img"></div>
+            <?php echo $this->getChildHtml('topSearchMobile'); ?>
+        </div>
+        <div id="mobile-menu-list">
+            <div class="mobile-main-panel">
+                <div class="mobile-nav-title">
+                <h3 class="mob-text"><?php echo $this->__('main menu'); ?></h3>
+                <?php if ($session->isLoggedIn()): ?>
+                    <a href="<?php echo Mage::helper('customer')->getLogoutUrl(); ?>" class="mob-sign-in"><?php echo $this->__('Sign Out'); ?></a>
+                <?php else: ?>
+                    <a href="#" class="mob-sign-in mob-sign-in-js"><?php echo $this->__('Sign In'); ?></a>
+                <?php endif; ?>
+            </div>
+                <ul class="mobile-topmost-menu mobile-menu-list mobile-menu-first-level sub-mobile-menu">
+                    <li><span class="mob-icon mob-item-home"><a href="/"><?php echo $this->__('home'); ?></a></span></li>
+                    <li class="mobile-more">
+                        <span class="mob-text mob-icon mob-item-courses"><?php echo $this->__('courses'); ?></span>
+                        <ul class="mobile-menu-list sub-mobile-menu">
+                            <li class="mobile-nav-subtitle"><span></span></li>
+                            <li class="mobile-more">
+                                <span class="mob-text"><?php echo $this->__('categories'); ?></span>
+                                <ul class="mobile-menu-list sub-mobile-menu">
+                                    <li class="mobile-nav-subtitle"><span></span></li>
+                                    <?php if (count($_categories) > 0){ ?>
+                                        <?php foreach($_categories as $_category){ ?>
+                                            <li><span><a href="<?php echo $_helper->getCategoryUrl($_category) ?>"> <?php echo $_category->getName() ?></a></span></li>
+                                        <?php } ?>
+                                    <?php }else{ ?>
+                                        <li><span><a href="#">No Courses Found</a></span></li>
+                                    <?php } ?>
+                                </ul>
+                            </li>
+                            <li class="mobile-more">
+                                <span class="mob-text"><?php echo $this->__('formats'); ?></span>
+                                <ul class="mobile-menu-list sub-mobile-menu">
+                                    <li class="mobile-nav-subtitle"><span></span></li>
+                                    <li><span><a href="<?php echo $this->getUrl('courses?media_format=14_13_16_17');?>">audio</a></span></li>
+                                    <li><span><a href="<?php echo $this->getUrl('courses?media_format=12_15');?>">video</a></span></li>
+                                    <li><span><a href="<?php echo $this->getUrl('courses');?>">all</a></span></li>
+                                </ul>
+                            </li>
+                            <li class="mobile-more">
+                                <span class="mob-text"><?php echo $this->__('on sale'); ?></span>
+                                <ul class="mobile-menu-list sub-mobile-menu">
+                                    <li class="mobile-nav-subtitle"><span></span></li>
+                                    <li><span><a href="#">special sell - 70% off</a></span></li>
+                                    <li><span><a href="#">best sellers</a></span></li>
+                                    <li><span><a href="<?php echo $this->getUrl('/courses/all-types/on-sale-sets-only?m-layered=1&m-layered=1');?>">special sets offers</a></span></li>
+                                    <li><span><a href="#">courses under $40</a></span></li>
+                                    <li><span><a href="#">gift certificates</a></span></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mobile-more">
+                        <span class="mob-text mob-icon mob-item-aboutus"><?php echo $this->__('about us'); ?></span>
+                        <ul class="mobile-menu-list sub-mobile-menu">
+                            <li class="mobile-nav-subtitle"><span></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('about-us'); ?>">our approach</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('about-us/heritage'); ?>">our heritage</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('about-us/professors'); ?>">our professors</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('about-us/customers'); ?>">our customers</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('about-us/guarantee'); ?>">our guarantee</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('about-us/team'); ?>">our team</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('about-us/careers'); ?>">our career opportunities</a></span></li>
+                        </ul>
+                    </li>
+                    <li><span class="mob-icon mob-item-podcast"><a href="<?php echo $this->getUrl('podcasts'); ?>">podcast</a></span></li>
+                    <li><span class="mob-icon mob-item-events"><a href="<?php echo $this->getUrl('events'); ?>">events</a></span></li>
+                    <li><span class="mob-icon mob-item-giftcards"><a href="<?php echo $this->getUrl('gift-card.html'); ?>">gift cards</a></span></li>
+                    <li class="mobile-more">
+                        <span class="mob-text mob-icon mob-item-help"><?php echo $this->__('customer service & help'); ?></span>
+                        <ul class="mobile-menu-list sub-mobile-menu">
+                            <li class="mobile-nav-subtitle"><span></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('support/contact-us'); ?>">contact us</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('support/contact-us'); ?>">customer service</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('support/returns-exchanges'); ?>">Exchanges and Returns</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('support/returns-exchanges'); ?>">lifetime guarantee</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('support/faqs'); ?>">FAQs</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('support/terms-conditions'); ?>">terms & conditions</a></span></li>
+                            <li><span><a href="<?php echo $this->getUrl('support/privacy-policy'); ?>">privacy policy</a></span></li>
+                            <li><span><a href="/<?php echo $this->getUrl('/affiliate'); ?>">affiliates</a></span></li>
+                        </ul>
+                    </li>
+                    <?php if ($session->isLoggedIn()){ ?>
+                        <li class="mobile-more mob-my-account-more">
+                            <span class="mob-text mob-my-account mob-icon mob-item-myaccount"><?php echo $this->__('my account'); ?></span>
+                            <ul class="mobile-menu-list sub-mobile-menu">
+                                <li class="mobile-nav-subtitle"><span></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('account/info'); ?>">account information</a></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('account/orders'); ?>">order history</a></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('account/wishlist'); ?>">wish list</a></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('account/review'); ?>">my reviews</a></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('account/newsletter'); ?>">email preferences</a></span></li>
+                            </ul>
+                        </li>
+                    <?php }else{ ?>
+                        <li class="mobile-more-no-js"><span class="mob-my-account mob-icon mob-item-myaccount"><a href="#" class="mob-sign-in mob-sign-in-js">my account</a></span></li>
+                    <?php } ?>
+                    <?php if ($session->isLoggedIn()): ?>
+                        <li class="mobile-more mob-my-digital-library-more">
+                            <span class="mob-text mob-my-digital-library mob-icon mob-item-digitallibrary"><?php echo $this->__('my digital library'); ?></span>
+                            <ul class="mobile-menu-list sub-mobile-menu">
+                                <li class="mobile-nav-subtitle"><span></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('digital-library/account'); ?>">All Courses</a></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('digital-library/account/audio'); ?>">Audio</a></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('digital-library/account/video'); ?>">Video</a></span></li>
+                                <li><span><a href="<?php echo $this->getUrl('digital-library/account/streamFaqs'); ?>">streaming FAQs</a></span></li>
+                            </ul>
+                        </li>
+                    <?php else: ?>
+                        <li class="mobile-more-no-js"><span class="mob-my-digital-library mob-icon mob-item-digitallibrary"><a href="#" class="mob-sign-in mob-sign-in-js"><?php echo $this->__('my digital library'); ?></a></span></li>
+                    <?php endif; ?>
+                    <li class="mob-nav-priority-code">
+                        <span>
+                            <a href="javascript:void(0)" class="mob-priority-code">have a priority code?</a>
+                        </span>
+                        <div class="tooltip tooltiphover f-right">
+                            <a class="icon-info js-action-icon" href="javascript:void(0)" rel="nofollow"></a>
+                            <div class="tooltip-text tooltip-balloon tooltip-right" style="display: none;">
+                                <a href="#" class="close-balloon">x</a>
+                                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('priority_code')->toHtml() ?>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- PopUp PANELS -->
+            <div class="mob-pop-panels-cont">
+                <div class="mob-pop-panel-sign-in mob-pop-panel">
+                <div class="mob-close-panel"></div>
+                <div class="mobile-popup-content">
+                    <div class="mobile_sing_in mb_first_element">
+                        <h3><?php echo $this->__('Existing Customer Sign in');?></h3>
+                        <div class="subtitle">
+                            <span><?php echo $this->__('Sign In to access your account information and digital media');?></span>
+                        </div>
+                        <div class="sing_in_form">
+                            <form id="mob_sing_in_form" method="post" action="<?php echo $this->getUrl('customer/account/headerLogin'); ?>">
+                                <label for="mobile-user-input" class="mobile-popup-label"><?php echo $this->__('Email Address');?></label>
+                                <div class="input-box">
+                                    <input class="input-text nav_mobile_input validate-email required-entry" id="mobile-user-input" name="login[username]" value="" />
+                                </div>
+                                <label for="mobile-password-input" class="mobile-popup-label"><?php echo $this->__('Password');?></label>
+                                <div class="input-box">
+                                    <input type="password" class="input-text nav_mobile_input validate-tgc-password " id="mobile-password-input" name="login[password]" value=""/>
+                                </div>
+                                <div><a href="#" class="mobile_nav_link mob_forgot_psw_link"><?php echo $this->__('Forgot Password?') ?></a></div>
+                                <div class="input-box">
+                                    <input id="keep_logged" type="checkbox" name="login[keep_logged]" title="Keep me logged in" value="1">
+                                    <label for="keep_logged">Keep me logged in</label>
+                                </div>
+                                <button id="mob-sign-in-button" type="submit" class="button float_right disabled" value="<?php echo $this->__('Sign In') ?>"><span><span><?php echo $this->__('Sign In') ?></span></span></button>
+                                <div class="input-error-msg"></div>
+                                <div class="input-success-msg"></div>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="mobile_new_account">
+                            <span class="descriptions"><?php echo $this->__('I am a New Customer') ?></span>
+                            <a href="#" class="mobile_nav_link mob_create_account_link"><?php echo $this->__('Create an Account') ?></a>
+                        </div>
+                    </div>
+                    <div class="mobile_psw_assist mb_second_element">
+                        <h3><?php echo $this->__('Password Assistance');?></h3>
+                        <div class="subtitle">
+                            <p><?php echo $this->__('Please enter your e-mail address associated with your Great Courses account. We will send you an email so you can reset your password.');?><br/><br/>
+                                <?php echo $this->__('If you continue to have problems, please');?>
+                                <a href="<?php echo $this->getUrl('contact-us'); ?>" class="mobile_inline_link"><?php echo $this->__('Contact Us');?></a>.</p>
+                        </div>
+                        <div class="mob_assist_form_cont">
+                            <form id="mob_assist_form" method="post" action="<?php echo Mage::getUrl('customer/account/forgotpasswordpost'); ?>">
+                                <?php echo $this->getBlockHtml('formkey'); ?>
+                                <label for="mobile-user-input" class="mobile-popup-label"><?php echo $this->__('Email Address');?></label>
+                                <div class="input-box">
+                                    <input class="input-text nav_mobile_input validate-email required-entry" id="mobile-email-input" name="email" value="" />
+                                </div>
+                                <div class="input-success-msg"></div>
+                                <div class="input-error-msg"></div>
+                                <div class="td-right">
+                                    <button type="button" class="button" id="mob-forgotpassword-submit" value="<?php echo $this->__('Send Email') ?>"><span><span><?php echo $this->__('Send Email') ?></span></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="mobile_create_account mb_second_element">
+                        <h3><?php echo $this->__('Create Your Account');?></h3>
+                        <div class="mob_create_account_cont">
+                            <form id="mob_create_account_form" method="post" action="<?php echo Mage::helper('customer')->getRegisterPostUrl(); ?>">
+                                <label for="mobile-user-input" class="mobile-popup-label"><?php echo $this->__('Email Address');?></label>
+                                <div class="input-box">
+                                    <input class="input-text nav_mobile_input validate-email required-entry" onkeyup="enableCreateAccountButton()" id="mobile-create-user-input" name="" value="" />
+                                </div>
+                                <label for="mobile-psw-input" class="mobile-popup-label"><?php echo $this->__('Create Password');?></label>
+                                <div class="input-box">
+                                    <input class="input-text nav_mobile_input validate-tgc-password js-action-link" onkeyup="enableCreateAccountButton()" id="mobile-create-pwd-input" name="" value="" type="password" />
+                                    <div class="tooltip-balloon tooltip-center create-psw-tooltip tooltip-text">
+                                        <p>
+                                            Please enter a password that is between 5 and 20 characters long.
+                                        </p>
+                                    </div>
+                                </div>
+                                <label for="mobile-conf-pwd-input" class="mobile-popup-label"><?php echo $this->__('Confirm Password');?></label>
+                                <div class="input-box">
+                                    <input class="input-text nav_mobile_input validate-tgc-cpassword" id="mobile-create-conf-pwd-input" onkeyup="enableCreateAccountButton()" name="" value="" type="password" />
+                                </div>
+                                <div class="subtitle create_acc_term_cond">
+                                    <input type="checkbox" id="mobile_accept_terms" name="mobile_accept_terms" onchange="enableCreateAccountButton()" />
+                                    <label for="mobile_accept_terms" class="mobile_accept_terms_label"></label>
+                                    <p><?php echo $this->__('I accept the');?>
+                                        <a href="<?php echo $this->getUrl('support/terms-conditions'); ?>" class="mobile_inline_link"><?php echo $this->__('Terms and Conditions');?></a>
+                                        <?php echo $this->__('and');?>
+                                        <a href="<?php echo $this->getUrl('support/privacy-policy'); ?>" class="mobile_inline_link"><?php echo $this->__('Privacy Policy');?></a>.<br/><br/>
+                                        <?php echo $this->__('The Great Courses will never rent or sell your email to third parties.');?>
+                                    </p>
+                                </div>
+                                <?php echo $this->getChildHtml('mobile.opt.out') ?>
+                                <div class="input-success-msg"></div>
+                                <div class="input-error-msg"></div>
+                                <button type="submit" class="button float_right disabled" disabled="disabled" id="mobile-create-account-button-submit" value="<?php echo $this->__('Create Account') ?>"><span><span><?php echo $this->__('Create Account') ?></span></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="mob-pop-panel-priority-code mob-pop-panel">
+                <div class="mob-close-panel"></div>
+                <div class="priority_code mobile-popup-content">
+                    <div class="pc_form_container">
+                        <form id="priority-code-mobile"  method="post" action="">
+                            <label class="mobile-popup-label" for="coupon_code"><?php echo $this->__('Enter Priority Code') ?></label>
+                            <input type="hidden" name="remove" id="remove-coupone" value="0" placeholder="<?php echo $this->__('Enter Priority Code')?>" />
+                            <input class="input-text nav_mobile_input" placeholder="<?php echo $this->__('Enter a Priority Code')?>" id="mobile-priority-code-value" name="<?php echo Tgc_Price_Helper_Data::AD_CODE_PARAM; ?>" value="<?php echo $this->escapeHtml($this->getCouponCode()) ?>" />
+                            <div class="td-right">
+                                <a href="#" class="pop_panel_cancel mobile_nav_link"><?php echo $this->__('Cancel') ?></a>
+                                <button type="submit" class="button" value="<?php echo $this->__('Apply') ?>"><span><span><?php echo $this->__('Apply') ?></span></span></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="priority_code_submited">
+                        <span class="descriptions"></span>
+                        <a href="#" class="pop_panel_new_pc mobile_nav_link"><?php echo $this->__('Apply a new Code?');?></a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="empty-area"></div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var mobCreateForm = new VarienForm('mob_create_account_form', true);
+    var mobLoginForm = new VarienForm('mob_sing_in_form', true);
+    var mobAssistForm = new VarienForm('mob_assist_form',true);
+
+    function enableCreateAccountButton() {
+        if(jQuery('#mobile-create-user-input').val() != "" &&
+            jQuery('#mobile-create-pwd-input').val() != "" &&
+            jQuery('#mobile-create-conf-pwd-input').val() != "" &&
+            jQuery("#mobile_accept_terms").is(':checked')) {
+            jQuery('#mobile-create-account-button-submit').removeClass('disabled').removeAttr('disabled');
+        } else if(!jQuery('#mobile-create-account-button-submit').hasClass('disabled')) {
+            jQuery('#mobile-create-account-button-submit').addClass('disabled').attr('disabled','disabled');
+        }
+    }
+    //]]>
+</script>

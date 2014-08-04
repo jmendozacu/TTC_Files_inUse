@@ -1,0 +1,65 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$quote = Mage::helper('checkout')->getQuote();
+
+$ids = array();
+$skus = array();
+$names = array();
+$qtys = array();
+$prices = array();
+$finalPrices = array();
+$listPrices = array();
+$defaultPrices = array();
+$priorityPrices = array();
+
+foreach ($quote->getAllVisibleItems() as $item) {
+    if ($item->getProductType() == Mage_Catalog_Model_Product_Type_Configurable::TYPE_CODE) {
+        (array)$children = $item->getChildren();
+        if (count($children) > 0) {
+            $child = $children[0];
+            $product = $child->getProduct();
+        } else {
+            $product = $item->getProduct();
+        }
+    } else {
+        $product = $item->getProduct();
+    }
+
+    $ids[] = $product->getCourseId();
+    $skus[] = $item->getSku();
+    $names[] = $item->getName();
+    $qtys[] = number_format($item->getQty(),0);
+    $listPrices[] = number_format($product->getPrice(), 2);
+    $defaultPrices[] = number_format($product->getSpecialPrice(), 2);
+    $finalPrices[] = number_format($item->getPrice(), 2);
+    $priorityPrices[] = number_format($product->getFinalPrice(), 2);
+}
+
+?>
+
+<!-- Tealium Checkout javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name: "<?php echo htmlspecialchars($this->getLayout()->getBlock('head')->getTitle(), ENT_QUOTES); ?>",
+        page_type: "checkout",
+        product_id: "<?php echo implode(',', $ids) ?>",
+        product_sku: "<?php echo implode(',', $skus) ?>",
+        product_name: "<?php echo implode(',', $names) ?>",
+        product_quantity: "<?php echo implode(',', $qtys) ?>",
+        product_list_price: "<?php echo implode(',', $listPrices) ?>",
+        product_default_price: "<?php echo implode(',', $defaultPrices) ?>",
+        product_priority_price: "<?php echo implode(',', $priorityPrices) ?>",
+        product_final_price: "<?php echo implode(',', $finalPrices) ?>",
+        user_id: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_USER_ID; ?>'),
+        is_logged_in: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_LOGGED_IN; ?>')
+    };
+</script>

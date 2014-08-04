@@ -1,0 +1,103 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Podcast list toolbar
+ *
+ * @see Tgc_Podcast_Block_Toolbar
+ */
+?>
+<?php
+/**
+ * - Pager moved after sorter. Show pager only if there are pages.
+ * - Amount and limiter moved inside sorter
+ * - Changed order of the main elements
+ */
+?>
+<div class="toolbar">
+
+    <?php if( $this->isExpanded() ): ?>
+    <div class="sorter">
+
+    	<p class="amount">
+            <strong><?php echo $this->getTotalNum() ?></strong> <?php if($this->getTotalNum() == 1) echo $this->__('Episode'); else echo $this->__('Episodes'); ?>
+        </p>
+
+        <div class="sort-by">
+            <label><?php echo $this->__('Sort') ?></label>
+            <select onchange="setLocation(this.value)">
+            <?php foreach($this->getAvailableOrders() as $_key=>$_order): ?>
+
+                <?php if ($_key == 'created_time') $_order = 'Newest Episodes'; ?>
+                <option value="<?php echo $this->getOrderUrl($_key, 'desc') ?>"<?php if($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+                    <?php echo $this->__($_order) ?>
+                </option>
+                <?php if ($_key == 'created_time'): ?>
+                    <?php $_order = 'Oldest Episodes'; ?>
+                    <option value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if($this->isOrderCurrent($_key) && $this->getCurrentDirection() == 'asc'): ?> selected="selected"<?php endif; ?>>
+                        <?php echo $this->__($_order) ?>
+                    </option>
+                <?php endif ?>
+
+            <?php endforeach; ?>
+            </select>
+        </div>
+
+        <p class="view-mode">
+            <?php $_years = $this->getYearsFilter(); ?>
+            <?php if($_years && count($_years)>1): ?>
+            <label><?php echo $this->__('View') ?></label>
+            <select onchange="setLocation(this.value)">
+                <?php foreach($this->getYearsFilter() as $_key=>$_year): ?>
+                    <option value="<?php echo $this->getOrderUrl($this->getCurrentOrder(), $this->getCurrentDirection(), $_year) ?>"<?php if($this->isYearCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+                        <?php echo $_year ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <?php endif; ?>
+        </p>
+        <a class="mobile-filter-button" rel="nofollow" href="#"><?php echo $this->__('Filter') ?></a>
+
+    </div> <!-- end: sorter -->
+    <?php endif; ?>
+
+    <?php //Show pager only if there are pages ?>
+	<?php if ($pagerHtml = trim($this->getPagerHtml())): ?>
+    <div class="pager">
+        <?php echo $pagerHtml; ?>
+    </div>
+    <?php endif; ?>
+
+</div>
+
+<!-- Code for custom selects in toolbar -->
+<script type="text/javascript">
+    jQuery(function($) {
+        $('.sort-by select').coreUISelect();
+        $('.view-mode select').coreUISelect();
+    });
+</script>

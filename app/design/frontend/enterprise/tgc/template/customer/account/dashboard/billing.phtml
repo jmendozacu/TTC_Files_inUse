@@ -1,0 +1,69 @@
+<?php
+/**
+ * Billing info
+ */
+?>
+<div class="col2-set customer-billing">
+    <div class="info-box">
+        <h6 class="box-title">
+            <div class="col-data-wrapper">
+                <span class="col-label"><?php echo $this->__('Billing Info') ?></span>
+                <span class="col-content">Current cart info...</span>
+            </div>
+            <span class="col-action">
+                <a class="button secondary-btn" rel="nofollow" href="#"><?php echo $this->__('Manage') ?></a>
+            </span>
+        </h6>
+        <ol class="box-content">
+            <li class="fieldset">
+                <h5 class="legend"><?php echo $this->__('Your Default Billing info'); ?></h5>
+                <ul class="form-list">
+                    <li class="fields">
+                        <div class="grid12-8 left-col">
+                            <div class="grid12-4">
+                                <h6 class="label"><?php echo $this->__('Card Information') ?>:</h6>
+                                <h6 class="label"><?php echo $this->__('Type') ?>: <span><!--There cart type--></span></h6>
+                                <h6 class="label"><?php echo $this->__('Number') ?>: <span><!--There cart type--></span></h6>
+                                <h6 class="label"><?php echo $this->__('Exp. Date') ?>: <span><!--There cart type--></span></h6>
+                            </div>
+                            <div class="grid12-2">
+                                <h6 class="label"><?php echo $this->__('Name') ?>:</h6>
+                            </div>
+                            <div class="grid12-3">
+                                <h6 class="label"><?php echo $this->__('Billing Address') ?>:</h6>
+                                <address>
+                                    <?php echo $this->getPrimaryBillingAddressHtml() ?>
+                                </address>
+                            </div>
+                            <div class="grid12-3">
+                                <h6 class="label"><?php echo $this->__('Phone') ?>:</h6>
+                            </div>
+                        </div>
+                        <div class="grid12-4 right-col">
+                            <a class="button secondary-btn small" rel="nofollow" href="#"><?php echo $this->__('Edit') ?></a>
+                            <a class="delete-btn button small" rel="nofollow" href="#"><?php echo $this->__('Delete') ?></a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li class="fieldset add-new-address" style="display: none;">
+                <h5 class="legend"><?php echo $this->__('Additional Billing info') ?></h5>
+                <ul class="form-list">
+                    <li class="fields">
+                        <p class="required"><?php echo $this->__('All fields required unless noted as optional') ?></p>
+                        <h6 class="legend"><?php echo $this->__('Card Information') ?></h6>
+                        <ul class="form-list">
+                            Here will be cart information fields.
+                        </ul>
+                        <h6 class="legend"><?php echo $this->__('Billing Address') ?></h6>
+                        <?php echo $this->getChildHtml('customer_address_edit')?>
+                    </li>
+                </ul>
+            </li>
+            <div class="buttons-set form-buttons additional-buttons">
+                <a class="add-btn button" rel="nofollow" href="#"><?php echo $this->__('Add New Billing') ?></a>
+                <button type="submit" class="button cancel-btn" title="<?php echo $this->__('Done') ?>"><span><span><?php echo $this->__('Done') ?></span></span></button>
+            </div>
+        </ol>
+    </div>
+</div>

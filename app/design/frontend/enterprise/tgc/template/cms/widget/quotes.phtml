@@ -1,0 +1,51 @@
+<?php
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_Cms_Block_Quotes */
+?>
+<?php
+$collection = $this->getCollection();
+?>
+<?php if ($this->shouldShowWidget() && $collection && ($collection->getSize())): ?>
+    <h3 class="section-title"><?php echo $this->getTitle(); ?></h3>
+    <div class="random-sample customer-quotes">
+        <div class="customer-quotes-slider">
+            <ul class="quotes-list slides">
+                <?php foreach ($collection as $item): ?>
+                    <li class="quote-item">
+                        <div class="quote">
+                            <q><?php echo $item->getQuote(); ?></q>
+                            <span class="quote-author"><?php if($item->getSource()):?>—<?php endif;?><?php echo $item->getSource(); ?></span>
+                            <span class="author-desc"><?php echo $item->getAdditional(); ?></span>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul> <!-- end: slides -->
+        </div>
+    </div> <!-- end: random-sample -->
+
+    <script type="text/javascript">
+        //<![CDATA[
+            jQuery(function($) {
+                $('.customer-quotes-slider').flexslider({
+                    namespace: "",
+                    animation: "slide",
+                    controlNav: false,
+                    animationLoop: false,
+                    itemWidth: 314,
+                    slideshow: false,
+                    maxItems: 5,
+                    minItems: 1
+                })
+            });
+        //]]>
+    </script>
+<?php endif; ?>

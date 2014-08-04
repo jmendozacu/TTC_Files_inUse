@@ -1,0 +1,13 @@
+Country,Region/State,City,Zip/Postal Code,Zip to,Weight from,Weight to,Price From,Price To,Item From,Item To,Shipping Price,Algorithm,Delivery Type,Sort Order
+*,*,*,*,*,*,*,0,79.99,*,*,10,,Standard,
+*,*,*,*,*,*,*,80,119.99,*,*,15,,Standard,
+*,*,*,*,*,*,*,120,159.99,*,*,20,,Standard,
+*,*,*,*,*,*,*,160,99999,*,*,25,,Standard,
+*,*,*,*,*,*,*,0,79.99,*,*,15,,2nd Day,
+*,*,*,*,*,*,*,80,119.99,*,*,20,,2nd Day,
+*,*,*,*,*,*,*,120,159.99,*,*,25,,2nd Day,
+*,*,*,*,*,*,*,160,99999,*,*,30,,2nd Day,
+*,*,*,*,*,*,*,0,79.99,*,*,20,,Next Day,
+*,*,*,*,*,*,*,80,119.99,*,*,25,,Next Day,
+*,*,*,*,*,*,*,120,159.99,*,*,30,,Next Day,
+*,*,*,*,*,*,*,160,99999,*,*,35,,Next Day,

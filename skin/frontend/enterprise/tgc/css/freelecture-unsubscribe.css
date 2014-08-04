@@ -1,0 +1,42 @@
+/* free lecture unsubscribe. */
+
+div#freelecture_unsubscribe p.disclaimer {
+    margin: 0;
+}
+
+div#freelecture_unsubscribe p {
+    margin: 15px 0;
+}
+
+div#freelecture_unsubscribe ul li {
+    display: block;
+    margin: 7px 0;
+}
+
+div#free_lectures_unsubscribe_form {
+    margin: 15px 0;
+}
+
+#free-lectures-form-section-unsubscribe {
+    position: relative;
+    display:block;
+    width: 98.5%;
+    padding: 0px;
+    min-height: 30px;
+}
+
+#email_to_unsubscribe {
+    float: left;
+    width: 80%;
+    min-height: 95%;
+    max-height: 100%;
+    position: relative;
+}
+
+#freelectures_unsubscribe_button {
+    float: left;
+    width: 19%;
+    min-height: 95%;
+    max-height: 100%;
+    position: relative;
+}

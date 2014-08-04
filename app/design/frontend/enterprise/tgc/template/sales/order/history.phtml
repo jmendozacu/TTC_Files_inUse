@@ -1,0 +1,108 @@
+<?php
+/**
+ *
+ */
+?>
+<?php
+/**
+ * - added class for selected columns
+ * - removed width="1" in the last column
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $orders = $this->getOrders(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('Your Recent Orders') ?></h1>
+    <div class="sort-by">
+        <label><?php echo $this->__('View by') ?></label>
+        <select onchange="setLocation(this.value)">
+            <?php foreach ($this->getAvailableViews() as $name => $url): ?>
+                <option value="<?php echo $url; ?>"<?php if ($this->isViewCurrent($url)): ?> selected="selected"<?php endif; ?>>
+                    <?php echo $this->__($name) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</div>
+<?php if (count($orders) > 0): ?>
+    <div class="data-table" id="my-orders-table">
+        <div class="table-head">
+            <div class="table-row">
+                <div class="grid12-2"><?php echo $this->__('Date') ?></div>
+                <div class="grid12-2"><?php echo $this->__('Order number') ?></div>
+                <div class="grid12-5"><?php echo $this->__('Course') ?></div>
+                <div class="grid12-2"><span class="nobr"><?php echo $this->__('Order Status') ?></span></div>
+                <div class="grid12-1">&nbsp;</div>
+            </div>
+        </div>
+        <div class="table-body">
+            <?php $_odd = ''; ?>
+            <?php foreach ($orders as $orderId => $order): ?>
+                <div class="collapsible" data-order_id="<?php echo $orderId; ?>">
+                    <div class="table-row v-grid-container">
+                        <div class="grid12-2"><span class="nobr"><?php echo $order['created_at']; ?></span></div>
+                        <div class="grid12-2"><?php echo $orderId; ?></div>
+                        <div class="grid12-5"><?php echo $order[0]['name']; ?></div>
+                        <div class="grid12-2"><?php echo $order[0]['Itemstatus']; ?></div>
+                        <div class="grid12-1"><!--block for collapsible button--></div>
+                    </div>
+                    <div class="block-content clearer"></div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <script type="text/javascript">decorateTable('my-orders-table');</script>
+<?php else: ?>
+    <p>
+        <?php if ($this->getCurrentView() == $this::VIEW_ALL): ?>
+            <?php echo $this->__('You have placed no orders.'); ?>
+        <?php else: ?>
+            <?php echo $this->__('You have placed no orders in the currently selected timeframe.'); ?>
+        <?php endif; ?>
+    </p>
+<?php endif ?>
+<!-- Code for custom selects -->
+<script type="text/javascript">
+    jQuery(function($) {
+        $('.sort-by select').coreUISelect();
+    });
+    jQuery('div.collapsible').on('click', function(e) {
+        var target = jQuery(e.target);
+        if (!target.is('span') && !jQuery(this).hasClass('active')) {
+            jQuery(this).find('span.opener').trigger('click');
+            return false;
+        }
+        var div = jQuery(this).closest('div.collapsible');
+        var content = jQuery(div).find('div.block-content').text();
+        if (jQuery(div).hasClass('active') && content == '') {
+            var orderId = jQuery(div).attr('data-order_id');
+            jQuery.ajax({
+                type: 'POST',
+                url: '<?php echo $this->getUrl('customer/orderhistory/getOrder'); ?>',
+                data: { orderId: orderId, daxId: '<?php echo Mage::getSingleton('customer/session')->getCustomer()->getDaxCustomerId(); ?>' },
+                success: function(data, textStatus, jqXHR) {
+                    if (data['status'] == 'success') {
+                        jQuery(div).find('div.block-content').html(data['html']);
+                    }
+                },
+                beforeSend: function() {
+                    jQuery(div).find('div.block-content').addClass('preloaderbg');
+                },
+                complete: function(){
+                    jQuery(div).find('div.block-content').removeClass('preloaderbg');
+                }
+            });
+        }
+    });
+
+    function printOrder(orderHtml) {
+        var printWindow = window.open('', '', 'width=600, height=450');
+
+        printWindow.document.write('<html><head>' + jQuery('head').html() + '</head><body>'
+            + jQuery('div.logo-wrapper').html() + orderHtml + '</body data-info="this prevents SeeWhy injection"></html>');
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+        printWindow.close();
+    }
+</script>

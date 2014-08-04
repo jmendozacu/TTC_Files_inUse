@@ -1,0 +1,228 @@
+-- File source: bucket.guidance.com/data-migration/UTF8/CreditCardProfiles.csv
+
+Steps:
+File from Tom - load data in file to Magento app
+Run data update to do web_id lookup to add email address and customer id for each profile
+Run data update to generate customer hash value
+Export table to csv for import into payment bridge
+Load data in file with csv 3 times for each site
+
+
+
+/* Create table on Magento */
+CREATE TABLE `tgc_payment_profile_import` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `web_user_id` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `card_type` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  `card_type_final` varchar(4) CHARACTER SET latin1 DEFAULT NULL,
+  `card_profile_id` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  `card_last4` varchar(12) CHARACTER SET latin1 DEFAULT NULL,
+  `exp_month` varchar(6) CHARACTER SET latin1 DEFAULT NULL,
+  `exp_year` varchar(6) CHARACTER SET latin1 DEFAULT NULL,
+  `created_datetime` datetime DEFAULT NULL,
+  `country` varchar(10) CHARACTER SET latin1 DEFAULT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `store_id` int(11) DEFAULT NULL,
+  `customer_hash` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+load data infile '/tmp/tgc-imports/CreditCardProfiles85K.csv' into table `tgc_payment_profile_import`
+fields terminated by ',' lines terminated by '\n' ignore 2 lines
+(web_user_id, card_type, card_profile_id, card_last4, exp_month, exp_year, created_datetime);
+
+CREATE TABLE `tgc_payment_profile_final` (
+  `merchant_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `gateway_code` varchar(50) NOT NULL,
+  `customer_id` varchar(50) NOT NULL,
+  `gateway_customer_id` varchar(32) NOT NULL,
+  `gateway_profile_id` varchar(32) NOT NULL,
+  `gateway_shipping_id` varchar(32) DEFAULT '',
+  `cc_alias` varchar(32) NOT NULL,
+  `cc_type` varchar(32) NOT NULL,
+  `cc_number` varchar(32) NOT NULL,
+  `cc_exp_date` varchar(10) NOT NULL DEFAULT '',
+  `hash` varchar(32) NOT NULL DEFAULT '',
+  `billing_hash` varchar(50) NOT NULL DEFAULT '',
+  `shipping_hash` varchar(50) NOT NULL DEFAULT '',
+  `created_at` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) unsigned NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+update `tgc_payment_profile_import` tppi, `customer_entity` ce set
+tppi.`customer_id` = ce.`entity_id`,
+tppi.store_id = ce.website_id,
+tppi.`card_last4` = CONCAT('****',tppi.`card_last4`)
+where tppi.`web_user_id` = ce.`web_user_id`;
+
+-- Check for tgc_payment_profile_import.customer_hash that's blank
+-- During stage import, I found 714 of these such rows.
+/* delete from tgc_payment_profile_import where customer_hash = '' */
+
+update tgc_payment_profile_import set
+card_type_final = case
+          when card_type = 'AMEX' then 'AE'
+          when card_type = 'VISA' then 'VI'
+          when card_type = 'Discover' then 'DI'
+          when card_type = 'MasterCard' then 'MC'
+          else card_type
+     end,
+`customer_hash` = md5(CONCAT('', customer_id, '@', 'thegreatcoursesus'));
+
+—- merchant code is: thegreatcoursesus, thegreatcoursesuk, thegreatcoursesau
+
+-- Make sure to match merchant_ids with actual production values.  Most likely these will be 1, 2, 3 as below
+
+— US Profiles
+insert into tgc_payment_profile_final
+     (
+  `merchant_id`,
+  `gateway_code`,
+  `customer_id`,
+  `gateway_customer_id`,
+  `gateway_profile_id`,
+  `gateway_shipping_id`,
+  `cc_alias`,
+  `cc_type`,
+  `cc_number`,
+  `cc_exp_date`,
+  `hash`,
+  `billing_hash`,
+  `shipping_hash`,
+  `created_at`,
+  `is_deleted`
+     )
+select
+     1,
+     'paymentech',
+     customer_hash,
+     'undefined',
+     card_profile_id,
+     '',
+     card_last4,
+     card_type_final,
+     card_last4,
+     CONCAT(exp_month,'/',exp_year) as cc_exp_date,
+     md5(CONCAT('1_',customer_hash,'_paymentech_',card_type_final,'_',tppi.card_last4))
+as hash,
+     '',
+     '',
+     UNIX_TIMESTAMP(created_datetime) as created_at,
+     0
+from tgc_payment_profile_import tppi;
+
+
+— UK Profiles
+insert into tgc_payment_profile_final
+     (
+  `merchant_id`,
+  `gateway_code`,
+  `customer_id`,
+  `gateway_customer_id`,
+  `gateway_profile_id`,
+  `gateway_shipping_id`,
+  `cc_alias`,
+  `cc_type`,
+  `cc_number`,
+  `cc_exp_date`,
+  `hash`,
+  `billing_hash`,
+  `shipping_hash`,
+  `created_at`,
+  `is_deleted`
+     )
+select
+     2,
+     'paymentech',
+     customer_hash,
+     'undefined',
+     card_profile_id,
+     '',
+     card_last4,
+     card_type_final,
+     card_last4,
+     CONCAT(exp_month,'/',exp_year) as cc_exp_date,
+     md5(CONCAT('2_',customer_hash,'_paymentech_',card_type_final,'_****',tppi.card_last4))
+as hash,
+     '',
+     '',
+     UNIX_TIMESTAMP(created_datetime) as created_at,
+     0
+from tgc_payment_profile_import tppi;
+
+— AU Profiles
+insert into tgc_payment_profile_final
+     (
+  `merchant_id`,
+  `gateway_code`,
+  `customer_id`,
+  `gateway_customer_id`,
+  `gateway_profile_id`,
+  `gateway_shipping_id`,
+  `cc_alias`,
+  `cc_type`,
+  `cc_number`,
+  `cc_exp_date`,
+  `hash`,
+  `billing_hash`,
+  `shipping_hash`,
+  `created_at`,
+  `is_deleted`
+     )
+select
+     3,
+     'paymentech',
+     customer_hash,
+     'undefined',
+     card_profile_id,
+     '',
+     card_last4,
+     card_type_final,
+     card_last4,
+     CONCAT(exp_month,'/',exp_year) as cc_exp_date,
+     md5(CONCAT('3_',customer_hash,'_paymentech_',card_type_final,'_****',tppi.card_last4))
+as hash,
+     '',
+     '',
+     UNIX_TIMESTAMP(created_datetime) as created_at,
+     0
+from tgc_payment_profile_import tppi;
+
+Export data from tgc_payment_profile_final into compressed csv
+Copy file to PaymentBridge Server /tmp/tgc-imports
+Extract file: tar -xzvf file.tar.gz filename.csv or gunzip file.gz
+
+load data infile '/tmp/tgc-imports/tgc_payment_profile_final.csv' into table `payment_profile`
+fields terminated by ',' OPTIONALLY ENCLOSED BY '"' lines terminated by '\n' ignore 1 lines
+(  `merchant_id`,
+  `gateway_code`,
+  `customer_id`,
+  `gateway_customer_id`,
+  `gateway_profile_id`,
+  `gateway_shipping_id`,
+  `cc_alias`,
+  `cc_type`,
+  `cc_number`,
+  `cc_exp_date`,
+  `hash`,
+  `billing_hash`,
+  `shipping_hash`,
+  `created_at`,
+  `is_deleted`
+);
+
+grant FILE on *.* to `pb-debug`@`localhost`;
+revoke FILE on *.* from `magento-dbuser`@`localhost`;
+grant FILE on *.* to `pb-debug`@`localhost`;
+revoke FILE on *.* from `pb-debug`@`localhost`;
+
+
+
+Load Data run time: 5 secs
+
+Status Checks:
+Approx 258k rows in Payment Bridge payment_profile table?:
+Data appearing in columns makes sense?:
+All 3 sites
+
+Estimate of Total import time: 15 minutes

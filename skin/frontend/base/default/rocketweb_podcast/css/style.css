@@ -1,0 +1,20 @@
+
+/**
+ * RocketWeb
+ *
+ * @category   RocketWeb
+ * @package    RocketWeb_Podcast
+ * @copyright  Copyright (c) 2012 RocketWeb (http://rocketweb.com)
+ * @author     RocketWeb
+ */
+
+
+.podcastWrapper {padding: 30px 0;}
+.podcastWrapper h2 {font-size: 18px; color: #007ED1; font-weight: bold; padding: 0; margin: 0;}
+.podcastWrapper h3 {font-size: 12px; font-weight: bold; color: #0A263C; padding: 0; margin: 0;}
+
+.audiojs {height: 27px; width: 270px; font-size: 10px; border-radius: 5px;}
+.audiojs .scrubber {margin: 6px; width: 130px;}
+.audiojs .play-pause {padding: 0;}
+.audiojs .time {margin: 0; line-height: 28px;}
+.audiojs .error-message {width: 220px; line-height: 28px;}

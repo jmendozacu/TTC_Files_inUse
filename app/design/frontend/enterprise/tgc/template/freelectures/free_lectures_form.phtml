@@ -1,0 +1,20 @@
+<?php
+/**
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Lectures
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+
+$customerHelper = Mage::helper('customer');
+$isLoggedIn = $customerHelper->isLoggedIn();
+?>
+
+<div id="free_lectures_form">
+    <?php echo $this->getChildHtml('freelectures.newcustomer') ?>
+    <?php echo $this->getChildHtml('freelectures.existingcustomer') ?>
+    <?php echo $this->getChildHtml('freelectures.loggedin.notsubscribed') ?>
+    <?php echo $this->getChildHtml('freelectures.loggedin.subscribed') ?>
+    <?php echo $this->getChildHtml('freelectures.forgotpassword') ?>
+    <?php echo $this->getChildHtml('freelectures.success.newaccount') ?>
+</div>

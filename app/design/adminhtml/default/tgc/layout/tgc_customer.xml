@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Adminhtml customer layout updates
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Customer
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <adminhtml_customer_edit>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/customerValidation.js</name></action>
+        </reference>
+    </adminhtml_customer_edit>
+
+</layout>

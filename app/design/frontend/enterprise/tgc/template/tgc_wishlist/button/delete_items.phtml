@@ -1,0 +1,37 @@
+<?php
+/**
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Wishlist
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php if($this->getWishlist()->getItemsCount()): ?>
+    <button type="button" title="<?php echo $this->__('Delete') ?>" onclick="deleteWItems();" class="button btn-delete-items disabled"><span><span><?php echo $this->__('Delete') ?></span></span></button>
+    <script type="text/javascript">
+        deleteWItems = function() {
+            if (typeof(wishlistForm) == 'undefined') {
+                return;
+            }
+
+            var itemsSelected = $$('input[name="wishlist_item[]"]:checked');
+            if (itemsSelected.length == 0) {
+                return;
+            }
+            if (confirm('<?php echo $this->__('Are you sure you want to remove selected products from your wishlist'); ?>')) {
+                wishlistForm.form.action = '<?php echo $this->getUrl('tgc_wishlist/index/deleteItems', array('wishlist_id' => $this->getWishlist()->getId())); ?>';
+                wishlistForm.form.submit();
+            }
+        };
+
+        $$('#wishlist-select-all,input[name="wishlist_item[]"]').each(function (el) {
+            el.observe('change', function (event) {
+                if ($$('input[name="wishlist_item[]"]:checked').length) {
+                    $$('.btn-delete-items').first().removeClassName('disabled');
+                } else {
+                    $$('.btn-delete-items').first().addClassName('disabled');
+                }
+            });
+        });
+    </script>
+<?php endif;?>

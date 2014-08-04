@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <tgc_digitallibrary_courses_account_index>
+        <label>Digital Library</label>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-left.phtml</template>
+            </action>
+            <action method="addBodyClass">
+                <class>my-digital-library-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/digital-library.css</stylesheet></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/left" name="digitalLibrary.left" template="digital-library/account/left.phtml"/>
+            <block type="cms/block" name="recommendations-block">
+                <action method="setBlockId"><block_id>digital-library-left-recommendations</block_id></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/account" name="digitalLibrary.index" as="index" template="digital-library/account/index.phtml">
+                <block type="tgc_dl/index_list" name="index_list" template="digital-library/account/index/list.phtml">
+                    <block type="tgc_dl/list_toolbar" name="product_list_toolbar" template="digital-library/account/toolbar.phtml">
+                        <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+                    <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+                </block>
+            </block>
+        </reference>
+    </tgc_digitallibrary_courses_account_index>
+
+    <tgc_digitallibrary_courses_account_audio>
+        <label>Digital Library Audio</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="addBodyClass">
+                <class>my-digital-library-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/digital-library.css</stylesheet></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/left" name="digitalLibrary.left" template="digital-library/account/left.phtml"/>
+            <block type="cms/block" name="recommendations-block">
+                <action method="setBlockId"><block_id>digital-library-left-recommendations</block_id></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/account" name="digitalLibrary.audio" as="audio" template="digital-library/account/audio.phtml">
+                <block type="tgc_dl/audio_list" name="audio_list" template="digital-library/account/index/list.phtml">
+                    <block type="tgc_dl/audio_toolbar" name="product_list_toolbar" template="digital-library/account/toolbar.phtml">
+                        <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+                    <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+                </block>
+            </block>
+        </reference>
+    </tgc_digitallibrary_courses_account_audio>
+
+    <tgc_digitallibrary_courses_account_video>
+        <label>Digital Library Videos</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="addBodyClass">
+                <class>my-digital-library-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/digital-library.css</stylesheet></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/left" name="digitalLibrary.left" template="digital-library/account/left.phtml"/>
+            <block type="cms/block" name="recommendations-block">
+                <action method="setBlockId"><block_id>digital-library-left-recommendations</block_id></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/account" name="digitalLibrary.video" as="video" template="digital-library/account/video.phtml">
+                <block type="tgc_dl/video_list" name="video_list" template="digital-library/account/index/list.phtml">
+                    <block type="tgc_dl/video_toolbar" name="product_list_toolbar" template="digital-library/account/toolbar.phtml">
+                        <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                    </block>
+                    <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+                    <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+                    <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+                </block>
+            </block>
+        </reference>
+    </tgc_digitallibrary_courses_account_video>
+
+    <tgc_digitallibrary_courses_account_streamfaqs>
+        <label>Streaming FAQs</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="addBodyClass">
+                <class>my-digital-library-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/digital-library.css</stylesheet></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/left" name="digitalLibrary.left" template="digital-library/account/left.phtml"/>
+            <block type="cms/block" name="recommendations-block">
+                <action method="setBlockId"><block_id>digital-library-left-recommendations</block_id></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="digitalLibrary.stream.faq" template="digital-library/account/stream-faq.phtml">
+                <block type="cms/block" name="stream-faq-block">
+                    <action method="setBlockId"><block_id>digital-library-stream-faq</block_id></action>
+                </block>
+            </block>
+        </reference>
+    </tgc_digitallibrary_courses_account_streamfaqs>
+
+    <tgc_digitallibrary_courses_account_downloadfaqs>
+        <label>Downloading FAQs</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="addBodyClass">
+                <class>my-digital-library-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/digital-library.css</stylesheet></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/left" name="digitalLibrary.left" template="digital-library/account/left.phtml"/>
+            <block type="cms/block" name="recommendations-block">
+                <action method="setBlockId"><block_id>digital-library-left-recommendations</block_id></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="core/template" name="digitalLibrary.download.faq" template="digital-library/account/download-faq.phtml">
+                <block type="cms/block" name="download-faq-block">
+                    <action method="setBlockId"><block_id>digital-library-download-faq</block_id></action>
+                </block>
+            </block>
+        </reference>
+    </tgc_digitallibrary_courses_account_downloadfaqs>
+
+    <tgc_digitallibrary_courses_account_downloadprefs>
+        <label>Downloading FAQs</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="addBodyClass">
+                <class>my-digital-library-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/digital-library.css</stylesheet></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/left" name="digitalLibrary.left" template="digital-library/account/left.phtml"/>
+            <block type="cms/block" name="recommendations-block">
+                <action method="setBlockId"><block_id>digital-library-left-recommendations</block_id></action>
+            </block>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/downloadSettings" name="digitalLibrary.settings" template="digital-library/account/settings.phtml" />
+        </reference>
+    </tgc_digitallibrary_courses_account_downloadprefs>
+
+    <tgc_digitallibrary_courses_course_view>
+        <label>Course View Page</label>
+        <remove name="right"/>
+        <remove name="left"/>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/digital-library.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/view" name="digitalLibrary.view" template="digital-library/account/view.phtml">
+                <block type="core/template" name="share_links" template="page/html/social_links.phtml"></block>
+                <block type="catalog/product_new" name="recomendations" as="recomendations" template="catalog/product/recomendations.phtml"/>
+            </block>
+        </reference>
+    </tgc_digitallibrary_courses_course_view>
+
+</layout>

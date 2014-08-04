@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <Tgc_CurrencySetup>
+            <version>1.0.0</version>
+        </Tgc_CurrencySetup>
+    </modules>
+    <global>
+        <resources>
+            <tgc_currency_setup>
+                <setup>
+                    <module>Tgc_CurrencySetup</module>
+                </setup>
+            </tgc_currency_setup>
+        </resources>
+    </global>
+</config>

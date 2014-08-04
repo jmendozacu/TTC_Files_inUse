@@ -1,0 +1,120 @@
+<?php
+$helper = Mage::helper('tgc_podcast');
+$podcasts = $this->getCollection();
+$heroImage = $helper->getPageBackgroundImage();
+$logoImage = $helper->getPageLogoImage();
+
+//Check if hero image has a valid value, otherwise, use a default image from skin
+$heroTail = substr($heroImage, strlen($heroImage) - 18, strlen($heroImage));
+if ($heroTail == '/Podcasts/Channel/') {
+    $heroImage = $this->getSkinUrl('images/podcast/podcast_header.png');
+}
+//Check if logo image has a valid value, otherwise, use a default image from skin
+$logoTail = substr($logoImage, strlen($logoImage) - 18, strlen($logoImage));
+if ($logoTail == '/Podcasts/Channel/') {
+    $logoImage = $this->getSkinUrl('images/podcast/podcast_header_icon.png');
+}
+?>
+<?php if (!count($podcasts)): ?>
+    <ul class="messages no-podcasts-message">
+        <li class="error-msg">
+            <ul>
+                <li>
+                    <span><?php echo $this->__('<strong>Oops!</strong> We are sorry, there are no "items/results" for the filters selected.'); ?>
+                        <a href="/podcasts"><?php echo $this->__('Please try again.'); ?></a></span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+<?php endif; ?>
+
+<div class="podcast_header">
+    <div class="ph_img">
+        <img src="<?php echo $heroImage ?>"/>
+    </div>
+    <div class="ph_content">
+        <div class="ph_icon">
+            <img src="<?php echo $logoImage ?>"/>
+        </div>
+        <div class="ph_title">
+            <div>
+                <img src="<?php echo $this->getSkinUrl('images/podcast/podcast_header_shape.png') ?>"/>
+            </div>
+            <div class="ph_title_cont">
+                <h1><?php echo $helper->getPageTitle(); ?><span class="trademark">&trade;</span></h1>
+
+                <h2><?php echo $helper->getPageSubtitle(); ?></h2>
+            </div>
+        </div>
+        <div class="ph_desc">
+            <p><?php echo $helper->getPageDescription(); ?></p>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<?php /*<div class="p_share">
+    <div class="body_social_networks">
+        <div class="body_social_text"><span><?php echo $this->__('Share:'); ?></span></div>
+        <div class="social_container">
+            <a href="#">
+                <div class="social-button facebook"></div>
+            </a>
+            <a href="#">
+                <div class="social-button twitter"></div>
+            </a>
+            <a href="#">
+                <div class="social-button pinterest"></div>
+            </a>
+            <a href="#">
+                <div class="social-button youtube"></div>
+            </a>
+        </div>
+    </div>
+</div> */?>
+
+<div class="p_mob_header podcast_mobile">
+    <h1><?php echo $helper->getPageSubtitle(); ?></h1>
+
+    <p><?php echo $helper->getPageDescription(); ?></p>
+</div>
+<div class="clearfix"></div>
+
+<div class="p_episodes">
+    <?php echo $this->getToolbarHtml(); ?>
+    <ul>
+        <?php if (count($podcasts)): ?>
+        <?php foreach ($podcasts as $podcast) : ?>
+            <li class="pe_content">
+                <a class="pi-item" href="<?php echo $helper->getPodcastUrl($podcast); ?>" title="<?php echo $podcast->getTitle(); ?>">
+                    <div class="pe_image">
+                            <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $podcast->getEpisodeImage() ?>"/>
+                    </div>
+                    <div class="pe_info">
+                        <h3><?php echo $podcast->getTitle(); ?></h3>
+
+                        <div class="pe_short_desc">
+                            <span class="pod-ep"><?php echo $podcast->getEpisodeNumber(); ?></span><br>
+                            <span><?php echo Mage::getModel('core/date')->date('F, Y', $podcast->getCreatedTime()); ?></span>
+                        </div>
+                        <div class="pe_desc">
+                            <p><?php echo $helper->removePlayerWidget($podcast->getLongContent());?></p>
+                        </div>
+                        <button onclick="window.location='<?php echo $helper->getPodcastUrl($podcast); ?>'"
+                            type="submit" name="" value="" title="<?php echo $this->__('Listen Now'); ?>" class="button">
+                            <span><span><?php echo $this->__('Listen Now'); ?></span></span></button>
+                    </div>
+                    <div class="pe_mob_next_cont">
+                        <div class="pe_mob_next podcast_mobile">
+                            <img src="<?php echo $this->getSkinUrl('images/podcast/right_arrow.png'); ?>"/>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php else: ?>
+    <div class="empty-no-results"></div>
+<?php
+endif; ?>
+</div>

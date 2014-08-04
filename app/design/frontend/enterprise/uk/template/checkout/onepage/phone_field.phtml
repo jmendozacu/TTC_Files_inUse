@@ -1,0 +1,5 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/validate-telephone-uk.js') ?>"></script>
+<label for="shipping:telephone" class="required"><?php echo $this->__('Telephone') ?> <span class="optional">(optional)</span></label>
+<div class="input-box">
+    <input type="text" name="shipping[telephone]" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text validate-telephone-uk <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?>" id="shipping:telephone" onchange="shipping.setSameAsBilling(false);" />
+</div>

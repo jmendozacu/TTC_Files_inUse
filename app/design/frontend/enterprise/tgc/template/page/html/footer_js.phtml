@@ -1,0 +1,159 @@
+<?php
+/**
+ * Js to handle customer login popup and session expiration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Customer
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** @var $this Mage_Core_Block_Template */
+?>
+<div id="loginmodal" style="display:none;">
+    <h1>Please Verify Account to Continue</h1>
+    <form id="modal-login" data-target="" name="loginform" method="post" action="<?php echo Mage::getUrl('customer/account/modalLogin'); ?>">
+        <label for="modalusername">Email Address:</label>
+        <input type="text" name="modalusername" id="modalusername" placeholder="Email Address" class="txtfield required-entry validate-email" tabindex="1" autofocus>
+        <label for="modalpassword">Password:</label>
+        <input type="password" name="modalpassword" id="modalpassword" placeholder="Password" class="txtfield required-entry" tabindex="2">
+        <div class="modal-error-msg"></div>
+        <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class=" modalbtn hidemodal" value="Continue" tabindex="3"></div>
+    </form>
+</div>
+<script type="text/javascript">
+    var modalLogin = new VarienForm('modal-login', true);
+    Form.getElements('modal-login').each(function(element) {
+        element.setAttribute('autocomplete', 'off');
+    });
+
+    jQuery(document).ready(function() {
+        getPageStatus();
+    });
+
+    function getPageStatus() {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::getUrl('customer/account/footerJs'); ?>',
+            success: function(data, textStatus, jqXHR) {
+                //session active, route not restricted
+                if (data['mode'] == 'timer') {
+                    unlockProtectedRoutes();
+                    startLockdownTimer();
+                    //session active, route restricted
+                } else if (data['mode'] == 'redirect') {
+                    var timeoutHandle;
+                    function startSessionTimer() {
+                        timeoutHandle = setTimeout(redirectHome, <?php echo Tgc_Customer_Model_ActiveSession::SESSION_TIMEOUT_MS; ?>);
+                    }
+                    function restartSessionTimer() {
+                        clearTimeout(timeoutHandle);
+                        startSessionTimer();
+                    }
+                    startSessionTimer();
+                    startLockdownTimer();
+                    jQuery(document).on('mousemove', function() {
+                        restartSessionTimer();
+                    });
+                    jQuery(document).on('keyup', function() {
+                        restartSessionTimer();
+                    });
+                    //session inactive
+                } else if (data['mode'] == 'redirect-extended') {
+                    var timeoutHandle;
+                    function startSessionTimer() {
+                        timeoutHandle = setTimeout(redirectHome, <?php echo Tgc_Customer_Model_ActiveSession::EXTENDED_SESSION_MS; ?>);
+                    }
+                    function restartSessionTimer() {
+                        clearTimeout(timeoutHandle);
+                        startSessionTimer();
+                    }
+                    startSessionTimer();
+                    jQuery(document).on('mousemove', function() {
+                        restartSessionTimer();
+                    });
+                    jQuery(document).on('keyup', function() {
+                        restartSessionTimer();
+                    });
+                    //session inactive
+                } else if (data['mode'] == 'lockdown') {
+                    lockdownProtectedRoutes();
+                } else {
+                    //guest
+                }
+            }
+        });
+    }
+
+    function startLockdownTimer() {
+        setTimeout(
+            lockdownProtectedRoutes,
+            <?php echo Mage::getSingleton('tgc_customer/activeSession')->getActiveSessionLengthInMs(); ?>
+        );
+    }
+
+    function lockdownProtectedRoutes() {
+        <?php $protectedRoutes = Mage::getSingleton('tgc_customer/activeSession')->getProtectedRoutes(); ?>
+        <?php foreach ($protectedRoutes as $route): ?>
+            jQuery(document).on('click', 'a[href$="<?php echo str_replace('*', '', $route); ?>"]', function(e) {
+                e.preventDefault();
+                spawnLoginBox(e.target);
+            });
+        <?php endforeach; ?>
+    }
+
+    function unlockProtectedRoutes() {
+        <?php $protectedRoutes = Mage::getSingleton('tgc_customer/activeSession')->getProtectedRoutes(); ?>
+        <?php foreach ($protectedRoutes as $route): ?>
+            jQuery(document).off('click', 'a[href$="<?php echo str_replace('*', '', $route); ?>"]');
+        <?php endforeach; ?>
+    }
+
+    function spawnLoginBox(target) {
+        jQuery('#modal-login').attr('data-target', target);
+        if (typeof closeElementsHeader == 'function') {
+            closeElementsHeader();
+        }
+        jQuery('#loginmodal').easyModal({
+            top: 100,
+            autoOpen: true,
+            overlayOpacity: 0.3,
+            overlayColor: '#333',
+            overlayClose: true,
+            closeOnEscape: true
+        });
+    }
+
+    function redirectHome() {
+        jQuery.ajax({
+            type: 'POST',
+            url: '<?php echo Mage::getUrl('customer/account/expire'); ?>',
+            success: function(data, textStatus, jqXHR) {
+                window.location = '<?php echo Mage::getUrl(); ?>';
+            }
+        });
+    }
+
+    jQuery(document).on('submit', '#modal-login', function(e) {
+        e.preventDefault();
+        jQuery('form#modal-login .modal-error-msg').css('display', 'none').html('');
+        jQuery.ajax({
+            type: 'POST',
+            url: jQuery('form#modal-login').attr('action'),
+            data: {
+                login: {
+                    username: jQuery('#modalusername').val(),
+                    password: jQuery('#modalpassword').val()
+                }
+            },
+            success: function(data, textStatus, jqXHR) {
+                if (data['status'] == 'success') {
+                    window.location = jQuery('#modal-login').attr('data-target');
+                } else {
+                    jQuery('form#modal-login .modal-error-msg').css('display', 'block').html(data['message']);
+                }
+            }
+        });
+    });
+</script>

@@ -1,0 +1,78 @@
+
+<?php
+    $_category  = $this->getCurrentCategory();
+    $collection = Mage::getModel('catalog/category')->getCategories($_category->entity_id);
+    $helper     = Mage::helper('catalog/category');
+
+    $_imgHtml = '';
+    if ($_imgUrl = $_category->getImageUrl()) {
+        $_imgHtml = '<img class="cat-banner left" src="'.$_imgUrl.'" alt="'.$this->htmlEscape($_category->getName()).'" title="'.$this->htmlEscape($_category->getName()).'" />';
+    }
+    
+    $thumbImgWidth = 350;
+    $thumbImgHeight = 210;
+    $thumbTotalPadd = 0; //Additional padding, border and margin (horizontal axis) around the image
+    $thumbTotalWidth = $thumbImgWidth + $thumbTotalPadd;
+?>
+
+<?php if($_imgUrl): ?>
+    <?php echo $_imgHtml ?>
+<?php endif; ?>
+
+<div class="sc-wrapper">
+    <?php foreach ($collection as $cat):?>
+
+        <div class="sc-item">
+
+            <?php if($childLevel2Category = Mage::getModel('catalog/category')->getCategories($cat->entity_id)) : ?>
+                <h2><a href="<?php echo $helper->getCategoryUrl($cat);?>"><?php echo $cat->getName();?></a></h2>
+            
+                <div class="itemslider-wrapper">
+
+                    <div class="nav-wrapper gen-slider-arrows3 gen-slider-arrows3-pos-top-right"></div>
+                    
+                    <div class="itemslider gen-slider-arrows3 count-multi">
+                        <ul class="slides products-grid">
+                            <?php
+                                foreach ($childLevel2Category as $catLevel2) :
+                                    $subcategory = Mage::getModel('catalog/category')->load($catLevel2->getEntityId());
+                            ?>
+                                <li class="item">
+                                    <a href="<?php echo $helper->getCategoryUrl($catLevel2); ?>" title="<?php echo $catLevel2->getName(); ?>">
+                                        <img src="<?php echo $subcategory->getImageUrl(); ?>" width="310" height="150" alt="" />
+                                    </a>
+                                    <p class="subcategory-description"><?php echo $subcategory->getDescription()?></p>
+                                    <a class="f-right" href="<?php echo $helper->getCategoryUrl($catLevel2); ?>"><?php echo $this->__('Buy ') ?><?php echo $catLevel2->getName(); ?></a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul> <!-- end: slides -->
+                    </div> <!-- end: itemslider -->
+
+                </div>
+
+                <script type="text/javascript">
+                //<![CDATA[
+                    jQuery(function($) {
+
+                        $('.itemslider-wrapper .itemslider').flexslider({
+                            namespace: "",
+                            animation: "slide",
+                            easing: "easeInQuart",
+                            animationSpeed: 500,
+                            animationLoop: false,
+                            slideshow: false,
+                            
+                            pauseOnHover: true,
+                            controlNav: false,
+                            
+                            itemWidth: <?php echo $thumbTotalWidth; ?>
+                        })
+
+                    });
+                //]]>
+                </script>
+            <?php endif; ?>
+        </div>
+
+    <?php endforeach;?>
+</div>

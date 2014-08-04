@@ -1,0 +1,36 @@
+<?php
+/**
+ * Customer Credit Card
+ *
+ * @see Pd_CustomerCreditCard_Block_CreditCard
+ *
+ * @var $this Pd_CustomerCreditCard_Block_CreditCard
+ */
+?>
+<?php if($this->hasCreditCards()): ?>
+    <div id="credit-card-list" class="credit-card-list collapsible-content">
+        <?php $i = 1?>
+        <?php foreach($this->getCreditCards() as $creditCard):?>
+        <div id="credit-card-<?php echo $creditCard->getId(); ?>" class="address-box credit-card-box credit-card-<?php echo $creditCard->getId(); ?> <?php echo ($i%3 == 0)?'col-3':'' ?>">
+            <address>
+                <?php echo $creditCard->getCcOwner(); ?><br>
+                <?php echo $creditCard->getCcTypeName(); ?><br>
+                XXXX XXXX XXXX <?php echo $creditCard->getCcLast4(); ?>
+            </address>
+            <div class="actions">
+                <button type="button"  class="button add" onclick="payment.setPayment(<?php echo $creditCard->getId()?>)">
+                    <span><span><?php echo $this->__('Use this Credit Card')?> ></span></span>
+                </button>
+                <button type="button" class="button edit" onclick="payment.editCreditCard(<?php echo $creditCard->getId()?>)">
+                    <span><span><?php echo $this->__('Edit')?> ></span></span>
+                </button>
+                <button type="button" class="button delete" onclick="checkout.deleteCreditCard(<?php echo $creditCard->getId()?>)">
+                    <span><span><?php echo $this->__('Delete')?> ></span></span>
+                </button>
+            </div>
+        </div>
+        <?php $i++; ?>
+        <?php endforeach; ?>
+    </div>
+    <script type="text/javascript">decorateGeneric($$('#credit-card-list .address-box'))</script>
+<?php endif; ?>

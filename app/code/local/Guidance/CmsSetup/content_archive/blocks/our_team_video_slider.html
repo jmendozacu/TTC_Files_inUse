@@ -1,0 +1,208 @@
+id:     our_team_video_slider
+title:  Our Team Video Slider
+status: enabled
+stores: default,uk_en, au_en
+---
+
+<div class="our_employees_title_mob">
+    <span>Our Employees</span>
+</div>
+<div class="team_mob_player">
+    <div id="brightCove-player2">
+        <div style="display:none;"></div>
+        <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+        <object id="myExperienceMob1" class="BrightcoveExperience">
+            <param name="bgcolor" value="#ffffff" />
+            <param name="playerID" value="Mob1" />
+            <param name="playerKey" value="AQ~~,AAABC2NgoKk~,lQq4tda2_S2Nm0JCSi9lMedYhc3zQfd0" />
+            <param name="isVid" value="1" />
+            <param name="isUI" value="1" />
+            <param name="dynamicStreaming" value="1" />
+            <param name="includeAPI" value="true" />
+            <param name="templateLoadHandler" value="onTemplateLoad" />
+            <param name="templateReadyHandler" value="onTemplateReady" />
+        </object>
+    </div>
+</div>
+<div class="ourpages_slider_block">
+    <div class="ourpages_slider_container">
+        <div class="itemslider_ourpages">
+            <ul class="slides ourpages">
+                <li>
+                    <div id="brightCove-player" class="video_slide">
+                        <div style="display:none;"></div>
+                        <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+                        <object id="myExperienceOurTeamSlider" class="BrightcoveExperience">
+                            <param name="bgcolor" value="#ffffff" />
+                            <param name="width" value="483" />
+                            <param name="height" value="272" />
+                            <param name="playerID" value="OurTeamSlider" />
+                            <param name="playerKey" value="AQ~~,AAABC2NgoKk~,lQq4tda2_S2Nm0JCSi9lMedYhc3zQfd0" />
+                            <param name="isVid" value="1" />
+                            <param name="isUI" value="1" />
+                            <param name="dynamicStreaming" value="1" />
+                            <param name="includeAPI" value="true" />
+                            <param name="templateLoadHandler" value="onTemplateLoad" />
+                            <param name="templateReadyHandler" value="onTemplateReady" />
+                        </object>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="itemslider-wrapper about-pages-carousel">
+            <div class="itemslider itemslider-horizontal">
+                <div class="viewport">
+                    <ul class="slides carousel-item">
+                        <li class="about-pages-carousel-item drop-shadow tiny-shadow">
+                            <div class="down_arrow"></div>
+                            <div class="slide_image">
+                 <img src="{{skin url="images/tgc/walter_jacob_video_thumbnail.jpg}}" alt="Walter Jacob">
+                            </div>
+                            <div class="play_button" id="Employee-WalterJacob"></div>
+                        </li>
+                        <li class="about-pages-carousel-item drop-shadow tiny-shadow">
+                            <div class="down_arrow"></div>
+                            <div class="slide_image">
+      <img src="{{media url="wysiwyg/Zofia_Lategano.jpg"}}" alt="" />
+                            </div>
+                            <div class="play_button" id="Employee-ZofiaLategano"></div>
+                        </li>
+
+                        <li class="about-pages-carousel-item drop-shadow tiny-shadow">
+                            <div class="down_arrow"></div>
+                            <div class="slide_image">
+                    <img src="{{media url="wysiwyg/Catherine_Lyon.jpg"}}" alt="" />
+                            </div>
+                            <div class="play_button" id="Employee-CatherineLyon"></div>
+                        </li>
+
+                        <li class="about-pages-carousel-item drop-shadow tiny-shadow">
+                            <div class="down_arrow"></div>
+                            <div class="slide_image">
+                             <img src="{{media url="wysiwyg/Jessica_Darago.jpg"}}" alt="" />
+                            </div>
+                            <div class="play_button" id="Employee-JessicaDarago"></div>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="direction-nav">
+                    <li><a class="prev disabled" href="#">Previous</a>
+                    </li>
+                    <li><a class="next" href="#">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function($) {
+        $('.about-pages-carousel .itemslider').flexslider({
+            namespace: "",
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: false,
+            itemWidth: 173,
+            maxItems: 7,
+            minItems: 1,
+            asNavFor: '.itemslider_ourpages'
+        });
+
+        $('.itemslider_ourpages').flexslider({
+            namespace: "",
+            directionNav: false,
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            slideshow: false,
+            sync: ".about-pages-carousel .itemslider"
+        });
+    })(jQuery);
+</script>
+<script type="text/javascript">brightcove.createExperiences();</script>
+<script type="text/JavaScript">
+    (function($) {
+
+        var player, modVP, resizeDetector, captionsModule;
+        var videoResize, curVideoId, playerDisplayed;
+
+        if( $(window).width()<768 && isTouchable ) {
+            $('.team_mob_player').appendTo('body');
+
+            $(window).resize(function() {
+                clearTimeout(resizeDetector);
+                resizeDetector = setTimeout(videoResize, 50)
+            });
+
+            onTemplateLoad = function() {
+                player = brightcove.api.getExperience('myExperienceMob1');
+                modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER);
+            };
+            onTemplateReady = function(evt) {
+                modVP.addEventListener(brightcove.api.events.MediaEvent.STOP, hidePlayer);
+                captionsModule = player.getModule(brightcove.api.modules.APIModules.CAPTIONS);
+                captionsModule.setCaptionsEnabled(false);
+                modVP.cueVideoByReferenceID($('li.about-pages-carousel-item .play_button').first().attr('id'));
+                videoResize = function() {
+                    if(playerDisplayed === true) {
+                        $('body').css({'overflow':'hidden', 'height':$(window).outerHeight()});
+                        player._modules.experience.setSize($(window).outerWidth(), $(window).outerHeight());
+                    }
+                };
+
+                $('li.about-pages-carousel-item .play_button').on(customClickEvent, function(e) {
+                    e.stopPropagation();
+                    $('li.about-pages-carousel-item').removeClass('active-slide');
+                    $(this).parents('.about-pages-carousel-item').addClass('active-slide');
+
+                    var _thisId = $(this).attr('id');
+                    if( curVideoId !== _thisId) {
+                        modVP.loadVideoByReferenceID(_thisId);
+                        curVideoId = _thisId;
+                        showPlayer();
+                        modVP.play();
+                    } else {
+                        showPlayer();
+                        modVP.play();
+                    }
+                });
+
+            };
+            var showPlayer = function() {
+                $('body').css({'overflow':'hidden', 'height':$(window).outerHeight()});
+                $('.team_mob_player').css({'top':'0'});
+                playerDisplayed = true;
+            };
+            var hidePlayer = function() {
+                $('body').css({'overflow':'inherit', 'height':'auto'});
+                $('.team_mob_player').css({'top':'-10000px'});
+                playerDisplayed = false;
+            };
+
+        } else {
+
+            /*$('#myExperienceOurTeamSlider').append('<param name="@videoPlayer" value="' +  $('li.about-pages-carousel-item .play_button').first().attr('id') + '" />')*/
+            onTemplateLoad = function() {
+                player = brightcove.api.getExperience('myExperienceOurTeamSlider');
+                modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER);
+            };
+            onTemplateReady = function() {
+                modVP.cueVideoByReferenceID($('li.about-pages-carousel-item .play_button').first().attr('id'));
+                $('li.about-pages-carousel-item .play_button').on(customClickEvent, function(e) {
+                    e.stopPropagation();
+                    var _this = $(this);
+                    if(!_this.parent().hasClass('active-slide')) {
+                        modVP.loadVideoByReferenceID(_this.attr('id'));
+                    };
+
+                    $('li.about-pages-carousel-item').removeClass('active-slide');
+                    _this.parents('.about-pages-carousel-item').addClass('active-slide');
+                });
+            };
+        };
+
+    })(jQuery);
+
+</script>

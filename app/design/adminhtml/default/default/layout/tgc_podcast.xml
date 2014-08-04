@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <podcasts_admin_adminhtml_podcast_index>
+        <reference name="content">
+            <block type="podcast/adminhtml_podcast" name="podcast" />
+        </reference>
+    </podcasts_admin_adminhtml_podcast_index>
+    <podcasts_admin_adminhtml_podcast_edit>
+        <update handle="editor" />
+        <reference name="head">
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+            <action method="addJs"><script>lib/flex.js</script></action>
+            <action method="addJs"><script>lib/FABridge.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
+        </reference>
+    </podcasts_admin_adminhtml_podcast_edit>
+
+
+    <!--products related-->
+    <podcasts_admin_adminhtml_podcast_products>
+        <block type="core/text_list" name="root">
+            <block type="tgc_podcast/adminhtml_podcast_edit_tab_products" name="podcast.edit.tab.products"/>
+            <block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">
+                <reference name="related_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>podcast.edit.tab.products</grid_block_name>
+                        <data_callback>_getSelectedProducts</data_callback>
+                        <hidden_input_name>links[related]</hidden_input_name>
+                        <reload_param_name>products_related</reload_param_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </podcasts_admin_adminhtml_podcast_products>
+
+    <podcasts_admin_adminhtml_podcast_productsgrid>
+        <block type="core/text_list" name="root">
+           <block type="tgc_podcast/adminhtml_podcast_edit_tab_products" name="podcast.edit.tab.products"/>
+        </block>
+    </podcasts_admin_adminhtml_podcast_productsgrid>
+    <!-- products end-->
+
+</layout>

@@ -1,0 +1,264 @@
+<?php
+/**
+ * Shopping cart template
+ *
+ * @see Mage_Checkout_Block_Cart
+ */
+/**
+ * - Removed top "checkout" button
+ * - Added table wrapper (to show background image)
+ * - Changed "continue shopping" button and "update cart" button
+ * - Added class 'last' in table header last cells
+ * - Rearranged layout of 'cart-collaterals'
+ */
+?>
+<div class="cart">
+    <div class="page-title title-buttons">
+        <h1><?php echo $this->__('Your Shopping Cart') ?></h1>
+        <?php /* if(!$this->hasError()): ?>
+        <ul class="checkout-types">
+        <?php foreach ($this->getMethods('top_methods') as $method): ?>
+            <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+            <li><?php echo $methodHtml; ?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        </ul>
+        <?php endif; */ ?>
+    </div>
+    <div class="cart_content_container">
+        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+        <?php echo $this->getChildHtml('form_before') ?>
+        <div class="cart_mobile_header_dot_line">
+            <div class="cart_mobile_qty_header">
+                <span><?php echo $this->__('Estimated TOTAL') ?> (<?php echo Mage::getSingleton('checkout/cart')->getSummaryQty() . " " . $this->__('items') ?>)</span>
+                <span class="float_right">
+                    <?php echo $this->helper('checkout')->formatPrice($this->helper('tgc_checkout')->getEstimatedTotal(false)) ?>
+                </span>
+            </div>
+
+            <div class="cart_checkout_header">
+                <?php
+                $method = $this->getMethods('methods');
+                if ($methodHtml = $this->getMethodHtml($method[2])):
+                    echo $methodHtml;
+                endif; ?>
+                <?php if($this->getContinueShoppingUrl()): ?>
+                    <div class="cart_continue_shop"><a href="<?php echo $this->getContinueShoppingUrl() ?>"><?php echo $this->__('Continue Shopping') ?></a></div>
+                <?php endif; ?>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+        <form action="<?php echo $this->getUrl('checkout/cart/updatePost') ?>" method="post" class="the-cart-form">
+            <?php echo $this->getBlockHtml('formkey'); ?>
+            <fieldset>
+                <h2 class="mob-cart-table-title"><?php echo $this->__('course details');?></h2>
+                <table id="shopping-cart-table" class="data-table cart-table">
+                    <col class="col-details" width="relative_length" />
+                    <col class="col-format" width="1" />
+                    <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                        <col class="col-unit-price" width="1" />
+                    <?php endif; ?>
+                    <col class="col-qnty" width="1" />
+                    <?php if ($this->helper('tax')->displayCartPriceExclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                        <col class="<?php if($this->helper('tax')->displayCartBothPrices()) echo 'col-total-excl'; else echo 'col-total'; ?>" width="1" />
+                    <?php endif; ?>
+                    <?php if ($this->helper('tax')->displayCartPriceInclTax() || $this->helper('tax')->displayCartBothPrices()): ?>
+                        <col class="<?php if($this->helper('tax')->displayCartBothPrices()) echo 'col-total-incl'; else echo 'col-total'; ?>" width="1" />
+                    <?php endif; ?>
+                    <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+                    <thead>
+                    <tr>
+                        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Course Details') ?></span></th>
+<!--                        <th class="col-edit" rowspan="--><?php //echo $mergedCells; ?><!--"></th>-->
+                        <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Format') ?></span></th>
+<!--                        <th class="col-edit" rowspan="--><?php //echo $mergedCells; ?><!--"></th>-->
+                        <th class="col-unit-price a-center" colspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('price') ?></span></th>
+                        <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                            <th class="col-unit-price"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                        <?php endif; ?>
+                        <th rowspan="<?php echo $mergedCells; ?>" class="a-center"><?php echo $this->__('qty') ?></th>
+                        <th class="a-center" colspan="<?php echo $mergedCells; ?>"><?php echo $this->__('Amount') ?></th>
+                        <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                            <th class="col-total-incl"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                        <?php endif; ?>
+<!--                        <th class="col-delete a-center" rowspan="--><?php //echo $mergedCells; ?><!--">&nbsp;</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($this->getItems() as $_item): ?>
+                        <?php echo $this->getItemHtml($_item) ?>
+                    <?php endforeach ?>
+                    </tbody>
+                </table>
+                <button id="update-cart" type="submit" name="update_cart_action" value="update_qty" title="<?php echo $this->__('Update Shopping Cart'); ?>" class="button btn-update btn-inline"><span><span><?php echo $this->__('Update Shopping Cart'); ?></span></span></button>
+                <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+            </fieldset>
+        </form>
+        <div class="cart-collaterals nested-container">
+            <div class="cart-left-column grid12-8">
+                <?php if ($tmpHtml = $this->getChildHtml('checkout.cart.extra')): ?>
+                    <div class="grid-full alpha omega">
+                        <?php /* Extensions placeholder */ ?>
+                        <?php echo $tmpHtml; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($tmpHtml = $this->getChildHtml('block_cart_below_table')): ?>
+                    <div class="block_cart_below_table grid-full alpha omega"><?php echo $tmpHtml; ?></div>
+                <?php endif; ?>
+                <div class="grid12-6 mobile-grid-half">
+                    <?php echo $this->getChildHtml('prioritysales') ?>
+                </div>
+                <div class="grid12-6 mobile-grid-half last">
+                    <?php echo $this->getChildHtml('coupon') ?>
+                </div>
+                <div class="grid-full alpha omega">
+                    <?php echo $this->getChildHtml('crosssell') ?>
+                </div>
+            </div> <!-- end: cart-left-column -->
+            <div class="cart-right-column grid12-4">
+                <div class="totals grid-full alpha omega">
+                    <div class="update_cart_container"></div>
+                    <div class="totals-inner box-sizing-mixin">
+                        <?php echo $this->getChildHtml('totals'); ?>
+                    </div>
+                </div>
+                <?php if ($tmpHtml = $this->getChildHtml('block_cart_below_totals')): ?>
+                    <div class="block_cart_below_totals grid-full alpha omega"><?php echo $tmpHtml; ?></div>
+                <?php endif; ?>
+            </div> <!-- end: cart-right-column -->
+            <div class="clearfix"></div>
+            <div class="cart_checkout_content">
+                <?php if(!$this->hasError()): ?>
+                        <div class="cart_checkout_total">
+                                <?php
+                                $method = $this->getMethods('methods');
+                                if ($methodHtml = $this->getMethodHtml($method[2])):
+                                    echo $methodHtml;
+                                endif; ?>
+                            <?php if($this->getContinueShoppingUrl()): ?>
+                                <div class="cart_continue_shop"><a href="<?php echo $this->getContinueShoppingUrl() ?>"><?php echo $this->__('Continue Shopping') ?></a></div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="tablet_customer_more_images">
+                            <?php echo $this->getChildHtml('cart-more-services-images'); ?>
+                        </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix_mobile"></div>
+    <div class="cs_information">
+        <?php echo $this->getChildHtml('cart-customer-services-uk'); ?>
+        <?php echo $this->getChildHtml('cart-more-services'); ?>
+        <div class="customer_more_images">
+            <div class="float_left cms_image_1"><img src=<?php echo $this->getSkinUrl('images/SatisfactionGuarenteed.png')?>></div>
+            <div class="float_left cms_image_2" id="comodo-logo-table">
+                <div style="float: right;">
+                    <script language="javascript" type="text/javascript">
+                        //<![CDATA[
+                        var tl_loc0 = (window.location.protocol == "https:") ? "https://secure.comodo.net/trustlogo/javascript/trustlogo.js" :
+                            "http://www.trustlogo.com/trustlogo/javascript/trustlogo.js";
+                        document.writeln('<scr' + 'ipt language="JavaScript" src="' + tl_loc0 + '" type="text\/javascript">' + '<\/scr' + 'ipt>');
+                        //]]>
+                    </script>
+
+                                <script type="text/javascript"> TrustLogo("https://secureimages.teach12.com/images/comodo_logo.gif", "SC4", "none");</script>
+
+                </div>
+            </div>
+        </div>
+        <script language="javascript" type="text/javascript">
+            jQuery('#comodo-logo-table img').attr('src','<?php echo $this->getSkinUrl('images/SecuredLogo.png')?>');
+            jQuery('#comodo-logo-table').css('display','block');
+        </script>
+    </div>
+    <div class="clearfix"></div>
+    <div class="recomendations">
+        <?php echo $this->getChildHtml('recomendations'); ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function removeItem(urlToRemove, e) {
+        if (typeof window.utag_data == "object" && typeof window.utag == "object" && typeof window.utag.link == "function") {
+            var target = e.target;
+            var format = jQuery(target).closest('tr').find('select.cart-product-type-select :selected').attr('data-media_format');
+            if (typeof format == 'undefined') {
+                format = 'Gift Card';
+            }
+            var sku = jQuery(target).closest('tr').find('select.cart-product-type-select :selected').attr('data-product_sku');
+            var id = jQuery(target).closest('tr').find('select.cart-product-type-select :selected').attr('data-product_id');
+            var price = jQuery(target).closest('tr').find('select.cart-product-type-select :selected').attr('data-price');
+            if (typeof price == 'undefined') {
+                price = jQuery(target).closest('tr').find('td.col-unit-price span.price').text();
+                price = price.replace('$', '').replace('£', '');
+            }
+            window.tgc_tealiumObj.removeItemFromCartEvent(format, sku, id, price);
+        }
+        jQuery('#formLoader').show();
+        new Ajax.Request(urlToRemove,
+            {
+                method:'post',
+                parameters: {},
+                onSuccess: function(transport){
+                    var response = transport.responseText;
+                    var dataJSON = response.evalJSON();
+                    $H(dataJSON).each(function(data){
+                        if (data.key == "totals") {
+                            refreshTotals();
+                        }
+                        if (data.key == "cart") {
+                            if (isEmpty(data.value)) {
+                                var title = "<?php echo $this->__('Your Shopping Cart is Empty') ?>";
+
+                                var content = "<p><?php echo $this->__("Please note: If you've just placed an order with us, these items will no longer appear in your shopping cart. <br/> However, you should receive an automated e-mail shortly confirming our receipt of your order.<br/>You can also <a href='%s'>View Orders</a> in your account section.", $this->getContinueShoppingUrl()); ?></p>";
+
+                                jQuery('.cart_content_container').addClass('cart_empty_content').removeClass('cart_content_container').html(content);
+                                jQuery('.cart').addClass('cart-empty').removeClass('cart');
+                                jQuery('.page-title h1').html(title);
+                            } else {
+                                var originalItems = jQuery('#shopping-cart-table tbody');
+
+                                if (!isEmpty(originalItems)) {
+                                    var parentItems = originalItems.parent();
+
+                                    originalItems.remove();
+
+                                    parentItems.append("<tbody>"+data.value+"</tbody>");
+
+                                    decorateTable('shopping-cart-table');
+                                }
+                            }
+                        }
+                    });
+                    updateTopLinks();
+                    jQuery('#formLoader').hide();
+                },
+                onFailure: function(){
+                    console.log('Server not response');
+                    jQuery('#formLoader').hide();
+                }
+            });
+    }
+
+    function updateTopLinks() {
+        jQuery.ajax({
+            type: 'POST',
+            url: globalHeader.updateLinksUrl,
+            success: function(data, textStatus, jqXHR) {
+                if (data['status'] == 'success') {
+                    jQuery('div#mini-cart').html(data['cartHtml']);
+                    jQuery('div#mini-wishlist').html(data['wishlistHtml']);
+                }
+            }
+        });
+    }
+</script>
+
+<span id="formLoader" style="display: none">
+    Removing product from Cart...
+</span>

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+
+    <!--
+    This is the submission container page for R&R and Q&A
+    It can be accessed at the root of your magento URL context.  For example:
+        www.yourdomain.com/bazaarvoice      (assuming magento runs your entire site)
+        or
+        www.yourdomain.com/magento/bazaarvoice
+    -->
+    <bazaarvoice_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="head">
+            <block type="bazaarvoice/bazaarvoice" name="headerincludes" template="bazaarvoice/display/headerincludes.phtml" after="-" />
+            <action method="setRobots"><value>noindex, nofollow</value></action>
+        </reference>
+        <reference name="content">
+            <block type="bazaarvoice/submissioncontainer" name="submissioncontainer" template="bazaarvoice/submit/submissioncontainer.phtml" />
+        </reference>
+    </bazaarvoice_index_index>
+
+    <!--
+    Set up BV content to be injectable on all product and category pages.  Note that the head inclusion of bvapi.js will be
+    made on all pages, regardless of whether or not any other blocks are inserted into the template (like bv_reviews).
+    -->
+    <catalog_product_view>
+        <reference name="head">
+            <block type="bazaarvoice/bazaarvoice" name="headerincludes" template="bazaarvoice/display/headerincludes.phtml" after="-" />
+            <block type="bazaarvoice/bazaarvoice" name="headerproduct" template="bazaarvoice/display/headerproduct.phtml" after="headerincludes" />
+        </reference>
+        <reference name="content">
+            <reference name="product.info">
+                <block type="bazaarvoice/bazaarvoice" name="reviewsummary" as="bv_reviewsummary" template="bazaarvoice/display/rr/reviewsummary.phtml" />
+                <block type="bazaarvoice/reviews" name="reviews" as="bv_reviews" template="bazaarvoice/display/rr/reviews.phtml" />
+
+                <block type="bazaarvoice/bazaarvoice" name="questionsummary" as="bv_questionsummary" template="bazaarvoice/display/qa/questionsummary.phtml" />
+                <block type="bazaarvoice/bazaarvoice" name="questions" as="bv_questions" template="bazaarvoice/display/qa/questions.phtml" />
+            </reference>
+        </reference>
+    </catalog_product_view>
+
+    <catalog_category_default>
+        <reference name="head">
+            <block type="bazaarvoice/bazaarvoice" name="headerincludes" template="bazaarvoice/display/headerincludes.phtml" after="-" />
+        </reference>
+        <reference name="content">
+            <reference name="category.products">
+                <reference name="product_list" >
+                    <block type="bazaarvoice/ratings" name="inline_ratings" as="inline_ratings" template="bazaarvoice/display/rr/ratings.phtml" />
+                </reference>
+            </reference>
+        </reference>
+    </catalog_category_default>
+
+    <catalog_category_layered>
+        <reference name="head">
+            <block type="bazaarvoice/bazaarvoice" name="headerincludes" template="bazaarvoice/display/headerincludes.phtml" after="-" />
+        </reference>
+        <reference name="content">
+            <reference name="category.products">
+                <reference name="product_list" >
+                    <block type="bazaarvoice/ratings" name="inline_ratings" as="inline_ratings" template="bazaarvoice/display/rr/ratings.phtml" />
+                </reference>
+            </reference>
+        </reference>
+    </catalog_category_layered>
+
+    <catalogsearch_result_index>
+        <reference name="head">
+            <block type="bazaarvoice/bazaarvoice" name="headerincludes" template="bazaarvoice/display/headerincludes.phtml" after="-" />
+        </reference>
+        <reference name="content">
+            <reference name="search.result">
+                <reference name="search_result_list" >
+                    <block type="bazaarvoice/ratings" name="inline_ratings" as="inline_ratings" template="bazaarvoice/display/rr/ratings.phtml" />
+                </reference>
+            </reference>
+        </reference>
+    </catalogsearch_result_index>
+
+    <catalogsearch_advanced_result>
+        <reference name="head">
+            <block type="bazaarvoice/bazaarvoice" name="headerincludes" template="bazaarvoice/display/headerincludes.phtml" after="-" />
+        </reference>
+        <reference name="content">
+            <reference name="catalogsearch_advanced_result">
+                <reference name="search_result_list" >
+                    <block type="bazaarvoice/ratings" name="inline_ratings" as="inline_ratings" template="bazaarvoice/display/rr/ratings.phtml" />
+                </reference>
+            </reference>
+        </reference>
+    </catalogsearch_advanced_result>
+
+    <!--
+    The feed controller is used to more easily test/debug the feed generation or import.  This should not be enabled in a production environment for security reasons.
+    -->
+    <!--
+    <bazaarvoice_feed_ppe>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </bazaarvoice_feed_ppe>
+    <bazaarvoice_feed_inlineratings>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </bazaarvoice_feed_inlineratings>
+    <bazaarvoice_feed_product>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </bazaarvoice_feed_product>
+    <bazaarvoice_feed_smartseo>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+    </bazaarvoice_feed_smartseo>
+    -->
+
+	<checkout_onepage_success>
+        <reference name="head">
+        	<block type="bazaarvoice/bazaarvoice" template="bazaarvoice/display/headerincludes.phtml" after="-" />
+            <block type="bazaarvoice/roi_beacon" template="bazaarvoice/submit/roi_beacon.phtml" after="-" />
+        </reference>
+	</checkout_onepage_success>
+
+</layout> 

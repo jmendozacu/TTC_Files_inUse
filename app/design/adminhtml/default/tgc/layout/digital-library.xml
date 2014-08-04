@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Digital Library
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <access_rights_adminhtml_accessrights_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Digital Library Access Rights</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/adminhtml_accessRights" name="accessRights" />
+        </reference>
+    </access_rights_adminhtml_accessrights_index>
+
+    <access_rights_adminhtml_accessrights_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Digital Library Access Rights</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/adminhtml_accessRights_edit_tabs" name="accessRights_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/adminhtml_accessRights_edit" name="accessRights_edit" />
+        </reference>
+    </access_rights_adminhtml_accessrights_edit>
+
+    <cross_platform_resume_adminhtml_crossplatformresume_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Cross Platform Resume Data</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/adminhtml_crossPlatformResume" name="crossPlatformResume" />
+        </reference>
+    </cross_platform_resume_adminhtml_crossplatformresume_index>
+
+    <cross_platform_resume_adminhtml_crossplatformresume_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Cross Platform Resume Data</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/adminhtml_crossPlatformResume_edit_tabs" name="crossPlatformResume_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/adminhtml_crossPlatformResume_edit" name="crossPlatformResume_edit" />
+        </reference>
+    </cross_platform_resume_adminhtml_crossplatformresume_edit>
+
+    <merge_accounts_adminhtml_mergeaccounts_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Merged Customer Accounts</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/adminhtml_mergeAccounts" name="mergeAccounts" />
+        </reference>
+    </merge_accounts_adminhtml_mergeaccounts_index>
+
+    <merge_accounts_adminhtml_mergeaccounts_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Merged Customer Accounts</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/adminhtml_mergeAccounts_edit_tabs" name="mergeAccounts_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/adminhtml_mergeAccounts_edit" name="mergeAccounts_edit" />
+        </reference>
+    </merge_accounts_adminhtml_mergeaccounts_edit>
+
+    <akamai_content_adminhtml_akamaicontent_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Akamai Content</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/adminhtml_akamaiContent" name="akamaiContent" />
+        </reference>
+    </akamai_content_adminhtml_akamaicontent_index>
+
+    <akamai_content_adminhtml_akamaicontent_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Akamai Content</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_dl/adminhtml_akamaiContent_edit_tabs" name="akamaiContent_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_dl/adminhtml_akamaiContent_edit" name="akamaiContent_edit" />
+        </reference>
+    </akamai_content_adminhtml_akamaicontent_edit>
+
+</layout>

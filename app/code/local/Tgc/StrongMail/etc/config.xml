@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module's config
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_StrongMail
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_StrongMail>
+            <version>1</version>
+        </Tgc_StrongMail>
+    </modules>
+    <global>
+        <models>
+            <tgc_strongMail>
+                <class>Tgc_StrongMail_Model</class>
+            </tgc_strongMail>
+            <sales>
+                <rewrite>
+                    <order>Tgc_StrongMail_Model_Sales_Order</order>
+                </rewrite>
+            </sales>
+            <customer>
+                <rewrite>
+                    <customer>Tgc_StrongMail_Model_Customer</customer>
+                    <customer_attribute_backend_password>Tgc_StrongMail_Model_Customer_Attribute_Backend_Password</customer_attribute_backend_password>
+                </rewrite>
+            </customer>
+        </models>
+        <helpers>
+            <tgc_strongMail>
+                <class>Tgc_StrongMail_Helper</class>
+            </tgc_strongMail>
+        </helpers>
+        <resources>
+            <tgc_strongMail_setup>
+                <setup>
+                    <module>Tgc_StrongMail</module>
+                </setup>
+            </tgc_strongMail_setup>
+        </resources>
+        <events>
+            <free_lectures_signup>
+                <observers>
+                    <send_free_lectures>
+                        <type>model</type>
+                        <class>tgc_strongMail/email_customer_freeLectures</class>
+                        <method>sendByEvent</method>
+                    </send_free_lectures>
+                </observers>
+            </free_lectures_signup>
+        </events>
+    </global>
+    <default>
+        <tgc_strongmail>
+            <api>
+                <wsdl>http://localhost/sm/services/mailing/2009/03/02?wsdl</wsdl>
+            </api>
+        </tgc_strongmail>
+    </default>
+</config>

@@ -1,0 +1,55 @@
+<?php
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** @var $this Tgc_Cms_Block_Partners */
+?>
+<?php
+$collection = $this->getCollection();
+?>
+<?php if ($this->shouldShowWidget() && $collection && ($collection->getSize())): ?>
+    <h3 class="section-title"><?php echo $this->getTitle(); ?></h3>
+    <div class="random-sample partners">
+        <div class="partner-desc"><?php echo $this->getDescription(); ?></div>
+        <div class="partner-slider">
+            <ul class="partner-logos slides">
+                <?php foreach ($collection as $item): ?>
+                    <?php if (!$item->getImage()) {continue;}?>
+                    <li class="item-partner">
+                        <?php if ($item->getUrl()): ?><a href="<?php echo $item->getUrl(); ?>"><?php endif; ?>
+                            <img
+                                title="<?php echo $item->getDescription(); ?>"
+                                src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$item->getImage(); ?>"
+                                alt="<?php echo $item->getAltText(); ?>"/>
+                            <?php if ($item->getUrl()): ?></a><?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <!-- end: slides -->
+        </div>
+    </div> <!-- end: random-sample -->
+
+    <script type="text/javascript">
+        //<![CDATA[
+        jQuery(function ($) {
+            $('.partner-slider').flexslider({
+                namespace:"",
+                animation:"slide",
+                animationLoop: false,
+                controlNav: false,
+                itemWidth: 180,
+                slideshow: false,
+                maxItems: 5,
+                minItems: 1
+            })
+        });
+        //]]>
+    </script>
+<?php endif; ?>

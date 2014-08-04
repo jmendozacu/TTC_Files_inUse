@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <Tgc_SiteMap>
+            <version>1.1.0</version>
+        </Tgc_SiteMap>
+    </modules>
+    <global>
+        <blocks>
+            <tgc_sitemap>
+                <class>Tgc_SiteMap_Block</class>
+            </tgc_sitemap>
+        </blocks>
+        <models>
+            <tgc_sitemap>
+                <class>Tgc_SiteMap_Model</class>
+                <resourceModel>tgc_sitemap_resource</resourceModel>
+            </tgc_sitemap>
+            <tgc_sitemap_resource>
+                <class>Tgc_SiteMap_Model_Resource</class>
+            </tgc_sitemap_resource>
+        </models>
+        <resources>
+            <tgc_sitemap_setup>
+                <setup>
+                    <module>Tgc_SiteMap</module>
+                </setup>
+            </tgc_sitemap_setup>
+        </resources>
+    </global>
+</config>

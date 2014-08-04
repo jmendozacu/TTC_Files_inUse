@@ -1,0 +1,34 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$ids = array();
+$skus = array();
+$names = array();
+
+foreach($this->getItems() as $item) {
+    $ids[] = $item->getCourseId();
+    $skus[] = $item->getSku();
+    $names[] = $item->getName();
+}
+?>
+
+<!-- Tealium Product Compare javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name: "<?php echo htmlspecialchars($this->getLayout()->getBlock('head')->getTitle(), ENT_QUOTES); ?>",
+        page_type: "product compare",
+        product_id: "<?php echo implode(',', $ids) ?>",
+        product_sku: "<?php echo implode(',', $skus) ?>",
+        product_name: "<?php echo implode(',', $names) ?>",
+        user_id: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_USER_ID; ?>'),
+        is_logged_in: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_LOGGED_IN; ?>')
+    };
+</script>

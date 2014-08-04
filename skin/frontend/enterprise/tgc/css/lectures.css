@@ -1,0 +1,246 @@
+/* LECTURES */
+.lectures-list li > .lecture-title, .lectures-list li > a .lecture-title { font: 600 14px/1 'proxima_nova_ltsemibold', sans-serif; overflow: hidden; padding-left: 1%; width: 90%; display: inline-block; vertical-align: middle; }
+
+.lectures-index-index .main-container { font-size: 14px;}
+.lectures-index-index .main { padding-top: 30px;}
+.lectures-index-index .col-main.grid-full {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+.lectures-index-index h1 {
+    font-size: 29px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+.lectures-index-index h3 {
+    font-size: 24px;
+    line-height: 1.2em;
+}
+.lectures-index-index p {
+    margin-bottom: 10px;
+}
+.lectures-index-index p.smaller {
+    font-size: 90%;
+}
+#free_lectures_description a:hover {
+    text-decoration: underline;
+}
+.lectures-index-index .block-content {
+    float: left;
+    margin: 20px 7%;
+    position: relative;
+}
+.lectures-index-index .block-content.lectures-list-full {
+    padding: 3%;
+    width: 86%;
+    border: 1px solid #b7b7b7;
+    background-color: #fff;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.lectures-index-index .block-content.lectures-list-full:after {
+    width: 100%;
+    min-height: 19px;
+    background: url(../images/tgc/free_lectures_box_shadow.png) no-repeat center top;
+    background-size: 100%;
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+}
+.lectures-index-index .block-content.lectures-list-full > .grid-full {
+    margin: 0;
+}
+.lectures-index-index .lectures-list {
+    float: none;
+    width: 100%;
+    counter-reset: custom-counter;
+}
+.lectures-index-index .lectures-list li {
+    border: 0;
+    padding: 8px 10px!important;
+}
+.lectures-index-index .lectures-list dt {
+    color: #017bc8;
+    font-family: 'proxima_nova_rgbold', sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    position: relative;
+    padding-left: 34px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.lectures-index-index .lectures-list dt a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.lectures-index-index .lectures-list .lecture-description-block {
+    height: auto;
+    left: -388px;
+    padding: 17px 20px;
+    width: 388px;
+}
+.lectures-index-index .lectures-list .lecture-description-block.right {
+    left: auto;
+    right: -388px;
+}
+
+.lectures-index-index .lectures-list .lecture-description-block .professor-lecture .professor-image {
+    float: left;
+    margin-right: 5px;
+}
+
+.lectures-index-index .lectures-list .lecture-description-block .professor-lecture .professor-image > img {
+    height: 30px;
+    width: 30px;
+    word-wrap: break-word;
+}
+
+.lectures-index-index .lectures-list .lecture-description-block .professor-lecture .professor-data {
+    overflow: hidden;
+}
+
+.lectures-index-index .lectures-list .lecture-description-block .professor-lecture .professor-data .professor-name {
+    color: #45555F;
+    font: 16px/16px 'proxima_nova_ltsemibold', sans-serif;
+}
+
+.lectures-index-index .lectures-list .lecture-description-block .professor-lecture .professor-data .professor-info {
+    padding-top: 5px;
+    font-size: 13px;
+}
+
+.lectures-index-index .lectures-list .lecture-description-block .lecture-data {
+    padding-bottom: 18px;
+}
+.lectures-index-index .lectures-list .lecture-description-block .lecture-title {
+    color: #242d33;
+    font: 600 18px/20px 'freighttext_prosemibold', serif;
+    padding-bottom: 4px;
+}
+
+.lectures-index-index .lectures-list .lecture-description-block .lecture-description {
+    font-size: 14px;
+    line-height: 14px;
+}
+.lectures-index-index .lectures-list .lecture-description-block .about-professor {
+    padding-bottom: 15px;
+}
+.lectures-index-index .lectures-list .lecture-description-block .description {
+    line-height: 17px;
+}
+
+.lectures-index-index .lectures-list li:before {
+    background-color: #E1E3E5;
+    color: #242d33;
+    content: counter(custom-counter);
+    counter-increment: custom-counter;
+    height: 26px;
+    margin-top: 8px;
+    padding: 0 4px;
+    text-align: center;
+    width: 19px;
+    position: absolute;
+    left: 0;
+    top: 3px;
+    font: 600 22px/21px 'freighttext_prosemibold', serif;
+}
+
+.lectures-index-index .lectures-list li:hover:before {
+    background: #1e9cf0;
+    color: #fff;
+}
+
+.lectures-index-index .lectures-list dd {
+    padding-left: 34px;
+    color: #45555f;
+    font-size: 13px;
+    line-height: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.lectures-index-index .block-content h3,
+.lectures-index-index .block-content h4 {
+    line-height: normal;
+    font-family: 'proxima_nova_rgregular', sans-serif;
+    font-weight: 400;
+    padding-left: 10px;
+}
+.lectures-index-index .block-content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.lectures-index-index .block-content h4 {
+    font-size: 16px;
+    line-height: 16px;
+    color: #45555f;
+    margin-bottom: 6px;
+}
+
+#free_lectures_hero {
+    margin-bottom: -20px;
+    position: relative;
+}
+#free_lectures_hero .hero-text {
+    position: absolute;
+    width: 50%;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.5);
+    margin-left: 7%;
+    margin-top: 7%;
+}
+#free_lectures_hero .hero-text h2 {
+    color: #fff;
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.5);
+}
+#free_lectures_hero .hero-text p {
+    color: #fff;
+    font-size: 22px;
+    line-height: 24px;
+}
+#free_lectures_hero .visible-xs {
+    width: 271px;
+    height: 176px;
+    position: absolute;
+    right: 92px;
+    top: 54px;
+    display: block;
+    background: #000000;
+    opacity: 0.0;
+}
+#free_lectures_hero .visible-xs.show-player {
+    opacity: 1;
+}
+#free_lectures_hero .visible-xs:hover {
+    opacity: 0.1;
+}
+#free_lectures_hero .visible-xs.show-player:hover {
+    opacity: 1;
+}
+
+#free_lectures_information {
+    margin: 0 7%;
+    width: 86%;
+}
+#free_lectures_information .grid12-6 + .grid12-6 {
+    margin-right: 0;
+    width: 49%;
+}
+.block-with-lectures-list .lectures-container {
+    border: 0;
+    padding: 0;
+}

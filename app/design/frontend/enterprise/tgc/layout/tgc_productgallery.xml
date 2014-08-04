@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * ProductGallery
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     ProductGallery
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+    <catalog_product_view>
+        <update handle="tgc_productgallery_video_brightcove" />
+    </catalog_product_view>
+
+    <review_product_list>
+        <update handle="tgc_productgallery_video_brightcove" />
+    </review_product_list>
+
+    <PRODUCT_ATTRIBUTE_SET_sets>
+        <reference name="product.info">
+            <block type="tgc_productgallery/video_brightcove" name="tgc_productgallery.sets.video.brightcove" template="tgc_productgallery/sets/video/brightcove.phtml">
+                <action method="setProcessOnlyBaseImage"><flag>1</flag></action>
+            </block>
+        </reference>
+        <remove name="tgc_productgallery.video.brightcove" />
+    </PRODUCT_ATTRIBUTE_SET_sets>
+
+    <tgc_courses_coursebuffetoffer>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/tgc_productgallery/video/brightcove.js</name></action>
+        </reference>
+        <reference name="buffet.landing.page.product.list">
+            <block type="tgc_productgallery/video_brightcove" name="tgc_productgallery.landing.page.video.brightcove" template="tgc_productgallery/sets/video/brightcove.phtml">
+                <action method="setProcessOnlyBaseImage"><flag>1</flag></action>
+            </block>
+        </reference>
+    </tgc_courses_coursebuffetoffer>
+
+    <tgc_courses_radiooffer>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/tgc_productgallery/video/brightcove.js</name></action>
+        </reference>
+        <reference name="radio.landing.page.product.list">
+            <block type="tgc_productgallery/video_brightcove" name="tgc_productgallery.landing.page.video.brightcove" template="tgc_productgallery/sets/video/brightcove.phtml">
+                <action method="setProcessOnlyBaseImage"><flag>1</flag></action>
+            </block>
+        </reference>
+    </tgc_courses_radiooffer>
+
+    <tgc_productgallery_video_brightcove>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/tgc_productgallery/video/brightcove.js</name></action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_productgallery/video_brightcove" name="tgc_productgallery.video.brightcove" template="tgc_productgallery/video/brightcove.phtml" />
+        </reference>
+    </tgc_productgallery_video_brightcove>
+</layout>

@@ -1,0 +1,4 @@
+<?php $adcodeHelper = Mage::helper('adcoderouter') ?>
+<?php if ($adcodeHelper->isSpaceAd() || $adcodeHelper->isDrtvAd()): //block only displays if page IS a space ad ?>
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('pdp_right_spacead_new')->toHtml(); ?>
+<?php endif ?>

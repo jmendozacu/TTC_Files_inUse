@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * DataMart integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DataMart
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <email_landing_adminhtml_emaillanding_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage DataMart Email Landing Pages</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_emailLanding" name="emailLanding" />
+        </reference>
+    </email_landing_adminhtml_emaillanding_index>
+
+    <email_landing_adminhtml_emaillanding_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit DataMart Email Landing Pages</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_datamart/adminhtml_emailLanding_edit_tabs" name="emailLanding_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_emailLanding_edit" name="emailLanding_edit" />
+        </reference>
+    </email_landing_adminhtml_emaillanding_edit>
+
+    <email_landing_adminhtml_emaillanding_design_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage DataMart Email Landing Page Designs</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_emailLanding_design" name="emailLanding_design" />
+        </reference>
+    </email_landing_adminhtml_emaillanding_design_index>
+
+    <email_landing_adminhtml_emaillanding_design_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit DataMart Email Landing Page Designs</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_datamart/adminhtml_emailLanding_design_edit_tabs" name="emailLanding_design_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_emailLanding_design_edit" name="emailLanding_design_edit" />
+        </reference>
+    </email_landing_adminhtml_emaillanding_design_edit>
+
+    <email_landing_adminhtml_emaillanding_banner_index>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_emailLanding_banner" name="landing_banner" />
+        </reference>
+    </email_landing_adminhtml_emaillanding_banner_index>
+
+    <email_landing_adminhtml_emaillanding_banner_edit>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_emailLanding_banner_edit" name="landing_banner_edit" />
+        </reference>
+    </email_landing_adminhtml_emaillanding_banner_edit>
+
+    <email_landing_adminhtml_emaillanding_mediacode_index>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_emailLanding_mediacode" name="landing_media_code" />
+        </reference>
+    </email_landing_adminhtml_emaillanding_mediacode_index>
+
+    <email_landing_adminhtml_emaillanding_mediacode_edit>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_emailLanding_mediacode_edit" name="landing_media_code_edit" />
+        </reference>
+    </email_landing_adminhtml_emaillanding_mediacode_edit>
+
+    <customer_upsell_adminhtml_customerupsell_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage DataMart Customer Upsells</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_customerUpsell" name="customerUpsell" />
+        </reference>
+    </customer_upsell_adminhtml_customerupsell_index>
+
+    <customer_upsell_adminhtml_customerupsell_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit DataMart Customer Upsells</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_datamart/adminhtml_customerUpsell_edit_tabs" name="customerUpsell_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_customerUpsell_edit" name="customerUpsell_edit" />
+        </reference>
+    </customer_upsell_adminhtml_customerupsell_edit>
+
+    <anonymous_upsell_adminhtml_anonymousupsell_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage DataMart Anonymous Upsells</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_anonymousUpsell" name="anonymousUpsell" />
+        </reference>
+    </anonymous_upsell_adminhtml_anonymousupsell_index>
+
+    <anonymous_upsell_adminhtml_anonymousupsell_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit DataMart Anonymous Upsells</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_datamart/adminhtml_anonymousUpsell_edit_tabs" name="anonymousUpsell_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/adminhtml_anonymousUpsell_edit" name="anonymousUpsell_edit" />
+        </reference>
+    </anonymous_upsell_adminhtml_anonymousupsell_edit>
+
+</layout>

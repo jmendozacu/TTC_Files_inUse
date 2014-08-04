@@ -1,0 +1,5 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/validate-zip-uk.js') ?>"></script>
+<label for="shipping:postcode" class="required"><?php echo $this->__('Zip/Postal Code') ?></label>
+<div class="input-box">
+    <input type="text" title="<?php echo $this->__('Zip/Postal Code') ?>" name="shipping[postcode]" id="shipping:postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" class="input-text validate-zip-uk validate-zip-international <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?>" onchange="shipping.setSameAsBilling(false);" />
+</div>

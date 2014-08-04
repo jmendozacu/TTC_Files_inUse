@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * SeeWhy
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     SeeWhy
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <default>
+        <reference name="head">
+            <block type="core/template" name="seewhy.js" template="tgc_seewhy/js.phtml" after="-" />
+        </reference>
+    </default>
+
+</layout>

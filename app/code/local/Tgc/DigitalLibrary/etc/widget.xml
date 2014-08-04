@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Digital Library
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<widgets>
+    <brightcove type="tgc_dl/brightCove" translate="name description" module="tgc_dl">
+        <name>BrightCove Player</name>
+        <description>Adds a BrightCove player</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <media_id translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Media ID</label>
+                <type>text</type>
+            </media_id>
+            <player_id>
+                <required>1</required>
+                <visible>1</visible>
+                <label><![CDATA[Player ID]]></label>
+                <description><![CDATA[Must be unique in page]]></description>
+                <type>text</type>
+            </player_id>
+            <player_key>
+                <required>1</required>
+                <visible>1</visible>
+                <label><![CDATA[Player Key]]></label>
+                <type>select</type>
+                <value><![CDATA[AQ~~,AAABC2NgoKk~,lQq4tda2_S2Nm0JCSi9lMedYhc3zQfd0]]></value>
+                <values>
+                    <default translate="label">
+                        <value><![CDATA[AQ~~,AAABC2NgoKk~,lQq4tda2_S2Nm0JCSi9lMedYhc3zQfd0]]></value>
+                        <label>Video Player Template</label>
+                    </default>
+                    <audio translate="label">
+                        <value><![CDATA[AQ~~%2CAAABC2NgoKk~%2ClQq4tda2_S2oVMo6N7EmHcR3iJJg_gkB]]></value>
+                        <label>Audio Player Template</label>
+                    </audio>
+                </values>
+                <description><![CDATA[This determines the design of the player]]></description>
+            </player_key>
+            <auto_start>
+                <label><![CDATA[Auto Start Playback]]></label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </auto_start>
+            <is_vid>
+                <label><![CDATA[Media Type]]></label>
+                <required>1</required>
+                <visible>1</visible>
+                <value>1</value>
+                <type>select</type>
+                <source_model>tgc_dl/source_format</source_model>
+            </is_vid>
+            <is_ui>
+                <required>1</required>
+                <visible>0</visible>
+                <value>true</value>
+                <type>text</type>
+            </is_ui>
+            <dynamic_streaming>
+                <required>1</required>
+                <visible>0</visible>
+                <value>true</value>
+                <type>text</type>
+            </dynamic_streaming>
+            <bg_color>
+                <required>0</required>
+                <visible>1</visible>
+                <value><![CDATA[#ffffff]]></value>
+                <label><![CDATA[Background Color (must be a valid 6 character value with preceding #)]]></label>
+                <type>text</type>
+            </bg_color>
+            <player_width>
+                <required>0</required>
+                <visible>1</visible>
+                <value>480</value>
+                <label><![CDATA[Player Width (in px)]]></label>
+                <type>text</type>
+            </player_width>
+            <player_height>
+                <required>0</required>
+                <visible>1</visible>
+                <value>270</value>
+                <label><![CDATA[Player Height (in px)]]></label>
+                <type>text</type>
+            </player_height>
+            <template>
+                <required>1</required>
+                <visible>0</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>digital-library/brightcove/widget/player.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>digital-library/brightcove/widget/player.phtml</value>
+                        <label>BrightCove Player Template</label>
+                    </default>
+                </values>
+            </template>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description><![CDATA[86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.]]></description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </brightcove>
+    <resumePlaying type="tgc_dl/resumePlaying" translate="name description" module="tgc_dl">
+        <name>Continue Watching Block</name>
+        <description>Continue Watching Homepage</description>
+        <is_email_compatible>0</is_email_compatible>
+    </resumePlaying>
+    <brightcovePodcast type="tgc_dl/brightCoveMultimedia" translate="name description" module="tgc_dl">
+        <name>BrightCove Player for Podcasts</name>
+        <description>Adds a BrightCove audio player for podcast playback</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <content_id translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Content ID</label>
+                <type>text</type>
+            </content_id>
+            <template>
+                <required>1</required>
+                <visible>0</visible>
+                <label>Template</label>
+                <type>text</type>
+                <value>digital-library/brightcove/widget/podcastPlayer.phtml</value>
+            </template>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description><![CDATA[86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.]]></description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </brightcovePodcast>
+    <brightcoveHero type="tgc_dl/brightCoveHero" translate="name description" module="tgc_dl">
+        <name>BrightCove Player for Hero Slides</name>
+        <description>Adds a BrightCove Video Player for Hero Slides</description>
+        <is_email_compatible>0</is_email_compatible>
+        <parameters>
+            <content_id translate="label">
+                <required>0</required>
+                <visible>1</visible>
+                <label>Content ID</label>
+                <type>text</type>
+            </content_id>
+            <template>
+                <required>1</required>
+                <visible>0</visible>
+                <label>Template</label>
+                <type>text</type>
+                <value>digital-library/brightcove/widget/heroPlayer.phtml</value>
+            </template>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description><![CDATA[86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.]]></description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </brightcoveHero>
+</widgets>

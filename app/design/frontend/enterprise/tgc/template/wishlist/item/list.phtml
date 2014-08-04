@@ -1,0 +1,67 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php
+    $columns = $this->getColumns();
+?>
+<div class="data-table" id="wishlist-table">
+    <div class="table-head">
+        <div class="table-row">
+            <div class="grid12-2 image-col">
+                <input type="checkbox" name="wishlist-select-all" id="wishlist-select-all" onchange="$$('input[name^=&quot;wishlist_item[]&quot;]').each(function(el) {el.checked = $('wishlist-select-all').checked;});">
+                <label for="wishlist-select-all"><?php echo $this->__('Select All') ?></label>
+            </div>
+            <div class="grid12-3 details-col"><?php echo $this->__('Product details') ?></div>
+            <div class="grid12-3 format-col"><?php echo $this->__('Format') ?></div>
+            <div class="grid12-1 price-col"><span class="nobr"><?php echo $this->__('Price') ?></span></div>
+            <div class="grid12-1 qty-col"><?php echo $this->__('Qty') ?></div>
+            <div class="grid12-2 added-date"><?php echo $this->__('Added') ?></div>
+        </div>
+    </div>
+    <div class="table-body">
+        <?php if (count($this->getItems())): ?>
+            <?php foreach ($this->getItems() as $item): ?>
+                <div class="table-row" id="item_<?php echo $item->getId();?>">
+                    <?php foreach ($columns as $column): ?>
+                        <?php $column->setItem($item); echo $column->toHtml($item);?>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach ?>
+        <?php else: ?>
+            <div class="table-row" colspan="<?php echo count($columns);?>" class="wishlist-empty"><?php echo $this->__('This Wishlist has no Items');?></div>
+        <?php endif; ?>
+    </div>
+</div>
+<?php foreach ($columns as $column): ?>
+    <?php echo $column->getAdditionalHtml();?>
+<?php endforeach; ?>
+<script type="text/javascript">
+//<![CDATA[
+<?php foreach ($columns as $column): ?>
+    <?php echo $column->getJs();?>
+<?php endforeach; ?>
+//]]>
+</script>

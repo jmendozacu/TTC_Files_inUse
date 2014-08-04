@@ -1,0 +1,9 @@
+<?php $shouldDisplayForm = $helperFreelectures->getFreelectureFormToDisplay() != Tgc_Catalog_Helper_Freemarketinglecture::FORM_SIGNEDIN_SUBSCRIBED ? ' style="display:none"' : '' ?>
+
+<form method="post" id="free-lectures-form-validate-subscribed"
+      action="<?php echo Mage::getUrl('customer/account/freelecturePost') ?>" <?php echo $shouldDisplayForm ?>>
+    <h2>
+        Access Your FREE Courses Now! No purchase necessary.
+    </h2>
+    Thank you for your interest. You are already subscribed to the free lectures.
+</form>

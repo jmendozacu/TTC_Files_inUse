@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * DataMart integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DataMart
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <tgc_courses_specialoffer>
+        <label>Email Landing Pages</label>
+        <reference name="root">
+            <action method="addBodyClass">
+                <class>email-landing-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/category-pdp.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/landing-pages.css</stylesheet></action>
+        </reference>
+        <reference name="left">
+            <remove name="infortis.vertnav"></remove>
+        </reference>
+        <reference name="content">
+            <reference name="category.products">
+                <action method="setTemplate"><template>datamart/landing/email/product/list/container.phtml</template></action>
+            </reference>
+            <action method="unsetChild"><child>category.products</child></action>
+            <block type="tgc_datamart/emailLanding" name="email.landing.page" template="datamart/landing/email.phtml">
+                <block type="page/html_wrapper" name="banner.wrapper">
+                    <action method="setHtmlTagName">
+                        <name>div</name>
+                    </action>
+                    <action method="setElementClass">
+                        <value>landing-banner-wrapper</value>
+                    </action>
+                    <block type="tgc_datamart/emailLanding_banner" name="landing.page.banner" template="datamart/landing/banner.phtml" />
+                </block>
+                <block type="page/html_wrapper" name="header.email.wrapper">
+                    <action method="setHtmlTagName">
+                        <name>div</name>
+                    </action>
+                    <action method="setElementClass">
+                        <value>landing-page-header</value>
+                    </action>
+                    <block type="cms/block" name="landing.page.header.cms.block" />
+                </block>
+                <action method="setChild"><alias>category.products</alias><block>category.products</block></action>
+                 <block type="page/html_wrapper" name="footer.email.wrapper">
+                    <action method="setHtmlTagName">
+                        <name>div</name>
+                    </action>
+                    <action method="setElementClass">
+                        <value>landing-page-footer</value>
+                    </action>
+                     <block type="cms/block" name="landing.page.footer.cms.block" />
+                 </block>
+            </block>
+            <reference name="product_list">
+                <block type="tgc_datamart/emailLanding_email_product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+            </reference>
+            <block type="tgc_datamart/emailLanding_email_product_list_filter" name="email.landing.add.courses.filter.to.products.collection" />
+        </reference>
+    </tgc_courses_specialoffer>
+
+    <tgc_courses_coursebuffetoffer>
+        <label>Buffet Landing Pages</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="addBodyClass">
+                <class>buffet-landing-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/category-pdp.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/landing-pages.css</stylesheet></action>
+            <action method="removeItem"><type>skin_css</type><name>css/responsive.css</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/responsive.css</name></action>
+
+            <action method="addJs"><script>jquery/jquery.ui.position.js</script></action>
+            <action method="addJs"><script>varien/product.js</script></action>
+            <action method="addJs"><script>varien/configurable.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/simple_product_pricing.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/tgc_datamart/landing/buffet.js</name></action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/emailLanding" name="buffet.landing.page" template="datamart/landing/buffet.phtml">
+                <block type="tgc_datamart/emailLanding_banner" name="landing.page.banner" template="datamart/landing/banner.phtml">
+                    <block type="tgc_datamart/emailLanding_banner_set" name="buffet.landing.page.set" template="datamart/landing/banner/set.phtml">
+                        <block type="catalog/product_view_type_configurable" name="buffet.landing.page.set.configurable.options" template="datamart/landing/buffet/product/type/options/configurable.phtml">
+                            <action method="setChooseText" translate="text" module="tgc_datamart"><text>Select Set Format</text></action>
+                        </block>
+                    </block>
+                </block>
+                <block type="tgc_datamart/emailLanding_buffet_product_list" name="buffet.landing.page.product.list" template="datamart/landing/buffet/product/list.phtml">
+                    <action method="setConfigurableOptionsBlockName"><blockName>buffet.landing.page.product.configurable.options</blockName></action>
+                    <block type="cms/block" name="landing.page.header.cms.block" />
+                    <block type="catalog/product_view_type_configurable" name="buffet.landing.page.product.configurable.options" template="datamart/landing/buffet/product/type/options/configurable.phtml" />
+                    <block type="core/template" name="checkout.logos" as="checkout_logos" template="checkout/checkout_logos.phtml" />
+                    <block type="cms/block" name="landing.page.footer.cms.block" />
+                </block>
+            </block>
+        </reference>
+    </tgc_courses_coursebuffetoffer>
+
+    <tgc_courses_radiooffer>
+        <label>Radio Landing Pages</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="addBodyClass">
+                <class>radio-landing-page</class>
+            </action>
+            <action method="addBodyClass">
+                <class>buffet-landing-page</class>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/category-pdp.css</stylesheet></action>
+            <action method="addCss"><stylesheet>css/landing-pages.css</stylesheet></action>
+            <action method="removeItem"><type>skin_css</type><name>css/responsive.css</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/responsive.css</name></action>
+
+            <action method="addJs"><script>jquery/jquery.ui.position.js</script></action>
+            <action method="addJs"><script>varien/product.js</script></action>
+            <action method="addJs"><script>varien/configurable.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/simple_product_pricing.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/tgc_datamart/landing/buffet.js</name></action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_datamart/emailLanding" name="radio.landing.page" template="datamart/landing/radio.phtml">
+                <block type="tgc_datamart/emailLanding_radio_product_list" name="radio.landing.page.product.list" template="datamart/landing/radio/product/list.phtml">
+                    <action method="setConfigurableOptionsBlockName"><blockName>radio.landing.page.product.configurable.options</blockName></action>
+                    <block type="cms/block" name="landing.page.header.cms.block" />
+                    <block type="cms/block" name="radio-title" as="radio-title">
+                        <action method="setBlockId"><block_id>radio-title</block_id></action>
+                    </block>
+                    <block type="catalog/product_view_type_configurable" name="radio.landing.page.product.configurable.options" template="datamart/landing/buffet/product/type/options/configurable.phtml" />
+                    <block type="core/template" name="checkout.logos" as="checkout_logos" template="checkout/checkout_logos.phtml" />
+                    <block type="cms/block" name="landing.page.footer.cms.block" />
+                </block>
+            </block>
+        </reference>
+    </tgc_courses_radiooffer>
+
+    <cms_index_index>
+        <reference name="before_body_end">
+            <block type="core/template" name="radio.landing.enter.media.code.popup" template="datamart/landing/radio/media_code_popup.phtml" />
+        </reference>
+    </cms_index_index>
+
+</layout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Boutique
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Boutique
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <adminhtml_boutiquepages_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Boutique Pages</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_boutique/adminhtml_boutiquePages" name="boutiquePages" />
+        </reference>
+    </adminhtml_boutiquepages_index>
+
+    <adminhtml_boutiquepages_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Boutique Page</title>
+            </action>
+            <action method="addItem"><type>skin_js</type><name>js/dfValidation.js</name></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_boutique/adminhtml_boutiquePages_edit_tabs" name="boutiquePages_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_boutique/adminhtml_boutiquePages_edit" name="boutiquePages_edit" />
+        </reference>
+    </adminhtml_boutiquepages_edit>
+
+    <adminhtml_boutique_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Boutiques</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_boutique/adminhtml_boutique" name="boutique" />
+        </reference>
+    </adminhtml_boutique_index>
+
+    <adminhtml_boutique_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Boutique</title>
+            </action>
+            <action method="addItem"><type>skin_js</type><name>js/dfValidation.js</name></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_boutique/adminhtml_boutique_edit_tabs" name="boutique_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_boutique/adminhtml_boutique_edit" name="boutique_edit" />
+        </reference>
+    </adminhtml_boutique_edit>
+
+    <adminhtml_boutiqueherocarousel_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Boutique Hero Carousel Items</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_boutique/adminhtml_boutiqueHeroCarousel" name="boutiqueHeroCarousel" />
+        </reference>
+    </adminhtml_boutiqueherocarousel_index>
+
+    <adminhtml_boutiqueherocarousel_edit>
+        <reference name="head">
+            <reference name="head">
+                <action method="setTitle" translate="title">
+                    <title>Edit Boutique Hero Carousel Items</title>
+                </action>
+                <action method="setCanLoadExtJs"><flag>1</flag></action>
+                <action method="setCanLoadTinyMce"><flag>1</flag></action>
+                <action method="addJs"><script>mage/adminhtml/variables.js</script></action>
+                <action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
+                <action method="addJs"><script>lib/flex.js</script></action>
+                <action method="addJs"><script>lib/FABridge.js</script></action>
+                <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+                <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
+                <action method="addJs"><script>prototype/window.js</script></action>
+                <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+                <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+                <action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name><params/></action>
+                <action method="addItem"><type>js</type><name>tiny_mce/tiny_mce.js</name><params/></action>
+            </reference>
+        </reference>
+        <reference name="left">
+            <block type="tgc_boutique/adminhtml_boutiqueHeroCarousel_edit_tabs" name="boutiqueHeroCarousel_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_boutique/adminhtml_boutiqueHeroCarousel_edit" name="boutiqueHeroCarousel_edit" />
+        </reference>
+    </adminhtml_boutiqueherocarousel_edit>
+
+</layout>

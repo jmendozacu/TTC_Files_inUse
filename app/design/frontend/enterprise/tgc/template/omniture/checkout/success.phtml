@@ -1,0 +1,25 @@
+<?php
+/**
+ * Omniture
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Omniture
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_Omniture_Block_Checkout_Success */
+?>
+
+<?php if ($this->isOrderAvailable()): ?>
+    <div class="mboxDefault"></div>
+    <script type="text/javascript">
+        mboxCreate(
+            'orderConfirmPage',
+            'productPurchasedId=<?php echo $this->getProductPurchasedIds(); ?>',
+            'orderTotal=<?php echo $this->getOrderTotal(); ?>',
+            'orderId=<?php echo $this->getOrderId(); ?>'
+        );
+    </script>
+<?php endif; ?>

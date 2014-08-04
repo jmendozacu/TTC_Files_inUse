@@ -1,0 +1,98 @@
+<?php
+/* @var $this Tgc_Catalog_Block_Product_Rightsells */
+
+$adcodeHelper = Mage::helper('adcoderouter');
+$product = Mage::registry('product');
+/* @var Mage_Core_Helper_Data */
+$coreHelper = $this->helper('core');
+
+$set = $this->getSet($product);
+
+if ($set && $set->getId()):
+    $members = $this->getMembers();
+?>
+<?php if(!$adcodeHelper->isSpaceAd() && $members && !$adcodeHelper->isDrtvAd()): //block only appears if page is NOT a space ad. ?>
+    <form id="form-set-buy" action="<?php echo Mage::helper('checkout/cart')->getAddUrl($set); ?>" method="post">
+        <div class="buy-together-container-title">
+            <div><?php echo $this->__('Buy together as a Set') ?></div>
+            <div class="smaller"><?php echo $this->__('and') ?></div>
+            <div class="save-up save-counter">
+                <?php echo ($this->getSaveQty() > .001)
+                            ? $this->__('Save Up To %s', $coreHelper->formatPrice($this->getSaveQty(), false))
+                            : $this->__('Save') ?>
+            </div>
+        </div>
+
+        <div class="upsells-container">
+            <?php echo $this->getMembersHtml(); ?>
+        </div>
+
+        <div class="choose-format-container">
+            <div class="choose-format-container-title">Choose a Set Format</div>
+            <div class="information-needed" style="display: none">
+                <input name="course_id" type="text" value="<?php echo $set->getCourseId() ?>"/>
+                <input name="product" type="text" value="<?php echo $set->getId() ?>"/>
+                <input name="product_sku" type="text" value="<?php echo $set->getSku() ?>"/>
+            </div>
+            <?php echo $this->getButtonsHtml() ?>
+            <button class="button purchase add-to-cart-set-button disabled" title="Add to Cart" type="button">
+                <span>
+                    <span><?php echo $this->__('Add to Cart'); ?></span>
+                </span>
+            </button>
+           <!-- <a rel="nofollow" href="#" onclick="event.preventDefault();addToCartSet()" class="add-to-cart-btn add-to-cart-set-button disabled">Add To Cart</a>-->
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        function setAttributeOption() {
+            jQuery('.add-to-cart-set-button').removeClass('disabled');
+        }
+        jQuery('.add-to-cart-set-button').on(customClickEvent, function(e){
+            if(jQuery(this).hasClass('disabled')){
+                customTooltip.show(this, '<?php echo $this->__('Select a Format First') ?>', 'top' );
+            } else if(jQuery(this).hasClass('added')) {
+                e.preventDefault();
+            } else {
+                addToCartSet();
+            }
+        });
+        var setAddToCartForm = new VarienForm('form-set-buy');
+        function addToCartSet() {
+            if (setAddToCartForm.validator.validate()) {
+                var form = setAddToCartForm.form;
+                try {
+                    new Ajax.Request(form.action,
+                        {
+                            method: 'post',
+                            parameters: $(form.id).serialize(true),
+                            onSuccess: function (transport) {
+                                var response = transport.responseText;
+                                var data = response.evalJSON();
+                                $H(data).each(function (dataSet) {
+                                    if (dataSet.key === "messages") {
+                                        $('messages_product_view').update(dataSet.value);
+                                        $('messages_product_view').down('.success-msg').insert('<a class="close-button" rel="nofollow" href="javascript:void(0)">Close</a>').observe('click', function() {
+                                            this.up('.messages').hide();
+                                        });
+                                        jQuery('.add-to-cart-set-button').addClass('added').html('<span><span>Added to cart</span></span>');
+                                        jQuery('.product-pdp-recommended').show();
+                                    } else if (dataSet.key === "minicart") {
+                                        updateTopLinks();
+                                    }
+                                });
+                            },
+                            onLoading: function (request, json) {
+                                $(document.body).scrollTo();
+                            },
+                            onFailure: function () {
+                            }
+                        });
+
+                } catch (e) {
+                }
+            }
+        }
+    </script>
+<?php endif; ?>
+<?php endif; ?>

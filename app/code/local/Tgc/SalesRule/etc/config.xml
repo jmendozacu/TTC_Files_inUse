@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * SalesRule
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     SalesRule
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_SalesRule>
+            <version>0.1.0</version>
+        </Tgc_SalesRule>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_salesrule>
+                <class>Tgc_SalesRule_Helper</class>
+            </tgc_salesrule>
+        </helpers>
+        <models>
+            <tgc_salesrule>
+                <class>Tgc_SalesRule_Model</class>
+            </tgc_salesrule>
+            <salesrule>
+                <rewrite>
+                    <validator>Tgc_SalesRule_Model_Validator</validator>
+                    <rule_condition_product>Tgc_SalesRule_Model_Rule_Condition_Product</rule_condition_product>
+                    <rule_condition_product_found>Tgc_SalesRule_Model_Rule_Condition_Product_Found</rule_condition_product_found>
+                </rewrite>
+            </salesrule>
+            <salesrule_resource>
+                <rewrite>
+                    <rule_collection>Tgc_SalesRule_Model_Resource_Rule_Collection</rule_collection>
+                </rewrite>
+            </salesrule_resource>
+        </models>
+    </global>
+</config>

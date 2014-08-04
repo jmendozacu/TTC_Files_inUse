@@ -1,0 +1,31 @@
+<?php $_model = $this->getModel(); ?>
+<?php $_pages = $_model->getPages() ?>
+<?php $_products = $_model->getProducts() ?>
+<?php $_categories = $_model->getCategories() ?>
+
+<?php if (count($_pages) > 0){ ?>
+    <h2><?php echo $this->__('Site Pages') ?></h2>
+    <ul>
+        <?php foreach ($_pages as $_page) { ?>
+            <li><a href="<?php echo Mage::helper('cms/page')->getPageUrl($_page->getId()) ?>"><?php echo $_page->getTitle() ?></a></li>
+        <?php } ?>
+    </ul>
+<?php } ?>
+<p>&nbsp;</p>
+<?php if (count($_categories) > 0){ ?>
+    <h2><?php echo $this->__('Categories') ?></h2>
+    <ul>
+        <?php foreach ($_categories as $_category) { ?>
+            <li><a href="<?php echo $_category->getUrl() ?>"><?php echo $_category->getName() ?></a></li>
+        <?php } ?>
+    </ul>
+<?php } ?>
+<p>&nbsp;</p>
+<?php if (count($_products) > 0){ ?>
+    <h2><?php echo $this->__('Products') ?></h2>
+    <ul>
+        <?php foreach ($_products as $_product) { ?>
+            <li><a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName() ?></a></li>
+        <?php } ?>
+    </ul>
+<?php } ?>

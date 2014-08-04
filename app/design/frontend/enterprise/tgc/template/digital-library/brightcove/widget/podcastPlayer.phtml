@@ -1,0 +1,71 @@
+<?php
+/**
+ * BrightCove widget
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_DigitalLibrary_Block_BrightCoveMultimedia */
+
+$userAgent = Mage::helper('Guidance_Useragent');
+$deviceType = $userAgent->getDeviceType();
+$osName = $userAgent->getOsName();
+
+$width = 350;
+$height = 25;
+$playerId = '2321945819001';
+$playerKey = 'AQ~~,AAABC2NgoKk~,lQq4tda2_S2oVMo6N7EmHcR3iJJg_gkB';
+
+if ($deviceType == 'tablet' || $deviceType == 'mobile') {
+    $width = 240;
+    $playerId = '3613949701001';
+    $playerKey = 'AQ~~,AAABC2NgoKk~,lQq4tda2_S0z5ZvPoMWKgP_C3waIk5B7';
+}
+
+if ($osName == 'iOS'){
+    $height = 70;
+}
+
+?>
+
+<div id="brightCove-widget" <?php if ($deviceType != 'tablet' && $deviceType != 'mobile') {?>class="podcastWidget-iOS"<?php }?>>
+    <div id="brightCove-player">
+        <script language="JavaScript" type="text/javascript" src="<?php echo $this::JS_LOCATION; ?>"></script>
+        <object id="myExperiencePodcast" class="BrightcoveExperience">
+            <param name="bgcolor" value="#ffffff" />
+            <param name="width" value="<?php echo $width; ?>" />
+            <param name="height" value="<?php echo $height; ?>" />
+            <param name="playerID" value="<?php echo $playerId; ?>" />
+            <param name="playerKey" value="<?php echo $playerKey; ?>" />
+            <param name="isVid" value="0" />
+            <param name="isUI" value="0" />
+            <param name="dynamicStreaming" value="true" />
+            <param name="@videoPlayer" value="<?php echo $this->getContentId(); ?>" />
+            <!-- smart player api params -->
+            <param name="templateLoadHandler" value="templateLoaded" />
+            <param name="includeAPI" value="true" />
+            <param name="wmode" value="transparent" />
+        </object>
+
+
+        <script language="JavaScript" type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+    </div>
+</div>
+<script type="text/javascript">brightcove.createExperiences();</script>
+<script type="text/javascript">
+    <?php if ($deviceType == 'tablet' && $osName == 'iOS'):?>
+        iframePlayer = document.getElementById('myExperiencePodcast').contentWindow;
+    <?php endif; ?>
+
+    function templateLoaded(experienceID) {
+        player = brightcove.api.getExperience(experienceID);
+        modVP = player.getModule(brightcove.api.modules.APIModules.VIDEO_PLAYER);
+        modExp = player.getModule(brightcove.api.modules.APIModules.EXPERIENCE);
+        modCon = player.getModule(brightcove.api.modules.APIModules.CONTENT);
+        modExp.addEventListener(brightcove.api.events.ExperienceEvent.TEMPLATE_READY, onTemplateReady);
+    }
+</script>

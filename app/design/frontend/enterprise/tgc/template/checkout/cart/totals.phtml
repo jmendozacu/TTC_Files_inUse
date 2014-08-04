@@ -1,0 +1,53 @@
+<?php
+/**
+ *
+ */
+?>
+<?php
+/**
+ * Shopping cart totals template
+ *
+ * @see Mage_Checkout_Block_Cart_Totals
+ * @var $this Mage_Checkout_Block_Cart_Totals
+ */
+?>
+<?php if ($this->canApplyMsrp()): ?>
+    <div class="cart-msrp-totals"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER'); ?></div>
+<?php else: ?>
+    <table id="shopping-cart-totals-table">
+        <col />
+        <col width="1" />
+        <tbody>
+            <?php echo $this->renderTotals(); ?>
+            <?php if (!Mage::helper('tgc_checkout')->getDisplayRates()): ?>
+                <tr>
+                    <td class="a-right">
+                        <?php echo $this->__("Estimated Shipping"); ?>
+                        <?php echo $this->getChildHtml('shippingRates'); ?>
+                    </td>
+                    <td class="a-right">
+                        <?php echo ($estimatedShipping = Mage::helper('tgc_checkout')->getEstimateShippingByPrice())? $this->helper('checkout')->formatPrice($estimatedShipping) : "--.--"; ?>
+                    </td>
+                </tr>
+            <?php endif; ?>
+            <?php
+                $urlString = Mage::helper('core/url')->getCurrentUrl();
+                $url = Mage::getSingleton('core/url')->parseUrl($urlString);
+                $path = $url->getPath();
+            ?>
+            <?php if (!Mage::helper('tgc_checkout')->getDisplayTaxes()): ?>
+                <tr>
+                    <td class="a-right">
+                        <?php echo $this->__("Estimated Tax"); ?>
+                    </td>
+                    <td class="a-right">
+                        <?php echo ($tax = Mage::helper('tgc_checkout')->getEstimatedTax())? $this->helper('checkout')->formatPrice($tax) :"--.--"; ?>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+        <tfoot>
+        <?php echo $this->renderTotals('footer'); ?>
+        </tfoot>
+    </table>
+<?php endif; ?>

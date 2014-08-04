@@ -1,0 +1,634 @@
+/*
+My account
+*/
+.my-account-pages .col-left.grid12-3 {
+    width: 16.75%;
+    padding-top: 12px;
+}
+
+.my-account-pages .col-main.grid12-9 { width: 79.25%; }
+
+.account-mobile-nav { display: none; }
+
+.my-account-pages .main { padding: 25px 0 75px; }
+
+.account-mobile-nav { display: none; }
+
+.my-account-pages .page-title h1 {
+    color: #494c4f;
+    font-size: 24px;
+    line-height: 24px;
+    min-height: inherit;
+    padding: 8px 8px 6px 8px;
+}
+
+/*Account Information*/
+.my-account .page-title {
+    border-bottom: 1px solid #c2c2c2;
+    margin-bottom: 0;
+}
+
+.dashboard .form-list .input-box { width: 200px; }
+
+.dashboard .box-title {
+    background: rgba(217,219,220,.5 );
+    margin: 0 0 1px;
+    border-bottom: 1px solid #c2c2c2;
+    height: 80px;
+    overflow: hidden;
+    display: table;
+    width: 100%;
+    text-shadow: none;
+}
+
+.dashboard .box-title .col-label,
+.dashboard .box-title .col-content,
+.dashboard .box-title .col-action {
+    height: inherit;
+    display: table-cell;
+    vertical-align: middle;
+}
+.dashboard .box-title .col-data-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+.dashboard .box-title .col-label { float: left; width: 150px; margin-right: 3%; padding-left: 20px; }
+
+.dashboard .box-title .col-label p { font-family: 'proxima_nova_rgregular', sans-serif; }
+
+.dashboard .box-title .col-content { margin-right: 3%; font-weight: 400; font-family: 'proxima_nova_rgregular', sans-serif; }
+.dashboard .box-title .col-content .title { font-family: 'proxima_nova_ltsemibold', sans-serif; }
+
+.dashboard .box-title .col-content i { font-family: 'proxima_nova_altRgIt', sans-serif; line-height: 14px; font-weight: 400; }
+
+.dashboard .box-title .col-action { text-align: right; padding-right: 20px; }
+
+.dashboard .box-content {
+    display: none;
+    background: rgba(217,219,220,.2 );
+    padding: 20px 0 25px;
+    margin: 0 0 1px;
+    border-bottom: 1px solid #c2c2c2;
+    position: relative;
+}
+
+.dashboard .box-content .loader,
+.dashboard .box-content .notice-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    margin-top: -20px;
+}
+
+.dashboard .customer-addresses .box-content .loader,
+.dashboard .customer-addresses .box-content .notice-container {
+    margin-top: 0px;
+}
+
+.dashboard .box-content .loader .hover,
+.dashboard .box-content .notice-container .hover {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.dashboard .box-content .notice-container {
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+}
+
+.dashboard .box-content .loader .msg:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    background: url(../images/opc-ajax-loader.gif);
+}
+
+.dashboard .box-content .loader .msg,
+.dashboard .box-content .notice-container .msg{
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    margin-top: -16px;
+}
+
+.dashboard .box-content .notice-container.error .msg,
+.dashboard .box-content .notice-container.success .msg {
+    color: #fff;
+}
+
+.dashboard .box-content .notice-container.error .hover,
+.dashboard .box-content .notice-container.success .hover {
+    display: none;
+}
+
+.dashboard .box-content .notice-container.error {
+    background: #d01a1a;
+}
+.dashboard .box-content .notice-container.success {
+    background: #5dba3a;
+}
+
+.my-account .info-box.show .box-title {
+    background: rgba(217,219,220,.2 );
+}
+
+.my-account .secondary-btn,
+.my-account .buttons-set button.button { width: 100px; }
+
+.my-account form#form-validate div.fieldset { padding-left: 0;}
+
+.my-account .form-list .field { width: 100%; }
+
+.my-account .form-list li { margin: 0; }
+
+.my-account .form-list .field { margin-bottom: 20px; }
+
+.my-account .fieldset { padding: 0; margin: 0; border: none; }
+
+.my-account .fieldset .form-list { background: #fff; margin: 0 10px; padding: 10px; }
+
+.my-account .fieldset .legend { text-transform: none; }
+
+.my-account h5.legend { font: 12px/1 'proxima_nova_rgregular', sans-serif; color: #45555f; margin: 0; padding:  15px 0 5px 20px; }
+
+.my-account h6.legend {  font-size: 14px; border-bottom: 1px solid #d9dbdc; margin-bottom: 20px; }
+
+#shipping-new-address-form p.required,
+#checkout-step-billing p.required,
+.my-account p.required {
+    margin: 15px 15px 0 0;
+    display: inline-block;
+    color: #e20000;
+    font-size: 12px;
+    font-style: italic;
+    float: right;
+}
+
+/*form elements*/
+.my-account-pages .buttons-set button.button { margin: 0; }
+
+.my-account-pages a.add-btn { margin-left: 10px; }
+.my-account-pages .form-list label { width: 33%; }
+
+.my-account-pages .buttons-set { padding-left: 35%; }
+
+.my-account-pages .buttons-set.additional-buttons { padding-left: 0; }
+
+.my-account-pages .additional-buttons button.button { float: right; margin-right: 20px; }
+
+.form-list .optional { color: #a9adb0; font-family: 'proxima_nova_rgregular', sans-serif; margin-left: 4px; }
+
+.my-account-pages .form-list .description { max-width: 135px; color: #45555f; line-height: normal; display: inline-block; vertical-align: top; margin: 8px 0 0 10px; }
+
+.my-account-pages .customer-password .form-list .input-box { width: 26%; }
+.my-account-pages .customer-email .form-list .input-box { width: 26%; }
+
+.my-account-pages .form-list input.input-text {
+    width: 178px;
+}
+
+.my-account-pages input#zip { width: 138px; }
+
+.my-account-pages .form-list select {
+    width: 200px;
+}
+
+.my-account-pages form#form-validate div.input-box { float: none; display: inline-block; vertical-align: middle; }
+
+.my-account-pages form#form-validate li.control label { float: none; padding-left: 35px; }
+
+.my-account-pages .checkbox + label { width: 100%; text-align: left; }
+
+ol.box-content {
+    list-style: decimal inside;
+}
+.dashboard .right-col {
+    text-align: right;
+}
+.dashboard .right-col .button { margin-top: 20px; padding: 0 15px; }
+
+.dashboard .left-col { color: #45555f; }
+
+/*Billing info*/
+.customer-billing address { font-size: 14px; }
+
+.customer-billing .box-content,
+.customer-shipping .box-content { padding: 0; }
+
+.customer-billing .buttons-set{ padding-left: 36%; }
+
+.customer-billing h6.label { margin: 0; }
+
+.customer-billing h6.label span { font-family: 'proxima_nova_rgregular', sans-serif;}
+
+.customer-addresses li.control { margin: 0 0 2% 35%; }
+
+.customer-addresses .street-1,
+.customer-addresses .street-2,
+.customer-addresses .city-reg-zip,
+.customer-addresses .country {
+    display: block;
+}
+
+.customer-billing .right-col,
+.customer-shipping .right-col {
+    text-align: right;
+}
+
+/*Shipping info*/
+.customer-shipping .box-content {
+    padding-bottom: 20px;
+}
+
+.customer-shipping .control { display: none; }
+
+/*My orders*/
+.sales-order-history .page-title h2 { float: left; line-height: 1.5em;}
+
+.sales-order-history .sort-by { float: right; }
+
+.sales-order-history .sort-by select  { width: 150px; }
+.sales-order-history .sort-by .b-core-ui-select {
+    width: 149px;
+}
+.sales-order-history .sort-by label  { font: 13px/13px 'proxima_nova_ltsemibold', sans-serif; }
+.sales-order-history .sort-by label:after { top: -3px; }
+
+.table-row { width: 100%; overflow: hidden; }
+
+.table-body { font-size: 14px; }
+
+.table-head .table-row {
+    padding-top: 20px;
+    min-height: 20px;
+    font: 600 12px/12px 'proxima_nova_ltsemibold', sans-serif;
+    text-transform: uppercase;
+}
+
+.table-head .table-row label {
+    text-transform: none;
+    display: inline;
+}
+
+.table-body .table-row {
+    background: rgba(217,219,220,.5 );
+    margin: 0 0 1px;
+    border-bottom: 1px solid #c2c2c2;
+    min-height: 40px;
+    padding-top: 20px;
+}
+
+.table-body .table-row .image-col input,
+.table-body .table-row .image-col label {
+    display:inline-block;
+    float:left;
+}
+
+.lte-ie8 .table-body .table-row .image-col input,
+.lte-ie8 .table-body .table-row .image-col label,
+.lte-ie8 .table-head .table-row .image-col input,
+.lte-ie8 .table-head .table-row .image-col label {
+    margin-right:8px;
+}
+
+.my-account .opener {
+    display: block;
+    margin: auto;
+    text-indent: -200%;
+    overflow: hidden;
+    width: 24px;
+    height: 24px;
+    background: url(../images/tgc/sprite.png) -48px -209px;
+}
+.my-account .table-row .course-name {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.my-account .collapsible.active {
+    background: #eeeeee;
+}
+.my-account .collapsible .opener {
+    background: url(../images/tgc/sprite.png) -48px -209px;
+    display: block;
+    height: 24px;
+    overflow: hidden;
+    right: 19px;
+    text-indent: -200%;
+    top: 18px;
+    width: 24px;
+}
+.my-account .collapsible.active .opener {
+    background: url(../images/tgc/sprite.png) -75px -209px;
+}
+.my-account .collapsible.active .table-row {
+    background: none;
+}
+.my-account .collapsible > .block-content {
+    display: none;
+    padding-top: 22px;
+}
+
+
+.order-info-container {
+    margin-bottom: 19px;
+}
+.order-info-container .title-block {
+    color: #494c4f;
+    font: 600 18px/20px 'freighttext_prosemibold', serif;
+    margin: 0 1% 5px;
+}
+.order-info-container .print-block {
+    text-align: right;
+    margin-top: 9px;
+    margin-right: 33px;
+    margin-bottom: 9px;
+}
+.order-info-container .print-block .link-print {
+    padding-top: 6px;
+}
+.order-info-container .print-block .link-print:before {
+    margin-right: 7px;
+    position: relative;
+    top: -3px;
+}
+
+
+
+.custom-table-block {
+    background: #fff;
+    color: #45555f;
+    font: 14px/16px 'proxima_nova_rgregular', sans-serif;
+    margin-bottom: 11px;
+}
+.custom-table-block.full {
+    margin: 0 1%;
+    height: auto;
+    min-height: 100px;
+}
+.custom-table-block.full .text-block {
+    padding-bottom: 12px;
+}
+.custom-table-block.full .table-body {
+    padding: 12px 0;
+}
+
+.custom-table-block .table-head {
+    background: #494c4f;
+    border: 1px solid #383a3c;
+    color: #ffffff;
+    font: 600 14px/19px 'proxima_nova_ltsemibold', sans-serif;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.custom-table-block .table-body {
+    min-height: 100px;
+    margin-top: 1px;
+
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.custom-table-block .text-block.small {
+    font-size: 12px;
+    padding: 12px;
+}
+
+.order-subtotal-container {
+    color: #45555f;
+    float: right;
+    font: 14px/16px 'proxima_nova_rgregular', sans-serif;
+    margin: 0 21px 6px 10px;
+    width: 250px;
+}
+.order-subtotal-container .v-grid-container {
+    border-top: 1px dotted #a5a5a5;
+    padding: 16px 0;
+}
+.order-subtotal-container .v-grid-container .grid12-4 {
+    text-align: right;
+}
+.order-subtotal-container .subtotal-block {
+    border: 0;
+    color: #494c4f;
+    font: 600 14px/16px 'proxima_nova_ltsemibold', sans-serif;
+    padding: 0 0 16px;
+    text-transform: uppercase;
+}
+.order-subtotal-container .estimated-total-block {
+    border-top: 1px solid #151a1e;
+    font: 700 16px/18px 'proxima_nova_rgbold', sans-serif;
+}
+
+.order-page .link-print { margin-top: 40px; }
+
+.order-page .order-number,
+.order-page .order-date {
+    font: 14px/18px 'proxima_nova_rgregular', sans-serif;
+    display: block;
+}
+
+.order-page .info-box {
+    background: #fff;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.order-page .box-title,
+.order-details .table-head {
+    background: #494c4f;
+    color: #fff;
+    padding: 2px 0;
+}
+
+.order-page .box-title {
+    padding: 2px 10px;
+}
+
+.order-page .box-content {
+    padding: 0 10px 10px;
+    min-height: 80px;
+}
+
+.order-page .col2-set {
+    margin-bottom: 10px;
+}
+
+.order-details h2.table-caption { font: 500 1.5em/1 'freighttext_promedium', serif; margin: 30px 0 5px; }
+
+.order-details .table-head .table-row {
+    text-transform: none;
+    font: 600 1.167em/1.333em 'proxima_nova_ltsemibold', sans-serif;
+    padding-top: 0;
+}
+
+.order-details .table-body .table-row {
+    background: #fff;
+    border-bottom: none;
+    padding: 10px 0 40px;
+}
+
+.order-details .product-name {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.order-details .col-total {
+    text-align: right;
+}
+
+.order-details .table-foot {
+    float: right;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.shipping,
+.subtotal {
+    background: url(../images/tgc/bd-dotted.png) repeat-x bottom;
+    overflow: hidden;
+}
+
+.subtotal {
+    color: #494c4f;
+    font: 600 1.167em/1.333em 'proxima_nova_ltsemibold', sans-serif;
+    text-transform: uppercase;
+}
+
+.order-details .data-table td {
+    padding: 15px 0;
+    font-size: 13px;
+}
+
+.order-details .data-table td.last {
+    font-size: 14px;
+}
+
+.order-details .data-table .grand_total {
+    overflow: hidden;
+    border-top: 1px solid #13181c;
+}
+
+.order-details .grand_total td.last {
+    font-size: 16px;
+}
+
+.order-details-totals {width: 100%;}
+
+
+/*Wish list*/
+
+#wishlist-table { padding-bottom: 20px; border-bottom: 1px dashed #dddedf;
+    margin-bottom: 20px; }
+
+.my-wishlist .table-body {
+    font-size: 12px;
+}
+
+.my-wishlist .table-body .price-box {
+    font-family: 'proxima_nova_ltsemibold', sans-serif;
+    font-weight: 600;
+}
+
+.my-wishlist .table-body .old-price {
+    color: #91908f;
+}
+
+.my-wishlist .table-body .special-price .price {
+    color: #d01a1a!important;
+}
+
+.my-wishlist .table-body .table-row {
+    background: #fff;
+    position: relative;
+    border-bottom: none;
+    padding: 20px 0;
+}
+
+.my-wishlist .table-head .table-row {
+    padding-top: 25px; padding-bottom: 5px;
+}
+
+.my-wishlist h3 a {
+    float: none;
+}
+
+.my-wishlist h3 a:hover {
+    text-decoration: none; }
+
+.my-wishlist .price-box .price-label,
+.my-wishlist .special-price .price-label {
+    display: none;
+}
+
+.my-wishlist .btn-remove {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.my-wishlist .transcript-book {
+    background: rgba(250,250,250,.5);
+    border-bottom: 1px solid #cdcfd1;
+    margin-bottom: 5px;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 0 25px;
+}
+
+.my-wishlist .transcript-book a {
+    margin-left: 15px;
+}
+
+.my-wishlist .buttons-set {
+    padding-left: 0;
+    margin: 0;
+}
+.my-wishlist #wishlist-view-form .wishlist-empty{
+    margin-top: 10px;
+}
+.wishlist-index-share .my-account .form-list .wide { margin-bottom: 20px; }
+.wishlist-index-share .buttons-set button.button { width: auto; margin-left: 20px; }
+.wishlist-index-share .buttons-set { padding-right: 15px; }
+
+div.table-row div .input-text.qty.wishlistQtyReadonly {
+    border: none;
+    box-shadow: none;
+}
+
+.customer-account-create #form-validate .account-create-login-info .ajax-new-account-links{
+    margin-left: 112px;
+    width: 200px;
+    text-align: center;
+}
+.customer-account-create #form-validate .account-create-login-info .ajax-new-account-links label{
+    font-size: 10px;
+    line-height: 12px;
+    width: auto;
+    margin: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.customer-account-create #form-validate .account-create-login-info .ajax-new-account-links .button{
+    margin-left: 0;
+}
+
+.customer-account-create #form-validate .account-create-personal-info .ajax-new-account-links .back-register-button {
+    margin-top: -3px;
+}

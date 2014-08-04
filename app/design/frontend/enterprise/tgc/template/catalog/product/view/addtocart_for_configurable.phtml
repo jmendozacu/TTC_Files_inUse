@@ -1,0 +1,56 @@
+<?php
+/**
+ * Tgc Add to cart for configurable product
+ *
+ * @author      Guidance Magento SuperTeam <magento@guidance.com>
+ * @category    Tgc
+ * @package     Catalog
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+
+<?php $_product = $this->getProduct(); ?>
+<?php $cartButtonTitle = $this->__('Add to Cart'); ?>
+<?php $wishlistButtonTitle = $this->__('Add to Wish List'); ?>
+<?php $_wishlistSubmitUrl = $this->helper('tgc_wishlist')->getAddUrl($_product); ?>
+<?php if ($_product->isSaleable()): ?>
+    <div class="add-to-cart clearfix">
+        <button type="button" title="<?php echo $cartButtonTitle ?>" id="add-to-cart-btn" class="button purchase add-to-cart-btn disabled"><span><span><?php echo $cartButtonTitle ?></span></span></button>
+        <button type="button" title="<?php echo $wishlistButtonTitle ?>" id="add-to-wishlist-btn" class="button add-to-wishlist-btn disabled">
+            <?php echo $this->__('Add to Wish List') ?>
+        </button>
+    </div>
+    <div class="paypal-wrapper"><?php echo $this->getChildHtml('', true, true) ?></div>
+<?php endif; ?>
+<script type="text/javascript">
+    function addToWish() {
+        if(typeof window.utag_data == "object" && typeof window.utag == "object" && typeof window.utag.link == "function"){
+            var format = jQuery('#product_addtocart_form div.format-block.active label span.format-label').text();
+            var price = jQuery('#product_addtocart_form div.format-block.active label span.format-price').text();
+            price = price.trim().replace('$', '').replace('£', '');
+            if (window.tgc_tealiumObj.addToWishlistEvent(format, price)) {
+                productAddToCartForm.submitLight(this, '<?php echo $_wishlistSubmitUrl ?>');
+            } else {
+                productAddToCartForm.submitLight(this, '<?php echo $_wishlistSubmitUrl ?>');
+            }
+        }
+    }
+
+    jQuery('#add-to-wishlist-btn').on(customClickEvent, function(){
+        if(!jQuery(this).hasClass('disabled')){
+            addToWish();
+        } else {
+            customTooltip.show(this, '<?php echo $this->__('Select a Format First') ?>', 'top' );
+        }
+    });
+
+    jQuery('#add-to-cart-btn').on(customClickEvent, function(e){
+        if(jQuery(this).hasClass('disabled')){
+            customTooltip.show(this, '<?php echo $this->__('Select a Format First') ?>', 'top' );
+        } else if(jQuery(this).hasClass('added')) {
+            e.preventDefault();
+        } else {
+            productAddToCartForm.submit(this, '<?php echo $this->jsQuoteEscape($this->getSubmitUrl($_product)) ?>');
+        }
+    });
+</script>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * New Release Page module's config
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_NewRelease
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_NewRelease>
+            <version>2</version>
+        </Tgc_NewRelease>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_newRelease>
+                <class>Tgc_NewRelease_Helper</class>
+            </tgc_newRelease>
+        </helpers>
+        <models>
+            <tgc_newRelease>
+                <class>Tgc_NewRelease_Model</class>
+                <resourceModel>tgc_newRelease_resource</resourceModel>
+            </tgc_newRelease>
+            <tgc_newRelease_resource>
+                <class>Tgc_NewRelease_Model_Resource</class>
+            </tgc_newRelease_resource>
+            <enterprise_search>
+                <rewrite>
+                    <catalog_layer>Tgc_NewRelease_Model_Enterprise_Layer</catalog_layer>
+                </rewrite>
+            </enterprise_search>
+            <catalog>
+                <rewrite>
+                    <layer>Tgc_NewRelease_Model_Layer</layer>
+                </rewrite>
+            </catalog>
+        </models>
+        <resources>
+            <tgc_newRelease_setup>
+                <setup>
+                    <module>Tgc_NewRelease</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </tgc_newRelease_setup>
+        </resources>
+    </global>
+</config>

@@ -1,0 +1,19 @@
+<?php
+    $banner = $this->getBanner();
+    $imageHelper = $this->getImageHelper();
+?>
+<div class="landing-banner-wrapper">
+    <div class="banner-container">
+        <?php if ($mobileImageSrc = (string)$imageHelper->init($banner, 'mobile_image')/*->resize(320, 230)*/): ?>
+        <div class="mobile-image-container show-for-mobile">
+            <img src="<?php echo $mobileImageSrc; ?>" />
+        </div>
+        <?php endif; ?>
+        <?php if ($desktopImageSrc = (string)$imageHelper->init($banner, 'desktop_image')/*->resize(720, 230)*/): ?>
+        <div class="desktop-image-container hide-for-mobile">
+            <img src="<?php echo $desktopImageSrc; ?>" />
+        </div>
+        <?php endif; ?>
+    </div>
+    <?php echo $this->getChildHtml(); ?>
+</div>

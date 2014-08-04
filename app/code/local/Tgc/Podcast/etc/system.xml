@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <rocketweb_podcast translate="label" module="podcast">
+            <groups>
+                <settings translate="label">
+                    <fields>
+                        <tgc_bg_image>
+                            <label>Podcast Background Image</label>
+                            <comment>should be 940x325</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">RocketWeb/Podcasts/Channel</upload_dir>
+                            <base_url type="media" scope_info="1">RocketWeb/Podcasts/Channel</base_url>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tgc_bg_image>
+                        <tgc_logo_image>
+                            <label>Podcast Logo Image</label>
+                            <comment>should be 133x160</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">RocketWeb/Podcasts/Channel</upload_dir>
+                            <base_url type="media" scope_info="1">RocketWeb/Podcasts/Channel</base_url>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tgc_logo_image>
+                    </fields>
+                </settings>
+                <image translate="label">
+                    <fields>
+                        <image_width>
+                            <label>Image Width</label>
+                            <comment>Typically 144</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image_width>
+                        <image_height>
+                            <label>Image Height</label>
+                            <comment>Typically 144</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image_height>
+                    </fields>
+                </image>
+            </groups>
+        </rocketweb_podcast>
+    </sections>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Cms>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Cms/>
+            </depends>
+        </Tgc_Cms>
+    </modules>
+</config>

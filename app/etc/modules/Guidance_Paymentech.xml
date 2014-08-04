@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Guidance_Paymentech>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Enterprise_Pbridge/>
+            </depends>
+        </Guidance_Paymentech>
+    </modules>
+</config>

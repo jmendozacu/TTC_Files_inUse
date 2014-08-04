@@ -1,0 +1,156 @@
+<?php
+/**
+ * Digital Library
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @see Tgc_DigitalLibrary_Block_List_Toolbar
+ */
+?>
+<?php if ($this->getCollection()->getSize()): ?>
+    <?php $sorterCurrentValue = $this->getCurrentOrderKey(); ?>
+    <div class="toolbar">
+    <?php if ($this->isExpanded()): ?>
+        <div class="sorter clearfix">
+            <p class="amount">
+                <?php if ($this->getLastPageNum() > 1): ?>
+                    <strong><?php echo $this->getTotalNum() ?></strong><?php echo $this->__(' Courses'); ?>
+                <?php else: ?>
+                    <strong><?php echo $this->__(count($this->getCollection())); ?></strong><?php echo $this->__(' Course(s)'); ?>
+                <?php endif; ?>
+            </p>
+
+            <div class="sort-by category">
+                <label><?php echo $this->__('Filter') ?></label>
+                <select onchange="setLocation(this.value)">
+                    <?php foreach ($this->getAvailableCategories() as $_id => $_name): ?>
+                        <option
+                            value="<?php echo $this->getCatUrl($_id) ?>"<?php if ($this->isCatCurrent($_id)): ?> selected="selected"<?php endif; ?>>
+                            <?php echo $this->__($_name) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="course-type-selector-mobile"><!--This selector only for mobile devices-->
+                <div class="all <?php if ($this->isActive('*/*/index')): ?><?php echo 'active' ?><?php endif; ?>"
+                ">
+                <a href="<?php echo $this->getUrl('*/*/index'); ?>"></a>
+            </div>
+            <div class="audio <?php if ($this->isActive('*/*/audio')): ?><?php echo 'active' ?><?php endif; ?>"
+            ">
+            <a href="<?php echo $this->getUrl('*/*/audio'); ?>"></a>
+        </div>
+        <div class="video <?php if ($this->isActive('*/*/video')): ?><?php echo 'active' ?><?php endif; ?>">
+            <a href="<?php echo $this->getUrl('*/*/video'); ?>"></a>
+        </div>
+        </div>
+
+        <div class="sorter-for-mobile">
+            <div class="sorter-value <?php echo $sorterCurrentValue ?>"></div>
+            <div class="sorter-button"></div>
+            <div class="variations-list-wrapper">
+                <ul class="variations-list">
+                    <?php foreach ($this->getAvailableOrders() as $_key => $_order): ?>
+                        <li class="<?php echo $this->__($_key) ?>">
+                            <a class="<?php echo $_key == $sorterCurrentValue ? "active" : "" ?>"
+                               href="<?php echo $this->getOrderUrl($_key, 'asc') ?>">
+                                <?php echo $this->__($_order) ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+        <div class="sort-by filter">
+            <label><?php echo $this->__('Sort By') ?></label>
+            <select onchange="setLocation(this.value)">
+                <?php foreach ($this->getAvailableOrders() as $_key => $_order): ?>
+                    <option
+                        value="<?php echo $this->getOrderUrl($_key, 'asc') ?>"<?php if ($this->isOrderCurrent($_key)): ?> selected="selected"<?php endif; ?>>
+                        <?php echo $this->__($_order) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <?php if ($this->isEnabledViewSwitcher()): ?>
+            <p class="view-mode">
+                <?php $_modes = $this->getModes(); ?>
+                <?php if ($_modes && count($_modes) > 1): ?>
+                    <label><?php echo $this->__('View') ?></label>
+                    <?php foreach ($this->getModes() as $_code => $_label): ?>
+                        <?php if ($this->isModeActive($_code)): ?>
+                            <span title="<?php echo $_label ?>"
+                                  class="<?php echo strtolower($_code); ?>"><?php echo $_label ?></span>
+                        <?php else: ?>
+                            <a href="<?php echo $this->getModeUrl($_code) ?>" title="<?php echo $_label ?>"
+                               class="<?php echo strtolower($_code); ?>"><?php echo $_label ?></a>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </p>
+        <?php endif; ?>
+        <a class="mobile-filter-button" rel="nofollow" href="#"><?php echo $this->__('Filter') ?></a>
+        </div>
+    <?php endif; ?>
+    <?php echo $this->getPagerHtml(); ?>
+    </div>
+<?php endif ?>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+
+        var activateMobileSorter = function(e) {
+            var isActive;
+            var variationsList = {};
+            var showHideVariations = function (el) {
+                variationsList = el.parents('.sorter-for-mobile').find('.variations-list-wrapper');
+                if (isActive !== true) {
+                    variationsList.toggleClass('open', true);
+                    isActive = true;
+                } else {
+                    variationsList.removeClass('open')
+                    isActive = false;
+                    el.parents('.sorter-for-mobile').find('a').removeClass('active');
+                }
+            }
+
+            $('body').on(customClickEvent, '.sorter-for-mobile .sorter-button', function (e) {
+                e.stopPropagation();
+                showHideVariations($(this));
+            });
+
+            $('.sorter-for-mobile .variations-list li').on(customClickEvent, function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                $(this).find('a').addClass('active');
+                $(this).parents('.sorter-for-mobile').find('.sorter-value').attr('class', 'sorter-value ' + $(this).attr('class'));
+                setLocation($(this).find('a').attr('href'))
+                showHideVariations($(this));
+            });
+
+            $('body').on(customClickEvent, function (e) {
+                e.stopPropagation();
+                if (!$(e.target).parents().hasClass('sorter-for-mobile') && isActive === true) {
+                    variationsList.removeClass('open');
+                    isActive = false;
+                }
+            });
+        };
+
+        /*Activate for custom mobile sorter*/
+        activateMobileSorter();
+
+
+        <!-- Code for custom selects in toolbar -->
+        $('.sort-by select').coreUISelect();
+
+    });
+</script>

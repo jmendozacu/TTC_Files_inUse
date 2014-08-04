@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Professors
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Professors
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<widgets>
+    <professorSlider type="profs/professorSlider" translate="name description" module="profs">
+        <name>Professor Slider</name>
+        <description>Professor Slider for Our Professors Page</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <num_professors>
+                <required>1</required>
+                <visible>1</visible>
+                <value>12</value>
+                <label>Number of Professors to Display</label>
+                <type>text</type>
+            </num_professors>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </professorSlider>
+</widgets>

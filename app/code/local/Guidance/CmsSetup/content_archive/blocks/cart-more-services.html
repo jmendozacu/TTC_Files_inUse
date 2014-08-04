@@ -1,0 +1,40 @@
+id:     cart-more-services
+title:  Cart More Services All Countries
+status: enabled
+stores: default,uk_en, au_en
+---
+<div class="customer_more_container tooltip">
+    <div class="float_left">
+        <div class=" customer_more_box customer_more_box_1">
+            <h3>We Protect Your Privacy</h3>
+            <span>Our commitment to
+                <a class="js-action-icon">protecting your privacy</a>
+                <div class="tooltip-text tooltip-balloon">
+                    <a class="close-balloon" href="#">x</a>
+                    <div class="tooltip-text-desc">
+                    {{block type="cms/block" block_id="protecting_your_privacy" name="protecting_your_privacy"}}
+                    </div>
+                </div>
+            </span>
+         </div>
+    </div>
+
+    <div class="float_left tooltip">
+        <div class="customer_more_box customer_more_box_2">
+            <h3>Satisfaction Guaranteed</h3>
+            <span>Every course comes with our
+                <a class="js-action-icon">Lifetime Satisfaction Guarantee</a>
+                <div class="tooltip-text tooltip-balloon">
+                    <a href="#" class="close-balloon">x</a>
+                    <div class="tooltip-text-desc">
+                        {{block type="cms/block" block_id="lifetime_satisfaction_guarantee" name="lifetime_satisfaction_guarantee"}}
+                    </div>
+                </div>
+                , offered since we opened our doors in 1990.
+            </span>
+        </div>
+    </div>
+
+    {{block type="cms/block" block_id="cart-more-services-images" name="cart-more-services-images"}}
+
+</div>

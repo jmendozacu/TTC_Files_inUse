@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Customer
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Customer
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <placeholders>
+        <tgc_customer_form_login>
+            <block>tgc_customer/form_login</block>
+            <placeholder>HEADER_LOGINFORM</placeholder>
+            <container>Tgc_Customer_Model_Container_HeaderLogin</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_customer_form_login>
+    </placeholders>
+</config>

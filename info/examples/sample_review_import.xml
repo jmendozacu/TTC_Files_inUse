@@ -1,0 +1,2208 @@
+<?xml version="1.0" encoding="UTF-8"?><Feed xmlns="http://www.bazaarvoice.com/xs/PRR/StandardClientFeed/5.6" name="citychic-online" extractDate="2013-10-26T06:33:12.786-05:00">
+<Product id="32724" disabled="false" removed="false">
+<Source>citychic-online</Source>
+<ExternalId>32724</ExternalId>
+<Name>Roxanne Dress</Name>
+<Description>Roxanne Dress</Description>
+<NumNativeQuestions>0</NumNativeQuestions>
+<NumQuestions>0</NumQuestions>
+<NumNativeAnswers>0</NumNativeAnswers>
+<NumAnswers>0</NumAnswers>
+<NumReviews>1</NumReviews>
+<NumStories>0</NumStories>
+<CategoryItems>
+<CategoryItem id="dresses">
+<ExternalId>dresses</ExternalId>
+<CategoryId>127234</CategoryId>
+<CategoryName>Dresses</CategoryName>
+</CategoryItem>
+</CategoryItems>
+<ProductPageUrl>http://citychic.stage.guidance.com/roxanne-dress-black.html?___store=sonsi</ProductPageUrl>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/32724/reviews.htm</ProductReviewsUrl>
+<ImageUrl>http://citychic.stage.guidance.com/media/catalog/product/cache/0/image/265x/9df78eab33525d08d6e5fb8d27136e95/3/2/32724_Black_1_21.jpg</ImageUrl>
+<ReviewStatistics>
+<AverageOverallRating>5.0</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>1</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>1</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues>
+<AverageRatingValue id="Quality">
+<AverageRating>5.0</AverageRating>
+<RatingDimension id="Quality" displayType="NORMAL" selectedValueInDisplayEnabled="false">
+<ExternalId>Quality</ExternalId>
+<RatingRange>5</RatingRange>
+<Label>Quality of Product</Label>
+<Label1>How would you rate the quality of this product?</Label1>
+</RatingDimension>
+</AverageRatingValue>
+<AverageRatingValue id="Value">
+<AverageRating>5.0</AverageRating>
+<RatingDimension id="Value" displayType="NORMAL" selectedValueInDisplayEnabled="false">
+<ExternalId>Value</ExternalId>
+<RatingRange>5</RatingRange>
+<Label>Value of Product</Label>
+<Label1>How would you rate the value of this product?</Label1>
+</RatingDimension>
+</AverageRatingValue>
+<AverageRatingValue id="Fit">
+<AverageRating>3.0</AverageRating>
+<RatingDimension id="Fit" displayType="SLIDER" selectedValueInDisplayEnabled="false">
+<ExternalId>Fit</ExternalId>
+<RatingRange>5</RatingRange>
+</RatingDimension>
+</AverageRatingValue>
+</AverageRatingValues>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>5</RatingValue>
+<Count>1</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</ReviewStatistics>
+<NativeReviewStatistics>
+<AverageOverallRating>5.0</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>1</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>1</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues>
+<AverageRatingValue id="Quality">
+<AverageRating>5.0</AverageRating>
+<RatingDimension id="Quality" displayType="NORMAL" selectedValueInDisplayEnabled="false">
+<ExternalId>Quality</ExternalId>
+<RatingRange>5</RatingRange>
+<Label>Quality of Product</Label>
+<Label1>How would you rate the quality of this product?</Label1>
+</RatingDimension>
+</AverageRatingValue>
+<AverageRatingValue id="Value">
+<AverageRating>5.0</AverageRating>
+<RatingDimension id="Value" displayType="NORMAL" selectedValueInDisplayEnabled="false">
+<ExternalId>Value</ExternalId>
+<RatingRange>5</RatingRange>
+<Label>Value of Product</Label>
+<Label1>How would you rate the value of this product?</Label1>
+</RatingDimension>
+</AverageRatingValue>
+<AverageRatingValue id="Fit">
+<AverageRating>3.0</AverageRating>
+<RatingDimension id="Fit" displayType="SLIDER" selectedValueInDisplayEnabled="false">
+<ExternalId>Fit</ExternalId>
+<RatingRange>5</RatingRange>
+</RatingDimension>
+</AverageRatingValue>
+</AverageRatingValues>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>5</RatingValue>
+<Count>1</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</NativeReviewStatistics>
+<Reviews>
+<Review id="2955131">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-10-14T18:45:02.000-05:00</LastModificationTime>
+<UserProfileReference id="kurp1mm3njlhyl9q3lt376c6k">
+<ExternalId>kurp1mm3njlhyl9q3lt376c6k</ExternalId>
+<DisplayName>Jay1</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Love it</Title>
+<ReviewText>This dress is awesome, great fit and lots of fun to wear</ReviewText>
+<NumComments>0</NumComments>
+<Tags>
+<TagDimension id="BestUsesApparel">
+<ExternalId>BestUsesApparel</ExternalId>
+<Label>Best Uses - Apparel</Label>
+<Tags>
+<Tag>
+<Label>Date Night/Night Out</Label>
+</Tag>
+</Tags>
+</TagDimension>
+</Tags>
+<CampaignId>BV_RATING_SUMMARY</CampaignId>
+<Rating>5</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<ReviewerLocation>Sydney, New South Wales, Australia</ReviewerLocation>
+<IpAddress>64.94.228.138</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-10-14T18:32:43.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/32724/reviews.htm?reviewID=2955131</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/32724/review/2955131/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<ContextDataValues>
+<ContextDataValue id="25to34">
+<ExternalId>25to34</ExternalId>
+<Label>25 to 34</Label>
+<ContextDataDimension id="Age">
+<ExternalId>Age</ExternalId>
+<Label>Age</Label>
+</ContextDataDimension>
+</ContextDataValue>
+<ContextDataValue id="FullFigured">
+<ExternalId>FullFigured</ExternalId>
+<Label>Full figured</Label>
+<ContextDataDimension id="BodyType">
+<ExternalId>BodyType</ExternalId>
+<Label>Body Type</Label>
+</ContextDataDimension>
+</ContextDataValue>
+<ContextDataValue id="Glamorous">
+<ExternalId>Glamorous</ExternalId>
+<Label>Glamorous</Label>
+<ContextDataDimension id="FashionStyle">
+<ExternalId>FashionStyle</ExternalId>
+<Label>Fashion style</Label>
+</ContextDataDimension>
+</ContextDataValue>
+</ContextDataValues>
+<RatingValues>
+<RatingValue>
+<Rating>3</Rating>
+<RatingDimension id="Fit" displayType="SLIDER" selectedValueInDisplayEnabled="false">
+<ExternalId>Fit</ExternalId>
+<RatingRange>5</RatingRange>
+</RatingDimension>
+</RatingValue>
+<RatingValue>
+<Rating>5</Rating>
+<RatingDimension id="Quality" displayType="NORMAL" selectedValueInDisplayEnabled="false">
+<ExternalId>Quality</ExternalId>
+<RatingRange>5</RatingRange>
+<Label>Quality of Product</Label>
+<Label1>How would you rate the quality of this product?</Label1>
+</RatingDimension>
+</RatingValue>
+<RatingValue>
+<Rating>5</Rating>
+<RatingDimension id="Value" displayType="NORMAL" selectedValueInDisplayEnabled="false">
+<ExternalId>Value</ExternalId>
+<RatingRange>5</RatingRange>
+<Label>Value of Product</Label>
+<Label1>How would you rate the value of this product?</Label1>
+</RatingDimension>
+</RatingValue>
+</RatingValues>
+<Photos>
+<Photo id="98497">
+<Sizes>
+<Size id="thumbnail" url="http://c3.ugc.bazaarvoice.com/bvstaging/17056/98497/photoThumb.jpg"/>
+<Size id="normal" url="http://c3.ugc.bazaarvoice.com/bvstaging/17056/98497/photo.jpg"/>
+</Sizes>
+</Photo>
+</Photos>
+<NetPromoterScore>10</NetPromoterScore>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>jonaye.tait@citychic.com.au</UserEmailAddress>
+<SendEmailAlertWhenPublished>true</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>true</SendEmailAlertWhenCommented>
+<SendEmailAlertWhenCommentedOptOutURL>http://c3.ugc.bazaarvoice.com/bvstaging/17056/32724/review/2955131/startunsubscribecommentedreview.htm?signature=0ae71cd9a422a96188cf5aff425566cd32393535313331</SendEmailAlertWhenCommentedOptOutURL>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-10-14T18:45:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-10-14T18:45:02.000-05:00</LastPublishTime>
+</Review>
+</Reviews>
+</Product><Product id="67105" disabled="false" removed="false">
+<Source>citychic-online</Source>
+<ExternalId>67105</ExternalId>
+<Name>Scoop Neck 3/4 Sleeve Top</Name>
+<Description>Scoop Neck 3/4 Sleeve Top</Description>
+<NumNativeQuestions>16</NumNativeQuestions>
+<NumQuestions>16</NumQuestions>
+<NumNativeAnswers>0</NumNativeAnswers>
+<NumAnswers>0</NumAnswers>
+<NumReviews>30</NumReviews>
+<NumStories>0</NumStories>
+<Questions>
+<Question id="221985">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:33.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="tjko3a6klvlsnpp1uhny1655c">
+<ExternalId>tjko3a6klvlsnpp1uhny1655c</ExternalId>
+<DisplayName>Lorem0</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Lorem0</UserNickname>
+<QuestionSummary>Lorem ipsum dolor sit amet?</QuestionSummary>
+<QuestionDetails>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean quis lacinia lorem. Nulla consectetur sollicitudin tortor, ac ultrices odio pulvinar eu. Pellentesque eu euismod ante. Proin ac ultricies lorem. Suspendisse facilisis eros ut enim dictum sagittis. Maecenas sit amet odio felis. Morbi arcu arcu, commodo vitae semper ac, faucibus varius turpis. Duis ac lorem sem, vitae ultrices orci.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test0@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221985/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221986">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:33.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="i8mjmwgaf2bl0djhtphxg2dk5">
+<ExternalId>i8mjmwgaf2bl0djhtphxg2dk5</ExternalId>
+<DisplayName>Pellentesque1</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Pellentesque1</UserNickname>
+<QuestionSummary>Pellentesque habitant morbi tristique?</QuestionSummary>
+<QuestionDetails>Cras molestie turpis in augue rutrum eleifend. Curabitur bibendum lacinia turpis. Fusce nec nibh at dolor convallis consequat. Nulla facilisi. Sed est diam, bibendum sit amet scelerisque a, cursus in risus. Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra.
+Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra
+Ut tristique mollis magna, et pretium lacus aliquam quis.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test1@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221986/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221987">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:33.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="bc68gmyxqrbzikhpyc7j0wigd">
+<ExternalId>bc68gmyxqrbzikhpyc7j0wigd</ExternalId>
+<DisplayName>Cras2</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Cras2</UserNickname>
+<QuestionSummary>Cras molestie turpis?</QuestionSummary>
+<QuestionDetails>Proin eget malesuada ipsum. Maecenas purus arcu, imperdiet nec venenatis in, aliquet quis mauris. Donec in nulla erat, eget vehicula purus. Nulla varius, lacus id eleifend placerat, magna tortor accumsan quam, sit amet viverra quam tortor et urna. Integer nisl libero, euismod at commodo ut, sodales nec magna. Maecenas facilisis turpis id enim sollicitudin at dictum mauris commodo. Phasellus ut lectus eget turpis molestie vulputate. Praesent vel fringilla est. Ut tristique mollis magna, et pretium lacus aliquam quis.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test2@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221987/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221988">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:33.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="db6stcn1kp3rnrz6x6zosj6d5">
+<ExternalId>db6stcn1kp3rnrz6x6zosj6d5</ExternalId>
+<DisplayName>Proin3</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Proin3</UserNickname>
+<QuestionSummary>Proin eget malesuada ipsum.?</QuestionSummary>
+<QuestionDetails>Sed nibh metus, porttitor sit amet tempor sed, adipiscing in metus. Cras adipiscing, nisi tristique euismod rhoncus, diam orci rhoncus purus, sed pretium neque ligula ut tortor. Maecenas sit amet enim dolor, sed sollicitudin diam. Nullam mattis justo id leo iaculis venenatis. Nam at sapien a erat dapibus posuere at at tortor. Vestibulum et purus et nisl faucibus eleifend et ut nunc. Nam ultrices augue eget est eleifend et imperdiet erat tempor.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test3@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221988/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221989">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:34.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="3hota3lr0l5ianigosb8fbkkw">
+<ExternalId>3hota3lr0l5ianigosb8fbkkw</ExternalId>
+<DisplayName>Sedi4</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Sedi4</UserNickname>
+<QuestionSummary>Sed nibh metus?</QuestionSummary>
+<QuestionDetails>Nunc ut congue nunc. Curabitur ac urna ac nulla dictum vestibulum nec et erat. Etiam blandit dictum fermentum. Proin commodo, nibh sit amet molestie tincidunt, mi nisl vulputate nulla, in tincidunt ligula nisl id sem. Vestibulum non diam sed erat luctus porta. Aenean vel venenatis enim. Integer hendrerit nisi ac libero ultrices vitae porta elit imperdiet. Praesent a justo lacus. Nulla turpis neque, egestas quis volutpat vitae, vulputate eget orci. Sed ac lorem quam, eget iaculis nibh. Curabitur fringilla pulvinar ante, eu condimentum nisl imperdiet vitae.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test4@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221989/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221990">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:34.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="su53hxv7jcwpfhhygcogd3p6k">
+<ExternalId>su53hxv7jcwpfhhygcogd3p6k</ExternalId>
+<DisplayName>Nunc5</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Nunc5</UserNickname>
+<QuestionSummary>Nunc ut congue nunc. Curabitur?</QuestionSummary>
+<QuestionDetails>Quisque varius tortor vitae augue laoreet euismod aliquet metus vulputate. Duis tempor tristique dolor, ut venenatis enim fringilla feugiat. Praesent porttitor laoreet augue sed iaculis. Sed adipiscing convallis imperdiet. Fusce commodo dictum malesuada. Phasellus non nisl et elit euismod fermentum vel vitae lorem. Vestibulum nunc nisi, molestie vitae aliquet vel, pulvinar non nulla. Curabitur sit amet arcu turpis.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test5@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221990/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221991">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:37.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="dxbdiw69ro78reotawv9tpexy">
+<ExternalId>dxbdiw69ro78reotawv9tpexy</ExternalId>
+<DisplayName>Sedi14</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Sedi14</UserNickname>
+<QuestionSummary>Sed nibh metus?</QuestionSummary>
+<QuestionDetails>Quisque varius tortor vitae augue laoreet euismod aliquet metus vulputate. Duis tempor tristique dolor, ut venenatis enim fringilla feugiat. Praesent porttitor laoreet augue sed iaculis. Sed adipiscing convallis imperdiet. Fusce commodo dictum malesuada. Phasellus non nisl et elit euismod fermentum vel vitae lorem. Vestibulum nunc nisi, molestie vitae aliquet vel, pulvinar non nulla. Curabitur sit amet arcu turpis.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test14@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221991/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221992">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:34.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="u52k2snewnmvgj61weonvj178">
+<ExternalId>u52k2snewnmvgj61weonvj178</ExternalId>
+<DisplayName>Quisque6</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Quisque6</UserNickname>
+<QuestionSummary>Quisque varius?</QuestionSummary>
+<QuestionDetails>Morbi nibh turpis, aliquet id aliquet in, lobortis a diam. Suspendisse potenti. Etiam vestibulum enim nec libero semper sollicitudin. Quisque semper sodales tellus, sit amet vestibulum sapien tristique quis. Sed tempus, elit sed blandit tristique, turpis urna porttitor turpis, a ullamcorper metus enim egestas justo. Mauris at neque vel leo tempus interdum. Ut in nisl nec justo convallis gravida vel in augue. Suspendisse suscipit pellentesque sapien sit amet pulvinar. Pellentesque ut tincidunt dui. Nulla mauris tellus, egestas in varius at, auctor a risus. Sed egestas varius accumsan. Curabitur malesuada elit in dui consectetur non ultricies velit accumsan. Donec aliquam molestie nisl, vel ornare purus pellentesque ut. Nam consequat euismod dignissim. Nullam gravida venenatis blandit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test6@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221992/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221993">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:34.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="2ouhcrkj2b0pm0cj584hk8owu">
+<ExternalId>2ouhcrkj2b0pm0cj584hk8owu</ExternalId>
+<DisplayName>Morbi7</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Morbi7</UserNickname>
+<QuestionSummary>Morbi nibh turpis, aliquet id?</QuestionSummary>
+<QuestionDetails>Fusce sodales, est hendrerit dictum sodales, nibh lacus gravida neque, id tristique eros dolor sit amet lacus. Donec risus libero, convallis eu sagittis in, eleifend id neque. Morbi in odio lectus. Curabitur ultrices purus at tortor malesuada lacinia. Nunc scelerisque urna at odio vulputate congue. Donec a ligula sit amet arcu tempor pharetra quis blandit velit. Praesent at adipiscing turpis. Praesent eros augue, suscipit in hendrerit a, sodales ut mi. Integer ut leo nec sapien tristique lacinia sit amet tincidunt ligula. Sed dictum ullamcorper eros luctus tempor. Vivamus at mauris elit, eu placerat neque.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test7@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221993/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221994">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:35.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="9tmqpz8kq985hytclg4wx6kdk">
+<ExternalId>9tmqpz8kq985hytclg4wx6kdk</ExternalId>
+<DisplayName>Fusce8</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Fusce8</UserNickname>
+<QuestionSummary>Fusce sodales, est hendrerit?</QuestionSummary>
+<QuestionDetails>Ut gravida vehicula sagittis. Integer faucibus porttitor nibh bibendum eleifend. In in dictum tortor. Aliquam erat volutpat. Nam vestibulum vestibulum tortor ornare suscipit. Integer neque felis, fermentum ut fermentum ultricies, semper in libero. Donec placerat felis congue risus interdum et dapibus velit pellentesque. Ut sed consequat eros. In ligula erat, imperdiet in rhoncus ut, auctor at mi. Aliquam placerat augue at tortor elementum tempor. Maecenas id dignissim est. Nunc bibendum viverra neque, nec pellentesque nulla varius nec. Pellentesque posuere condimentum nibh in commodo. Praesent diam nunc, consequat sit amet feugiat nec, blandit mollis enim.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test8@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221994/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221995">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:35.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="l787or7bi8egr196wg48vyycj">
+<ExternalId>l787or7bi8egr196wg48vyycj</ExternalId>
+<DisplayName>Utut9</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Utut9</UserNickname>
+<QuestionSummary>Ut gravida vehicula sagittis. Integer faucibus?</QuestionSummary>
+<QuestionDetails>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean quis lacinia lorem. Nulla consectetur sollicitudin tortor, ac ultrices odio pulvinar eu. Pellentesque eu euismod ante. Proin ac ultricies lorem. Suspendisse facilisis eros ut enim dictum sagittis. Maecenas sit amet odio felis. Morbi arcu arcu, commodo vitae semper ac, faucibus varius turpis. Duis ac lorem sem, vitae ultrices orci.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test9@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221995/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221996">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:35.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="7bw4puur1sc2asdxaa0k6koya">
+<ExternalId>7bw4puur1sc2asdxaa0k6koya</ExternalId>
+<DisplayName>Lorem10</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Lorem10</UserNickname>
+<QuestionSummary>Lorem ipsum dolor sit amet?</QuestionSummary>
+<QuestionDetails>Cras molestie turpis in augue rutrum eleifend. Curabitur bibendum lacinia turpis. Fusce nec nibh at dolor convallis consequat. Nulla facilisi. Sed est diam, bibendum sit amet scelerisque a, cursus in risus. Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra.
+Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra
+Ut tristique mollis magna, et pretium lacus aliquam quis.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test10@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221996/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221997">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:36.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="38guwtait37wu6ev500sqx6wb">
+<ExternalId>38guwtait37wu6ev500sqx6wb</ExternalId>
+<DisplayName>Pellentesque11</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Pellentesque11</UserNickname>
+<QuestionSummary>Pellentesque habitant morbi tristique?</QuestionSummary>
+<QuestionDetails>Proin eget malesuada ipsum. Maecenas purus arcu, imperdiet nec venenatis in, aliquet quis mauris. Donec in nulla erat, eget vehicula purus. Nulla varius, lacus id eleifend placerat, magna tortor accumsan quam, sit amet viverra quam tortor et urna. Integer nisl libero, euismod at commodo ut, sodales nec magna. Maecenas facilisis turpis id enim sollicitudin at dictum mauris commodo. Phasellus ut lectus eget turpis molestie vulputate. Praesent vel fringilla est. Ut tristique mollis magna, et pretium lacus aliquam quis.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test11@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221997/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221998">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:36.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="653rprnnzkkthwac4zqgb9fpg">
+<ExternalId>653rprnnzkkthwac4zqgb9fpg</ExternalId>
+<DisplayName>Cras12</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Cras12</UserNickname>
+<QuestionSummary>Cras molestie turpis?</QuestionSummary>
+<QuestionDetails>Sed nibh metus, porttitor sit amet tempor sed, adipiscing in metus. Cras adipiscing, nisi tristique euismod rhoncus, diam orci rhoncus purus, sed pretium neque ligula ut tortor. Maecenas sit amet enim dolor, sed sollicitudin diam. Nullam mattis justo id leo iaculis venenatis. Nam at sapien a erat dapibus posuere at at tortor. Vestibulum et purus et nisl faucibus eleifend et ut nunc. Nam ultrices augue eget est eleifend et imperdiet erat tempor.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test12@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221998/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="221999">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:10:21.000-05:00</LastModificationTime>
+<SubmissionTime>2013-08-25T20:16:36.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="tzxdoi3ns6v5bioai8t36xbs9">
+<ExternalId>tzxdoi3ns6v5bioai8t36xbs9</ExternalId>
+<DisplayName>Proin13</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>Proin13</UserNickname>
+<QuestionSummary>Proin eget malesuada ipsum.?</QuestionSummary>
+<QuestionDetails>Nunc ut congue nunc. Curabitur ac urna ac nulla dictum vestibulum nec et erat. Etiam blandit dictum fermentum. Proin commodo, nibh sit amet molestie tincidunt, mi nisl vulputate nulla, in tincidunt ligula nisl id sem. Vestibulum non diam sed erat luctus porta. Aenean vel venenatis enim. Integer hendrerit nisi ac libero ultrices vitae porta elit imperdiet. Praesent a justo lacus. Nulla turpis neque, egestas quis volutpat vitae, vulputate eget orci. Sed ac lorem quam, eget iaculis nibh. Curabitur fringilla pulvinar ante, eu condimentum nisl imperdiet vitae.</QuestionDetails>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test13@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>false</SendEmailAlertWhenAnswered>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/221999/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:02.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:02.000-05:00</LastPublishTime>
+</Question>
+<Question id="223680">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-26T01:15:01.000-05:00</LastModificationTime>
+<SubmissionTime>2013-09-26T01:01:19.000-05:00</SubmissionTime>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<UserProfileReference id="6ubqii99fpdcspiwv9xgumasu">
+<ExternalId>6ubqii99fpdcspiwv9xgumasu</ExternalId>
+<DisplayName>BVAustralia</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<UserNickname>BVAustralia</UserNickname>
+<UserLocation>Sydney, New South Wales, Australia</UserLocation>
+<QuestionSummary>I am writing a test question to review Ask and Answer functionality.</QuestionSummary>
+<NumAnswers>0</NumAnswers>
+<Answers/>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>bvaustralia@gmail.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>true</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenAnswered>true</SendEmailAlertWhenAnswered>
+<SendEmailAlertWhenAnsweredOptOutURL>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/223680/startunsubscribeansweredquestion.htm?signature=0378799816552610786efbd164961ee7323233363830</SendEmailAlertWhenAnsweredOptOutURL>
+<SubjectQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</SubjectQuestionsUrl>
+<SubjectQuestionsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/question/223680/redirect.htm</SubjectQuestionsDeepLinkedUrl>
+<IpAddress>64.94.228.138</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<CampaignId>BV_QUESTION_SUMMARY</CampaignId>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-09-26T01:15:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-09-26T01:15:01.000-05:00</LastPublishTime>
+</Question>
+</Questions>
+<CategoryItems>
+<CategoryItem id="tops">
+<ExternalId>tops</ExternalId>
+<CategoryId>127231</CategoryId>
+<CategoryName>Tops</CategoryName>
+</CategoryItem>
+</CategoryItems>
+<ProductPageUrl>http://citychic.stage.guidance.com/scoop-neck-sleeve-top.html?___store=sonsi</ProductPageUrl>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm</ProductReviewsUrl>
+<ProductQuestionsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/answers/17056/product/67105/questions.htm</ProductQuestionsUrl>
+<ImageUrl>http://citychic.stage.guidance.com/media/catalog/product/cache/0/image/265x/9df78eab33525d08d6e5fb8d27136e95/6/7/67105_scarlet_1.jpg</ImageUrl>
+<ReviewStatistics>
+<AverageOverallRating>3.5</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>30</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>30</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>3</RatingValue>
+<Count>15</Count>
+</RatingDistributionItem>
+<RatingDistributionItem>
+<RatingValue>4</RatingValue>
+<Count>15</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</ReviewStatistics>
+<NativeReviewStatistics>
+<AverageOverallRating>3.5</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>30</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>30</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>3</RatingValue>
+<Count>15</Count>
+</RatingDistributionItem>
+<RatingDistributionItem>
+<RatingValue>4</RatingValue>
+<Count>15</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</NativeReviewStatistics>
+<Reviews>
+<Review id="2573458">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="a8r1f023hyp4l3c5g7ra0eg6u">
+<ExternalId>a8r1f023hyp4l3c5g7ra0eg6u</ExternalId>
+<DisplayName>Lorem0</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Lorem ipsum dolor sit amet</Title>
+<ReviewText>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean quis lacinia lorem. Nulla consectetur sollicitudin tortor, ac ultrices odio pulvinar eu. Pellentesque eu euismod ante. Proin ac ultricies lorem. Suspendisse facilisis eros ut enim dictum sagittis. Maecenas sit amet odio felis. Morbi arcu arcu, commodo vitae semper ac, faucibus varius turpis. Duis ac lorem sem, vitae ultrices orci.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:25.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573458</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573458/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test0@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573462">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T18:27:03.000-05:00</LastModificationTime>
+<UserProfileReference id="2ebappj8epc2uh9y0ymi09w8q">
+<ExternalId>2ebappj8epc2uh9y0ymi09w8q</ExternalId>
+<DisplayName>Sedi4</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Sed nibh metus</Title>
+<ReviewText>Nunc ut congue nunc. Curabitur ac urna ac nulla dictum vestibulum nec et erat. Etiam blandit dictum fermentum. Proin commodo, nibh sit amet molestie tincidunt, mi nisl vulputate nulla, in tincidunt ligula nisl id sem. Vestibulum non diam sed erat luctus porta. Aenean vel venenatis enim. Integer hendrerit nisi ac libero ultrices vitae porta elit imperdiet. Praesent a justo lacus. Nulla turpis neque, egestas quis volutpat vitae, vulputate eget orci. Sed ac lorem quam, eget iaculis nibh. Curabitur fringilla pulvinar ante, eu condimentum nisl imperdiet vitae.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>1</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>1</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:26.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573462</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573462/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test4@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573461">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="a8p0681mrk3g71z0avpi45p1w">
+<ExternalId>a8p0681mrk3g71z0avpi45p1w</ExternalId>
+<DisplayName>Proin3</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Proin eget malesuada ipsum.</Title>
+<ReviewText>Sed nibh metus, porttitor sit amet tempor sed, adipiscing in metus. Cras adipiscing, nisi tristique euismod rhoncus, diam orci rhoncus purus, sed pretium neque ligula ut tortor. Maecenas sit amet enim dolor, sed sollicitudin diam. Nullam mattis justo id leo iaculis venenatis. Nam at sapien a erat dapibus posuere at at tortor. Vestibulum et purus et nisl faucibus eleifend et ut nunc. Nam ultrices augue eget est eleifend et imperdiet erat tempor.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:26.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573461</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573461/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test3@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573460">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="79fw1skn2enu6lu2br3lh5yyv">
+<ExternalId>79fw1skn2enu6lu2br3lh5yyv</ExternalId>
+<DisplayName>Cras2</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Cras molestie turpis</Title>
+<ReviewText>Proin eget malesuada ipsum. Maecenas purus arcu, imperdiet nec venenatis in, aliquet quis mauris. Donec in nulla erat, eget vehicula purus. Nulla varius, lacus id eleifend placerat, magna tortor accumsan quam, sit amet viverra quam tortor et urna. Integer nisl libero, euismod at commodo ut, sodales nec magna. Maecenas facilisis turpis id enim sollicitudin at dictum mauris commodo. Phasellus ut lectus eget turpis molestie vulputate. Praesent vel fringilla est. Ut tristique mollis magna, et pretium lacus aliquam quis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:26.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573460</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573460/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test2@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573459">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="6rgy56cnj5dadorvatv5t33vm">
+<ExternalId>6rgy56cnj5dadorvatv5t33vm</ExternalId>
+<DisplayName>Pellentesque1</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Pellentesque habitant morbi tristique</Title>
+<ReviewText>Cras molestie turpis in augue rutrum eleifend. Curabitur bibendum lacinia turpis. Fusce nec nibh at dolor convallis consequat. Nulla facilisi. Sed est diam, bibendum sit amet scelerisque a, cursus in risus. Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra.
+Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra
+Ut tristique mollis magna, et pretium lacus aliquam quis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:26.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573459</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573459/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test1@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573466">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="dwxmywmc6pu6kientirhyw7s6">
+<ExternalId>dwxmywmc6pu6kientirhyw7s6</ExternalId>
+<DisplayName>Fusce8</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Fusce sodales, est hendrerit</Title>
+<ReviewText>Ut gravida vehicula sagittis. Integer faucibus porttitor nibh bibendum eleifend. In in dictum tortor. Aliquam erat volutpat. Nam vestibulum vestibulum tortor ornare suscipit. Integer neque felis, fermentum ut fermentum ultricies, semper in libero. Donec placerat felis congue risus interdum et dapibus velit pellentesque. Ut sed consequat eros. In ligula erat, imperdiet in rhoncus ut, auctor at mi. Aliquam placerat augue at tortor elementum tempor. Maecenas id dignissim est. Nunc bibendum viverra neque, nec pellentesque nulla varius nec. Pellentesque posuere condimentum nibh in commodo. Praesent diam nunc, consequat sit amet feugiat nec, blandit mollis enim.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:27.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573466</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573466/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test8@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573465">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="kwf8qp27hu79njbqtlm94wlft">
+<ExternalId>kwf8qp27hu79njbqtlm94wlft</ExternalId>
+<DisplayName>Morbi7</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Morbi nibh turpis, aliquet id</Title>
+<ReviewText>Fusce sodales, est hendrerit dictum sodales, nibh lacus gravida neque, id tristique eros dolor sit amet lacus. Donec risus libero, convallis eu sagittis in, eleifend id neque. Morbi in odio lectus. Curabitur ultrices purus at tortor malesuada lacinia. Nunc scelerisque urna at odio vulputate congue. Donec a ligula sit amet arcu tempor pharetra quis blandit velit. Praesent at adipiscing turpis. Praesent eros augue, suscipit in hendrerit a, sodales ut mi. Integer ut leo nec sapien tristique lacinia sit amet tincidunt ligula. Sed dictum ullamcorper eros luctus tempor. Vivamus at mauris elit, eu placerat neque.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:27.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573465</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573465/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test7@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573464">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="h3z697miu8j10bqkq1acisrbn">
+<ExternalId>h3z697miu8j10bqkq1acisrbn</ExternalId>
+<DisplayName>Quisque6</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Quisque varius</Title>
+<ReviewText>Morbi nibh turpis, aliquet id aliquet in, lobortis a diam. Suspendisse potenti. Etiam vestibulum enim nec libero semper sollicitudin. Quisque semper sodales tellus, sit amet vestibulum sapien tristique quis. Sed tempus, elit sed blandit tristique, turpis urna porttitor turpis, a ullamcorper metus enim egestas justo. Mauris at neque vel leo tempus interdum. Ut in nisl nec justo convallis gravida vel in augue. Suspendisse suscipit pellentesque sapien sit amet pulvinar. Pellentesque ut tincidunt dui. Nulla mauris tellus, egestas in varius at, auctor a risus. Sed egestas varius accumsan. Curabitur malesuada elit in dui consectetur non ultricies velit accumsan. Donec aliquam molestie nisl, vel ornare purus pellentesque ut. Nam consequat euismod dignissim. Nullam gravida venenatis blandit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:27.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573464</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573464/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test6@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573463">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="kwm8aw03om8q87isvgmov9kxb">
+<ExternalId>kwm8aw03om8q87isvgmov9kxb</ExternalId>
+<DisplayName>Nunc5</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Nunc ut congue nunc. Curabitur</Title>
+<ReviewText>Quisque varius tortor vitae augue laoreet euismod aliquet metus vulputate. Duis tempor tristique dolor, ut venenatis enim fringilla feugiat. Praesent porttitor laoreet augue sed iaculis. Sed adipiscing convallis imperdiet. Fusce commodo dictum malesuada. Phasellus non nisl et elit euismod fermentum vel vitae lorem. Vestibulum nunc nisi, molestie vitae aliquet vel, pulvinar non nulla. Curabitur sit amet arcu turpis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:27.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573463</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573463/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test5@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573470">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="29tbsosr3wbo3rzbapuizxm5v">
+<ExternalId>29tbsosr3wbo3rzbapuizxm5v</ExternalId>
+<DisplayName>Cras12</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Cras molestie turpis</Title>
+<ReviewText>Sed nibh metus, porttitor sit amet tempor sed, adipiscing in metus. Cras adipiscing, nisi tristique euismod rhoncus, diam orci rhoncus purus, sed pretium neque ligula ut tortor. Maecenas sit amet enim dolor, sed sollicitudin diam. Nullam mattis justo id leo iaculis venenatis. Nam at sapien a erat dapibus posuere at at tortor. Vestibulum et purus et nisl faucibus eleifend et ut nunc. Nam ultrices augue eget est eleifend et imperdiet erat tempor.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:28.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573470</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573470/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test12@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573469">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="mjtgb3wghh9krrxuoui66r14n">
+<ExternalId>mjtgb3wghh9krrxuoui66r14n</ExternalId>
+<DisplayName>Pellentesque11</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Pellentesque habitant morbi tristique</Title>
+<ReviewText>Proin eget malesuada ipsum. Maecenas purus arcu, imperdiet nec venenatis in, aliquet quis mauris. Donec in nulla erat, eget vehicula purus. Nulla varius, lacus id eleifend placerat, magna tortor accumsan quam, sit amet viverra quam tortor et urna. Integer nisl libero, euismod at commodo ut, sodales nec magna. Maecenas facilisis turpis id enim sollicitudin at dictum mauris commodo. Phasellus ut lectus eget turpis molestie vulputate. Praesent vel fringilla est. Ut tristique mollis magna, et pretium lacus aliquam quis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:28.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573469</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573469/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test11@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573468">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="21ls6ifxuve7jx182tb6jz8b0">
+<ExternalId>21ls6ifxuve7jx182tb6jz8b0</ExternalId>
+<DisplayName>Lorem10</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Lorem ipsum dolor sit amet</Title>
+<ReviewText>Cras molestie turpis in augue rutrum eleifend. Curabitur bibendum lacinia turpis. Fusce nec nibh at dolor convallis consequat. Nulla facilisi. Sed est diam, bibendum sit amet scelerisque a, cursus in risus. Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra.
+Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra
+Ut tristique mollis magna, et pretium lacus aliquam quis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:28.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573468</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573468/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test10@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573467">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="a17kxkk3po16m0kq9xmsfdgp2">
+<ExternalId>a17kxkk3po16m0kq9xmsfdgp2</ExternalId>
+<DisplayName>Utut9</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Ut gravida vehicula sagittis. Integer faucibus</Title>
+<ReviewText>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean quis lacinia lorem. Nulla consectetur sollicitudin tortor, ac ultrices odio pulvinar eu. Pellentesque eu euismod ante. Proin ac ultricies lorem. Suspendisse facilisis eros ut enim dictum sagittis. Maecenas sit amet odio felis. Morbi arcu arcu, commodo vitae semper ac, faucibus varius turpis. Duis ac lorem sem, vitae ultrices orci.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:27.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573467</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573467/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test9@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573474">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="hjnrrs9imbxyas3op66w1fjri">
+<ExternalId>hjnrrs9imbxyas3op66w1fjri</ExternalId>
+<DisplayName>Pellentesque1</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Pellentesque habitant morbi tristique</Title>
+<ReviewText>Cras molestie turpis in augue rutrum eleifend. Curabitur bibendum lacinia turpis. Fusce nec nibh at dolor convallis consequat. Nulla facilisi. Sed est diam, bibendum sit amet scelerisque a, cursus in risus. Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra.
+Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra
+Ut tristique mollis magna, et pretium lacus aliquam quis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:29.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573474</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573474/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test1@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573473">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="b7xilc1wef433s52w8v8yjlt8">
+<ExternalId>b7xilc1wef433s52w8v8yjlt8</ExternalId>
+<DisplayName>Lorem0</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Lorem ipsum dolor sit amet</Title>
+<ReviewText>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean quis lacinia lorem. Nulla consectetur sollicitudin tortor, ac ultrices odio pulvinar eu. Pellentesque eu euismod ante. Proin ac ultricies lorem. Suspendisse facilisis eros ut enim dictum sagittis. Maecenas sit amet odio felis. Morbi arcu arcu, commodo vitae semper ac, faucibus varius turpis. Duis ac lorem sem, vitae ultrices orci.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:29.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573473</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573473/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test0@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573472">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="lfyvoj9ncnoowkoltdrk74fgp">
+<ExternalId>lfyvoj9ncnoowkoltdrk74fgp</ExternalId>
+<DisplayName>Sedi14</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Sed nibh metus</Title>
+<ReviewText>Quisque varius tortor vitae augue laoreet euismod aliquet metus vulputate. Duis tempor tristique dolor, ut venenatis enim fringilla feugiat. Praesent porttitor laoreet augue sed iaculis. Sed adipiscing convallis imperdiet. Fusce commodo dictum malesuada. Phasellus non nisl et elit euismod fermentum vel vitae lorem. Vestibulum nunc nisi, molestie vitae aliquet vel, pulvinar non nulla. Curabitur sit amet arcu turpis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:28.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573472</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573472/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test14@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573471">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="hizwcl7xcdo4mrhq0pg19fjjz">
+<ExternalId>hizwcl7xcdo4mrhq0pg19fjjz</ExternalId>
+<DisplayName>Proin13</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Proin eget malesuada ipsum.</Title>
+<ReviewText>Nunc ut congue nunc. Curabitur ac urna ac nulla dictum vestibulum nec et erat. Etiam blandit dictum fermentum. Proin commodo, nibh sit amet molestie tincidunt, mi nisl vulputate nulla, in tincidunt ligula nisl id sem. Vestibulum non diam sed erat luctus porta. Aenean vel venenatis enim. Integer hendrerit nisi ac libero ultrices vitae porta elit imperdiet. Praesent a justo lacus. Nulla turpis neque, egestas quis volutpat vitae, vulputate eget orci. Sed ac lorem quam, eget iaculis nibh. Curabitur fringilla pulvinar ante, eu condimentum nisl imperdiet vitae.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:28.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/reviews.htm?reviewID=2573471</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/67105/review/2573471/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test13@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573477">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="3ibwn8eoh3jpg5sudd553s0to">
+<ExternalId>3ibwn8eoh3jpg5sudd553s0to</ExternalId>
+<DisplayName>Proin3</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Proin eget malesuada ipsum.</Title>
+<ReviewText>Sed nibh metus, porttitor sit amet tempor sed, adipiscing in metus. Cras adipiscing, nisi tristique euismod rhoncus, diam orci rhoncus purus, sed pretium neque ligula ut tortor. Maecenas sit amet enim dolor, sed sollicitudin diam. Nullam mattis justo id leo iaculis venenatis. Nam at sapien a erat dapibus posuere at at tortor. Vestibulum et purus et nisl faucibus eleifend et ut nunc. Nam ultrices augue eget est eleifend et imperdiet erat tempor.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:29.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573477</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573477/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test3@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573478">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="er4cgb7d56yzwtor1g6xkgvzl">
+<ExternalId>er4cgb7d56yzwtor1g6xkgvzl</ExternalId>
+<DisplayName>Sedi4</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Sed nibh metus</Title>
+<ReviewText>Nunc ut congue nunc. Curabitur ac urna ac nulla dictum vestibulum nec et erat. Etiam blandit dictum fermentum. Proin commodo, nibh sit amet molestie tincidunt, mi nisl vulputate nulla, in tincidunt ligula nisl id sem. Vestibulum non diam sed erat luctus porta. Aenean vel venenatis enim. Integer hendrerit nisi ac libero ultrices vitae porta elit imperdiet. Praesent a justo lacus. Nulla turpis neque, egestas quis volutpat vitae, vulputate eget orci. Sed ac lorem quam, eget iaculis nibh. Curabitur fringilla pulvinar ante, eu condimentum nisl imperdiet vitae.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:30.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573478</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573478/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test4@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573475">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="5yfpc1qwrjtve4w35bky3srkk">
+<ExternalId>5yfpc1qwrjtve4w35bky3srkk</ExternalId>
+<DisplayName>Utut9</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Ut gravida vehicula sagittis. Integer faucibus</Title>
+<ReviewText>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean quis lacinia lorem. Nulla consectetur sollicitudin tortor, ac ultrices odio pulvinar eu. Pellentesque eu euismod ante. Proin ac ultricies lorem. Suspendisse facilisis eros ut enim dictum sagittis. Maecenas sit amet odio felis. Morbi arcu arcu, commodo vitae semper ac, faucibus varius turpis. Duis ac lorem sem, vitae ultrices orci.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:31.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573475</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573475/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test9@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573476">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="2uz3bea6dg4o742miarjbcg8q">
+<ExternalId>2uz3bea6dg4o742miarjbcg8q</ExternalId>
+<DisplayName>Cras2</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Cras molestie turpis</Title>
+<ReviewText>Proin eget malesuada ipsum. Maecenas purus arcu, imperdiet nec venenatis in, aliquet quis mauris. Donec in nulla erat, eget vehicula purus. Nulla varius, lacus id eleifend placerat, magna tortor accumsan quam, sit amet viverra quam tortor et urna. Integer nisl libero, euismod at commodo ut, sodales nec magna. Maecenas facilisis turpis id enim sollicitudin at dictum mauris commodo. Phasellus ut lectus eget turpis molestie vulputate. Praesent vel fringilla est. Ut tristique mollis magna, et pretium lacus aliquam quis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:29.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573476</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573476/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test2@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573481">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T18:27:03.000-05:00</LastModificationTime>
+<UserProfileReference id="p9zfyj49e28yyeczlqj60jhgr">
+<ExternalId>p9zfyj49e28yyeczlqj60jhgr</ExternalId>
+<DisplayName>Morbi7</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Morbi nibh turpis, aliquet id</Title>
+<ReviewText>Fusce sodales, est hendrerit dictum sodales, nibh lacus gravida neque, id tristique eros dolor sit amet lacus. Donec risus libero, convallis eu sagittis in, eleifend id neque. Morbi in odio lectus. Curabitur ultrices purus at tortor malesuada lacinia. Nunc scelerisque urna at odio vulputate congue. Donec a ligula sit amet arcu tempor pharetra quis blandit velit. Praesent at adipiscing turpis. Praesent eros augue, suscipit in hendrerit a, sodales ut mi. Integer ut leo nec sapien tristique lacinia sit amet tincidunt ligula. Sed dictum ullamcorper eros luctus tempor. Vivamus at mauris elit, eu placerat neque.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>1</NumFeedbacks>
+<NumPositiveFeedbacks>1</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:30.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573481</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573481/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test7@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573482">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="bbqw7u7orjvbn27k52jyacb44">
+<ExternalId>bbqw7u7orjvbn27k52jyacb44</ExternalId>
+<DisplayName>Fusce8</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Fusce sodales, est hendrerit</Title>
+<ReviewText>Ut gravida vehicula sagittis. Integer faucibus porttitor nibh bibendum eleifend. In in dictum tortor. Aliquam erat volutpat. Nam vestibulum vestibulum tortor ornare suscipit. Integer neque felis, fermentum ut fermentum ultricies, semper in libero. Donec placerat felis congue risus interdum et dapibus velit pellentesque. Ut sed consequat eros. In ligula erat, imperdiet in rhoncus ut, auctor at mi. Aliquam placerat augue at tortor elementum tempor. Maecenas id dignissim est. Nunc bibendum viverra neque, nec pellentesque nulla varius nec. Pellentesque posuere condimentum nibh in commodo. Praesent diam nunc, consequat sit amet feugiat nec, blandit mollis enim.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:30.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573482</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573482/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test8@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573479">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="auvzphuc92qe0xtom1nbo17gm">
+<ExternalId>auvzphuc92qe0xtom1nbo17gm</ExternalId>
+<DisplayName>Nunc5</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Nunc ut congue nunc. Curabitur</Title>
+<ReviewText>Quisque varius tortor vitae augue laoreet euismod aliquet metus vulputate. Duis tempor tristique dolor, ut venenatis enim fringilla feugiat. Praesent porttitor laoreet augue sed iaculis. Sed adipiscing convallis imperdiet. Fusce commodo dictum malesuada. Phasellus non nisl et elit euismod fermentum vel vitae lorem. Vestibulum nunc nisi, molestie vitae aliquet vel, pulvinar non nulla. Curabitur sit amet arcu turpis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:30.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573479</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573479/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test5@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573480">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="64tlpeq9zppj7sggfhldlv2ws">
+<ExternalId>64tlpeq9zppj7sggfhldlv2ws</ExternalId>
+<DisplayName>Quisque6</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Quisque varius</Title>
+<ReviewText>Morbi nibh turpis, aliquet id aliquet in, lobortis a diam. Suspendisse potenti. Etiam vestibulum enim nec libero semper sollicitudin. Quisque semper sodales tellus, sit amet vestibulum sapien tristique quis. Sed tempus, elit sed blandit tristique, turpis urna porttitor turpis, a ullamcorper metus enim egestas justo. Mauris at neque vel leo tempus interdum. Ut in nisl nec justo convallis gravida vel in augue. Suspendisse suscipit pellentesque sapien sit amet pulvinar. Pellentesque ut tincidunt dui. Nulla mauris tellus, egestas in varius at, auctor a risus. Sed egestas varius accumsan. Curabitur malesuada elit in dui consectetur non ultricies velit accumsan. Donec aliquam molestie nisl, vel ornare purus pellentesque ut. Nam consequat euismod dignissim. Nullam gravida venenatis blandit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:30.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573480</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573480/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test6@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573485">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="qbjnu4d2zndw8opunpn1euuhe">
+<ExternalId>qbjnu4d2zndw8opunpn1euuhe</ExternalId>
+<DisplayName>Cras12</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Cras molestie turpis</Title>
+<ReviewText>Sed nibh metus, porttitor sit amet tempor sed, adipiscing in metus. Cras adipiscing, nisi tristique euismod rhoncus, diam orci rhoncus purus, sed pretium neque ligula ut tortor. Maecenas sit amet enim dolor, sed sollicitudin diam. Nullam mattis justo id leo iaculis venenatis. Nam at sapien a erat dapibus posuere at at tortor. Vestibulum et purus et nisl faucibus eleifend et ut nunc. Nam ultrices augue eget est eleifend et imperdiet erat tempor.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:32.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573485</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573485/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test12@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573486">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="6znr56uc78hnt27v5gg8ojcqv">
+<ExternalId>6znr56uc78hnt27v5gg8ojcqv</ExternalId>
+<DisplayName>Proin13</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Proin eget malesuada ipsum.</Title>
+<ReviewText>Nunc ut congue nunc. Curabitur ac urna ac nulla dictum vestibulum nec et erat. Etiam blandit dictum fermentum. Proin commodo, nibh sit amet molestie tincidunt, mi nisl vulputate nulla, in tincidunt ligula nisl id sem. Vestibulum non diam sed erat luctus porta. Aenean vel venenatis enim. Integer hendrerit nisi ac libero ultrices vitae porta elit imperdiet. Praesent a justo lacus. Nulla turpis neque, egestas quis volutpat vitae, vulputate eget orci. Sed ac lorem quam, eget iaculis nibh. Curabitur fringilla pulvinar ante, eu condimentum nisl imperdiet vitae.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:32.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573486</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573486/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test13@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573483">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="u2w30k0stvhc9kfkno3i2wp9a">
+<ExternalId>u2w30k0stvhc9kfkno3i2wp9a</ExternalId>
+<DisplayName>Lorem10</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Lorem ipsum dolor sit amet</Title>
+<ReviewText>Cras molestie turpis in augue rutrum eleifend. Curabitur bibendum lacinia turpis. Fusce nec nibh at dolor convallis consequat. Nulla facilisi. Sed est diam, bibendum sit amet scelerisque a, cursus in risus. Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra.
+Etiam eros quam, facilisis ac aliquet quis, mollis sit amet est. Aenean eget velit sed nisi tempus iaculis ac at felis. Morbi porta lectus ut diam tempor pharetra
+Ut tristique mollis magna, et pretium lacus aliquam quis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:31.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573483</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573483/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test10@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573484">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="dup3nzsv8ggnfobck3kraf9k7">
+<ExternalId>dup3nzsv8ggnfobck3kraf9k7</ExternalId>
+<DisplayName>Pellentesque11</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Pellentesque habitant morbi tristique</Title>
+<ReviewText>Proin eget malesuada ipsum. Maecenas purus arcu, imperdiet nec venenatis in, aliquet quis mauris. Donec in nulla erat, eget vehicula purus. Nulla varius, lacus id eleifend placerat, magna tortor accumsan quam, sit amet viverra quam tortor et urna. Integer nisl libero, euismod at commodo ut, sodales nec magna. Maecenas facilisis turpis id enim sollicitudin at dictum mauris commodo. Phasellus ut lectus eget turpis molestie vulputate. Praesent vel fringilla est. Ut tristique mollis magna, et pretium lacus aliquam quis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:31.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573484</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573484/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test11@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+<Review id="2573487">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-09-18T02:34:16.000-05:00</LastModificationTime>
+<UserProfileReference id="p2kuoj012z1weq4vfsosgza9i">
+<ExternalId>p2kuoj012z1weq4vfsosgza9i</ExternalId>
+<DisplayName>Sedi14</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Sed nibh metus</Title>
+<ReviewText>Quisque varius tortor vitae augue laoreet euismod aliquet metus vulputate. Duis tempor tristique dolor, ut venenatis enim fringilla feugiat. Praesent porttitor laoreet augue sed iaculis. Sed adipiscing convallis imperdiet. Fusce commodo dictum malesuada. Phasellus non nisl et elit euismod fermentum vel vitae lorem. Vestibulum nunc nisi, molestie vitae aliquet vel, pulvinar non nulla. Curabitur sit amet arcu turpis.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<Recommended>true</Recommended>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<IpAddress>107.23.68.6</IpAddress>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-25T20:16:32.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/reviews.htm?reviewID=2573487</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056-en_us/67105/review/2573487/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<AuthenticationType>EMAIL</AuthenticationType>
+<UserEmailAddress>test14@bazaarvoice.com</UserEmailAddress>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<OriginatingDisplayCode>17056-en_us</OriginatingDisplayCode>
+<FirstPublishTime>2013-08-25T20:30:01.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-08-25T20:30:01.000-05:00</LastPublishTime>
+</Review>
+</Reviews>
+</Product><Product id="7206" disabled="false" removed="true">
+<Source>citychic-online</Source>
+<ExternalId>7206</ExternalId>
+<NumNativeQuestions>0</NumNativeQuestions>
+<NumQuestions>0</NumQuestions>
+<NumNativeAnswers>0</NumNativeAnswers>
+<NumAnswers>0</NumAnswers>
+<NumReviews>3</NumReviews>
+<NumStories>0</NumStories>
+<CategoryItems>
+<CategoryItem id="BV_MISCELLANEOUS_CATEGORY">
+<ExternalId>BV_MISCELLANEOUS_CATEGORY</ExternalId>
+<CategoryId>126604</CategoryId>
+<CategoryName>Miscellaneous</CategoryName>
+</CategoryItem>
+</CategoryItems>
+<ReviewStatistics>
+<AverageOverallRating>3.3333</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>3</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>0</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>2</RatingValue>
+<Count>1</Count>
+</RatingDistributionItem>
+<RatingDistributionItem>
+<RatingValue>4</RatingValue>
+<Count>2</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</ReviewStatistics>
+<NativeReviewStatistics>
+<AverageOverallRating>3.3333</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>3</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>0</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>2</RatingValue>
+<Count>1</Count>
+</RatingDistributionItem>
+<RatingDistributionItem>
+<RatingValue>4</RatingValue>
+<Count>2</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</NativeReviewStatistics>
+<Reviews>
+<Review id="2937933">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-10-08T03:46:06.000-05:00</LastModificationTime>
+<UserProfileReference id="5260">
+<ExternalId>5260</ExternalId>
+<DisplayName>Eboni</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Ok but flawed.</Title>
+<ReviewText>I ordered this in my usual M. And it fits. The skirt and collar are cotton. The collar btw is lined with polyester underneath ( to prevent friction against the jersey?). But the bodice is made of Jersey Cotton material and brings the dressiness and expensive look of this down.  Plus just the constant friction from rubbing your arms side to side will cause pills and ruin it more in my opinion. My bust made tension/stretch lines in the middle of the bodice, where my cleavage would be. Not a good look.&#13;
+&#13;
+Also, this dress is Ivory not white white.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>2</Rating>
+<RatingRange>5</RatingRange>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<ReviewerNickname>EJS from S.TX, USA</ReviewerNickname>
+<ReviewerLocation>Converse, Texas</ReviewerLocation>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2012-04-17T07:22:26.000-05:00</SubmissionTime>
+<Badges>
+<Badge>
+<Name>top1</Name>
+<ContentType>REVIEW</ContentType>
+<BadgeType>TopContributorBadge</BadgeType>
+</Badge>
+</Badges>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/7206/reviews.htm?reviewID=2937933</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/7206/review/2937933/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<Source>
+<Name>citychic-online</Name>
+<ExternalContentId>4803</ExternalContentId>
+</Source>
+<AuthenticationType>SITE</AuthenticationType>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<FirstPublishTime>2013-10-07T20:42:46.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-10-07T20:42:46.000-05:00</LastPublishTime>
+</Review>
+<Review id="2937934">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-10-07T20:42:46.000-05:00</LastModificationTime>
+<UserProfileReference id="zlc48ymue505k7nzc9d25ni0hi">
+<ExternalId>zlc48ymue505k7nzc9d25ni0hi</ExternalId>
+<Anonymous>true</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Fun, but needs adjustments!</Title>
+<ReviewText>I love this dress, don't get me wrong, but I do have some complaints. The main problem is the belt. It was waaaaay too small. I ended up poking a new hole in it, and then it fit. After wearing it for less than an hour, the stud in the belt (the thing you poke into the belt's hole) ended up coming out. On the bright side, lingerie double-sided tape did the job and held the belt on. I wore this for my casual outfit in a pageant and placed as Third Runner-Up out of 16 girls, so over-all, I can't complain about the style. The judges loved the playfullness of it and found it extremely appropriate. I'll definitely be ordering from City Chic in the future. (:</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<ReviewerNickname>Lauren</ReviewerNickname>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2012-05-10T14:30:38.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/7206/reviews.htm?reviewID=2937934</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/7206/review/2937934/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<Source>
+<Name>citychic-online</Name>
+<ExternalContentId>5841</ExternalContentId>
+</Source>
+<AuthenticationType>SITE</AuthenticationType>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<FirstPublishTime>2013-10-07T20:42:46.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-10-07T20:42:46.000-05:00</LastPublishTime>
+</Review>
+<Review id="2937932">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-10-07T20:42:46.000-05:00</LastModificationTime>
+<UserProfileReference id="zm9vrugs2c6q97o1uy53y5rfti">
+<ExternalId>zm9vrugs2c6q97o1uy53y5rfti</ExternalId>
+<Anonymous>true</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>So beautiful!!</Title>
+<ReviewText>This dress is lovely and fits PERFECTLY!! The fabric is a bit thick which i love because it really flatters bigger gals. The only problem i have with it is that the cute belt that came with it didnt fit...yet the dress did :-/ its alright...it still looks wonderful without the belt.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>4</Rating>
+<RatingRange>5</RatingRange>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<ReviewerNickname>Michelle</ReviewerNickname>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2012-03-02T06:58:45.000-06:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/7206/reviews.htm?reviewID=2937932</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/7206/review/2937932/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<Source>
+<Name>citychic-online</Name>
+<ExternalContentId>3900</ExternalContentId>
+</Source>
+<AuthenticationType>SITE</AuthenticationType>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<FirstPublishTime>2013-10-07T20:42:46.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-10-07T20:42:46.000-05:00</LastPublishTime>
+</Review>
+</Reviews>
+</Product><Product id="807" disabled="false" removed="true">
+<Source>citychic-online</Source>
+<ExternalId>807</ExternalId>
+<NumNativeQuestions>0</NumNativeQuestions>
+<NumQuestions>0</NumQuestions>
+<NumNativeAnswers>0</NumNativeAnswers>
+<NumAnswers>0</NumAnswers>
+<NumReviews>2</NumReviews>
+<NumStories>0</NumStories>
+<CategoryItems>
+<CategoryItem id="BV_MISCELLANEOUS_CATEGORY">
+<ExternalId>BV_MISCELLANEOUS_CATEGORY</ExternalId>
+<CategoryId>126604</CategoryId>
+<CategoryName>Miscellaneous</CategoryName>
+</CategoryItem>
+</CategoryItems>
+<ReviewStatistics>
+<AverageOverallRating>5.0</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>2</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>0</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>5</RatingValue>
+<Count>2</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</ReviewStatistics>
+<NativeReviewStatistics>
+<AverageOverallRating>5.0</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>2</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>0</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>5</RatingValue>
+<Count>2</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</NativeReviewStatistics>
+<Reviews>
+<Review id="2937452">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-10-07T20:41:32.000-05:00</LastModificationTime>
+<UserProfileReference id="zde0ih0u6jyadvw05se3jmt726">
+<ExternalId>zde0ih0u6jyadvw05se3jmt726</ExternalId>
+<Anonymous>true</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>LOVE IT!!</Title>
+<ReviewText>I FINALLY RECEIVED MY NEW TOP, OH I ADORE THIS!! LOVE HOW IT FITS TO A PERFECT T!!! AS A FULL FIGURED LADY, ITS HARD TO FIND CLOTHES..NOT ANYMORE!! THANK YOU FOR THE HOT,SEXY,CLOTHES:) ITS SO COMFORTABLE! LOOKS GREAT WITH THE SKINNY JEANS!!!</ReviewText>
+<NumComments>0</NumComments>
+<Rating>5</Rating>
+<RatingRange>5</RatingRange>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<ReviewerNickname>Amy</ReviewerNickname>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2011-04-25T15:54:52.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/807/reviews.htm?reviewID=2937452</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/807/review/2937452/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<Source>
+<Name>citychic-online</Name>
+<ExternalContentId>983</ExternalContentId>
+</Source>
+<AuthenticationType>SITE</AuthenticationType>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<FirstPublishTime>2013-10-07T20:41:32.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-10-07T20:41:32.000-05:00</LastPublishTime>
+</Review>
+<Review id="2937453">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-10-07T20:41:32.000-05:00</LastModificationTime>
+<UserProfileReference id="ztmj5a5yqjpqm7ruom9seb67ir">
+<ExternalId>ztmj5a5yqjpqm7ruom9seb67ir</ExternalId>
+<Anonymous>true</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>GREAT</Title>
+<ReviewText>Can't go wrong with this -- I wore it out last night.... Cute, Sexy &amp; Comfy!</ReviewText>
+<NumComments>0</NumComments>
+<Rating>5</Rating>
+<RatingRange>5</RatingRange>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<ReviewerNickname>Ann</ReviewerNickname>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2011-06-18T20:56:45.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/807/reviews.htm?reviewID=2937453</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/807/review/2937453/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<Source>
+<Name>citychic-online</Name>
+<ExternalContentId>1467</ExternalContentId>
+</Source>
+<AuthenticationType>SITE</AuthenticationType>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<FirstPublishTime>2013-10-07T20:41:32.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-10-07T20:41:32.000-05:00</LastPublishTime>
+</Review>
+</Reviews>
+</Product><Product id="8882" disabled="false" removed="true">
+<Source>citychic-online</Source>
+<ExternalId>8882</ExternalId>
+<NumNativeQuestions>0</NumNativeQuestions>
+<NumQuestions>0</NumQuestions>
+<NumNativeAnswers>0</NumNativeAnswers>
+<NumAnswers>0</NumAnswers>
+<NumReviews>1</NumReviews>
+<NumStories>0</NumStories>
+<CategoryItems>
+<CategoryItem id="BV_MISCELLANEOUS_CATEGORY">
+<ExternalId>BV_MISCELLANEOUS_CATEGORY</ExternalId>
+<CategoryId>126604</CategoryId>
+<CategoryName>Miscellaneous</CategoryName>
+</CategoryItem>
+</CategoryItems>
+<ReviewStatistics>
+<AverageOverallRating>3.0</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>1</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>0</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>3</RatingValue>
+<Count>1</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</ReviewStatistics>
+<NativeReviewStatistics>
+<AverageOverallRating>3.0</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>1</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>0</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>3</RatingValue>
+<Count>1</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</NativeReviewStatistics>
+<Reviews>
+<Review id="2938018">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-10-08T03:46:06.000-05:00</LastModificationTime>
+<UserProfileReference id="6083">
+<ExternalId>6083</ExternalId>
+<DisplayName>Tina</DisplayName>
+<Anonymous>false</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>Nice</Title>
+<ReviewText>This top is nice. Beautiful colours. Runs a little big in size, but still looks great. Other than that...I'm very happy with it.</ReviewText>
+<NumComments>0</NumComments>
+<Rating>3</Rating>
+<RatingRange>5</RatingRange>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<ReviewerNickname>Tina</ReviewerNickname>
+<ReviewerLocation>Ottawa, Ontario</ReviewerLocation>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2012-06-27T17:14:04.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/8882/reviews.htm?reviewID=2938018</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/8882/review/2938018/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<Source>
+<Name>citychic-online</Name>
+<ExternalContentId>15042</ExternalContentId>
+</Source>
+<AuthenticationType>SITE</AuthenticationType>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<FirstPublishTime>2013-10-07T20:42:55.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-10-07T20:42:55.000-05:00</LastPublishTime>
+</Review>
+</Reviews>
+</Product><Product id="17486" disabled="false" removed="true">
+<Source>citychic-online</Source>
+<ExternalId>17486</ExternalId>
+<NumNativeQuestions>0</NumNativeQuestions>
+<NumQuestions>0</NumQuestions>
+<NumNativeAnswers>0</NumNativeAnswers>
+<NumAnswers>0</NumAnswers>
+<NumReviews>1</NumReviews>
+<NumStories>0</NumStories>
+<CategoryItems>
+<CategoryItem id="BV_MISCELLANEOUS_CATEGORY">
+<ExternalId>BV_MISCELLANEOUS_CATEGORY</ExternalId>
+<CategoryId>126604</CategoryId>
+<CategoryName>Miscellaneous</CategoryName>
+</CategoryItem>
+</CategoryItems>
+<ReviewStatistics>
+<AverageOverallRating>5.0</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>1</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>0</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>5</RatingValue>
+<Count>1</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</ReviewStatistics>
+<NativeReviewStatistics>
+<AverageOverallRating>5.0</AverageOverallRating>
+<OverallRatingRange>5</OverallRatingRange>
+<TotalReviewCount>1</TotalReviewCount>
+<RatingsOnlyReviewCount>0</RatingsOnlyReviewCount>
+<RecommendedCount>0</RecommendedCount>
+<NotRecommendedCount>0</NotRecommendedCount>
+<AverageRatingValues/>
+<RatingDistribution>
+<RatingDistributionItem>
+<RatingValue>5</RatingValue>
+<Count>1</Count>
+</RatingDistributionItem>
+</RatingDistribution>
+</NativeReviewStatistics>
+<Reviews>
+<Review id="2938237">
+<ModerationStatus>APPROVED</ModerationStatus>
+<LastModificationTime>2013-10-07T20:43:35.000-05:00</LastModificationTime>
+<UserProfileReference id="zpuncckucx6esro0wlcvo1l40y">
+<ExternalId>zpuncckucx6esro0wlcvo1l40y</ExternalId>
+<Anonymous>true</Anonymous>
+<HyperlinkingEnabled>false</HyperlinkingEnabled>
+</UserProfileReference>
+<RatingsOnly>false</RatingsOnly>
+<Title>L1T9hV0yq</Title>
+<ReviewText>If your dress doesn't have pkoects, just sew a small pkoect to the inside bottom of your seam. That way the pump is easily accessable and on windy days, the weight of the pump keeps your dress from blowing up! =D</ReviewText>
+<NumComments>0</NumComments>
+<Rating>5</Rating>
+<RatingRange>5</RatingRange>
+<NumFeedbacks>0</NumFeedbacks>
+<NumPositiveFeedbacks>0</NumPositiveFeedbacks>
+<NumNegativeFeedbacks>0</NumNegativeFeedbacks>
+<ReviewerNickname>Cilene</ReviewerNickname>
+<DisplayLocale>en_US</DisplayLocale>
+<SubmissionTime>2013-08-24T18:09:23.000-05:00</SubmissionTime>
+<ProductReviewsUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/17486/reviews.htm?reviewID=2938237</ProductReviewsUrl>
+<ProductReviewsDeepLinkedUrl>http://c3.ugc.bazaarvoice.com/bvstaging/17056/17486/review/2938237/redirect.htm</ProductReviewsDeepLinkedUrl>
+<Featured>false</Featured>
+<Source>
+<Name>citychic-online</Name>
+<ExternalContentId>37077</ExternalContentId>
+</Source>
+<AuthenticationType>SITE</AuthenticationType>
+<SendEmailAlertWhenPublished>false</SendEmailAlertWhenPublished>
+<SendEmailAlertWhenCommented>false</SendEmailAlertWhenCommented>
+<FirstPublishTime>2013-10-07T20:43:35.000-05:00</FirstPublishTime>
+<LastPublishTime>2013-10-07T20:43:35.000-05:00</LastPublishTime>
+</Review>
+</Reviews>
+</Product></Feed>

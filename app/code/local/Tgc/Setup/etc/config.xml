@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Tgc_Setup>
+            <version>61</version>
+        </Tgc_Setup>
+    </modules>
+    <global>
+        <resources>
+            <tgc_setup_setup>
+                <setup>
+                    <module>Tgc_Setup</module>
+                    <class>Tgc_Setup_Model_Resource_Setup</class>
+                </setup>
+            </tgc_setup_setup>
+        </resources>
+    </global>
+</config>

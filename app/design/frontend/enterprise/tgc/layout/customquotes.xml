@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+        <reference name="top.links">
+            <action method="addLink" translate="label title">
+                <label>Create Quote</label>
+                <url>placeholder-for-info-page</url>
+                <title>Create Quote</title>
+                <prepare>true</prepare>
+                <urlParams/>
+                <position>30</position>
+            </action>
+        </reference>
+    </default>
+
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" translate="label" module="customquotes">
+                <name>customquotes</name>
+                <path>customquotes/account/myquotes</path>
+                <label>My Quotes</label>
+            </action>
+        </reference>
+    </customer_account>
+
+    <customquotes_account_myquotes translate="label">
+        <label>Customer My Account Custom Quotes</label>
+        <update handle="customer_account"/>
+
+        <reference name="my.account.wrapper">
+            <block type="customquotes/sales_customquote_history" name="customquotes.sales.customquote.history">
+                <block type="core/text_list" name="customquotes.sales.customquote.history.info" as="info" translate="label">
+                    <label>Custom Quotes Info</label>
+                </block>
+            </block>
+            <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>-->
+        </reference>
+    </customquotes_account_myquotes>
+
+    <customquotes_account_view>
+        <label>Customer My Account Quote View</label>
+        <update handle="customer_account"/>
+
+        <reference name="my.account.wrapper">
+            <block type="customquotes/sales_customquote_info" as="info" name="sales.order.info">
+                <block type="customquotes/sales_customquote_info_buttons" as="buttons" name="sales.order.info.buttons"/>
+            </block>
+            <block type="customquotes/sales_customquote_view" name="sales.order.view">
+                <block type="customquotes/sales_customquote_items" name="quote_items" template="customquotes/sales/customquote/items.phtml">
+
+                    <action method="addItemRender"><type>default</type><block>customquotes/sales_customquote_item_renderer_default</block><template>customquotes/sales/customquote/items/renderer/default.phtml</template></action>
+                    <action method="addItemRender"><type>grouped</type><block>customquotes/sales_customquote_item_renderer_grouped</block><template>customquotes/sales/customquote/items/renderer/default.phtml</template></action>
+                    <block type="sales/order_totals" name="order_totals" template="sales/order/totals.phtml">
+                        <action method="setLabelProperties"><value>colspan="4" class="a-right"</value></action>
+                        <action method="setValueProperties"><value>class="last a-right"</value></action>
+                        <block type="tax/sales_order_tax" name="tax" template="tax/order/tax.phtml" />
+                    </block>
+                </block>
+            </block>
+        </reference>
+        <reference name="sales.order.info">
+            <action method="addLink" translate="label" module="sales"><name>view</name><path></path><label>Quote Information</label></action>
+        </reference>
+        <block type="core/text_list" name="additional.product.info" translate="label">
+            <label>Additional Product Info</label>
+        </block>-->
+    </customquotes_account_view>
+
+    <checkout_cart_index>
+        <reference name="checkout.cart.methods">
+            <block type="customquotes/checkout_onepage_createquote" name="customquotes.checkout.onepage.createquote" before="checkout.cart.methods.onepage.bottom" template="customquotes/checkout/onepage/createquote.phtml"/>
+        </reference>
+    </checkout_cart_index>
+
+    <customquotes_createquote_index translate="label">
+        <update handle="checkout_onepage_index"/>
+
+        <reference type="checkout/onepage" name="checkout.onepage">
+            <action method="setHeaderTitle"><title>Create Quote</title></action>
+        </reference>
+
+        <reference name="checkout.onepage.shipping">
+            <action method="setTemplate"><template>customquotes/checkout/onepage/shipping.phtml</template></action>
+        </reference>
+
+        <reference name="checkout.onepage.billing">
+            <action method="setTemplate"><template>customquotes/checkout/onepage/billing.phtml</template></action>
+        </reference>
+
+        <reference name="checkout.onepage.login">
+            <action method="setTemplate"><template>persistent/customer/form/login.phtml</template></action>
+            <action method="setTemplate"><template>customquotes/checkout/onepage/login.phtml</template></action>
+
+            <block type="customer/form_register" name="customer_form_register" template="persistent/customer/form/register.phtml">
+                <action method="append"><block>customer.form.register.fields.before</block><alias>form_fields_before</alias></action>
+                <action method="append"><block>customer_form_user_attributes</block></action>
+                <action method="append"><block>customer_form_address_user_attributes</block></action>
+            </block>
+        </reference>
+
+        <reference name="checkout.onepage.shipping">
+            <action method="setShowStepNumber"><flag>0</flag></action>
+        </reference>
+
+        <remove name="checkout.progress"></remove>
+    </customquotes_createquote_index>
+
+    <customquotes_createquote_review>
+        <label>Custom Quote Overview</label>
+
+        <remove name="right"/>
+        <remove name="left"/>
+
+        <block type="checkout/onepage_review_info" name="root" output="toHtml" template="customquotes/checkout/onepage/review/info.phtml">
+            <action method="addItemRender"><type>default</type><block>checkout/cart_item_renderer</block><template>checkout/onepage/review/item.phtml</template></action>
+            <action method="addItemRender"><type>grouped</type><block>checkout/cart_item_renderer_grouped</block><template>checkout/onepage/review/item.phtml</template></action>
+            <action method="addItemRender"><type>configurable</type><block>checkout/cart_item_renderer_configurable</block><template>checkout/onepage/review/item.phtml</template></action>
+            <action method="addItemRender"><type>downloadable</type><block>downloadable/checkout_cart_item_renderer</block><template>downloadable/checkout/onepage/review/item.phtml</template></action>
+            <action method="addItemRender"><type>bundle</type><block>bundle/checkout_cart_item_renderer</block><template>checkout/onepage/review/item.phtml</template></action>
+            <action method="addItemRender"><type>giftcard</type><block>enterprise_giftcard/checkout_cart_item_renderer</block><template>checkout/onepage/review/item.phtml</template></action>
+
+            <block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="checkout/onepage/review/totals.phtml"/>
+            <block type="core/text_list" name="checkout.onepage.review.info.items.before" as="items_before" translate="label">
+                <label>Items Before</label>
+            </block>
+            <block type="core/text_list" name="checkout.onepage.review.info.items.after" as="items_after" translate="label">
+                <label>Items After</label>
+            </block>
+            <block type="checkout/agreements" name="checkout.onepage.agreements" as="agreements" template="checkout/onepage/agreements.phtml"/>
+            <block type="core/template" name="checkout.onepage.review.button"         as="button"         template="customquotes/checkout/onepage/review/button-save.phtml"/>
+            <block type="core/template" name="checkout.onepage.review.button-email"   as="button-email"   template="customquotes/checkout/onepage/review/button-email.phtml"/>
+            <block type="core/template" name="checkout.onepage.review.button-convert" as="button-convert" template="customquotes/checkout/onepage/review/button-convert.phtml"/>
+        </block>
+        <block type="core/text_list" name="additional.product.info" translate="label">
+            <label>Additional Product Info</label>
+        </block>
+    </customquotes_createquote_review>
+
+    <customquotes_createquote_success>
+        <update handle="checkout_onepage_success"/>
+
+        <reference name="checkout.success">
+            <action method="setTemplate"><template>customquotes/checkout/success.phtml</template></action>
+        </reference>
+    </customquotes_createquote_success>
+
+    <customquotes_email_quote>
+        <block type="core/template" name="customquotes_email_quote.items"
+               template="customquotes/checkout/onepage/quoteitems.phtml"/>
+    </customquotes_email_quote>
+
+    <customquotes_createquote_createemailquote>
+        <reference name="root">
+            <block type="page/html" name="root" output="toHtml" template="customquotes/checkout/onepage/emailquote.phtml"/>
+        </reference>
+    </customquotes_createquote_createemailquote>
+
+    <customquotes_createquote_emailquote>
+        <reference name="root">
+            <block type="page/html" name="root" output="toHtml" template="customquotes/checkout/onepage/emailfeedback.phtml"/>
+        </reference>
+    </customquotes_createquote_emailquote>
+</layout>

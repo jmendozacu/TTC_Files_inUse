@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <podcasts_index_index>
+        <reference name="content">
+            <block type="tgc_podcast/list" name="podcast_list" template="podcast/podcast.phtml" />
+        </reference>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>rocketweb_podcast/css/style.css</name></action>
+            <action method="addItem"><type>skin_js</type><name>rocketweb_podcast/js/audiojs/audio.min.js</name></action>
+            <action method="addCss"><stylesheet>css/podcasts.css</stylesheet></action>
+        </reference>
+    </podcasts_index_index>
+    <podcasts_podcast_view>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>rocketweb_podcast/css/style.css</name></action>
+            <action method="addItem"><type>skin_js</type><name>rocketweb_podcast/js/audiojs/audio.min.js</name></action>
+            <action method="addCss"><stylesheet>css/podcasts.css</stylesheet></action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_podcast/podcast" name="podcast" template="podcast/episode.phtml" />
+        </reference>
+    </podcasts_podcast_view>
+</layout> 

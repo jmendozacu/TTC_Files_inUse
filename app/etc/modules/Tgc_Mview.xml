@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Description
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_Tgc_Mview
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Mview>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Enterprise_Mview/>
+            </depends>
+        </Tgc_Mview>
+    </modules>
+</config>

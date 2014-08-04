@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Page
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Page
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Page>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Enterprise_PageCache/>
+            </depends>
+        </Tgc_Page>
+    </modules>
+</config>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <eventsadmin_adminhtml_locations_index>
+        <reference name="content">
+            <block type="tgc_events/adminhtml_locations" name="locations" />
+        </reference>
+    </eventsadmin_adminhtml_locations_index>
+     <!-- wysiwyg code -->
+	<eventsadmin_cms_wysiwyg_images_index>
+	    <remove name="footer" />
+	    <remove name="head" />
+	    <reference name="left">
+		<block name="wysiwyg_images.js" type="adminhtml/cms_wysiwyg_images_content" template="cms/browser/js.phtml" />
+		<block name="wysiwyg_images.tree" type="adminhtml/cms_wysiwyg_images_tree" template="cms/browser/tree.phtml" />
+	    </reference>
+	    <reference name="content">
+		<block name="wysiwyg_images.content"  type="adminhtml/cms_wysiwyg_images_content" template="cms/browser/content.phtml">
+		    <block name="wysiwyg_images.uploader" type="adminhtml/cms_wysiwyg_images_content_uploader" template="cms/browser/content/uploader.phtml" />
+		    <block name="wysiwyg_images.newfolder" type="adminhtml/cms_wysiwyg_images_content_newfolder" template="cms/browser/content/newfolder.phtml" />
+		</block>
+	    </reference>
+	</eventsadmin_cms_wysiwyg_images_index>
+	<!-- wysiwyg code -->
+    <eventsadmin_adminhtml_locations_edit>
+        <update handle="editor"/>
+    </eventsadmin_adminhtml_locations_edit>
+
+
+    <eventsadmin_adminhtml_types_index>
+        <reference name="content">
+            <block type="tgc_events/adminhtml_types" name="types" />
+        </reference>
+    </eventsadmin_adminhtml_types_index>
+    <!-- wysiwyg code -->
+    <eventsadmin_cms_wysiwyg_images_index>
+        <remove name="footer" />
+        <remove name="head" />
+        <reference name="left">
+            <block name="wysiwyg_images.js" type="adminhtml/cms_wysiwyg_images_content" template="cms/browser/js.phtml" />
+            <block name="wysiwyg_images.tree" type="adminhtml/cms_wysiwyg_images_tree" template="cms/browser/tree.phtml" />
+        </reference>
+        <reference name="content">
+            <block name="wysiwyg_images.content"  type="adminhtml/cms_wysiwyg_images_content" template="cms/browser/content.phtml">
+                <block name="wysiwyg_images.uploader" type="adminhtml/cms_wysiwyg_images_content_uploader" template="cms/browser/content/uploader.phtml" />
+                <block name="wysiwyg_images.newfolder" type="adminhtml/cms_wysiwyg_images_content_newfolder" template="cms/browser/content/newfolder.phtml" />
+            </block>
+        </reference>
+    </eventsadmin_cms_wysiwyg_images_index>
+    <!-- wysiwyg code -->
+    <eventsadmin_adminhtml_types_edit>
+        <update handle="editor"/>
+    </eventsadmin_adminhtml_types_edit>
+</layout>

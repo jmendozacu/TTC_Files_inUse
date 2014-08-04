@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Description
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_Tgc_SimpleProductPricing
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_SimpleProductPricing>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Ayasoftware_SimpleProductPricing/>
+                <Mage_Catalog/>
+                <Tgc_Mview/>
+            </depends>
+        </Tgc_SimpleProductPricing>
+    </modules>
+</config>

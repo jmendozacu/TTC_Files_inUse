@@ -1,0 +1,5 @@
+dax_customer_id,course_id,format,download_allowed,digital_transcript,timestamp,has_access
+Expected records,3
+10001991,160,0,1,1,12/23/13,
+10001991,160,1,1,1,12/21/13,
+10001991,110,0,1,1,11/23/13,FALSE

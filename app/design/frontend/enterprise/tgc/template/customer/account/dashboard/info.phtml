@@ -1,0 +1,116 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     enterprise_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<div class="col2-set customer-email">
+    <div class="row">
+        <div class="info-box">
+            <h6 class="box-title">
+                <div class="col-data-wrapper">
+                    <span class="col-label"><?php echo $this->__('Email') ?></span>
+                    <span class="col-content"><em><?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?></em></span>
+                </div>
+                <span class="col-action">
+                    <a class="button secondary-btn" rel="nofollow" href="#"><?php echo $this->__('Edit') ?></a>
+                </span>
+            </h6>
+            <div class="box-content centered">
+                <div class="loader" style="display: none;">
+                    <div class="hover"></div>
+                    <div class="msg"><?php echo $this->__('Processing...'); ?></div>
+                </div>
+                <div class="notice-container" style="display: none;">
+                    <div class="hover"></div>
+                    <div class="msg"></div>
+                </div>
+                <form action="#" method="post" autocomplete="off" id="form-email" enctype="multipart/form-data">
+                    <?php echo $this->getBlockHtml('formkey')?>
+                    <ul class="form-list">
+                        <li class="fields">
+                            <div class="field">
+                                <label for="email" class="required"><?php echo $this->__('Current') ?></label>
+                                <div class="input-box">
+                                    <input type="text" name="old_email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text required-entry validate-email" />
+                                </div>
+                            </div>
+                        </li>
+                        <li class="fields">
+                            <div class="field">
+                                <label for="new-email"><?php echo $this->__('New') ?></label>
+                                <div class="input-box">
+                                    <input type="text" name="email" id="new-email" title="<?php echo $this->__('New Email') ?>" class="input-text required-entry validate-email" placeholder="<?php echo $this->__('Email') ?>" />
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="confirma-email"><?php echo $this->__('Confirm') ?></label>
+                                <div class="input-box">
+                                    <input type="text" name="email_confirm" id="confirma-email" title="<?php echo $this->__('Re-Type New Email') ?>" class="input-text required-entry validate-email validate-cemail-custom" placeholder="<?php echo $this->__('Re-Type New Email') ?>" />
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="buttons-set form-buttons">
+                        <button type="submit" class="button" title="<?php echo $this->__('Save') ?>"><span><span><?php echo $this->__('Save') ?></span></span></button>
+                        <a class="cancel-btn button" rel="nofollow" href="#">Cancel</a>
+                    </div>
+                </form>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    var emailForm = new customerDashboardForm({
+                        form:                          $('form-email'),
+                        formSubmitUrl:                 '<?php echo $this->getUrl('tgc_customer/dashboard/saveEmail'); ?>',
+                        formContainer:                 $('form-email').up('div'),
+                        autoHideFormContainerDelay:    3000,
+                        onFormSubmitSuccessCallback:   function () {$('form-email').up('div.info-box').down('.col-data-wrapper .col-content').update($('form-email').down('input[name="email"]').getValue().escapeHTML());},
+                        onFormContainerHideCallback:   function () {$('form-email').up('div.info-box').down('.box-title .col-action .button').removeClassName('disabled');$('form-email').up('div.info-box').removeClassName('show');},
+                        loaderHoverContainer:          $('form-email').up('div').down('.loader'),
+                        resultNoticeContainer:         $('form-email').up('div').down('.notice-container'),
+                        resultNoticeMessagesContainer: $('form-email').up('div').down('.notice-container .msg'),
+                        autoHideSuccessNoticeDelay:    3000,
+                        autoHideErrorNoticeDelay:      3000,
+                        successMsgPrefix:              '<span class="success-prefix"><?php echo $this->__('Success!')?></span> ',
+                        errorMsgPrefix:                '<span class="error-prefix"><?php echo $this->__('Error!')?></span> '
+                    });
+
+                    Validation.add('validate-cemail-custom', 'Please make sure your emails match.', function (v, elm) {
+                        var email = $(elm).up('form').down('input[name="email"]');
+                        return (email && email.value == v);
+                    });
+
+                    $('form-email').down('.cancel-btn').observe('click', function (event) {
+                        Event.stop(event);
+                        var form = $('form-email');
+                        form.up('div').hide();
+                        form.up('div.info-box').down('.box-title .col-action .button').removeClassName('disabled');
+                        form.up('div.info-box').removeClassName('show');
+                    });
+                    //]]>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+

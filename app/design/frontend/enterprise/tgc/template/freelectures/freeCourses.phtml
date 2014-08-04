@@ -1,0 +1,188 @@
+<?php
+/**
+ * User: mhidalgo
+ * Date: 18/03/14
+ * Time: 11:54
+ */
+/**
+ * @var $this Tgc_Cms_Block_FreeCourses
+ */
+$helper = $this->helper('tgc_catalog');
+/** @var $helperProfImage Tgc_Professors_Helper_Image */
+$widthImageProf = 40;
+$heightImageProf = 60;
+$helperProfImage = Mage::helper('profs/image');
+$videos = $this->getFreeVideoCollection();
+$audios = $this->getFreeAudioCollection();
+?>
+
+<div class="block-content lectures-list-full">
+    <div class="grid-full in-col1">
+        <div class="grid12-6" id="free-video-collection">
+            <h3>FREE Video Collection</h3>
+            <?php if (count($videos)) { ?>
+                <h4><?php echo count($videos) ?> lectures approx. 30 minutes each</h4>
+                <dl class="block-with-lectures-list">
+                    <div class="lectures-container">
+                        <ul class="lectures-list">
+                        <?php foreach ($videos as $video) { ?>
+                            <?php
+                                /** @var $professor Tgc_Professors_Model_Professor */
+                                $professor = $this->getProfessorFromLecture($video);
+                                $helperProfImage->reset()->init($professor)->resize($widthImageProf,$heightImageProf);
+                            ?>
+                            <li>
+                                <dt>
+                                    <a <?php if ($this->getOriginalCourseIdFromLecture($video)) { ?> target="_blank" <?php } ?> href="<?php echo $this->getCourseUrlFromLecture($video) ?>"><?php echo $video->getTitle() ?></a>
+                                </dt>
+                                <dd>from <?php echo $this->getCourseNameFromLecture($video) ?></dd>
+                                <div class="lecture-description-block right">
+                                    <div class="professor-lecture">
+                                        <div class="lecture-data">
+                                            <div class="lecture-title">
+                                                <?php echo $video->getTitle() ?>
+                                            </div>
+                                            <div class="lecture-description">
+                                                from <?php echo $this->getCourseNameFromLecture($video) ?>
+                                            </div>
+                                        </div>
+                                        <div class="about-professor clearer">
+                                            <div class="professor-image"><img width="30" src="<?php echo $helperProfImage->__toString() ?>" alt="<?php echo $professor->getFirstName() . " " . $professor->getLastName() ?>"/></div>
+                                            <div class="professor-data">
+                                                <div class="professor-name"><?php echo $professor->getFirstName() . " " . $professor->getLastName() ?></div>
+                                                <div class="professor-info"><?php echo $professor->getTitle() ?></div>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <?php echo $this->stripTags($this->getCourseDescriptionFromLecture($video)) ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php } ?>
+                        </ul>
+                    </div>
+                </dl>
+            <?php } else { ?>
+                <h4><?php echo $this->__("There are no free video collections at the moment") ?></h4>
+            <?php } ?>
+        </div>
+
+        <div class="grid12-6" id="free-audio-collection">
+            <h3>FREE Audio Collection</h3>
+            <?php if (count($audios)) { ?>
+                <h4><?php echo count($audios) ?> lectures approx. 30 minutes each</h4>
+                <dl class="block-with-lectures-list">
+                    <div class="lectures-container">
+                        <ul class="lectures-list">
+                        <?php foreach ($audios as $audio) { ?>
+                            <?php
+                            /** @var $professor Tgc_Professors_Model_Professor */
+                            $professor = $this->getProfessorFromLecture($audio);
+                            $helperProfImage->reset()->init($professor)->resize($widthImageProf,$heightImageProf);
+                            ?>
+                            <li>
+                                <dt>
+                                    <a <?php if ($this->getOriginalCourseIdFromLecture($audio)) { ?> target="_blank" <?php } ?> href="<?php echo $this->getCourseUrlFromLecture($audio) ?>"><?php echo $audio->getTitle() ?></a>
+                                </dt>
+                                <dd>from <?php echo $this->getCourseNameFromLecture($audio) ?></dd>
+                                <div class="lecture-description-block left">
+                                    <div class="professor-lecture">
+                                        <div class="lecture-data">
+                                            <div class="lecture-title">
+                                                <?php echo $audio->getTitle() ?>
+                                            </div>
+                                            <div class="lecture-description">
+                                                from <?php echo $this->stripTags($this->getCourseNameFromLecture($audio)) ?>
+                                            </div>
+                                        </div>
+                                        <div class="about-professor clearer">
+                                            <div class="professor-image"><img width="30" src="<?php echo $helperProfImage->__toString() ?>" alt="<?php echo $professor->getFirstName() . " " . $professor->getLastName() ?>"/></div>
+                                            <div class="professor-data">
+                                                <div class="professor-name"><?php echo $professor->getFirstName() . " " . $professor->getLastName() ?></div>
+                                                <div class="professor-info"><?php echo $professor->getTitle() ?></div>
+                                            </div>
+                                        </div>
+                                        <div class="description">
+                                            <?php echo $this->stripTags($this->getCourseDescriptionFromLecture($audio)) ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php } ?>
+                        </ul>
+                    </div>
+                </dl>
+            <?php } else { ?>
+                <h4><?php echo $this->__("There are no free audio collections at the moment") ?></h4>
+            <?php } ?>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    (function($) {
+        if( isTouchable === true && $(window).width() < 768 ) {
+            $("body").children().wrapAll('<div class="mm-page"></div>');
+            $("body").prepend(
+                $("<div class='mobile-tab-panel'><div class='mobile-tab-scrolled-area' id='mobile-tab-scrolled-area'></div></div>")
+            );
+
+            $("#free-video-collection, #free-audio-collection").on(customClickEvent, function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                $('.header-container').hide();
+
+                $(".mobile-tab-scrolled-area").html("" +
+                    "<button type='button' class='close-button'></button>" +
+                    "<div class='mobile-tab-panel-title for-free'>" + $(this).find('h3').text() + '<div class="subtitle">' + $(this).find('h4').text()+ '</div>' + "</div>" +
+                    "<div class='scrolled-content'>" + '<div class="block-for-mobile-lectures">' + $(this).find('.block-with-lectures-list').html() + '</div>' + "</div>"
+                );
+
+                setTimeout(function() {
+                    $('.mm-page').addClass('opened');
+                    freeLecturesMobilePanelScroll.refresh();
+                    $(document).on('touchmove', function(e) {
+                        e.preventDefault();
+                    });
+                }, 50);
+
+                $(".mobile-tab-panel .close-button").on(customClickEvent, function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $('.mm-page').removeClass('opened');
+                    $(document).off('touchmove');
+                    setTimeout(function() {
+                        $('.header-container').show();
+                    }, 500)
+                });
+
+                $('.block-for-mobile-lectures .lectures-list li').on(customMousedownEvent, function() {
+                    $('.lectures-list li').removeClass('tapped');
+                    $(this).addClass('tapped');
+                }).on(customMouseupEvent, function() {
+                    $('.lectures-list li').removeClass('tapped');
+                }).on('tap', function() {
+
+                    if(!$(this).hasClass('active')) {
+                    $('.lectures-list li').removeClass('active');
+                        $(this).addClass('active');
+                    } else {
+                        $(this).removeClass('active');
+                    }
+                    freeLecturesMobilePanelScroll.refresh();
+                })
+
+                freeLecturesMobilePanelScroll = new IScroll('.mobile-tab-scrolled-area .scrolled-content', {
+                    scrollbars: true,
+                    mouseWheel: true,
+                    interactiveScrollbars: true,
+                    shrinkScrollbars: 'scale',
+                    fadeScrollbars: true,
+                    tap: true
+                });
+            })
+        }
+    })(jQuery)
+
+</script>

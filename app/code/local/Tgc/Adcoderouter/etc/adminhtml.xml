@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <menu>
+        <catalog translate="title" module="catalog">
+            <children>
+                <adcoderedirectlist>
+                    <title>Ad Code Redirects</title>
+                    <sort_order>35</sort_order>
+                    <action>adminhtml/adcoderedirectlist</action>
+                </adcoderedirectlist>
+            </children>
+        </catalog>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <catalog>
+                        <children>
+                            <adcoderedirectlist>
+                                <title>Manage Ad Code Redirects / Space Ads</title>
+                                <sort_order>40</sort_order>
+                            </adcoderedirectlist>
+                        </children>
+                    </catalog>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

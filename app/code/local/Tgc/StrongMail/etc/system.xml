@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * System configuration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_StrongMail
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <tabs>
+        <tgc_strongmail translate="label" module="tgc_strongMail">
+            <label>StrongMail</label>
+            <sort_order>5140</sort_order>
+        </tgc_strongmail>
+    </tabs>
+    <sections>
+        <tgc_strongmail translate="label" module="tgc_strongMail">
+            <label>StrongMail settings</label>
+            <tab>tgc_strongmail</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <api translate="label">
+                    <label>API settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <wsdl translate="label comment">
+                            <label>Web Service WSDL URL</label>
+                            <comment>Message Studio application WSDL URL.</comment>
+                            <sort_order>10</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </wsdl>
+                        <username translate="label">
+                            <label>API user name</label>
+                            <sort_order>20</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </username>
+                        <password translate="label">
+                            <label>Password</label>
+                            <sort_order>30</sort_order>
+                            <frontend_type>password</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </password>
+                        <company translate="label">
+                            <label>User Company</label>
+                            <sort_order>40</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </company>
+                    </fields>
+                </api>
+                <sales translate="label">
+                    <label>Sales Transactional Emails settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <new_order_registered translate="label comment">
+                            <label>New Order Transactional Mailing Name</label>
+                            <comment>Transactional Mailing name from Message Studio, created for sending the new order confirmation e-mail to registered customers.</comment>
+                            <sort_order>10</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </new_order_registered>
+                    </fields>
+                </sales>
+                <customer translate="label">
+                    <label>Customer Transactional Emails settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <reset_password translate="label comment">
+                            <label>Reset Password Transactional Mailing Name</label>
+                            <comment>Transactional Mailing name from Message Studio, created for sending reset password link.</comment>
+                            <sort_order>10</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </reset_password>
+                        <welcome_registered translate="label comment">
+                            <label>New Customer Transactional Mailing Name</label>
+                            <comment>Transactional Mailing name from Message Studio, created for sending "Welcome" e-mail for a new registered customer.</comment>
+                            <sort_order>20</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </welcome_registered>
+                        <welcome_confirmed translate="label comment">
+                            <label>Confirmed Email Transactional Mailing Name</label>
+                            <comment>Transactional Mailing name from Message Studio, created for sending "Welcome" e-mail for a new registered customer after he has confirmed his e-mail successfully.</comment>
+                            <sort_order>30</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </welcome_confirmed>
+                        <welcome_confirmation translate="label comment">
+                            <label>Confirmation Email Transactional Mailing Name</label>
+                            <comment>Transactional Mailing name from Message Studio, created for sending an e-mail for a new registered customer with the link for the email confirmation.</comment>
+                            <sort_order>40</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </welcome_confirmation>
+                        <free_lectures translate="label commit">
+                            <label>Free Lectures Signup Email Mailing Name</label>
+                            <comment>Transactional Mailing name from Message Studio, created for sending  free letures signup e-mail.</comment>
+                            <sort_order>50</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </free_lectures>
+                    </fields>
+                </customer>
+            </groups>
+        </tgc_strongmail>
+    </sections>
+</config>

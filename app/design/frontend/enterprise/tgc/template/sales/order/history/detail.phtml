@@ -1,0 +1,175 @@
+<?php
+/**
+ *
+ */
+?>
+<?php $details  = $this->getOrderDetails(); ?>
+<?php $items    = $this->getOrderItems(); ?>
+<?php $tracking = $this->getOrderTracking(); ?>
+<div class="order-info-container clearer">
+    <div class="title-block"><?php echo $this->__('Order Summary') ?></div>
+    <div class="v-grid-container">
+        <div class="grid12-10">
+            <div class="text-block order"><?php echo $this->__('Order') ?> #: <?php echo $details->getData('salesid'); ?></div>
+            <div class="text-block order"><?php echo $this->__('Ordered') ?>: <?php echo $details->getData('CREATEDDATETIME'); ?></div>
+        </div>
+        <div class="grid12-2">
+            <div class="print-block">
+                <a href="javascript:void(0)" onclick="printOrder(jQuery(this).closest('div.block-content').html());" class="link-print"><?php echo $this->__('Print') ?></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="v-grid-container">
+        <div class="grid12-6">
+            <div class="custom-table-block">
+                <div class="table-head v-grid-container">
+                    <div class="grid12-12"><?php echo $this->__('Shipping Destination') ?></div>
+                </div>
+                <div class="table-body v-grid-container">
+                    <div class="text-block small">
+                        <?php if ($details->getData('HasPhysicalItems') == 1) : ?>
+                        <?php if ($details->getData('DELIVERYNAME')) echo $this->escapeHTML($details->getData('DELIVERYNAME')) . '<br>' ;?>
+                        <?php if ($details->getData('DELIVERYSTREET')) echo $this->escapeHTML($details->getData('DELIVERYSTREET')) . '<br>' ;?>
+                        <?php if ($details->getData('DELIVERYCITY')) echo $this->escapeHTML($details->getData('DELIVERYCITY')) ;?><?php if ($details->getData('DELIVERYZIPCODE')) echo ', ' . $this->escapeHTML($details->getData('DELIVERYZIPCODE')) . '<br>' ;?>
+                        <?php if ($details->getData('DeliveryCountryName')) echo $this->escapeHTML($details->getData('DeliveryCountryName')) ;?>
+                        <?php else : ?>
+                        <?php echo $this->__('Download Only - No Shipping Required ') ;?>
+                        <?php endif ;?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid12-6">
+            <div class="custom-table-block">
+                <div class="table-head v-grid-container">
+                    <div class="grid12-12"><?php echo $this->__('Bill To') ?></div>
+                </div>
+                <div class="table-body v-grid-container">
+                    <div class="text-block small">
+                        <?php if ($details->getData('Customername')) echo $this->escapeHTML($details->getData('Customername')) . '<br>' ;?>
+                        <?php if ($details->getData('STREET')) echo $this->escapeHTML($details->getData('STREET')) . '<br>' ;?>
+                        <?php if ($details->getData('CITY')) echo $this->escapeHTML($details->getData('CITY')) ;?><?php if ($details->getData('ZIPCODE')) echo ', ' . $this->escapeHTML($details->getData('ZIPCODE')) . '<br>' ;?>
+                        <?php if ($details->getData('CustomerCountryName')) echo $this->escapeHTML($details->getData('CustomerCountryName')) ;?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="v-grid-container">
+        <div class="grid12-6">
+            <div class="custom-table-block">
+                <div class="table-head v-grid-container">
+                    <div class="grid12-12"><?php echo $this->__('Shipping Method') ?></div>
+                </div>
+                <div class="table-body v-grid-container">
+                    <div class="text-block small">
+                        <?php if ($details->getData('HasPhysicalItems') == 1) : ?>
+                        <?php if ($details->getData('DeliveryMode')) echo $this->escapeHTML($details->getData('DeliveryMode')) ;?>
+                        <?php else : ?>
+                        <?php echo $this->__('Download Only - No Shipping Required') ;?>
+                        <?php endif ;?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid12-6">
+            <div class="custom-table-block">
+                <div class="table-head v-grid-container">
+                    <div class="grid12-12"><?php echo $this->__('Payment Method') ?></div>
+                </div>
+                <div class="table-body v-grid-container">
+                    <div class="text-block small">
+                        <?php if ($details->getData('CardType')) echo $this->escapeHTML($details->getData('CardType')) . ': XXXX - ' . $details->getData('CardLast4') . '<br>' ; ?>
+                        <?php if ($details->getData('ExpMonth')) echo $this->__('Expires') . ': ' . $this->escapeHTML($details->getData('ExpMonth') . '/' . $details->getData('ExpYear')); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="order-info-container margin_bottom_8 clearer">
+    <div class="title-block"><?php echo $this->__('Invoice') ?></div>
+
+    <div class="custom-table-block full">
+        <div class="table-head v-grid-container">
+            <div class="grid12-2"><?php echo $this->__('Format') ?></div>
+            <div class="grid12-5"><?php echo $this->__('Description') ?></div>
+            <div class="grid12-2"><?php echo $this->__('Price') ?></div>
+            <div class="grid12-1 a-center"><?php echo $this->__('Quantity') ?></div>
+            <div class="grid12-2 a-right total-price-col"><?php echo $this->__('Total') ?></div>
+        </div>
+        <div class="table-body v-grid-container">
+            <?php foreach ($items as $item): ?>
+            <?php $item = new Varien_Object($item); ?>
+            <div class="v-grid-container">
+                <div class="grid12-2">
+                    <div class="text-block">
+                        <?php echo $this->escapeHTML($item->getData('Format'));?>
+                    </div>
+                </div>
+                <div class="grid12-5">
+                    <div class="text-block">
+                        <?php if ($item->getData('name')) echo $this->escapeHTML($item->getData('name')) . '<br>' ;?>
+                        <?php if ($item->getData('itemid')) echo $this->__('Item Number') . ': ' . $this->escapeHTML($item->getData('itemid')) . '<br>' ;?>
+                        <?php if ($item->getData('MSRP')) echo $this->__('Regular Price') . ': ' . Mage::helper('core')->formatPrice($item->getData('MSRP'), false); ?>
+                    </div>
+                </div>
+                <div class="grid12-2">
+                    <div class="text-block">
+                        <?php echo Mage::helper('core')->formatPrice($item->getData('salesprice'), false) ;?>
+                    </div>
+                </div>
+                <div class="grid12-1 a-center">
+                    <div class="text-block">
+                        <?php echo round($item->getData('qtyordered')) ;?>
+                    </div>
+                </div>
+                <div class="grid12-2 a-right total-price-col">
+                    <div class="text-block">
+                        <?php echo Mage::helper('core')->formatPrice(($item->getData('salesprice') * $item->getData('qtyordered')), false) ;?>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach ;?>
+        </div>
+    </div>
+</div>
+
+<div class="order-subtotal-container">
+    <div class="subtotal-block v-grid-container">
+        <div class="grid12-8">
+            <?php echo $this->__('SUBTOTAL') ?>
+        </div>
+        <div class="grid12-4">
+            <?php echo Mage::helper('core')->formatPrice($details->getData('merchandiseTotal'), false) ;?>
+        </div>
+    </div>
+    <div class="v-grid-container">
+        <div class="grid12-8">
+            <?php echo $this->__('Estimated Shipping') ?>
+        </div>
+        <div class="grid12-4">
+            <?php echo Mage::helper('core')->formatPrice($details->getData('shipping'), false) ;?>
+        </div>
+    </div>
+    <div class="v-grid-container">
+        <div class="grid12-8">
+            <?php echo $this->__('Estimated Tax') ?>
+        </div>
+        <div class="grid12-4">
+            <?php echo Mage::helper('core')->formatPrice($details->getData('taxes'), false) ;?>
+        </div>
+    </div>
+    <div class="estimated-total-block v-grid-container">
+        <div class="grid12-8">
+            <?php echo $this->__('Order Total') ?>
+        </div>
+        <div class="grid12-4">
+            <?php $gt = $details->getData('merchandiseTotal') + $details->getData('shipping') + $details->getData('other') + $details->getData('taxes') - $details->getData('coupons') -$details->getData('GiftCertificates'); ?>
+            <?php echo Mage::helper('core')->formatPrice($gt, false); ?>
+        </div>
+    </div>
+</div>

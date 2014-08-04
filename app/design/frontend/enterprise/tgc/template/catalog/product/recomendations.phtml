@@ -1,0 +1,169 @@
+<?php
+/**
+ *
+ */
+?>
+<?php
+$_productCollection = $this->getProductCollection();
+$_heroHelper = $this->helper('tgc_cms');
+?>
+<?php if ($_productCollection && ($_collectionSize = $_productCollection->getSize())): ?>
+    <?php
+    $professorHelper = $this->helper('profs')->loadProfessorsByProducts($_productCollection);
+    $theme = $this->helper('ultimo');
+    $helpLabels = $this->helper('ultimo/labels');
+    $helpTemplate = $this->helper('ultimo/template');
+    $helpImg = $this->helper('infortis/image');
+
+    //Default image size
+    $imgWidth = 160;
+    $imgHeight = 125;
+
+    //Aspect ratio settings
+    if ($theme->getCfg('category/aspect_ratio'))
+    {
+        $imgHeight = 0; //Height will be computed automatically (based on width) to keep the aspect ratio
+    }
+
+    //Block parameters
+    $isResponsive = $this->getIsResponsive(); //is_responsive
+    $breakpoints = $this->getBreakpoints(); //breakpoints
+    $showItems = $this->getShowItems(); //show_products
+    if (!$showItems)
+    {
+        $showItems = 5; //IMPORTANT: set default number of visible products
+    }
+
+    //Other block parameters:
+
+    //Timeout (if set: automatic slideshow)
+    $timeout = $this->getTimeout();
+    if ($timeout == "null") //Special value: no automatic slideshow
+    {
+        $timeout = 0;
+    }
+    else
+    {
+        $timeout = intval($timeout);
+        if (!$timeout) //Param not set or equals 0
+        {
+            $timeout = intval($theme->getCfg('product_slider/timeout'));
+        }
+    }
+
+    //Initial delay
+    $initDelay = intval($this->getInitDelay());
+
+    //Additional CSS classes
+    $sliderClasses = '';
+    if($isResponsive)
+    {
+        $sliderClasses .= ' itemslider-responsive';
+    }
+
+    if ($this->getData('dis_flex_slider')):
+        $limit = $this->getData('dis_flex_slider');
+    endif;
+    ?>
+
+    <!--    <h3 class="section-title padding-right">--><?php //echo $this->getBlockName(); ?><!--</h3>-->
+    <h3 class="section-title padding-right"><?php echo $this->__('Recommendations')?></h3>
+    <div class="itemslider-wrapper new-itemslider-wrapper">
+        <div class="itemslider itemslider-horizontal<?php if($sliderClasses) echo $sliderClasses; ?>">
+            <ul class="slides products-grid">
+                <?php foreach ($_productCollection->getItems() as $_product): ?>
+                    <li class="item drop-shadow tiny-shadow">
+                        <div class="item-inner">
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true); ?>">
+                                <span class="product-image"><img src="<?php echo $helpImg->getImg($_product, $imgWidth, $imgHeight, 'small_image'); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true); ?>" />
+                                    <?php if ($theme->getCfg('category/alt_image')): ?>
+                                        <?php echo $theme->getAltImgHtml($_product, $imgWidth, $imgHeight); ?>
+                                    <?php endif; ?>
+                                    <?php echo $helpLabels->getLabels($_product); //Product labels ?>
+                                </span>
+                                <h3 class="product-name"><?php echo $_heroHelper->truncateTextByWords($this->htmlEscape($_product->getName()), 68, '...');?></h3>
+                                <?php //Professor name ?>
+                                <?php if ($professorName = $professorHelper->getProfessorNamesForProduct($_product)): ?>
+                                <span class="professor-name"><?php echo $professorName; ?></span>
+                                <?php endif; ?>
+
+                                <?php if (Mage::helper('tgc_bv')->isBvEnabled()): ?>
+                                    <div id="BVRRInlineRating-<?php echo Mage::helper('bazaarvoice')->getProductId($_product) ?>"></div>
+                                <?php endif; ?>
+                                <?php echo $this->getPriceHtml($_product, true) ?>
+                            </a>
+                        </div>
+                    </li>
+                    <?php
+                    if ($this->getData('dis_flex_slider')):
+                        $limit --;
+                        if ($limit == 0):
+                            break;
+                        endif;
+                    endif;
+                 endforeach; ?>
+            </ul> <!-- end: slides -->
+        </div> <!-- end: itemslider -->
+    </div> <!-- end: new-itemslider-wrapper -->
+    <script type="text/javascript">
+        //<![CDATA[
+        jQuery(function($) {
+            <?php if (!$this->getData('dis_flex_slider')): ?>
+            $('.new-itemslider-wrapper .itemslider').flexslider({
+                namespace: "",
+                animation: "slide",
+                controlNav: false,
+                animationLoop: false,
+                itemWidth: 180,
+                touch: true,
+                scrollPerPage: true,
+                slideshow: false,
+                maxItems: 5,
+                minItems: 1
+            })
+            <?php endif ?>
+
+                /*Need review of this code by backend developer*/
+                /*namespace: "",
+                 animation: "slide",
+                 easing: "easeInQuart",
+
+            <?php if ($timeout): ?>
+                 slideshowSpeed: <?php echo $timeout; ?>,
+             animationLoop: true,
+            <?php else: ?>
+                 slideshow: false,
+                 animationLoop: false,
+            <?php endif; ?>
+
+			<?php if ($initDelay): ?>
+                 initDelay: <?php echo $initDelay; ?>,
+            <?php endif; ?>
+
+			<?php if ($speed = intval($theme->getCfg('product_slider/speed'))): ?>
+                 animationSpeed: <?php echo $speed; ?>,
+            <?php endif; ?>
+
+                 pauseOnHover: true,
+                 controlNav: false,
+                 controlsContainer: ".new-itemslider-wrapper .nav-wrapper",
+
+                 itemWidth: 160,
+            <?php if ($showItems): ?>
+                 minItems: <?php echo $showItems; ?>,
+             maxItems: <?php echo $showItems; ?>,
+            <?php endif; ?>
+
+                 move: <?php echo intval($theme->getCfg('product_slider/move_items')); ?>
+                 })
+            <?php if ($breakpoints): ?>
+                 .data("breakpoints", [ <?php echo $breakpoints; ?> ] )
+            <?php elseif ($showItems): ?>
+                 .data("showItems", <?php echo $showItems; ?> )
+            <?php endif; ?>*/
+            ; //IMPORTANT: don't remove semicolon!
+
+        });
+        //]]>
+    </script>
+<?php endif; ?>

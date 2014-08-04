@@ -1,0 +1,1366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://schemas.cch.com/STOService/3.5" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:i0="http://tempuri.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" name="STOService" targetNamespace="http://schemas.cch.com/STOService/3.5">
+  <wsdl:types/>
+  <wsdl:binding name="STOService" type="i0:ISTOServiceContract">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CalculateRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CalculateRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CancelRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FinalizeRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/FinalizeRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GeoblockRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GeoblockRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UnattributedReturnRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/UnattributedReturnRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AttributedFullReturnRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/AttributedFullReturnRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PartialReturnRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/PartialReturnRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="TaxAdjustmentRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/TaxAdjustmentRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SystemDateTimeRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/SystemDateTimeRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataValues">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetDataValues" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSKU">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CreateSKU" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GeoblockRequestAll">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GeoblockRequestAll" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerCertificateRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CreateCustomerCertificateRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExportCustomerCertificateRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/ExportCustomerCertificateRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExportCustomerCertificateFilterRequest">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/ExportCustomerCertificateFilterRequest" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionTax">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTransactionTax" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxRates">
+      <soap:operation soapAction="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTaxRates" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ProcessingFaultExceptionFault">
+        <soap:fault name="ProcessingFaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="FaultExceptionFault">
+        <soap:fault name="FaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ValidationFaultExceptionFault">
+        <soap:fault name="ValidationFaultExceptionFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://schemas.cch.com/STOService/3.5/Imports">
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CalculateProcurementRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element xmlns:q1="http://schemas.cch.com/ProcurementOrder/3.5" minOccurs="0" name="ProcurementOrder" nillable="true" type="q1:ProcurementOrder"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CalculateProcurementRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.cch.com/TaxResponse/3.5" minOccurs="0" name="CalculateProcurementRequestResult" nillable="true" type="q2:TaxResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnattributedProcurementReturnRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element xmlns:q3="http://schemas.cch.com/ProcurementOrder/3.5" minOccurs="0" name="ProcurementOrder" nillable="true" type="q3:ProcurementOrder"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnattributedProcurementReturnRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.cch.com/TaxResponse/3.5" minOccurs="0" name="UnattributedProcurementReturnRequestResult" nillable="true" type="q4:TaxResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CalculateRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element xmlns:q5="http://schemas.cch.com/Order/3.5" minOccurs="0" name="order" nillable="true" type="q5:Order"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CalculateRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.cch.com/TaxResponse/3.5" minOccurs="0" name="CalculateRequestResult" nillable="true" type="q6:TaxResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CancelRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="OriginalTransactionID" type="xs:unsignedLong"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CancelRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.cch.com/TransactionDetail/3.5" minOccurs="0" name="CancelRequestResult" nillable="true" type="q7:TransactionDetail"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FinalizeRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="OriginalTransactionID" type="xs:unsignedLong"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FinalizeRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.cch.com/TransactionDetail/3.5" minOccurs="0" name="FinalizeRequestResult" nillable="true" type="q8:TransactionDetail"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GeoblockRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime"/>
+            <xs:element xmlns:q9="http://schemas.cch.com/Address/3.5" minOccurs="0" name="address" nillable="true" type="q9:Address"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GeoblockRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.cch.com/GeoblockInfo/3.5" minOccurs="0" name="GeoblockRequestResult" nillable="true" type="q10:GeoblockInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnattributedReturnRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element xmlns:q11="http://schemas.cch.com/Order/3.5" minOccurs="0" name="order" nillable="true" type="q11:Order"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="UnattributedReturnRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.cch.com/TaxResponse/3.5" minOccurs="0" name="UnattributedReturnRequestResult" nillable="true" type="q12:TaxResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AttributedFullReturnRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="OriginalTransactionID" type="xs:unsignedLong"/>
+            <xs:element minOccurs="0" name="SourceSystem" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="TransactionDescription" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AttributedFullReturnRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q13="http://schemas.cch.com/TaxResponse/3.5" minOccurs="0" name="AttributedFullReturnRequestResult" nillable="true" type="q13:TaxResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PartialReturnRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element xmlns:q14="http://schemas.cch.com/PartialReturnOrder/3.5" minOccurs="0" name="order" nillable="true" type="q14:PartialReturnOrder"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PartialReturnRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q15="http://schemas.cch.com/TaxResponse/3.5" minOccurs="0" name="PartialReturnRequestResult" nillable="true" type="q15:TaxResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxAdjustmentRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionId" nillable="true" type="xs:string"/>
+            <xs:element xmlns:q16="http://schemas.cch.com/TaxAdjustment/3.5" minOccurs="0" name="TaxAdjustmentOrder" nillable="true" type="q16:TaxAdjustmentOrder"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxAdjustmentRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.cch.com/TaxResponse/3.5" minOccurs="0" name="TaxAdjustmentRequestResult" nillable="true" type="q17:TaxResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SystemDateTimeRequest">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SystemDateTimeRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SystemDateTimeRequestResult" type="xs:dateTime"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GetDataValues">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="DataType" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Parameter1" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Parameter2" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GetDataValuesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.cch.com/DataValues/3.5" minOccurs="0" name="GetDataValuesResult" nillable="true" type="q18:DataValues"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CreateSKU">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q19="http://schemas.cch.com/SKUDetail/3.5" minOccurs="0" name="SKUData" nillable="true" type="q19:ArrayOfSKUDetail"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CreateSKUResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.cch.com/Message/3.5" minOccurs="0" name="CreateSKUResult" nillable="true" type="q20:Message"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GeoblockRequestAll">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime"/>
+            <xs:element xmlns:q21="http://schemas.cch.com/Address/3.5" minOccurs="0" name="address" nillable="true" type="q21:Address"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GeoblockRequestAllResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q22="http://schemas.cch.com/GeoblockInfo/3.5" minOccurs="0" name="GeoblockRequestAllResult" nillable="true" type="q22:ArrayOfGeoblockInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CreateCustomerCertificateRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.cch.com/CustomerCertificateRequest/3.5" minOccurs="0" name="CustomerCertificateRequest" nillable="true" type="q23:CustomerCertificateRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CreateCustomerCertificateRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.cch.com/Message/3.5" minOccurs="0" name="CreateCustomerCertificateRequestResult" nillable="true" type="q24:Message"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExportCustomerCertificateRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExportCustomerCertificateRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q25="http://schemas.cch.com/CustomerCertificateExport/3.5" minOccurs="0" name="ExportCustomerCertificateRequestResult" nillable="true" type="q25:CustomerCertificatesExport"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExportCustomerCertificateFilterRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+            <xs:element xmlns:q26="http://schemas.cch.com/Certificate/3.5" minOccurs="0" name="certfilter" nillable="true" type="q26:CertificateFilter"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ExportCustomerCertificateFilterRequestResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q27="http://schemas.cch.com/CustomerCertificateExport/3.5" minOccurs="0" name="ExportCustomerCertificateFilterRequestResult" nillable="true" type="q27:CustomerCertificatesExport"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GetTransactionTax">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q28="http://schemas.cch.com/TransactionTax/3.5" minOccurs="0" name="request" nillable="true" type="q28:TransactionTax"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GetTransactionTaxResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q29="http://schemas.cch.com/TaxResponse/3.5" minOccurs="0" name="GetTransactionTaxResult" nillable="true" type="q29:TaxResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GetTaxRates">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q30="http://schemas.cch.com/TaxLiabilityRequest/3.5" minOccurs="0" name="request" nillable="true" type="q30:TaxLiabilityRequest"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GetTaxRatesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q31="http://schemas.cch.com/TaxLiabilityResponse/3.5" minOccurs="0" name="GetTaxRatesResult" nillable="true" type="q31:TaxLiabilityResponse"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FaultException">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:CommunicationException"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FaultException" nillable="true" type="tns:FaultException"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CommunicationException">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/System" base="q1:SystemException"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CommunicationException" nillable="true" type="tns:CommunicationException"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfFaultException.FaultReasonData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FaultException.FaultReasonData" nillable="true" type="tns:FaultException.FaultReasonData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfFaultException.FaultReasonData" nillable="true" type="tns:ArrayOfFaultException.FaultReasonData"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FaultException.FaultReasonData">
+        <xs:sequence>
+          <xs:element name="text" nillable="true" type="xs:string"/>
+          <xs:element name="xmlLang" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FaultException.FaultReasonData" nillable="true" type="tns:FaultException.FaultReasonData"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfFaultException.FaultCodeData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FaultException.FaultCodeData" nillable="true" type="tns:FaultException.FaultCodeData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfFaultException.FaultCodeData" nillable="true" type="tns:ArrayOfFaultException.FaultCodeData"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FaultException.FaultCodeData">
+        <xs:sequence>
+          <xs:element name="name" nillable="true" type="xs:string"/>
+          <xs:element name="ns" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FaultException.FaultCodeData" nillable="true" type="tns:FaultException.FaultCodeData"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="anyType" nillable="true" type="xs:anyType"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="anyURI" nillable="true" type="xs:anyURI"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="base64Binary" nillable="true" type="xs:base64Binary"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="boolean" nillable="true" type="xs:boolean"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="byte" nillable="true" type="xs:byte"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="dateTime" nillable="true" type="xs:dateTime"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="decimal" nillable="true" type="xs:decimal"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="double" nillable="true" type="xs:double"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="float" nillable="true" type="xs:float"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="int" nillable="true" type="xs:int"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="long" nillable="true" type="xs:long"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="QName" nillable="true" type="xs:QName"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="short" nillable="true" type="xs:short"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="string" nillable="true" type="xs:string"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="char" nillable="true" type="tns:char"/>
+      <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="char">
+        <xs:restriction base="xs:int"/>
+      </xs:simpleType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="duration" nillable="true" type="tns:duration"/>
+      <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="guid" nillable="true" type="tns:guid"/>
+      <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FactoryType" type="xs:QName"/>
+      <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Id" type="xs:ID"/>
+      <xs:attribute xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Ref" type="xs:IDREF"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcurementOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/ProcurementLineItem/3.5" minOccurs="0" name="ProcurementLineItems" nillable="true" type="q1:ArrayOfProcurementLineItem"/>
+          <xs:element minOccurs="0" name="ProviderType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SourceSystem" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TestTransaction" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="TransactionDescription" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionID" type="xs:unsignedLong"/>
+          <xs:element minOccurs="0" name="VendorID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="finalize" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="TransactionDate" nillable="true" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcurementOrder" nillable="true" type="tns:ProcurementOrder"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfProcurementLineItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcurementLineItem" nillable="true" type="tns:ProcurementLineItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfProcurementLineItem" nillable="true" type="tns:ArrayOfProcurementLineItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcurementLineItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AvgUnitPrice" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="DataString" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="DataStringID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExemptionCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ProviderType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Quantity" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="SKU" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="UserData" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcurementLineItem" nillable="true" type="tns:ProcurementLineItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxResponse">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/LineItemTax/3.5" minOccurs="0" name="LineItemTaxes" nillable="true" type="q1:ArrayOfLineItemTax"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/Message/3.5" minOccurs="0" name="Messages" nillable="true" type="q2:ArrayOfMessage"/>
+          <xs:element minOccurs="0" name="TotalTaxApplied" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TransactionID" type="xs:unsignedLong"/>
+          <xs:element minOccurs="0" name="TransactionStatus" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxResponse" nillable="true" type="tns:TaxResponse"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfLineItemTax">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LineItemTax" nillable="true" type="tns:LineItemTax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfLineItemTax" nillable="true" type="tns:ArrayOfLineItemTax"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="LineItemTax">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="StateOrProvince" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/TaxDetail/3.5" minOccurs="0" name="TaxDetails" nillable="true" type="q1:ArrayOfTaxDetail"/>
+          <xs:element minOccurs="0" name="TotalTaxApplied" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="LineItemTax" nillable="true" type="tns:LineItemTax"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfTaxDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TaxDetail" nillable="true" type="tns:TaxDetail"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfTaxDetail" nillable="true" type="tns:ArrayOfTaxDetail"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthorityName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="AuthorityType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BaseType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExemptAmt" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ExemptQty" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="FeeApplied" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="PassFlag" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PassType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TaxApplied" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TaxName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TaxRate" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TaxableAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TaxableQuantity" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxDetail" nillable="true" type="tns:TaxDetail"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfMessage">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfMessage" nillable="true" type="tns:ArrayOfMessage"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int"/>
+          <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Reference" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Severity" type="xs:int"/>
+          <xs:element minOccurs="0" name="Source" type="xs:int"/>
+          <xs:element minOccurs="0" name="TransactionStatus" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Message" nillable="true" type="tns:Message"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SystemException">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Exception"/>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SystemException" nillable="true" type="tns:SystemException"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Exception">
+        <xs:sequence>
+          <xs:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip"/>
+        </xs:sequence>
+        <xs:attribute ref="ser:FactoryType"/>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Exception" nillable="true" type="tns:Exception"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Order">
+        <xs:sequence>
+          <xs:element name="CustomerID" nillable="true" type="xs:string"/>
+          <xs:element name="CustomerType" nillable="true" type="xs:string"/>
+          <xs:element name="InvoiceDate" type="xs:dateTime"/>
+          <xs:element name="InvoiceID" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/LineItem/3.5" name="LineItems" nillable="true" type="q1:ArrayOfLineItem"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/NexusInfo/3.5" name="NexusInfo" nillable="true" type="q2:NexusInfo"/>
+          <xs:element name="ProviderType" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q3="http://schemas.cch.com/SitusInfo/3.5" name="SitusInfo" nillable="true" type="q3:SitusInfo"/>
+          <xs:element name="SourceSystem" nillable="true" type="xs:string"/>
+          <xs:element name="TestTransaction" type="xs:boolean"/>
+          <xs:element name="TransactionDescription" nillable="true" type="xs:string"/>
+          <xs:element name="TransactionID" type="xs:unsignedLong"/>
+          <xs:element name="TransactionType" nillable="true" type="xs:string"/>
+          <xs:element name="finalize" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="TransactionDate" nillable="true" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Order" nillable="true" type="tns:Order"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfLineItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="LineItem" nillable="true" type="tns:LineItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfLineItem" nillable="true" type="tns:ArrayOfLineItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="LineItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AvgUnitPrice" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="CustomerType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="DataString" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExemptionCode" nillable="true" type="xs:string"/>
+          <xs:element name="ID" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/NexusInfo/3.5" minOccurs="0" name="NexusInfo" nillable="true" type="q1:NexusInfo"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/ProductInfo/3.5" minOccurs="0" name="ProductInfo" nillable="true" type="q2:ProductInfo"/>
+          <xs:element minOccurs="0" name="ProviderType" nillable="true" type="xs:string"/>
+          <xs:element name="Quantity" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="SKU" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q3="http://schemas.cch.com/SitusInfo/3.5" minOccurs="0" name="SitusInfo" nillable="true" type="q3:SitusInfo"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="UserData" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="LineItem" nillable="true" type="tns:LineItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NexusInfo">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/Address/3.5" minOccurs="0" name="OrderApprovalAddress" nillable="true" type="q1:Address"/>
+          <xs:element minOccurs="0" name="OrderApprovalGeoBlock" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/Address/3.5" minOccurs="0" name="OrderPlacementAddress" nillable="true" type="q2:Address"/>
+          <xs:element minOccurs="0" name="OrderPlacementGeoBlock" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q3="http://schemas.cch.com/Address/3.5" minOccurs="0" name="ShipFromAddress" nillable="true" type="q3:Address"/>
+          <xs:element minOccurs="0" name="ShipFromGeoBlock" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q4="http://schemas.cch.com/Address/3.5" name="ShipToAddress" nillable="true" type="q4:Address"/>
+          <xs:element minOccurs="0" name="ShipToGeoBlock" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="FilingLocationId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="NexusInfo" nillable="true" type="tns:NexusInfo"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Address">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="County" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Line1" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Line2" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Plus4" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="StateOrProvince" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Address" nillable="true" type="tns:Address"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProductInfo">
+        <xs:sequence>
+          <xs:element name="ProductGroup" nillable="true" type="xs:string"/>
+          <xs:element name="ProductItem" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProductInfo" nillable="true" type="tns:ProductInfo"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SitusInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CanRejectDelivery" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="DeliveryBy" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="FOB" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="MailOrder" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ShipFromPOB" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SolicitedOutside" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SitusInfo" nillable="true" type="tns:SitusInfo"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TransactionDetail">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/Message/3.5" minOccurs="0" name="messagesField" nillable="true" type="q1:ArrayOfMessage"/>
+          <xs:element minOccurs="0" name="transactionStatus" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TransactionDetail" nillable="true" type="tns:TransactionDetail"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GeoblockInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressVerificationResult" type="xs:int"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/Address/3.5" minOccurs="0" name="CorrectedAddress" nillable="true" type="q1:Address"/>
+          <xs:element minOccurs="0" name="GeoID" type="xs:int"/>
+          <xs:element minOccurs="0" name="Geoblock" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/Message/3.5" minOccurs="0" name="Messages" nillable="true" type="q2:ArrayOfMessage"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="GeoblockInfo" nillable="true" type="tns:GeoblockInfo"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfGeoblockInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="GeoblockInfo" nillable="true" type="tns:GeoblockInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfGeoblockInfo" nillable="true" type="tns:ArrayOfGeoblockInfo"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PartialReturnOrder">
+        <xs:sequence>
+          <xs:element name="InvoiceDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/PartialLineItem/3.5" name="LineItems" nillable="true" type="q1:ArrayOfPartialLineItem"/>
+          <xs:element name="OriginalTransactionID" type="xs:unsignedLong"/>
+          <xs:element minOccurs="0" name="SourceSystem" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionDescription" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PartialReturnOrder" nillable="true" type="tns:PartialReturnOrder"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfPartialLineItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PartialLineItem" nillable="true" type="tns:PartialLineItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfPartialLineItem" nillable="true" type="tns:ArrayOfPartialLineItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PartialLineItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AvgUnitPrice" type="xs:decimal"/>
+          <xs:element name="ID" nillable="true" type="xs:string"/>
+          <xs:element name="Quantity" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="PartialLineItem" nillable="true" type="tns:PartialLineItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxAdjustmentOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="LineItem" nillable="true" type="tns:TaxAdjustmentLineItem"/>
+          <xs:element minOccurs="0" name="ProviderType" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/Address/3.5" minOccurs="0" name="ShipToAddress" nillable="true" type="q1:Address"/>
+          <xs:element minOccurs="0" name="ShipToGeoBlock" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SourceSystem" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TaxOnlyCredit" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="TestTransaction" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="TransactionDescription" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionID" type="xs:unsignedLong"/>
+          <xs:element minOccurs="0" name="finalize" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="InvoiceID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="FilingLocationId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxAdjustmentOrder" nillable="true" type="tns:TaxAdjustmentOrder"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxAdjustmentLineItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/ProductInfo/3.5" minOccurs="0" name="ProductInfo" nillable="true" type="q2:ProductInfo"/>
+          <xs:element minOccurs="0" name="SKU" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="UserData" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxAdjustmentLineItem" nillable="true" type="tns:TaxAdjustmentLineItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataValues">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/DataDetail/3.5" minOccurs="0" name="DataDetails" nillable="true" type="q1:ArrayOfDataDetail"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/Message/3.5" minOccurs="0" name="Messages" nillable="true" type="q2:ArrayOfMessage"/>
+          <xs:element minOccurs="0" name="transactionStatus" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataValues" nillable="true" type="tns:DataValues"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfDataDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DataDetail" nillable="true" type="tns:DataDetail"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfDataDetail" nillable="true" type="tns:ArrayOfDataDetail"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="DataDetail" nillable="true" type="tns:DataDetail"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfSKUDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SKUDetail" nillable="true" type="tns:SKUDetail"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfSKUDetail" nillable="true" type="tns:ArrayOfSKUDetail"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SKUDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EffectiveDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/ProductInfo/3.5" minOccurs="0" name="Product" nillable="true" type="q1:ProductInfo"/>
+          <xs:element minOccurs="0" name="SKU" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="SKUDetail" nillable="true" type="tns:SKUDetail"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomerCertificateRequest">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/CustomerCertificate/3.5" minOccurs="0" name="CustomerCertificates" nillable="true" type="q1:ArrayOfCustomerCertificate"/>
+          <xs:element minOccurs="0" name="DivisionID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EntityID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InsertOnly" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomerCertificateRequest" nillable="true" type="tns:CustomerCertificateRequest"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfCustomerCertificate">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerCertificate" nillable="true" type="tns:CustomerCertificate"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfCustomerCertificate" nillable="true" type="tns:ArrayOfCustomerCertificate"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomerCertificate">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/Customer/3.5" minOccurs="0" name="Customer" nillable="true" type="q1:Customer"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/Certificate/3.5" minOccurs="0" name="Certificates" nillable="true" type="q2:ArrayOfCertificate"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomerCertificate" nillable="true" type="tns:CustomerCertificate"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Customer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PostalCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Plus4" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="StateOrProvince" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Customer" nillable="true" type="tns:Customer"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfCertificate">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Certificate" nillable="true" type="tns:Certificate"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfCertificate" nillable="true" type="tns:ArrayOfCertificate"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Certificate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="StateOrProvince" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CertificateNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CertificateDesc" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IsBlanketCertificate" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IsStateCertificate" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="LocalUsesStateCertificate" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="CertificateStatus" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IsCertificateOnFile" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="SSTID" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SSTTypeOfBusiness" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SSTTypeOfBusinessDesc" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExemptReason" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExemptReasonDesc" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CertificateType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="DriversLicenceState" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IgnoreExpirationDate" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="CustomerEffectiveDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="CustomerExpirationDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="CertExemptions" nillable="true" type="tns:ArrayOfCEMExemption"/>
+          <xs:element minOccurs="0" name="TaxAuthorityName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ApplyStateToAllLocal" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="Certificate" nillable="true" type="tns:Certificate"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfCEMExemption">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CEMExemption" nillable="true" type="tns:CEMExemption"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfCEMExemption" nillable="true" type="tns:ArrayOfCEMExemption"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CEMExemption">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/ProductInfo/3.5" minOccurs="0" name="Productinfo" nillable="true" type="q1:ProductInfo"/>
+          <xs:element minOccurs="0" name="Percent" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ExempDesc" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CEMExemption" nillable="true" type="tns:CEMExemption"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CertificateFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="StateOrProvince" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CertificateNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CertificateDesc" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerID" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CertificateFilter" nillable="true" type="tns:CertificateFilter"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomerCertificatesExport">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/CustomerCertificate/3.5" minOccurs="0" name="CustomerCertificates" nillable="true" type="q1:ArrayOfCustomerCertificate"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/Message/3.5" minOccurs="0" name="Message" nillable="true" type="q2:Message"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="CustomerCertificatesExport" nillable="true" type="tns:CustomerCertificatesExport"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TransactionTax">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DivisionId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EntityId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionId" type="xs:unsignedLong"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TransactionTax" nillable="true" type="tns:TransactionTax"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessingFaultException">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.cch.com/FaultExceptionBase/3.5" base="q1:FaultExceptionBase">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ProcessingFaultException" nillable="true" type="tns:ProcessingFaultException"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ValidationFaultException">
+        <xs:complexContent mixed="false">
+          <xs:extension xmlns:q1="http://schemas.cch.com/FaultExceptionBase/3.5" base="q1:FaultExceptionBase">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ValidationFaultException" nillable="true" type="tns:ValidationFaultException"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxLiabilityRequest">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.cch.com/Address/3.5" minOccurs="0" name="Address" nillable="true" type="q1:Address"/>
+          <xs:element name="CustomerType" nillable="true" type="xs:string"/>
+          <xs:element name="DivisionId" nillable="true" type="xs:string"/>
+          <xs:element name="EffectiveDate" type="xs:dateTime"/>
+          <xs:element name="EntityId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Geocode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Group" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Item" nillable="true" type="xs:string"/>
+          <xs:element name="ProviderType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SKU" nillable="true" type="xs:string"/>
+          <xs:element name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxLiabilityRequest" nillable="true" type="tns:TaxLiabilityRequest"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxLiabilityResponse">
+        <xs:sequence>
+          <xs:element name="EstimatedTotalFee" type="xs:decimal"/>
+          <xs:element name="EstimatedTotalTaxRate" type="xs:decimal"/>
+          <xs:element xmlns:q1="http://schemas.cch.com/Message/3.5" minOccurs="0" name="Messages" nillable="true" type="q1:ArrayOfMessage"/>
+          <xs:element xmlns:q2="http://schemas.cch.com/TaxItem/3.5" name="TaxItems" nillable="true" type="q2:ArrayOfTaxItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxLiabilityResponse" nillable="true" type="tns:TaxLiabilityResponse"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfTaxItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TaxItem" nillable="true" type="tns:TaxItem"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="ArrayOfTaxItem" nillable="true" type="tns:ArrayOfTaxItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxItem">
+        <xs:sequence>
+          <xs:element name="AuthorityName" nillable="true" type="xs:string"/>
+          <xs:element name="AuthorityType" nillable="true" type="xs:string"/>
+          <xs:element name="Fee" type="xs:decimal"/>
+          <xs:element name="ImposedFee" type="xs:decimal"/>
+          <xs:element name="ImposedRate" type="xs:decimal"/>
+          <xs:element name="IsTieredTax" type="xs:boolean"/>
+          <xs:element name="PercentTaxable" type="xs:decimal"/>
+          <xs:element name="Rate" type="xs:decimal"/>
+          <xs:element name="TaxName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TaxItem" nillable="true" type="tns:TaxItem"/>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FaultExceptionBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ErrorCode" type="xs:int"/>
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" name="FaultExceptionBase" nillable="true" type="tns:FaultExceptionBase"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISTOServiceContract_CalculateProcurementRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateProcurementRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CalculateProcurementRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateProcurementRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CalculateProcurementRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q1:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_UnattributedProcurementReturnRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnattributedProcurementReturnRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_UnattributedProcurementReturnRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnattributedProcurementReturnRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_UnattributedProcurementReturnRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q2:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CalculateRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CalculateRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CalculateRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q3:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CancelRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CancelRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CancelRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q4:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_FinalizeRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinalizeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_FinalizeRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FinalizeRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_FinalizeRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q5:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GeoblockRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeoblockRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GeoblockRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeoblockRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GeoblockRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q6:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_UnattributedReturnRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnattributedReturnRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_UnattributedReturnRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnattributedReturnRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_UnattributedReturnRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q7:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_AttributedFullReturnRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AttributedFullReturnRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_AttributedFullReturnRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AttributedFullReturnRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_AttributedFullReturnRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q8:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_PartialReturnRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:PartialReturnRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_PartialReturnRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PartialReturnRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_PartialReturnRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q9:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_TaxAdjustmentRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:TaxAdjustmentRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_TaxAdjustmentRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TaxAdjustmentRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_TaxAdjustmentRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q10:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_SystemDateTimeRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:SystemDateTimeRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_SystemDateTimeRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SystemDateTimeRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_SystemDateTimeRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q11:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetDataValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataValues"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetDataValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataValuesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetDataValues_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q12:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CreateSKU_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSKU"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CreateSKU_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSKUResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CreateSKU_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q13:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GeoblockRequestAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GeoblockRequestAll"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GeoblockRequestAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GeoblockRequestAllResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GeoblockRequestAll_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q14:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CreateCustomerCertificateRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerCertificateRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CreateCustomerCertificateRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCustomerCertificateRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_CreateCustomerCertificateRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q15:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_ExportCustomerCertificateRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExportCustomerCertificateRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_ExportCustomerCertificateRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExportCustomerCertificateRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_ExportCustomerCertificateRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q16:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_ExportCustomerCertificateFilterRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExportCustomerCertificateFilterRequest"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_ExportCustomerCertificateFilterRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExportCustomerCertificateFilterRequestResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_ExportCustomerCertificateFilterRequest_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q17:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetTransactionTax_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionTax"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetTransactionTax_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTransactionTaxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetTransactionTax_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q18:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetTaxRates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxRates"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetTaxRates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxRatesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetTaxRates_ProcessingFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.cch.com/ProcessingFaultException/3.5" name="detail" element="q19:ProcessingFaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetTaxRates_FaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q20:FaultException"/>
+  </wsdl:message>
+  <wsdl:message name="ISTOServiceContract_GetTaxRates_ValidationFaultExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.cch.com/ValidationFaultException/3.5" name="detail" element="q21:ValidationFaultException"/>
+  </wsdl:message>
+  <wsdl:portType name="ISTOServiceContract">
+    <wsdl:operation name="CalculateRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CalculateRequest" message="tns:ISTOServiceContract_CalculateRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CalculateRequestResponse" message="tns:ISTOServiceContract_CalculateRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CalculateRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_CalculateRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CancelRequest" message="tns:ISTOServiceContract_CancelRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CancelRequestResponse" message="tns:ISTOServiceContract_CancelRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CancelRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_CancelRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="FinalizeRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/FinalizeRequest" message="tns:ISTOServiceContract_FinalizeRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/FinalizeRequestResponse" message="tns:ISTOServiceContract_FinalizeRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/FinalizeRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_FinalizeRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GeoblockRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GeoblockRequest" message="tns:ISTOServiceContract_GeoblockRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GeoblockRequestResponse" message="tns:ISTOServiceContract_GeoblockRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GeoblockRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_GeoblockRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="UnattributedReturnRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/UnattributedReturnRequest" message="tns:ISTOServiceContract_UnattributedReturnRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/UnattributedReturnRequestResponse" message="tns:ISTOServiceContract_UnattributedReturnRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/UnattributedReturnRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_UnattributedReturnRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AttributedFullReturnRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/AttributedFullReturnRequest" message="tns:ISTOServiceContract_AttributedFullReturnRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/AttributedFullReturnRequestResponse" message="tns:ISTOServiceContract_AttributedFullReturnRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/AttributedFullReturnRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_AttributedFullReturnRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="PartialReturnRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/PartialReturnRequest" message="tns:ISTOServiceContract_PartialReturnRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/PartialReturnRequestResponse" message="tns:ISTOServiceContract_PartialReturnRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/PartialReturnRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_PartialReturnRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="TaxAdjustmentRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/TaxAdjustmentRequest" message="tns:ISTOServiceContract_TaxAdjustmentRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/TaxAdjustmentRequestResponse" message="tns:ISTOServiceContract_TaxAdjustmentRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/TaxAdjustmentRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_TaxAdjustmentRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="SystemDateTimeRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/SystemDateTimeRequest" message="tns:ISTOServiceContract_SystemDateTimeRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/SystemDateTimeRequestResponse" message="tns:ISTOServiceContract_SystemDateTimeRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/SystemDateTimeRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_SystemDateTimeRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataValues">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetDataValues" message="tns:ISTOServiceContract_GetDataValues_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetDataValuesResponse" message="tns:ISTOServiceContract_GetDataValues_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetDataValuesFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_GetDataValues_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSKU">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CreateSKU" message="tns:ISTOServiceContract_CreateSKU_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CreateSKUResponse" message="tns:ISTOServiceContract_CreateSKU_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CreateSKUFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_CreateSKU_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GeoblockRequestAll">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GeoblockRequestAll" message="tns:ISTOServiceContract_GeoblockRequestAll_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GeoblockRequestAllResponse" message="tns:ISTOServiceContract_GeoblockRequestAll_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GeoblockRequestAllFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_GeoblockRequestAll_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomerCertificateRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CreateCustomerCertificateRequest" message="tns:ISTOServiceContract_CreateCustomerCertificateRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CreateCustomerCertificateRequestResponse" message="tns:ISTOServiceContract_CreateCustomerCertificateRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/CreateCustomerCertificateRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_CreateCustomerCertificateRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ExportCustomerCertificateRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/ExportCustomerCertificateRequest" message="tns:ISTOServiceContract_ExportCustomerCertificateRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/ExportCustomerCertificateRequestResponse" message="tns:ISTOServiceContract_ExportCustomerCertificateRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/ExportCustomerCertificateRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_ExportCustomerCertificateRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ExportCustomerCertificateFilterRequest">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/ExportCustomerCertificateFilterRequest" message="tns:ISTOServiceContract_ExportCustomerCertificateFilterRequest_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/ExportCustomerCertificateFilterRequestResponse" message="tns:ISTOServiceContract_ExportCustomerCertificateFilterRequest_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/ExportCustomerCertificateFilterRequestFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_ExportCustomerCertificateFilterRequest_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactionTax">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTransactionTax" message="tns:ISTOServiceContract_GetTransactionTax_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTransactionTaxResponse" message="tns:ISTOServiceContract_GetTransactionTax_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTransactionTaxFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_GetTransactionTax_FaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxRates">
+      <wsdl:input wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTaxRates" message="tns:ISTOServiceContract_GetTaxRates_InputMessage"/>
+      <wsdl:output wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTaxRatesResponse" message="tns:ISTOServiceContract_GetTaxRates_OutputMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTaxRatesProcessingFaultExceptionFault" name="ProcessingFaultExceptionFault" message="tns:ISTOServiceContract_GetTaxRates_ProcessingFaultExceptionFault_FaultMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTaxRatesFaultExceptionFault" name="FaultExceptionFault" message="tns:ISTOServiceContract_GetTaxRates_FaultExceptionFault_FaultMessage"/>
+      <wsdl:fault wsaw:Action="http://schemas.cch.com/STOService/3.5/ISTOServiceContract/GetTaxRatesValidationFaultExceptionFault" name="ValidationFaultExceptionFault" message="tns:ISTOServiceContract_GetTaxRates_ValidationFaultExceptionFault_FaultMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="STOService">
+    <wsdl:port name="STOService" binding="i0:STOService">
+      <soap:address location="http://{{{host}}}/tests/service/tgc/taxoffice/server.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

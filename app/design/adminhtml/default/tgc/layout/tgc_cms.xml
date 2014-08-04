@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <adminhtml_herocarousel_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Hero Carousel Items</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_heroCarousel" name="heroCarousel" />
+        </reference>
+    </adminhtml_herocarousel_index>
+
+    <adminhtml_herocarousel_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Hero Carousel Items</title>
+            </action>
+            <action method="setCanLoadExtJs"><flag>1</flag></action>
+            <action method="setCanLoadTinyMce"><flag>1</flag></action>
+            <action method="addJs"><script>mage/adminhtml/variables.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
+            <action method="addJs"><script>lib/flex.js</script></action>
+            <action method="addJs"><script>lib/FABridge.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
+            <action method="addJs"><script>prototype/window.js</script></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+            <action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name><params/></action>
+            <action method="addItem"><type>js</type><name>tiny_mce/tiny_mce.js</name><params/></action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_cms/adminhtml_heroCarousel_edit_tabs" name="heroCarousel_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_heroCarousel_edit" name="heroCarousel_edit" />
+        </reference>
+    </adminhtml_herocarousel_edit>
+
+    <adminhtml_categoryherocarousel_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Category Hero Carousel Items</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_categoryHeroCarousel" name="categoryHeroCarousel" />
+        </reference>
+    </adminhtml_categoryherocarousel_index>
+
+    <adminhtml_categoryherocarousel_edit>
+        <reference name="head">
+            <reference name="head">
+                <action method="setTitle" translate="title">
+                    <title>Edit Hero Carousel Items</title>
+                </action>
+                <action method="setCanLoadExtJs"><flag>1</flag></action>
+                <action method="setCanLoadTinyMce"><flag>1</flag></action>
+                <action method="addJs"><script>mage/adminhtml/variables.js</script></action>
+                <action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
+                <action method="addJs"><script>lib/flex.js</script></action>
+                <action method="addJs"><script>lib/FABridge.js</script></action>
+                <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+                <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
+                <action method="addJs"><script>prototype/window.js</script></action>
+                <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+                <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+                <action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name><params/></action>
+                <action method="addItem"><type>js</type><name>tiny_mce/tiny_mce.js</name><params/></action>
+            </reference>
+        </reference>
+        <reference name="left">
+            <block type="tgc_cms/adminhtml_categoryHeroCarousel_edit_tabs" name="categoryHeroCarousel_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_categoryHeroCarousel_edit" name="categoryHeroCarousel_edit" />
+        </reference>
+    </adminhtml_categoryherocarousel_edit>
+
+    <adminhtml_partners_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Partners Items</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_partners" name="partners" />
+        </reference>
+    </adminhtml_partners_index>
+
+    <adminhtml_partners_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Partners Items</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_cms/adminhtml_partners_edit_tabs" name="partners_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_partners_edit" name="partners_edit" />
+        </reference>
+    </adminhtml_partners_edit>
+
+    <adminhtml_quotes_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Quotes Items</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_quotes" name="quotes" />
+        </reference>
+    </adminhtml_quotes_index>
+
+    <adminhtml_quotes_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Quotes Items</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_cms/adminhtml_quotes_edit_tabs" name="quotes_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_quotes_edit" name="quotes_edit" />
+        </reference>
+    </adminhtml_quotes_edit>
+
+    <adminhtml_bestsellers_index>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Manage Best Seller Items</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_bestSellers" name="bestSellers" />
+        </reference>
+    </adminhtml_bestsellers_index>
+
+    <adminhtml_bestsellers_edit>
+        <reference name="head">
+            <action method="setTitle" translate="title">
+                <title>Edit Best Seller Items</title>
+            </action>
+        </reference>
+        <reference name="left">
+            <block type="tgc_cms/adminhtml_bestSellers_edit_tabs" name="bestSellers_edit_tab" />
+        </reference>
+        <reference name="content">
+            <block type="tgc_cms/adminhtml_bestSellers_edit" name="bestSellers_edit" />
+        </reference>
+    </adminhtml_bestsellers_edit>
+
+</layout>

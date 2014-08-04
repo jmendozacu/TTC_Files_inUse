@@ -1,0 +1,40 @@
+<?php
+/**
+ * Digital Library Account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Professor Sub Data Template
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+
+
+<div class="professor-sub-data-container clearfix">
+    <div class="left-part">
+        <?php echo $this->getChildHtml('testimonials_about_professor')?>
+        <?php echo $this->getChildHtml('professor_events')?>
+    </div>
+    <div class="right-part">
+        <?php echo $this->getChildHtml('products')?>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    /*Code for replacing right and left parts with sub-data of professor, for mobile device*/
+    jQuery(function($) {
+        if( /*$(window).width()<768*/
+            ($(window).width()<768 && navigator.userAgent.match(/Android/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/webOS/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/iPhone/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/iPad/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/iPod/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/BlackBerry/i)) ||
+            ($(window).width()<768 && navigator.userAgent.match(/Windows Phone/i))
+        ) {
+            $('.professor-bio-page .professor-sub-data-container .left-part').appendTo($('.professor-bio-page .professor-sub-data-container'));
+        }
+    })
+</script>

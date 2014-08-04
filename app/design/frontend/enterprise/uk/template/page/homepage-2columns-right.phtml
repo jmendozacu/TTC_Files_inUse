@@ -1,0 +1,60 @@
+<?php
+/**
+ *
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+$isAuthenticated = Mage::helper('tgc_cms')->isAuthenticated();
+$messages        = $this->getMessagesBlock()->getGroupedHtml();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<?php $bodyClasses = $this->getBodyClass() .' '. $this->helper('ultimo')->getThemeBodyClasses(); ?>
+<body class="<?php if ($isAuthenticated): ?>home-logged-in <?php endif; ?><?php echo $bodyClasses; ?>">
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div id="root-wrapper">
+ <?php echo $this->getChildHtml('mobile_nav_header') ?>
+<?php echo $this->getChildHtml('mobile_nav') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col1-layout">
+            <div class="main container">
+                <?php echo $messages; ?>
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <div class="preface grid-full in-col1"><?php echo $this->getChildHtml('preface') ?></div>
+                <div class="col-main grid-full in-col1">
+                    <div class="block-for-cookie-link">
+                        The Great Courses uses cookies. <a href="<?php echo $this->getBaseUrl() . 'cookies'?>" alt="Our Cookie Policy">Our Cookie Policy</a>
+                    </div>
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('top-content') ?>
+                </div>
+            </div>
+        </div>
+        <?php if ($isAuthenticated): ?>
+            <div class="main-container col2-right-layout">
+                <div class="main container">
+                    <div class="col-main grid12-9 grid-col2-main in-col2">
+                        <?php echo $this->getChildHtml('content'); ?>
+                    </div>
+                    <div class="col-right sidebar grid12-3 grid-col2-sidebar in-sidebar"><?php echo $this->getChildHtml('right') ?></div>
+                    <div class="postscript grid-full in-col1"><?php echo $this->getChildHtml('postscript') ?></div>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+</div> <!-- end: root-wrapper -->
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

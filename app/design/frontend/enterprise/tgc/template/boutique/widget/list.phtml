@@ -1,0 +1,188 @@
+<?php
+/**
+ *
+ */
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @see Tgc_Boutique_Block_Product_List
+ */
+?>
+
+<?php
+$_productCollection = $this->getCollection();
+$_collectionSize = $this->getCount($_productCollection);
+$_heroHelper = $this->helper('tgc_cms');
+?>
+
+<?php if ($_collectionSize && $tmpHtml = $this->getChildHtml('block_category_above_collection')): ?>
+    <div class="block_category_above_collection std"><?php echo $tmpHtml; ?></div>
+<?php endif; ?>
+
+<?php if (!$_collectionSize): ?>
+    <?php if ($tmpHtml = $this->getChildHtml('block_category_above_empty_collection')): ?>
+        <div class="block_category_above_empty_collection std"><?php echo $tmpHtml; ?></div>
+    <?php else: ?>
+        <p class="note-msg empty-catalog"><?php echo $this->__('There are no products matching the selection.') ?></p>
+    <?php endif; ?>
+<?php else: ?>
+
+    <?php
+    $_helper = $this->helper('catalog/output');
+    $theme = $this->helper('ultimo');
+    $helpLabels = $this->helper('ultimo/labels');
+    $helpTemplate = $this->helper('ultimo/template');
+    $helpImg = $this->helper('infortis/image');
+
+    $professorHelper = $this->helper('profs')->loadProfessorsByProducts($_productCollection);
+
+    //Default image size
+    $imgWidth = 160;
+    $imgHeight = 125;
+
+    //Aspect ratio settings
+    if ($theme->getCfg('category/aspect_ratio'))
+        $imgHeight = 0; //Height will be computed automatically (based on width) to keep the aspect ratio
+    ?>
+
+    <?php echo $this->getLayout()->createBlock('core/template')->setTemplate('catalog/product/list-switcher-js.phtml')->setMode($this->getMode())->setRedirectUrl($this->getToolbarBlock()->getModeUrl('list'))->toHtml();?>
+
+    <div class="category-products">
+        <?php if (Mage::helper('tgc_bv')->isBvEnabled()): ?>
+            <?php echo $this->getChildHtml('inline_ratings'); ?>
+        <?php endif; ?>
+        <div class="toolbar-top">
+            <?php echo $this->getToolbarHtml() ?>
+        </div>
+        <?php if ($this->getMode() != 'grid'): //List mode ?>
+
+            <?php
+            //Check if hover effect enabled
+            $listClasses = $theme->getCfg('category_list/hover_effect') ? ' hover-effect' : '';
+
+            //Check if "Add to" links are displayed as simple icons
+            $isListAddtoSimple = $theme->getCfg('category_list/addtolinks_simple');
+            ?>
+
+            <?php $_iterator = 0; ?>
+            <ol class="prod-cat products-list<?php if ($listClasses) echo $listClasses; ?>" id="products-list">
+                <?php foreach ($_productCollection as $_product): ?>
+                    <li class="item<?php if (++$_iterator == $_collectionSize): ?> last<?php endif; ?>">
+                        <?php //Product Image ?>
+                        <a class="product-list-item" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>">
+
+                            <span class="product-image grid12-3 mobile-grid-half">
+                                <img src="<?php echo $helpImg->getImg($_product, 110, 160, 'thumbnail'); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" />
+                            <?php if ($theme->getCfg('category/alt_image')): ?>
+                                    <?php echo $theme->getAltImgHtml($_product, 110, 160); ?>
+                            <?php endif; ?>
+
+                            <?php echo $helpLabels->getLabels($_product); //Product labels ?></span>
+
+                        <?php //Product description ?>
+                            <div class="product-shop grid12-9 mobile-grid-half">
+                                <div class="left-column grid12-7">
+                                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                                    <h2 class="product-name"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></h2>
+
+                                    <?php //Professor name ?>
+                                    <?php if ($professorName = $professorHelper->getProfessorNamesForProduct($_product)): ?>
+                                    <span class="professor-name"><?php echo $professorName; ?></span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="right-column grid12-5">
+                                    <?php if (Mage::helper('tgc_bv')->isBvEnabled()): ?>
+                                        <?php echo Mage::helper('bazaarvoice')->getInlineRatingForProduct($_product); ?>
+                                    <?php endif; ?>
+                                    <?php echo $this->getPriceHtml($_product, true) ?>
+                                    <?php if($_product->isSaleable()): ?>
+                                    <?php else: ?>
+                                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="desc std">
+                                    <?php echo $_heroHelper->truncateTextByWords($_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description'), 420, '...');?>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+            <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+
+        <?php else: //Grid mode ?>
+
+            <?php
+            //Get grid configuration array
+            $gc = $theme->getCfgGroup('category_grid');
+
+            //Grid classes
+            $gridClasses = $gc['hover_effect'] ? ' hover-effect' : '';
+            if ($gc['equal_height'])
+                $gridClasses .= ' equal-height';
+            ?>
+
+            <ul class="prod-cat products-grid category-products-grid itemgrid itemgrid-adaptive itemgrid-<?php echo $gc['column_count']; ?>col<?php if ($gridClasses) echo $gridClasses; ?>">
+                <?php foreach ($_productCollection as $_product): ?>
+                    <li class="item drop-shadow tiny-shadow">
+                        <div class="item-inner">
+                            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true); ?>">
+                                <span class="product-image"><img src="<?php echo $helpImg->getImg($_product, $imgWidth, $imgHeight, 'small_image'); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true); ?>" />
+                                <?php if ($theme->getCfg('category/alt_image')): ?>
+                                    <?php echo $theme->getAltImgHtml($_product, $imgWidth, $imgHeight); ?>
+                                <?php endif; ?>
+
+                                <?php echo $helpLabels->getLabels($_product); //Product labels ?></span>
+
+                                <?php //Add-to links
+                                    if ($gc['display_addtolinks'] != 0 && $gc['addtolinks_simple'])
+                                    {
+                                        if ($gc['display_addtolinks'] == 1) //Display on hover
+                                            echo $helpTemplate->getCategoryAddtoLinks($_product, $this->getAddToCompareUrl($_product), 'addto-icons addto-onimage display-onhover');
+                                        else //Always display
+                                            echo $helpTemplate->getCategoryAddtoLinks($_product, $this->getAddToCompareUrl($_product), 'addto-icons addto-onimage');
+                                    }
+                                ?>
+
+                                <h2 class="product-name"><?php echo $_heroHelper->truncateTextByWords($_helper->productAttribute($_product, $_product->getName(), 'name'), 68, '...');?></h2>
+
+                                <?php //Professor name ?>
+                                <?php if ($professorName = $professorHelper->getProfessorNamesForProduct($_product)): ?>
+                                <span class="professor-name"><?php echo $professorName; ?></span>
+                                <?php endif; ?>
+
+                                <?php if (Mage::helper('tgc_bv')->isBvEnabled()): ?>
+                                    <?php echo Mage::helper('bazaarvoice')->getInlineRatingForProduct($_product); ?>
+                                <?php endif; ?>
+
+                                <?php echo $this->getPriceHtml($_product, true) ?>
+                            </a>
+                        </div>
+                        <!-- end: item-inner -->
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($_collectionSize && $tmpHtml = $this->getChildHtml('block_category_below_collection')): ?>
+    <div class="block_category_below_collection std"><?php echo $tmpHtml; ?></div>
+<?php endif; ?>
+<script type="text/javascript">
+    //<![CDATA[
+    (function ($) {
+        //Infinite scroll
+        $.ias({
+            container : '.category-products',
+            item: '.prod-cat .item',
+            pagination: '.toolbar .pager',
+            next: 'a.next',
+            loader: '<img src="/js/dist/images/ajax-loader.gif" />',
+            triggerPageThreshold: 999
+        });
+    })(jQuery);
+    //]]>
+</script>

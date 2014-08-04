@@ -1,0 +1,15 @@
+<?php echo $this->getChildHtml(); ?>
+<?php
+    $store = Mage::app()->getStore();
+?>
+<?php if (Mage::helper('tealium_tags')->isEnabled($store)): ?>
+<!-- Tealium page javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region:   "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name:     "<?php echo $this->getLayout()->getBlock('head')->getTitle(); ?>",
+        page_type:     "email_landing_page"
+    };
+</script>
+<?php endif; ?>

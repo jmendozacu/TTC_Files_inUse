@@ -1,0 +1,9 @@
+<?php
+/**
+ * Bazaarvoice q and a template
+ */
+?>
+<?php if (Mage::helper('tgc_bv')->isQaEnabled()): ?>
+    <!-- Bazaarvoice q and a block -->
+    <?php echo $this->getChildHtml('bv_questions'); ?>
+<?php endif; ?>

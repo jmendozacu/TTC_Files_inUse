@@ -1,0 +1,24 @@
+<!--@subject Warning! Order count exceeds {{var threshold}} @-->
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <p>A periodic check of the DAX order integration process has issued a warning.</p>
+                <p>
+                    <b>Row count in table: <i>sales_flat_order</i> where column <i>{{var filter}}</i> = {{var value}} exceeds {{var threshold}}</b>
+                </p>
+                <p>
+                    This is an indication of a possible problem with export communication between Magento and DAX.  Please investigate the following possibilities:
+                    <ul>
+                        <li>Orders may not be exporting from Magento correctly, indicated by a high count of is_exported=0</li>
+                        <li>Acknowledgements from DAX may not be importing correctly, indicated by a high count of dax_received=0</li>
+                    </ul>
+                </p>
+                <p>
+                    <b>Date & Time:</b><br />
+                    {{var dateAndTime}}
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>

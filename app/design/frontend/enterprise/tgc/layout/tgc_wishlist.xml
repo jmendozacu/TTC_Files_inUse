@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Wishlist
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+    <wishlist_index_index>
+        <reference name="head">
+            <action method="addJs"><script>varien/product.js</script></action>
+            <action method="addJs"><script>varien/configurable.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/simple_product_pricing.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/tgc_wishlist/configurable.js</name></action>
+        </reference>
+        <reference name="customer.wishlist.buttons">
+            <remove name="customer.wishlist.button.toCart"/>
+            <block type="wishlist/customer_wishlist_button" name="customer.wishlist.button.tocart_items" template="tgc_wishlist/button/tocart_items.phtml" before="-"/>
+            <block type="wishlist/customer_wishlist_button" name="customer.wishlist.button.delete_items" template="tgc_wishlist/button/delete_items.phtml" before="-"/>
+        </reference>
+        <reference name="customer.wishlist.items">
+            <block type="tgc_wishlist/customer_wishlist_item_edit_options" name="customer.wishlist.item.edit.options" template="tgc_wishlist/item/edit/options.phtml" after="customer.wishlist.item.info">
+                <action method="addItemOptionsRender">
+                    <type>configurable</type>
+                    <block>tgc_wishlist/customer_wishlist_item_edit_options_configurable</block>
+                    <template>tgc_wishlist/item/edit/options/configurable.phtml</template>
+                </action>
+            </block>
+            <reference name="customer.wishlist.item.cart">
+                <action method="addPriceBlockType"><type>configurable</type><block>tgc_wishlist/catalog_product_price</block><template>catalog/product/price.phtml</template></action>
+            </reference>
+        </reference>
+    </wishlist_index_index>
+</layout>

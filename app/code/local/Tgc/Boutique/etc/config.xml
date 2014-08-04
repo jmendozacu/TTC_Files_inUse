@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Boutique
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Boutique
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+  -->
+<config>
+    <modules>
+        <Tgc_Boutique>
+            <version>0.1.4</version>
+        </Tgc_Boutique>
+    </modules>
+    <global>
+        <models>
+            <tgc_boutique>
+                <class>Tgc_Boutique_Model</class>
+                <resourceModel>tgc_boutique_resource</resourceModel>
+            </tgc_boutique>
+            <tgc_boutique_resource>
+                <class>Tgc_Boutique_Model_Resource</class>
+                <entities>
+                    <boutique>
+                        <table>tgc_boutique</table>
+                    </boutique>
+                    <boutiquePages>
+                        <table>tgc_boutique_pages</table>
+                    </boutiquePages>
+                    <boutiqueHeroCarousel>
+                        <table>tgc_boutique_hero_carousel</table>
+                    </boutiqueHeroCarousel>
+                </entities>
+            </tgc_boutique_resource>
+        </models>
+        <resources>
+            <tgc_boutique_setup>
+                <setup>
+                    <module>Tgc_Boutique</module>
+                    <class>Tgc_Boutique_Model_Resource_Setup</class>
+                </setup>
+            </tgc_boutique_setup>
+        </resources>
+        <helpers>
+            <tgc_boutique>
+                <class>Tgc_Boutique_Helper</class>
+            </tgc_boutique>
+        </helpers>
+        <blocks>
+            <tgc_boutique>
+                <class>Tgc_Boutique_Block</class>
+            </tgc_boutique>
+        </blocks>
+        <events>
+            <controller_front_init_routers>
+                <observers>
+                    <tgc_boutique>
+                        <class>Tgc_Boutique_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </tgc_boutique>
+                </observers>
+            </controller_front_init_routers>
+        </events>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <tgc_boutique module="Tgc_Boutique">
+                    <file>tgc_boutique.xml</file>
+                </tgc_boutique>
+            </updates>
+        </layout>
+        <routers>
+            <tgc_boutique>
+                <use>standard</use>
+                <args>
+                    <module>Tgc_Boutique</module>
+                    <frontName>boutique</frontName>
+                </args>
+            </tgc_boutique>
+        </routers>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Tgc_Boutique_Adminhtml before="Mage_Adminhtml">Tgc_Boutique_Adminhtml</Tgc_Boutique_Adminhtml>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <tgc_boutique>
+                    <file>tgc_boutique.xml</file>
+                </tgc_boutique>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

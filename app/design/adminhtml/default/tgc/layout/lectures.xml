@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <adminhtml_catalog_product_edit>
+        <reference name="head">
+            <action method="addCss"><stylesheet>formsandgrids.css</stylesheet></action>
+            <action method="addJs"><file>jquery/jquery-1.9.1.min.js</file></action>
+            <action method="addJs"><file>jquery/jquery.noconflict.js</file></action>
+            <action method="addItem"><type>skin_js</type><name>js/courseNumberValidation.js</name></action>
+        </reference>
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_catalog_product_lectures>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="lectures/adminhtml_catalog_product_edit_tab_lectures_grid" name="catalog.product.edit.tab.lectures.grid"/>
+            <block type="lectures/adminhtml_catalog_product_edit_tab_lectures_form" name="catalog.product.edit.tab.lectures.form"/>
+        </block>
+    </adminhtml_catalog_product_lectures>
+
+    <adminhtml_catalog_product_lecturesgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="lectures/adminhtml_catalog_product_edit_tab_lectures_grid" name="catalog.product.edit.tab.lectures.grid"/>
+        </block>
+    </adminhtml_catalog_product_lecturesgrid>
+</layout>

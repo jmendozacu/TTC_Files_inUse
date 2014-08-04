@@ -1,0 +1,209 @@
+<?php $extIdentifier = Mage::helper('events')->extIdentifier(); ?>
+<?php $featured = $this->getFeaturedEvent(); ?>
+<?php $options = $this->getLocationsList();
+$location = $this->getLocation();?>
+<div class='fme-events_land'>
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <?php $collection = $this->getCollection(); ?>
+    <div class="event_title_container">
+        <h1><?php echo $this->__('Cultural Events') ?></h1>
+    </div>
+    <div class="evt_det_img_cont">
+        <?php if ($location->getLocationImage()):
+            $location_img = '/media/' . $location->getLocationImage();
+        else:
+            $location_img = $this->getSkinUrl('images/events/events-image-area.png');
+        endif;
+        ?>
+        <div class="evt_det_img">
+            <img src="<?php echo $location_img ?>"/>
+        </div>
+        <div class="evt_det_img_venue">
+            <div class="evt_det_img_text">
+                <span class="venue_desc event_venue_desc"><?php echo $this->__('Cultural Events in:') ?></span>
+                <div class="select-container">
+                <select class="venue_select">
+                    <option value="" <?php if (!$location): echo 'selected="selected"'; endif; ?> >Select Your
+                        Location
+                    </option>
+                    <?php
+                    if (!$location):
+                        foreach ($options as $opt):
+                            echo '<option value="' . $opt['value'] . '">' . $opt['label'] . '</option>';
+                        endforeach;
+                    else:
+                        foreach ($options as $opt):
+                            if ($opt['value'] == $location->getLocationCode()):
+                                echo '<option value="' . $opt['value'] . '" selected="selected">' . $opt['label'] . '</option>';
+                            else:
+                                echo '<option value="' . $opt['value'] . '">' . $opt['label'] . '</option>';
+                            endif;
+                        endforeach;
+                    endif;
+                    ?>
+                </select></div>
+                <?php if ($location->getId()): ?>
+                    <?php if ($this->isCookiedLocation()): ?>
+                        <a href="<?php echo $this->getUrl() . 'events' . DS . 'index' . DS . 'unsetLocation' ?>" class="set_unset-location">Remove
+                            as My Location</a>
+                    <?php else: ?>
+                        <a href="<?php echo $this->getUrl() . 'events' . DS . 'index' . DS . 'setLocation' . DS . 'location_id' . DS . $location->getId() ?>" class="set_unset-location">Set
+                            as My Location</a>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
+            <div class="evt_det_venu_background"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <?php if ($collection->getSize()):
+        if ($featured->getId()): ?>
+            <div class="mobile_evt_feat_title evt_feat_title">
+                <h2><a href="<?php echo Mage::helper('events')->customUrl($featured->getEventUrlPrefix()); ?>"
+                       title="<?php echo $this->escapeHtml($featured->getEventTitle()); ?>"><?php echo $this->escapeHtml($featured->getEventTitle()); ?></a></h2>
+            </div>
+            <div class="evt_feat_container evt_det_event_data clearfix">
+                <div class="evt_feat_title">
+                    <h2><a href="<?php echo Mage::helper('events')->customUrl($featured->getEventUrlPrefix()); ?>"
+                           title="<?php echo $this->escapeHtml($featured->getEventTitle()); ?>"><?php echo $this->escapeHtml($featured->getEventTitle()); ?></a></h2>
+                </div>
+                <div class="evt_feat_left_sect">
+                    <div class="evt_feat_img">
+                        <?php
+                        $featuredImg = Mage::getBaseUrl('media') . $featured->getEventImage();
+                        if ($featuredImg): ?>
+                            <a href="<?php echo Mage::helper('events')->customUrl($featured->getEventUrlPrefix()); ?>"
+                               title="<?php echo $this->stripTags($featured->getEventTitle()); ?>"
+                               class="product-image">
+                                <img src="<?php echo str_replace("\\", "/", $featuredImg); ?>"
+                                     alt="<?php echo $this->stripTags($featured->getEventTitle()); ?>"/>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <?php $related_prods = $this->getEventsRelatedProducts($featured->getId()); ?>
+                    <?php if ($related_prods['0']->getEntityId()): ?>
+                        <div class="evt_feat_related_courses">
+                            <span><?php echo $this->__("Related Courses:") ?></span>
+                            <ul>
+                                <?php foreach ($related_prods as $related_prod): ?>
+                                    <a href="<?php echo $related_prod->getProductUrl() ?>">
+                                        <li><?php echo $related_prod->getName(); ?></li>
+                                    </a>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="event_data">
+                    <div class="evt_feat_type">
+                        <div class="event_data_type">
+                            <span><?php echo $featured->getEventTypeName(); ?></span>
+                        </div>
+                        <div class="feat_type_img">
+                            <img
+                                src="<?php echo str_replace("\\", "/", Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . DS . $featured->getEventTypeIcon()); ?>"/>
+                        </div>
+                    </div>
+                    <div class="event_data_short_desc">
+                        <span><?php echo $featured->getEventShortDescription(); ?></span>
+                    </div>
+                    <div class="event_data_loc_desc">
+                        <span><?php echo $featured->getEventDateLocationDescription(); ?></span>
+                    </div>
+                    <div class="mobile_feat_image">
+                        <?php
+                        $featuredImg = Mage::getBaseUrl('media') . $featured->getEventImage();
+                        if ($featuredImg): ?>
+                            <a href="<?php echo Mage::helper('events')->customUrl($featured->getEventUrlPrefix()); ?>"
+                               title="<?php echo $this->stripTags($featured->getEventTitle()); ?>"
+                               class="product-image">
+                                <img src="<?php echo $featuredImg; ?>" width="100%" height="auto"
+                                     alt="<?php echo $this->stripTags($featured->getEventTitle()); ?>"/>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                    <div class="event_data_content">
+                        <?php echo $featured->getEventContent(); ?>
+                    </div>
+                    <?php if ($related_prods['0']->getEntityId()): ?>
+                        <div class="evt_feat_related_courses mobile_feat_rel_courses">
+                            <span><?php echo $this->__("Related Courses:") ?></span>
+                            <ul>
+                                <?php foreach ($related_prods as $related_prod): ?>
+                                    <a href="<?php echo $related_prod->getProductUrl() ?>">
+                                        <li><?php echo $related_prod->getName(); ?></li>
+                                    </a>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <div class="evt_det_more">
+            <div class="upcomming_list_events evt_list_events">
+                <h3><?php echo $this->__('Upcoming Cultural Events'); ?></h3>
+                <?php echo $this->getToolbarHtml(); ?>
+                <ul class="list_events_content category-products">
+                    <?php foreach ($collection as $c):
+                        if ($c->getEventId() != $featured->getEventId()): ?>
+                            <li>
+                                <div class="list_event_data prod-cat">
+                                    <div class="list_event_data_img_cont">
+                                        <img
+                                            src="<?php echo str_replace("\\", "/", Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $c->getEventTypeIcon()); ?>"/>
+                                    </div>
+                                    <div class="event_data">
+                                        <div class="event_data_type">
+                                            <span><?php echo $c->getEventTypeName(); ?></span>
+                                        </div>
+                                        <div class="list_data_title event_data_title">
+                                            <a href="<?php echo Mage::helper('events')->customUrl($c->getEventUrlPrefix()); ?>">
+                                                <span><?php echo $c->getEventTitle(); ?></span>
+                                            </a>
+                                        </div>
+                                        <div class="list_data_loc_desc event_data_loc_desc">
+                                            <span class="event_data_loc_desc">
+                                                <?php echo $c->getEventDateLocationDescription(); ?>
+                                            </span>
+                                        </div>
+                                        <div class="list_data_content event_data_content">
+                                            <div class="list_content_container">
+                                                <?php echo $c->getEventContent(); ?>
+                                            </div>
+                                            <a href="<?php echo Mage::helper('events')->customUrl($c->getEventUrlPrefix()); ?>"><span
+                                                    class="read_on"><?php echo $this->__('Read on &#187') ?></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        <?php endif;
+                    endforeach; ?>
+                </ul>
+                <?php echo $this->getToolbarHtml(); ?>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div>
+            <div class="upcomming_footer_text">
+                <span><?php echo $this->__('Cultural Events Listings are descriptions of exhibits, lectures, performances, and similar events taking place in up to 20 cities across the U.S.Lorem ipsum esse sriracha Terry Richardson actually direct trade. Dreamcatcher put a bird on it nulla, forage mollit odio ethnic typewriter keytar. Veniam tofu Echo Park gluten-free odio sed.') ?></span>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="events_not_found">
+            <p><?php echo Mage::helper('events')->errMsg(); ?></p>
+            <?php if (isset($_SERVER ['HTTP_REFERER'])) : ?>
+                <a href="<?php echo $_SERVER ['HTTP_REFERER']; ?>">&#171; <?= $this->__('Back') ?></a>
+            <?php endif; ?>
+        </div>
+    <?php endif ?>
+</div>
+
+<!-- Code for custom selects -->
+<script type="text/javascript">
+    jQuery(function($) {
+        $('.venue_select').coreUISelect();
+    });
+</script>

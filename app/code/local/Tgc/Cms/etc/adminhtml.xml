@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <menu>
+        <cms>
+            <children>
+                <hero_carousel translate="title" module="tgc_cms">
+                    <title>Homepage Hero Carousel</title>
+                    <action>adminhtml/heroCarousel/</action>
+                    <sort_order>70</sort_order>
+                </hero_carousel>
+                <category_hero_carousel translate="title" module="tgc_cms">
+                    <title>Category Hero Carousel</title>
+                    <action>adminhtml/categoryHeroCarousel/</action>
+                    <sort_order>75</sort_order>
+                </category_hero_carousel>
+                <partners translate="title" module="tgc_cms">
+                    <title>Partners</title>
+                    <action>adminhtml/partners/</action>
+                    <sort_order>80</sort_order>
+                </partners>
+                <quotes translate="title" module="tgc_cms">
+                    <title>Quotes</title>
+                    <action>adminhtml/quotes/</action>
+                    <sort_order>90</sort_order>
+                </quotes>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <hero_carousel>
+                                <title>Manage Hero Carousel Items</title>
+                                <sort_order>70</sort_order>
+                            </hero_carousel>
+                            <category_hero_carousel>
+                                <title>Manage Category Hero Carousel Items</title>
+                                <sort_order>75</sort_order>
+                            </category_hero_carousel>
+                            <partners>
+                                <title>Manage Partners Items</title>
+                                <sort_order>80</sort_order>
+                            </partners>
+                            <quotes>
+                                <title>Manage Quotes Items</title>
+                                <sort_order>90</sort_order>
+                            </quotes>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

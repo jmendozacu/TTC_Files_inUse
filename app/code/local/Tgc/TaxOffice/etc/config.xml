@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module's config
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_TaxOffice
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_TaxOffice>
+            <version>3</version>
+        </Tgc_TaxOffice>
+    </modules>
+    <global>
+        <models>
+            <tgc_taxOffice>
+                <class>Tgc_TaxOffice_Model</class>
+            </tgc_taxOffice>
+            <tax>
+                <rewrite>
+                    <observer>Tgc_TaxOffice_Model_TaxObserver</observer>
+                </rewrite>
+            </tax>
+        </models>
+        <helpers>
+            <tgc_taxOffice>
+                <class>Tgc_TaxOffice_Helper</class>
+            </tgc_taxOffice>
+        </helpers>
+        <resources>
+            <tgc_taxOffice_setup>
+                <setup>
+                    <module>Tgc_TaxOffice</module>
+                </setup>
+            </tgc_taxOffice_setup>
+        </resources>
+        <sales>
+            <quote>
+                <totals>
+                    <sales_tax_office>
+                        <class>tgc_taxOffice/tax_total_taxOfficeCollector</class>
+                        <after>tax_shipping,tax,tax_giftwrapping</after>
+                        <before>grand_total</before>
+                    </sales_tax_office>
+                </totals>
+            </quote>
+        </sales>
+    </global>
+    <default>
+        <tgc_taxoffice>
+            <api>
+                <wsdl>http://ttcstowebdev.teachco.com/STOWebServices/Service3.5.svc</wsdl>
+                <entity_id>AX STO</entity_id>
+                <division_id>SCO</division_id>
+                <customer_type>08</customer_type>
+                <provide_type>70</provide_type>
+                <test>1</test>
+                <ship_from_zip_code>20151</ship_from_zip_code>
+                <ship_from_country>US</ship_from_country>
+                <specificcountry>US,CA</specificcountry>
+            </api>
+        </tgc_taxoffice>
+    </default>
+</config>

@@ -1,0 +1,6 @@
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/validate-zip-au.js') ?>"></script>
+<?php $formId = $this->getFormId() ? $this->getFormId() : 'form-validate'; ?>
+<label for="<?php echo $formId; ?>_zip" class="required"><?php echo $this->__('Zip Code') ?></label>
+<div class="input-box">
+    <input type="text" name="postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" title="<?php echo $this->__('Zip/Postal Code') ?>" id="<?php echo $formId; ?>_zip" class="input-text validate-zip-international validate-zip-au <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?>" />
+</div>

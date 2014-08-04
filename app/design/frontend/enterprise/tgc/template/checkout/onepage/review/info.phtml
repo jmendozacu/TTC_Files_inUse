@@ -1,0 +1,188 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magento Enterprise Edition License
+ * that is bundled with this package in the file LICENSE_EE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.magentocommerce.com/license/enterprise-edition
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://www.magentocommerce.com/license/enterprise-edition
+ */
+?>
+<?php echo $this->getChildHtml('items_before'); ?>
+<div id="checkout-review-table-wrapper">
+    <table class="data-table" id="checkout-review-table">
+        <?php if ($this->helper('tax')->displayCartBothPrices()): $colspan = $rowspan = 2; else: $colspan = $rowspan = 1; endif; ?>
+        <col />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+        <col width="1" />
+        <col width="1" />
+        <?php endif; ?>
+        <thead>
+            <tr>
+                <th colspan="<?php echo $colspan ?>"><?php echo $this->__('Product Name') ?></th>
+                <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Format') ?></th>
+                <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Price') ?></th>
+                <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Qty') ?></th>
+                <th colspan="<?php echo $colspan ?>" class="a-center"><?php echo $this->__('Subtotal') ?></th>
+            </tr>
+            <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                <tr>
+                    <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                    <th class="a-right"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                </tr>
+            <?php endif; ?>
+        </thead>
+        <tbody>
+        <?php foreach($this->getItems() as $_item): ?>
+            <?php echo $this->getItemHtml($_item)?>
+        <?php endforeach ?>
+        </tbody>
+        <?php echo $this->getChildHtml('totals'); ?>
+    </table>
+    <div class="clearfix"></div>
+</div>
+<?php echo $this->getChildHtml('items_after'); ?>
+<script type="text/javascript">
+//<![CDATA[
+    decorateTable('checkout-review-table');
+    truncateOptions();
+//]]>
+</script>
+<?php if (Mage::helper('tgc_cms')->isProspect()): ?>
+<div class="checkout-terms clearfix">
+    <div class="input-box">
+        <input type="checkbox" name="accept_terms" title="<?php echo $this->__('Accept Terms') ?>" value="1" id="accept_terms" class="accept_terms"/>
+        <label for="accept_terms">I accept the <a id="header-terms" class="js-action-detached-tooltip" rel="nofollow" href="#">Terms and Conditions</a> and <a href="#"rel="nofollow" id="header-privacy-policy" class="js-action-detached-tooltip">  Privacy Policy</a>
+            <?php echo $this->__('The Great Courses will never rent or sell your email to third parties.') ?>
+        </label>
+    </div>
+    <div class="tooltip-text tooltip-balloon header-terms tooltip-detached">
+        <a class="close-balloon" rel="nofollow" href="#">x</a>
+        <div class="tooltip-text-desc">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('terms_and_conditions')->toHtml() ?>
+        </div>
+    </div>
+
+    <div class="tooltip-text tooltip-balloon header-privacy-policy tooltip-detached">
+        <a class="close-balloon" rel="nofollow" href="#">x</a>
+        <div class="tooltip-text-desc">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('protecting_your_privacy')->toHtml() ?>
+        </div>
+    </div>
+    <?php if (Mage::app()->getStore()->getCode() == 'uk_en'): ?>
+        <div class="input-box opt_out_wrapper">
+            <input type="checkbox" name="optout" title="<?php echo $this->__('opt_out') ?>" value="1" id="optout"/>
+            <label for="optout">
+                Opt-in for Free lectures, articles, and offer emails.
+                <a href="#" rel="nofollow" id="header-optout" class="js-action-detached-tooltip">View Details</a>
+            </label>
+        </div>
+
+        <div class="tooltip-text tooltip-balloon header-optout tooltip-detached">
+            <a class="close-balloon" rel="nofollow" href="#">x</a>
+            <div class="tooltip-text-desc">
+                <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('uk_opt_out')->toHtml() ?>
+            </div>
+        </div>
+    <?php endif; ?>
+    <div class="acceptTermAndContidions">You must accept the Terms and Conditions to place your order.</div>
+</div>
+<?php endif; ?>
+<div id="checkout-review-submit">
+    <?php echo $this->getChildHtml('agreements') ?>
+    <div class="buttons-set" id="review-buttons-container">
+        <p class="f-left">
+            <span><?php echo $this->__('Forgot an item?');?></span>
+            <a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Edit Your Cart') ?></a>
+        </p>
+        <?php echo $this->getChildHtml('button') ?>
+        <span class="please-wait" id="review-please-wait" style="display:none;">
+            <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Submitting order information...') ?>" title="<?php echo $this->__('Submitting order information...') ?>" class="v-middle" /> <?php echo $this->__('Submitting order information...') ?>
+        </span>
+    </div>
+    <script type="text/javascript">
+    //<![CDATA[
+        review = new Review('<?php echo $this->getUrl('checkout/onepage/saveOrder', array('form_key' => Mage::getSingleton('core/session')->getFormKey())) ?>', '<?php echo $this->getUrl('checkout/onepage/success') ?>', $('checkout-agreements'));
+    //]]>
+    </script>
+</div>
+<div class="clearfix"></div>
+<div class="cs_information">
+    <div class="customer_more_images">
+    </div>
+    <div class="clearfix"></div>
+    <?php echo $this->getChildHtml('cart-customer-services'); ?>
+</div>
+<div class="clearfix"></div>
+<script type="text/javascript">
+    jQuery(window).resize(function() {
+        if(jQuery(window).width() > 767) {
+            jQuery("#checkout_logos_containers").detach().appendTo('.main-nav-wrapper');
+        }
+        else{
+            jQuery("#checkout_logos_containers").detach().appendTo('.cs_information .customer_more_images');
+        }
+    });
+    if(jQuery(window).width() < 768) {
+        jQuery("#checkout_logos_containers").detach().appendTo('.cs_information .customer_more_images');
+    }
+    jQuery('.js-action-detached-tooltip').on('click',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        plus_uk = 0;
+        if (document.getElementById("optout") != null){
+            plus_uk = 130;
+        }
+        jQuery('.tooltip .tooltip-balloon').css('display','none');
+        jQuery('.tooltip-detached').css('display','none');
+        relX = parseInt(e.pageX)-250;
+        relY = parseInt(e.pageY)-520+plus_uk;
+        jQuery('.'+jQuery(this).attr('id')).css('left',relX);
+        jQuery('.'+jQuery(this).attr('id')).css('top',relY);
+        jQuery('.'+jQuery(this).attr('id')).css('display','block');
+    });
+    jQuery('.tooltip-balloon .close-balloon').on('click',function(e){
+        e.preventDefault();
+        jQuery(this).parent().hide();
+    });
+
+    <?php if (Mage::helper('tgc_cms')->isProspect()): ?>
+    // termns & conditions
+
+    terms_and_conditions = false;
+
+    jQuery('.checkout-terms #accept_terms').on('click',function(){
+        jQuery('.acceptTermAndContidions').hide();
+        if (jQuery('#accept_terms').is(':checked')){
+            jQuery('.btn-checkout').removeClass('disabled');
+            terms_and_conditions = true;
+        }else{
+            jQuery('.btn-checkout').addClass('disabled');
+            terms_and_conditions = false;
+        }
+    })
+    <?php else: ?>
+    terms_and_conditions = true;
+    <?php endif; ?>
+</script>

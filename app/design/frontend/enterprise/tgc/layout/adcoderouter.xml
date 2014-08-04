@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<layout>
+    <catalog_product_view>
+        <reference name="content">
+            <block type="adcoderouter/pid" name="catalog.pid" before="-" template="pid/standard.phtml">
+                <action method="setElementClass"><value>pidwelcomemessage-product</value></action>
+            </block>
+        </reference>
+    </catalog_product_view>
+    <profs_professor_view>
+        <reference name="content">
+            <block type="adcoderouter/pid" name="catalog.pid" before="-" template="pid/standard.phtml">
+                <action method="setElementClass"><value>pidwelcomemessage-professor</value></action>
+            </block>
+        </reference>
+    </profs_professor_view>
+    <catalog_category_default>
+        <reference name="content">
+            <block type="adcoderouter/pid" name="catalog.pid" before="-" template="pid/standard.phtml">
+                <action method="setElementClass"><value>pidwelcomemessage-category</value></action>
+            </block>
+        </reference>
+    </catalog_category_default>
+    <cms_page>
+        <reference name="content">
+            <block type="adcoderouter/pid" name="catalog.pid" before="-" template="pid/standard.phtml">
+                <action method="setElementClass"><value>pidwelcomemessage-standard</value></action>
+            </block>
+        </reference>
+    </cms_page>
+</layout>

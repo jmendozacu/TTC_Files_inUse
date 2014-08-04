@@ -1,0 +1,100 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$order = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId());
+$billing = $order->getBillingAddress();
+$ids = array();
+$skus = array();
+$names = array();
+$qtys = array();
+$prices = array();
+$finalPrices = array();
+$listPrices = array();
+$defaultPrices = array();
+$priorityPrices = array();
+$discount = $order->getDiscountAmount();
+$discount_quantity = array();
+$productDiscount = array();
+
+foreach($order->getAllVisibleItems() as $item) {
+    if ($item->getProductType() == Mage_Catalog_Model_Product_Type_Configurable::TYPE_CODE) {
+        (array)$children = $item->getChildrenItems();
+        if (count($children) > 0) {
+            $child = $children[0];
+            $product = $child->getProduct();
+        } else {
+            $product = $item->getProduct();
+        }
+    } else {
+        $product = $item->getProduct();
+    }
+
+    $ids[] = $product->getCourseId();
+    $skus[] = $product->getSku();
+    $names[] = htmlspecialchars($product->getName(), ENT_QUOTES);
+    $qtys[] = number_format($item->getQtyOrdered(), 0);
+    $listPrices[] = number_format($product->getPrice(), 2);
+    $defaultPrices[] = number_format($product->getSpecialPrice(), 2);
+    $priorityPrices[] = number_format($product->getFinalPrice(), 2);
+    $applied_rules = explode(",", $item->getAppliedRuleIds());
+    $finalPrices[] = number_format($item->getPrice(), 2);
+    $discount_object = array();
+    $productDiscount[] = ($product->getPrice() - $product->getFinalPrice());
+    foreach ($applied_rules as $rule) {
+    	$quantity = number_format(Mage::getModel('salesrule/rule')->load($rule)->getDiscountQty(),0);
+    	$amount = number_format(Mage::getModel('salesrule/rule')->load($rule)->getDiscountAmount(),2);
+    	$type = Mage::getModel('salesrule/rule')->load($rule)->getSimpleAction();
+        $discount_object[] = "{\"rule\":\"$rule\",\"quantity\":\"$quantity\",\"amount\":\"$amount\",\"type\":\"$type\"}";
+    }
+	$discount_quantity[] = "{\"product_id\":\"" . $item->getProductId() . 
+		"\",\"total_discount\":\"" . $discount . 
+		"\", \"discounts\":[" . implode(",",$discount_object) . "]}";
+}
+?>
+
+<!-- Tealium Checkout Success javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name: "cart success",
+        page_type: "cart",
+        product_discounts: [<?php echo implode(",", $discount_quantity) ?>],
+        product_id: "<?php echo implode(',', $ids) ?>",
+        product_sku: "<?php echo implode(',', $skus) ?>",
+        product_name: "<?php echo implode(',', $names) ?>",
+        product_quantity: "<?php echo implode(',', $qtys) ?>",
+        product_list_price: "<?php echo implode(',', $listPrices) ?>",
+        product_default_price: "<?php echo implode(',', $defaultPrices) ?>",
+        product_priority_price: "<?php echo implode(',', $priorityPrices) ?>",
+        product_final_price: "<?php echo implode(',', $finalPrices) ?>",
+        order_id: "<?php echo $order->getIncrementId(); ?>",
+        order_subtotal: "<?php echo number_format($order->getSubtotal(),2); ?>",
+        order_payment_type: "<?php echo $order->getPayment() ? $order->getPayment()->getMethodInstance()->getTitle() : 'unknown'; ?>",
+        order_total: "<?php echo number_format($order->getGrandTotal(),2); ?>",
+        customer_email: "<?php echo $order->getCustomerEmail(); ?>",
+        order_discount: "<?php echo number_format($order->getDiscountAmount(),2); ?>",
+        order_shipping: "<?php echo number_format($order->getShippingAmount(),2); ?>",
+        order_tax: "<?php echo number_format($order->getTaxAmount(),2); ?>",
+        order_currency: "<?php echo $order->getOrderCurrencyCode(); ?>",
+        user_id: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_USER_ID; ?>'),
+        is_logged_in: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_LOGGED_IN; ?>'),
+        customer_state: '<?php echo $billing ? $billing->getRegion() : ''; ?>',
+        customer_city: '<?php echo $billing ? $billing->getCity() : ''; ?>',
+        customer_country: '<?php echo $billing ? $billing->getCountryId() : ''; ?>',
+        order_shipping_description: '<?php echo $order->getShippingDescription(); ?>',
+        order_shipping_method: '<?php echo $order->getShippingMethod(); ?>',
+        order_zip: '<?php echo $billing ? $billing->getPostcode() : ''; ?>',
+        adcode: '<?php echo Mage::getSingleton('customer/session')->getAdCode(); ?>',
+        customer_id: '<?php echo $order->getCustomerId(); ?>',
+        coupon_code: '<?php echo $order->getCouponCode(); ?>',
+        AffiliateId: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_AFFILIATE_ID; ?>'),
+        product_discount: "<?php echo implode(',', $productDiscount) ?>"
+    };
+</script>

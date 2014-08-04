@@ -1,0 +1,33 @@
+.video a {
+    width: 90px;
+    height: 90px;
+}
+
+.thumbnails .video .thumbnail {
+    top: 50%;
+    position: relative;
+    margin-top: -33px;
+}
+
+.thumbnails .video .play-btn {
+    width: 40px;
+    position: relative;
+    top: -8px;
+    left: 24px;
+    opacity: 0.8;
+    -webkit-transition: opacity 200ms ease;
+       -moz-transition: opacity 200ms ease;
+        -ms-transition: opacity 200ms ease;
+         -o-transition: opacity 200ms ease;
+            transition: opacity 200ms ease;
+}
+
+.thumbnails .video:hover .play-btn {
+    opacity: 1;
+}
+
+#cboxPrevious,
+#cboxNext,
+#cboxClose {
+    border: 0;
+}

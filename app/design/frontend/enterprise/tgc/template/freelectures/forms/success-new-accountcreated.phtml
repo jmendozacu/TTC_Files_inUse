@@ -1,0 +1,10 @@
+<?php $shouldDisplayForm = $helperFreelectures->getFreelectureFormToDisplay() != Tgc_Catalog_Helper_Freemarketinglecture::FORM_SUCCESS_NEWACCOUNT ? ' style="display:none"' : '' ?>
+<?php $emailAddress = $helperFreelectures->getFreelectureSubmittedEmail() ? $helperFreelectures->getFreelectureSubmittedEmail() : 'your email address'; ?>
+
+<div <?php echo $shouldDisplayForm ?>>
+    <h2>
+        Access Your FREE Courses Now! No purchase necessary.
+    </h2>
+    We&#39;ve sent a validation email to <?php echo $emailAddress ?> that contains a link for accessing the FREE content from The Great Courses. <br /><br />
+    Enjoy!
+</div>

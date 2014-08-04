@@ -1,0 +1,51 @@
+id:     about_us_menu
+title:  About Us Page Menu for UK
+status: enabled
+stores: uk_en
+---
+<div class="about-us-page-nav block">
+
+    <div class="block_content">
+        <div class="block_title"><a href="{{store direct_url="about-us"}}">About Us</a></div>
+        <ul id="aboutus" class="vert-navigation">
+            <li><a class="active-heritage" href="{{store direct_url="about-us/heritage"}}">Our Heritage</a></li>
+            <li><a class="active-professors" href="{{store direct_url="about-us/professors"}}">Our Professors</a></li>
+            <li><a class="active-customers" href="{{store direct_url="about-us/customers"}}">Our Customers</a></li>
+            <li><a class="active-guarantee" href="{{store direct_url="about-us/guarantee"}}">Our Guarantee</a></li>
+            <li><a class="active-team" href="{{store direct_url="about-us/team"}}">Our Team</a></li>
+            <li><a class="active-releases" href="{{store direct_url="about-us/press-releases"}}">Press Releases</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="about_mobile_nav">
+    <div class="block_title"><strong><span>About Us</span></strong></div>
+    <select class="about_nav_select" onchange="setLocation(this.value)">
+        <option class="mob-about" value="{{store direct_url="about-us"}}">About The Great Courses</option>
+        <option class="mob-heritage" value="{{store direct_url="about-us/heritage"}}">Our Heritage</option>
+        <option class="mob-professors" value="{{store direct_url="about-us/professors"}}">Our Professors</option>
+        <option class="mob-customers" value="{{store direct_url="about-us/customers"}}">Our Customers</option>
+        <option class="mob-guarantee" value="{{store direct_url="about-us/guarantee"}}">Our Guarantee</option>
+        <option class="mob-team" value="{{store direct_url="about-us/team"}}">Our Team</option>
+        <option class="mob-releases" value="{{store direct_url="about-us/press-releases"}}">Press Releases</option>
+    </select>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        if(jQuery(".mod_page_active").length > 0) {
+            jQuery("."+jQuery(".mod_page_active").text()).attr('selected', true);
+        }
+
+        if(jQuery(".page-active").length > 0) {
+            var text = jQuery("."+jQuery(".page-active").text()).text();
+            jQuery("."+jQuery(".page-active").text()).parent().addClass("current");
+            jQuery(".current").find("a").remove();
+            jQuery(".current").append("<strong>" +text+"</strong>");
+        }
+
+        jQuery('.about_nav_select').coreUISelect();
+    });
+
+
+</script>

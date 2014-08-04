@@ -1,0 +1,43 @@
+<?php
+/**
+ *The categories list on Home page
+ */
+?>
+
+<h3 class="section-title"><?php echo $this->__('Who We Work With') ?></h3>
+
+<div class="random-sample partners">
+    <div class="partner-desc"><?php echo $this->__('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.') ?></div>
+    <div class="partner-slider">
+        <ul class="partner-logos slides">
+            <li class="item-partner">
+                <img src="<?php echo $this->getSkinUrl('images/tgc/partner-logo.png') ?>" alt="Better life"/>
+            </li>
+            <li class="item-partner">
+                <img src="<?php echo $this->getSkinUrl('images/tgc/partner-logo.png') ?>" alt="Better life"/>
+            </li>
+            <li class="item-partner">
+                <img src="<?php echo $this->getSkinUrl('images/tgc/partner-logo.png') ?>" alt="Better life"/>
+            </li>
+        </ul> <!-- end: slides -->
+    </div>
+</div> <!-- end: random-sample -->
+
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(function($) {
+        $('.partner-slider').flexslider({
+            namespace: "",
+            animation: "slide",
+            controlNav: false,
+            animationLoop: false,
+            itemWidth: 170,
+            touch: true,
+            scrollPerPage: true,
+            slideshow: false,
+            maxItems: 3,
+            minItems: 1
+        })
+    });
+    //]]>
+</script>

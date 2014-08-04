@@ -1,0 +1,18 @@
+<?php
+/**
+ * Magento Enterprise Edition
+ *
+ * Your Professor Tab Template
+*/
+
+?>
+<div class="right-block-for-upsells <?php if ($this->getChildHtml('pdp_right_upsells_spacead')) echo 'show-below-768'?>">
+
+    <?php echo $this->getChildHtml('pdp_right_upsells_topnote') ?>
+    <?php if ($this->getChildHtml('pdp_right_upsells_set') || $this->getChildHtml('pdp_right_upsells_spacead')) : ?>
+    <div class="buy-together-container clearfix">
+        <?php echo $this->getChildHtml('pdp_right_upsells_set') ?>
+        <?php echo $this->getChildHtml('pdp_right_upsells_spacead') ?>
+    </div>
+    <?php endif; ?>
+</div>

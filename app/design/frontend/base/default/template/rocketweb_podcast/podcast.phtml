@@ -1,0 +1,23 @@
+<?php $podcast = $this->getPodcast(); ?>
+
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
+
+<div class="podcastWrapper">
+    <div class="podcastTitle">
+        <h2><?php echo $podcast->getTitle();?></h2>
+        <h3><?php echo $podcast->getCreatedTime(); ?></h3>
+    </div>
+    <div class="podcastAuthor">
+        <?php echo $podcast->getAuthorName() ?>
+        (<a href="mailto:<?php echo $podcast->getAuthorEmail() ?>"><?php echo $podcast->getAuthorEmail() ?></a>)
+    </div>
+    <div class="podcastContent">
+        <?php echo $podcast->getShortContent(); ?>
+        <?php echo $podcast->getLongContent(); ?>
+        <audio src="<?php echo Mage::helper('podcast')->getPodcastDirectoryUrl() . $podcast->getFileName() ?>" preload="none" />
+    </div>
+</div>

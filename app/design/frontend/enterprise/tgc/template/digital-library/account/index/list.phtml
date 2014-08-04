@@ -1,0 +1,264 @@
+<?php
+/**
+ * Digital Library Account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DigitalLibrary
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** @var $this Tgc_DigitalLibrary_Block_Index_List */
+?>
+<?php
+$_productCollection = $this->getLoadedProductCollection();
+$_collectionSize    = $_productCollection->getSize();
+$_heroHelper = $this->helper('tgc_cms');
+?>
+<?php if ($_collectionSize && $tmpHtml = $this->getChildHtml('block_category_above_collection')): ?>
+    <div class="block_category_above_collection std"><?php echo $tmpHtml; ?></div>
+<?php endif; ?>
+<?php if (!$_collectionSize): ?>
+    <?php if ($tmpHtml = $this->getChildHtml('block_category_above_empty_collection')): ?>
+        <div class="block_category_above_empty_collection std"><?php echo $tmpHtml; ?></div>
+    <?php else: ?>
+        <p class="note-msg empty-catalog"><?php echo $this->__('There are no products matching the selection.') ?></p>
+    <?php endif; ?>
+<?php else: ?>
+    <?php
+    $_helper = $this->helper('catalog/output');
+    $theme = $this->helper('ultimo');
+    $helpTemplate = $this->helper('ultimo/template');
+    $helpImg = $this->helper('infortis/image');
+    //Default image size
+    $imgWidth = 160;
+    $imgHeight = 230;
+    //Aspect ratio settings
+    if ($theme->getCfg('category/aspect_ratio'))
+        $imgHeight = 0; //Height will be computed automatically (based on width) to keep the aspect ratio
+    ?>
+    <div class="category-products">
+        <div class="toolbar-top">
+            <?php echo $this->getToolbarHtml() ?>
+        </div>
+        <?php if ($this->getMode() != 'grid'): //List mode ?>
+            <?php
+            //Check if hover effect enabled
+            $listClasses = $theme->getCfg('category_list/hover_effect') ? ' hover-effect' : '';
+            //Check if "Add to" links are displayed as simple icons
+            $isListAddtoSimple = $theme->getCfg('category_list/addtolinks_simple');
+            ?>
+            <?php $_iterator = 0; ?>
+            <ol class="prod-cat products-list<?php if ($listClasses) echo $listClasses; ?>" id="products-list">
+                <?php foreach ($_productCollection as $_product): ?>
+                    <?php
+                    $format = $_product->getMediaFormat() ? 1 : 0; // boolean 0 for Audio, 1 for Video
+                    $this->addLectureData($_product);
+                    $formatText = $_product->getFormatText(); // Audio or Video
+                    $isFree = $_product->getIsFree(); // 1 for yes, 0 for no
+                    $professor = $this->getProfessorName($_product); // return the string for professor name(s)
+                    $progress = $this->getProgressPercent($_product); // percentage of progress
+                    $buttonLabel = $this->getButtonLabel($progress, $format); // Resume, Watch Again or Watch Now
+                    $lastLect = $_product->getLastLectureId(); // # of last lecture streamed
+                    $numLectures = $_product->getNumLectures(); // total # of lectures
+                    $lastStreamed = $_product->getLatest(); // date of last streaming
+                    $dateAdded = $_product->getDatePurchased() ? $_product->getDatePurchased() : now(true); // purchase date, note: for free lectures current date is displayed
+                    $lectureData = $_product->getLectureData(); // all lecture data array(lecture_number, lecture_id, title, description)
+                    $guidebook = $this->getGuidebookUrl($_product); // false or url to download guidebook
+                    $transcript = $this->getTranscriptUrl($_product); // false or url to download transcript
+                    $reviewUrl = $this->getReviewUrl($_product); // url to product page
+                    ?>
+                    <li class="item<?php if (++$_iterator == $_collectionSize): ?> last<?php endif; ?>">
+                        <div class="product-list-item">
+                            <?php //Product Image ?>
+                            <a href="<?php echo $this->_getCourseUrl($_product, $format); ?>"
+                               title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>"
+                               class="product-image grid12-3 mobile-grid-half">
+                                <img src="<?php echo $helpImg->getImg($_product, 220, 320, 'thumbnail'); ?>"
+                                     alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>"/>
+                                <?php if ($theme->getCfg('category/alt_image')): ?>
+                                    <?php echo $theme->getAltImgHtml($_product, 110, 160); ?>
+                                <?php endif; ?>
+                            </a>
+                            <?php //Product description ?>
+                            <div class="product-shop grid12-9 mobile-grid-half">
+                                <div class="left-column grid12-7">
+                                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
+                                    <h2 class="product-name">
+                                        <a href="<?php echo $this->_getCourseUrl($_product, $format); ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?></a>
+                                    </h2>
+
+                                    <div class="professor-name">
+                                        <?php echo $professor ?>
+                                    </div>
+                                    <?php if ($format == 1) : ?>
+                                        <div class="course-type video"><?php echo $formatText ?></div>
+                                    <?php else : ?>
+                                        <div class="course-type audio"><?php echo $formatText ?></div>
+                                    <?php endif; ?>
+                                    <div
+                                        class="course-added-date"><?php echo $this->__('Date Added: '), $dateAdded ?> </div>
+                                    <div class="playing-controller">
+                                        <a href="<?php echo $this->_getCourseUrl($_product, $format, $lastLect); ?>"
+                                           class="button secondary-btn <?php echo strtolower($buttonLabel) ?>"><?php echo $buttonLabel ?></a><!-- Can have class "resume" -->
+                                        <div class="progress-block">
+                                            <div class="course-progress-bar">
+                                                <div class="progress " style="width: <?php echo $progress ?>%"></div>
+                                                <!--Can have class "playing"-->
+                                            </div>
+                                            <div class="lecture-counter">
+                                                <?php echo 'Lecture ' . intval($lastLect) . ' out of ' . intval($numLectures); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="course-options-list">
+                                    <?php if ($numLectures > 0) : ?>
+                                        <li class="list">
+                                            <a href="<?php echo $this->_getCourseUrl($_product, $format); ?>"><?php echo $this->__('View Lecture List') ?></a>
+                                        </li>
+                                    <?php endif ?>
+                                    <li class="review">
+                                        <a href="<?php echo $reviewUrl ?>"><?php echo $this->__('Write a Review') ?></a>
+                                    </li>
+                                    <?php if ($guidebook) : ?>
+                                        <li class="guidebook">
+                                            <a href="javascript:void(0);" onclick="openInNewTab('<?php echo $guidebook; ?>');"><?php echo $this->__('Course Guidebook') ?></a>
+                                        </li>
+                                    <?php endif; ?>
+                                    <?php if ($transcript) : ?>
+                                        <li class="transcript">
+                                            <a href="javascript:void(0);" onclick="openInNewTab('<?php echo $transcript; ?>');"><?php echo $this->__('Transcript') ?></a>
+                                        </li>
+                                    <?php endif ?>
+                                </ul>
+                                <div class="desc std">
+                                    <?php echo $_heroHelper->truncateTextByWords($_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description'), 420, '...'); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+            <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+        <?php else: //Grid mode ?>
+            <?php
+            //Get grid configuration array
+            $gc = $theme->getCfgGroup('category_grid');
+            //Grid classes
+            $gridClasses = $gc['hover_effect'] ? ' hover-effect' : '';
+            if ($gc['equal_height'])
+                $gridClasses .= ' equal-height';
+            ?>
+            <ul class="prod-cat products-grid category-products-grid itemgrid itemgrid-adaptive itemgrid-<?php echo $gc['column_count']; ?>col<?php if ($gridClasses) echo $gridClasses; ?>">
+                <?php $iterator = 0;
+                foreach ($_productCollection as $_product): ?>
+                    <?php $iterator++; ?>
+                    <?php
+                    $this->addLectureData($_product);
+                    $lastLect = $_product->getLastLectureId();
+                    $format = $_product->getMediaFormat() ? 1 : 0; // boolean 0 for Audio, 1 for Video
+                    $formatText = $_product->getFormatText(); // Audio or Video
+                    $isFree = $_product->getIsFree(); // 1 for yes, 0 for no
+                    $progress = $this->getProgressPercent($_product); // percentage of progress
+                    $buttonLabel = $this->getButtonLabel($progress, $format); // Resume, Watch Again or Watch Now
+                    ?>
+                    <li class="item<?php if ($iterator % 4 == 0 && $iterator != $_collectionSize): ?> last<?php endif; ?>">
+                        <div class="product-grid-item">
+                            <a href="<?php echo $this->_getCourseUrl($_product, $format, $lastLect); ?>"
+                               title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true); ?>"
+                               class="product-image">
+                                <img
+                                    src="<?php echo $helpImg->getImg($_product, 160, 230, 'thumbnail'); ?>"
+                                    alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true); ?>"/>
+                                <?php if ($theme->getCfg('category/alt_image')): ?>
+                                    <?php echo $theme->getAltImgHtml($_product, $imgWidth, $imgHeight); ?>
+                                <?php endif; ?>
+                            </a>
+
+                            <a href="<?php echo $this->_getCourseUrl($_product, $format, $lastLect); ?>"
+                               class="course-play-button <?php echo strtolower($buttonLabel) ?>"></a><!--Can have class "resume"-->
+
+                            <div class="course-progress-bar <?php echo strtolower($formatText) ?>">
+                                <!--Can have class "audio" or "video"-->
+                                <div class="progress" style="width: <?php echo $progress ?>%"></div>
+                                <!--Can have class "playing"-->
+                            </div>
+
+                            <!--<h2 class="product-name">
+                    <a href="<?php /*echo $this->_getCourseUrl($_product, $format); */?>" title="<?php /*echo $this->stripTags($_product->getName(), null, true) */?>"><?php /*echo $_heroHelper->truncateTextByWords($_helper->productAttribute($_product, $_product->getName(), 'name'), 90, '');*/?></a>
+                </h2>-->
+
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+<?php if ($_collectionSize && $tmpHtml = $this->getChildHtml('block_category_below_collection')): ?>
+    <div class="block_category_below_collection std"><?php echo $tmpHtml; ?></div>
+<?php endif; ?>
+<script type="text/javascript">
+    //<![CDATA[
+    (function ($) {
+        var changeTabTextMobile = function () {
+            $('.course-options-list li.list a').text('Lectures');
+            $('.course-options-list li.review a').text('Review');
+            $('.course-options-list li.guidebook a').text('Guidebook');
+            $('.course-options-list li.transcript a').text('Transcript');
+        };
+
+
+        if ($(window).width() < 960) {
+            var subMenu = $('.block-layered-nav');
+            var toolBar = $('.toolbar-top .toolbar');
+            subMenu.insertAfter(toolBar);
+            $('.mobile-filter-button').on(customClickEvent, function (e) {
+                e.preventDefault();
+                subMenu.slideToggle(150, function () {
+                    toolBar.toggleClass('open');
+                });
+            });
+        }
+        $(window).on('resize', function () {
+            if ($(window).width() < 768) {
+                changeTabTextMobile();
+            }
+        });
+        /*Cut text for mobile devices*/
+        if (isTouchable === true && $(window).width() < 768) {
+                changeTabTextMobile();
+            }
+        //Infinite scroll
+        $.ias({
+            container : '.category-products',
+            item: '.prod-cat .item',
+            pagination: '.toolbar .pager',
+            next: 'a.next',
+            loader: '<img src="/js/dist/images/ajax-loader.gif" />',
+            triggerPageThreshold: 999
+        });
+        var pageIsScrolled = false;
+        var scrollTimeout;
+        $(window).on('scroll touchmove', function() {
+            pageIsScrolled = true;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {pageIsScrolled = false}, 250);
+        });
+        $('body').on(customClickEvent, '.prod-cat .item', function(e) {
+            if(pageIsScrolled === false) {
+                e.stopPropagation();
+                location.href = $(this).find('.product-image').attr('href');
+            }
+        });
+
+    })(jQuery);
+
+    function openInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+    //]]>
+</script>

@@ -1,0 +1,33 @@
+/**
+ * @category    Mana
+ * @package     ManaPro_FilterCheckboxes
+ * @copyright   Copyright (c) http://www.manadev.com
+ * @license     http://www.manadev.com/license  Proprietary License
+ */
+
+.m-filter-checkboxes li input { margin-right: 5px; position: relative; bottom: 2px; }
+
+.block-layered-nav ol.m-filter-css-checkboxes li a:before {
+    content: '';
+    display: inline-block;
+    float: left;
+    vertical-align: middle;
+    width: 19px;
+    height: 19px;
+    margin-right: 5px;
+    position: relative;
+    top: -1px;
+    background: url(../images/tgc/sprite.png);
+}
+
+ol.m-filter-css-checkboxes li a.m-checkbox-unchecked:before {
+    background-position: 0 0;
+}
+
+ol.m-filter-css-checkboxes li a.m-checkbox-checked:before {
+    background-position: -22px 0;
+}
+
+.block-layered-nav dt.for-price-ranges-mobile {
+    display: none;
+}

@@ -1,0 +1,33 @@
+<?php if($adcodeHelper->isSpaceAd()): ?>
+    <div class="space-ad">
+        <h2><?php echo $this->__($adcodeHelper->getAdCodeRedirectValue('pid')); ?></h2>
+        <?php if($adcodeHelper->getAdCodeRedirectValue('welcome_subtitle')) : ?>
+            <h3><?php echo $this->__($adcodeHelper->getAdCodeRedirectValue('welcome_subtitle')); ?></h3>
+        <?php endif; ?>
+        <div class="ad-description-wrapper">
+            <div class="ad-description">
+                <?php echo $this->__($adcodeHelper->getAdCodeRedirectValue('more_details')); ?>
+            </div>
+            <div class="view-more-button with-arrow rest"><?php echo $this->__('View Less'); ?></div>
+            <script type="text/javascript">
+                /*Code for showing Space Ad description*/
+                var viewMoreBtn_ad = jQuery('.space-ad .view-more-button');
+                var viewMoreBtnClone_ad;
+
+                viewMoreBtn_ad.on(customClickEvent, function() {
+                    if(jQuery(this).html()=='View Less') {
+                        jQuery('.space-ad .ad-description').slideUp()
+                        /*jQuery('.view-more-button.clone').remove();*/
+                        viewMoreBtn_ad.removeClass('rest').text('View More');
+                    } else {
+                        if('.space-ad .ad-description') {
+                            jQuery(viewMoreBtn_ad).text('View Less').addClass('rest');
+                            /*viewMoreBtnClone_ad = jQuery(this).clone(true).addClass('clone');*/
+                            jQuery('.space-ad .ad-description').slideDown('fast').after(viewMoreBtnClone_ad);
+                        }
+                    }
+                })
+            </script>
+        </div>
+    </div>
+<?php endif; ?>

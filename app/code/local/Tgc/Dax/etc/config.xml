@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Dax integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Dax
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+
+<config>
+    <modules>
+        <Tgc_Dax>
+            <version>25</version>
+        </Tgc_Dax>
+    </modules>
+    <global>
+        <blocks>
+            <tgc_dax>
+                <class>Tgc_Dax_Block</class>
+            </tgc_dax>
+            <enterprise_importexport>
+                <rewrite>
+                    <adminhtml_scheduled_operation_edit_form_import>Tgc_Dax_Block_Adminhtml_Scheduled_Operation_Edit_Form_Import</adminhtml_scheduled_operation_edit_form_import>
+                    <adminhtml_scheduled_operation_edit_form_export>Tgc_Dax_Block_Adminhtml_Scheduled_Operation_Edit_Form_Export</adminhtml_scheduled_operation_edit_form_export>
+                </rewrite>
+            </enterprise_importexport>
+        </blocks>
+        <helpers>
+            <tgc_dax>
+                <class>Tgc_Dax_Helper</class>
+            </tgc_dax>
+        </helpers>
+        <models>
+            <tgc_dax>
+                <class>Tgc_Dax_Model</class>
+                <resourceModel>tgc_dax_resource</resourceModel>
+            </tgc_dax>
+            <tgc_dax_resource>
+                <class>Tgc_Dax_Model_Resource</class>
+                <entities>
+                    <emailUnsubscribe>
+                        <table>tgc_dax_email_unsubscribe</table>
+                    </emailUnsubscribe>
+                </entities>
+            </tgc_dax_resource>
+            <enterprise_importexport>
+                <rewrite>
+                    <export>Tgc_Dax_Model_Export</export>
+                    <scheduled_operation_data>Tgc_Dax_Model_Scheduled_Operation_Data</scheduled_operation_data>
+                    <import_entity_customer>Tgc_Dax_Model_Import_Entity_Customer</import_entity_customer>
+                    <scheduled_operation>Tgc_Dax_Model_Scheduled_Operation</scheduled_operation>
+                    <import>Tgc_Dax_Model_Importcron</import>
+                </rewrite>
+            </enterprise_importexport>
+            <importexport_resource>
+                <rewrite>
+                    <import_data>Tgc_Dax_Model_Resource_Import_Data</import_data>
+                </rewrite>
+            </importexport_resource>
+        </models>
+        <resources>
+            <dax_setup>
+                <setup>
+                    <class>Tgc_Dax_Model_Resource_Catalog_Setup</class>
+                    <module>Tgc_Dax</module>
+                </setup>
+            </dax_setup>
+        </resources>
+        <importexport>
+            <export_entities>
+                <subscription_updates translate="label">
+                    <model_token>tgc_dax/export_entity_emailUnsubscribe</model_token>
+                    <label>Email Subscription Updates</label>
+                </subscription_updates>
+                <customers_freelectures>
+                    <model_token>tgc_dax/export_entity_freelectureCustomer</model_token>
+                    <label>Free Lecture Customers</label>
+                </customers_freelectures>
+                <customers_webaccountinfo>
+                    <model_token>tgc_dax/export_entity_webAccountInfo</model_token>
+                    <label>Customer Web Account Info</label>
+                </customers_webaccountinfo>
+            </export_entities>
+            <import_entities>
+                <adcode translate="label">
+                    <model_token>tgc_dax/import_entity_adCode</model_token>
+                    <label>Ad Codes</label>
+                </adcode>
+                <giftcert translate="label">
+                    <model_token>tgc_dax/import_entity_giftCert</model_token>
+                    <label>Gift Certificates</label>
+                </giftcert>
+                <couponcode translate="label">
+                    <model_token>tgc_dax/import_entity_couponCode</model_token>
+                    <label>Coupon Codes</label>
+                </couponcode>
+                <priority_price translate="label">
+                    <model_token>tgc_dax/import_entity_price_priorityFast</model_token>
+                    <label>Priority Prices</label>
+                </priority_price>
+                <default_price translate="label">
+                    <model_token>tgc_dax/import_entity_price_default</model_token>
+                    <label>Default Prices</label>
+                </default_price>
+                <course translate="label">
+                    <model_token>tgc_dax/import_entity_course</model_token>
+                    <label>Courses</label>
+                </course>
+                <set translate="label">
+                    <model_token>tgc_dax/import_entity_set</model_token>
+                    <label>Sets</label>
+                </set>
+                <list_price translate="label">
+                    <model_token>tgc_dax/import_entity_price_list</model_token>
+                    <label>List Prices</label>
+                </list_price>
+                <adcode_redirect translate="label">
+                    <model_token>tgc_dax/import_entity_adCodeRedirect</model_token>
+                    <label>Ad Code Redirects</label>
+                </adcode_redirect>
+                <lecture  translate="label">
+                    <model_token>tgc_dax/import_entity_lecture</model_token>
+                    <label>Lectures</label>
+                </lecture>
+                <customer translate="label">
+                    <model_token>tgc_dax/import_entity_customer</model_token>
+                    <label>Customers</label>
+                </customer>
+                <customer_acknowledgetment translate="label">
+                    <model_token>tgc_dax/import_entity_customerAcknowledgement</model_token>
+                    <label>Customer Acknowledgements</label>
+                </customer_acknowledgetment>
+                <professor translate="label">
+                    <model_token>tgc_dax/import_entity_professor</model_token>
+                    <label>Professors</label>
+                </professor>
+                <orderack translate="label">
+                    <model_token>tgc_dax/import_entity_orderAck</model_token>
+                    <label>DAX Order Acknowledgements</label>
+                </orderack>
+                <email_preferences>
+                    <model_token>tgc_dax/import_entity_emailPreferences</model_token>
+                    <label>Email Subscribe Preferences</label>
+                </email_preferences>
+                <catalog_code>
+                    <model_token>tgc_dax/import_entity_catalogCode</model_token>
+                    <label>Catalog Codes</label>
+                </catalog_code>
+                <best_sellers>
+                    <model_token>tgc_dax/import_entity_bestSellers</model_token>
+                    <label>Best Sellers</label>
+                </best_sellers>
+                <catalog_product translate="label">
+                    <model_token>tgc_dax/import_entity_product</model_token>
+                    <label>Products</label>
+                </catalog_product>
+            </import_entities>
+            <import_product_types>
+                <simple>tgc_dax/import_entity_product_type_simple</simple>
+                <configurable>tgc_dax/import_entity_product_type_configurable</configurable>
+            </import_product_types>
+        </importexport>
+        <template>
+            <email>
+                <enterprise_importexport_import_failed translate="label" module="enterprise_importexport">
+                    <file>tgc/scheduled_import_failed.html</file>
+                </enterprise_importexport_import_failed>
+                <dax_order_export_template>
+                    <file>tgc/order_export_warning.html</file>
+                    <type>html</type>
+                </dax_order_export_template>
+            </email>
+        </template>
+        <events>
+            <sales_order_grid_collection_load_before>
+                <observers>
+                    <dax_add_grid_columns>
+                        <model>tgc_dax/observer</model>
+                        <method>addColumnsToGrid</method>
+                    </dax_add_grid_columns>
+                </observers>
+            </sales_order_grid_collection_load_before>
+            <newsletter_subscriber_save_before>
+                <observers>
+                    <dax_check_subscription_status_changed>
+                        <model>tgc_dax/observer</model>
+                        <method>checkNewsletterStatus</method>
+                    </dax_check_subscription_status_changed>
+                </observers>
+            </newsletter_subscriber_save_before>
+            <customer_save_before>
+                <observers>
+                    <tgc_dax_subscribe_new_users>
+                        <class>tgc_dax/observer</class>
+                        <method>subscribeNewUser</method>
+                    </tgc_dax_subscribe_new_users>
+                </observers>
+            </customer_save_before>
+            <customer_login>
+                <observers>
+                    <tgc_dax_check_subscription_opt_out>
+                        <class>tgc_dax/observer</class>
+                        <method>checkStatusAtLogin</method>
+                    </tgc_dax_check_subscription_opt_out>
+                </observers>
+            </customer_login>
+        </events>
+    </global>
+    <frontend>
+        <events>
+            <sales_quote_address_collect_totals_after>
+                <observers>
+                    <set_shopping_cart_rule_shipping_price>
+                        <type>singleton</type>
+                        <class>tgc_dax/observer</class>
+                        <method>updateShippingPrice</method>
+                    </set_shopping_cart_rule_shipping_price>
+                </observers>
+            </sales_quote_address_collect_totals_after>
+            <sales_order_save_before>
+                <observers>
+                    <add_affiliate_id_to_order>
+                        <class>tgc_dax/observer</class>
+                        <method>addAffiliateIdToOrder</method>
+                    </add_affiliate_id_to_order>
+                </observers>
+            </sales_order_save_before>
+        </events>
+        <routers>
+            <tgc>
+                <args>
+                    <modules>
+                        <tgc_dax before="Tgc_Datamart">Tgc_Dax</tgc_dax>
+                    </modules>
+                </args>
+            </tgc>
+        </routers>
+        <layout>
+            <updates>
+                <dax>
+                    <file>dax.xml</file>
+                </dax>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <email_unsubscribe>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_Dax</module>
+                    <frontName>dax_emailUnsubscribe</frontName>
+                </args>
+            </email_unsubscribe>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <tgc_dax before="Mage_ImportExport_Adminhtml_ExportController">Tgc_Dax_Adminhtml</tgc_dax>
+                    </modules>
+                </args>
+            </adminhtml>
+            <tgc_dax_debug>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_Dax</module>
+                    <frontName>daxTest</frontName>
+                </args>
+            </tgc_dax_debug>
+        </routers>
+    </admin>
+    <adminhtml>
+        <events>
+            <adminhtml_promo_quote_edit_tab_main_prepare_form>
+                <observers>
+                    <add_tgc_dax_form_fields>
+                        <type>singleton</type>
+                        <class>tgc_dax/observer</class>
+                        <method>addCouponFormFields</method>
+                    </add_tgc_dax_form_fields>
+                </observers>
+            </adminhtml_promo_quote_edit_tab_main_prepare_form>
+            <salesrule_rule_save_before>
+                <observers>
+                    <validate_tgc_dax_form_fields>
+                        <type>singleton</type>
+                        <class>tgc_dax/observer</class>
+                        <method>validateCouponFormFields</method>
+                    </validate_tgc_dax_form_fields>
+                </observers>
+            </salesrule_rule_save_before>
+        </events>
+        <layout>
+            <updates>
+                <tgc_dax>
+                    <file>dax.xml</file>
+                </tgc_dax>
+            </updates>
+        </layout>
+    </adminhtml>
+    <crontab>
+        <jobs>
+            <dax_order_export>
+                <schedule>
+                    <config_path>dax/order_export/cron_expression</config_path>
+                </schedule>
+                <run>
+                    <model>tgc_dax/cron::orderExport</model>
+                </run>
+            </dax_order_export>
+        </jobs>
+    </crontab>
+    <default>
+        <dax>
+            <order_export>
+                <cron_expression><![CDATA[*/20 * * * *]]></cron_expression>
+                <debug_enabled>0</debug_enabled>
+                <export_threshold>300</export_threshold>
+                <acknowledge_threshold>300</acknowledge_threshold>
+                <template>dax_order_export_template</template>
+            </order_export>
+            <sftp>
+                <hostname><![CDATA[bucket.guidance.com]]></hostname>
+                <username><![CDATA[tgc-user]]></username>
+                <password></password>
+                <timeout>10</timeout>
+                <port>22</port>
+                <remote_path><![CDATA[/home/tgc-user/dax/orders]]></remote_path>
+            </sftp>
+        </dax>
+    </default>
+</config>

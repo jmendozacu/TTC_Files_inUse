@@ -1,0 +1,413 @@
+<?php
+    $outHelp = $this->helper('catalog/output');
+    $catHelp = $this->helper('tgc_catalog');
+    $imageHelper = $this->helper('catalog/image');
+    $product = $this->getProduct();
+    $helper = $this->helper('tgc_catalog');
+    $brightcoveVideoBlock = $this->getChild('tgc_productgallery.landing.page.video.brightcove');
+    $configurableOptionsBlock = $this->getChild($this->getConfigurableOptionsBlockName());
+?>
+<div class="buffet-header landing-page-header clearfix">
+    <div class="grid12-8">
+        <?php echo $this->getChildHtml('landing.page.header.cms.block')?>
+    </div>
+    <div class="grid12-4">
+        <button type="button" title="<?php echo $this->__('Proceed To Checkout') ?>" class="button btn-proceed-checkout btn-checkout disabled"><span><span><?php echo $this->__('Proceed To Checkout') ?></span></span></button>
+    </div>
+</div>
+<div class="course-wrapper">
+    <ul class="course-list">
+        <?php $i = 0; ?>
+        <?php foreach ($this->getLoadedProductCollection() as $product) :
+            $i++;
+            $lectures = $product->getLectures();
+            $lectures->setOrder('lecture_number', Varien_Data_Collection::SORT_ORDER_ASC);
+            $professors = (array)$catHelp->getProfessors($product);
+            if ($product->isConfigurable() && $configurableOptionsBlock) {
+                $configurableOptionsBlock->setProduct($product)
+                    ->unsAllowProducts();
+            }
+        ?>
+
+        <li class="course-item">
+            <div class="course-block">
+                <div class="course-promo-video grid12-4">
+                    <img src="<?php echo $imageHelper->init($product, 'image')->resize(530, 400); ?>" alt="<?php echo $this->escapeHtml($product->getName()) ?>" />
+                </div>
+                <?php if ($brightcoveVideoBlock): ?>
+                    <?php echo $brightcoveVideoBlock->setProduct($product)->toHtml(); ?>
+                <?php endif; ?>
+                <div class="course-content grid12-9">
+                    <div class="set-course-title">
+                        <span class="course-quant hide-for-mobile"><?php echo $this->__('Course') ?></span>
+                        <span class="hide-for-mobile">&nbsp;|&nbsp;</span>
+                        <span class="course-title"><a href="<?php echo $product->getProductUrl(); ?>" title="<?php echo $this->stripTags($product->getName(), null, true)?>" target="_blank"><?php echo $outHelp->productAttribute($product, $product->getName(), 'name') ?></a></span>
+                    </div>
+                    <?php if ($professors) : ?>
+                    <div class="professor-info">
+                        <?php if (count($professors) > 1): ?>
+                        <p class="prof"><?php echo $this->__('Taught By Multiple Professors'); ?></p>
+                        <?php else: ?>
+                        <p class="prof"><?php echo isset($professors[0]['name']) ? $professors[0]['name'] : ''; ?></p>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif;?>
+                    <?php
+                        if ($product->isConfigurable() && $configurableOptionsBlock
+                            && ($availableFormats = $this->getProductAvailableFormats($configurableOptionsBlock->getAllowAttributes()))):
+                     ?>
+                    <div class="available-formats">
+                        <span class="title"><?php echo $this->__('Available Formats:'); ?></span>
+                        <span class="formats"><?php echo implode(', ', $availableFormats); ?></span>
+                    </div>
+                    <?php endif; ?>
+                    <div class="course_overview">
+                        <?php echo $outHelp->productAttribute($product, $product->getShortDescription(), 'short_description'); ?>
+                    </div>
+                </div>
+            </div>
+            <?php if (count($lectures)) : ?>
+            <div class="view-lecture-list"><?php echo $this->__('View Lecture List (%d)', count($lectures)) ?></div>
+            <div class="hide-lecture-list" style="display: none;"><?php echo $this->__('Hide Lecture List (%d)', count($lectures))?></div>
+            <?php endif; ?>
+            <div class="add-to-cart-form-container">
+                <form id="add_to_cart_form_<?php echo $product->getId(); ?>" action="<?php echo Mage::helper('checkout/cart')->getAddUrl($product); ?>" method="post">
+                    <input type="hidden" name="product" value="<?php echo $product->getId() ?>"/>
+                    <input type="hidden" name="course_id" value="<?php echo $product->getCourseId() ?>"/>
+                    <input type="hidden" name="product_sku" value="<?php echo $product->getSku() ?>"/>
+
+                    <?php if ($product->isConfigurable() && $configurableOptionsBlock): ?>
+                    <?php echo $configurableOptionsBlock->toHtml(); ?>
+                    <button onclick="if(!jQuery(this).hasClass('disabled')){addToCart($(this).up('form'));}else{customTooltip.show(this, '<?php echo $this->__('Select a Format First'); ?>', 'top' );}" class="button purchase add-to-cart-button disabled" title="<?php echo $this->__('Add to Cart') ?>" type="button">
+                        <span>
+                            <span><?php echo $this->__('Add to Cart'); ?></span>
+                        </span>
+                    </button>
+                    <?php else: ?>
+                    <button class="button purchase add-to-cart-button" title="<?php echo $this->__('Add to Cart') ?>" type="button" onclick="addToCart($(this).up('form'));">
+                        <span>
+                            <span><?php echo $this->__('Add to Cart'); ?></span>
+                        </span>
+                    </button>
+                    <?php endif; ?>
+                </form>
+            </div>
+            <?php if (count($lectures)) : ?>
+            <div class="course-lecture-block">
+                <div class="lectures-container clearfix sets">
+                    <div class="lectures-container-title hide-for-mobile">
+                        <?php echo count($lectures) ?> Lectures
+                        <span>&nbsp;|&nbsp;</span>
+                        <span class="course-title"><?php echo $this->escapeHtml($outHelp->productAttribute($product, $product->getName(), 'name')) ?></span>
+                    </div>
+                    <div class="lectures-container-title show-for-mobile">
+                        <a class="close-button show-for-mobile" href="javascript:void(0)"></a>
+                        <?php echo $this->__('Lecture Titles') ?> (<?php echo count($lectures) ?>)
+                    </div>
+                    <ul class="lectures-list">
+                        <?php $li = $lectures->getIterator() ?>
+                        <?php for ($j = 0, $lecture = reset($li); $j < count($li) / 2; $j++, $lecture = next($li)) : ?>
+                            <li>
+                                <?php if (is_null($lecture->getDefaultCourseNumber())): ?>
+                                    <div class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                                    <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                                    <div class="lecture-description-block right">
+                                        <?php echo $this->escapeHtml($lecture->getDescription()) ?>
+                                    </div>
+                                <?php else: ?>
+                                    <a href="<?php echo Mage::helper('tgc_catalog')->getProductUrlFromCourseId($lecture->getDefaultCourseNumber()); ?>">
+                                        <div
+                                            class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                                        <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                                        <div class="lecture-description-block right">
+                                            <?php echo $this->escapeHtml($lecture->getDescription()) ?>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+                            </li>
+                        <?php endfor; ?>
+                    </ul>
+                    <ul class="lectures-list">
+                        <?php for (; $lecture; $lecture = next($li)) : ?>
+                            <li>
+                                <?php if (is_null($lecture->getDefaultCourseNumber())): ?>
+                                    <div class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                                    <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                                    <div class="lecture-description-block left">
+                                        <?php echo $this->escapeHtml($lecture->getDescription()) ?>
+                                    </div>
+                                <?php else: ?>
+                                    <a href="<?php echo Mage::helper('tgc_catalog')->getProductUrlFromCourseId($lecture->getDefaultCourseNumber()); ?>">
+                                        <div
+                                            class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                                        <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                                        <div class="lecture-description-block left">
+                                            <?php echo $this->escapeHtml($lecture->getDescription()) ?>
+                                        </div>
+                                    </a>
+                                <?php endif; ?>
+                            </li>
+                        <?php endfor; ?>
+                    </ul>
+                </div>
+            </div>
+            <?php endif;?>
+        </li>
+        <?php endforeach; // foreach ($this->getLoadedProductCollection() as $product)?>
+    </ul>
+</div>
+<div class="buffet-footer landing-page-footer clearfix">
+    <div class="grid12-4">
+        <button type="button" title="<?php echo $this->__('Proceed To Checkout') ?>" class="button btn-proceed-checkout btn-checkout disabled"><span><span><?php echo $this->__('Proceed To Checkout') ?></span></span></button>
+        <div class="buffet-checkout-logos">
+            <?php echo $this->getChildHtml('checkout_logos') ;?>
+        </div>
+    </div>
+    <div class="grid12-8">
+        <?php echo $this->getChildHtml('landing.page.footer.cms.block')?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    /*Code for showing more information about course*/
+    var viewMoreBtn = jQuery('.view-lecture-list'),
+        hideMoreBtn = jQuery('.hide-lecture-list'),
+        closeBtn = jQuery('.course-lecture-block').find('.close-button'),
+        lectureDesc = jQuery('.lectures-list li'),
+        customClickEvent,
+        customMousedownEvent;
+
+    if( (jQuery(window).width()<768 && navigator.userAgent.match(/Android/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/webOS/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/iPhone/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/iPad/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/iPod/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/BlackBerry/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/Windows Phone/i))
+        ) {
+        customClickEvent = 'touchend';
+        customMousedownEvent = 'touchstart';
+    } else {
+        customClickEvent = 'click';
+        customMousedownEvent = 'mousedown';
+    }
+
+    if( (jQuery(window).width()>768)) {
+        viewMoreBtn.each(function () {
+            jQuery(this).on('click', function () {
+                jQuery(this).parent('.course-item').find('.course-lecture-block').addClass('show').slideDown(500, function(){
+                    jQuery(this).parent('.course-item').find(viewMoreBtn).hide();
+                    jQuery(this).parent('.course-item').find(hideMoreBtn).show();
+                });
+            });
+        });
+        hideMoreBtn.each(function () {
+            jQuery(this).on('click', function () {
+                jQuery(this).parent('.course-item').find('.course-lecture-block').removeClass('show').slideUp(500, function(){
+                    jQuery(this).parent('.course-item').find(viewMoreBtn).show();
+                    jQuery(this).parent('.course-item').find(hideMoreBtn).hide();
+                });
+            });
+        });
+    }
+    else {
+        viewMoreBtn.each(function () {
+            jQuery(this).on('click', function () {
+                jQuery(this).parent('.course-item').find('.course-lecture-block').animate(
+                    {left: 0},
+                    300,
+                    function(){
+                    jQuery(this).parent('.course-item').find(viewMoreBtn).hide();
+                    jQuery(this).parent('.course-item').find(hideMoreBtn).show();
+                });
+                jQuery('#mobile-nav-header').css('z-index', '0');
+                jQuery('.footer-container').hide();
+
+            });
+        });
+        closeBtn.each(function () {
+            jQuery(this).on('click', function () {
+                jQuery(this).parents('.course-item').find('.course-lecture-block').animate(
+                    {left: '-100%'},
+                    300,
+                    function(){
+                        jQuery(this).parent('.course-item').find(viewMoreBtn).show();
+                        jQuery(this).parent('.course-item').find(hideMoreBtn).hide();
+                });
+                jQuery('#mobile-nav-header').css('z-index', '1000000');
+                jQuery('.footer-container').show();
+            });
+        });
+
+        lectureDesc.each(function () {
+            jQuery(this).on('click', function () {
+                if(!jQuery(this).hasClass('active')) {
+                    lectureDesc.removeClass('active');
+                    jQuery(this).addClass('active');
+                } else {
+                    jQuery(this).removeClass('active');
+                }
+            });
+        });
+
+    }
+
+    function toggleFormAddToCartButton(form) {
+        var addToCartButton = form.down('.add-to-cart-button');
+        var allSelects = form.select('select');
+        for (var i = 0, len = allSelects.length; i < len; ++i) {
+            if (allSelects[i].getValue() == '') {
+                addToCartButton.addClassName('disabled');
+                return;
+            }
+        }
+
+        addToCartButton.removeClassName('disabled');
+    }
+
+    function toggleProceedToCheckoutButton() {
+        var addToCartForms = $$('form[id^="add_to_cart_form_"]');
+        var proceedToCheckoutButtons = $$('.buffet-header button.btn-proceed-checkout, .buffet-footer button.btn-proceed-checkout');
+        var formSelects, allSelectsFilled;
+        for (var i = 0, len = addToCartForms.length; i < len; i++) {
+            formSelects = addToCartForms[i].select('select');
+            allSelectsFilled = true;
+            for (var j = 0, lenj = formSelects.length; j < lenj; j++) {
+                if (formSelects[j].getValue() == '') {
+                    allSelectsFilled = false;
+                    break;
+                }
+            }
+            if (allSelectsFilled) {
+                proceedToCheckoutButtons.invoke('removeClassName', 'disabled');
+                return;
+            }
+        }
+
+        proceedToCheckoutButtons.invoke('addClassName', 'disabled');
+    }
+
+    $$('form[id^="add_to_cart_form_"]').each(function (form) {
+        form.select('select').each(function (el) {
+            el.observe('change', function (event) {
+                var form = event.findElement().up('form');
+                toggleFormAddToCartButton(form);
+                toggleProceedToCheckoutButton();
+            });
+        });
+    });
+
+    function addToCart(form) {
+        try {
+            var parameters = form.serialize(true);
+            parameters.from_buffet_landing = 1;
+            new Ajax.Request(form.action,
+                {
+                    method: 'post',
+                    parameters: parameters,
+                    onSuccess: function (transport) {
+                        var response = transport.responseText;
+                        var data = response.evalJSON();
+                        $H(data).each(function (dataSet) {
+                            if (dataSet.key === "messages") {
+                                $('messages_buffet_landing_page').update(dataSet.value);
+                                $('messages_buffet_landing_page').down('.success-msg,.error-msg').insert('<a class="close-button" rel="nofollow" href="javascript:void(0)">Close</a>').observe('click', function() {
+                                    this.up('.messages').hide();
+                                });
+                                if ($('messages_buffet_landing_page').down('.success-msg')) {
+                                    form.down('.add-to-cart-button').addClassName('added').update('<span><span>Added to cart</span></span>');
+                                }
+                            } else if (dataSet.key === "minicart") {
+                                updateTopLinks();
+                            }
+                        });
+                    },
+                    onLoading: function (request, json) {
+                        $(document.body).scrollTo();
+                    },
+                    onFailure: function () {
+                    }
+                });
+
+        } catch (e) {
+        }
+    }
+
+    $$('.buffet-header button.btn-proceed-checkout, .buffet-footer button.btn-proceed-checkout').each(function (proceedToCheckoutButton) {
+        proceedToCheckoutButton.observe('click', function (event) {
+            if (proceedToCheckoutButton.hasClassName('disabled')) {
+                return;
+            }
+
+            var form = new Element('form', {'method': 'post', 'action': '<?php echo $this->getUrl('*/*/proceedToCheckout'); ?>'});
+            form.insert(new Element('input', {'type': 'hidden', 'value': 1, 'name': 'from_buffet_landing'}));
+
+            var allSelectsFilled = false;
+            var formSelects, i, ilen, j, jlen;
+            var setForm = $$('.set-container .add-to-cart-form-container form').first();
+            if (setForm) {
+                allSelectsFilled = true;
+                formSelects = setForm.select('select');
+                for (i = 0, ilen = formSelects.length; i < ilen; i++) {
+                    if (formSelects[i].getValue() == '') {
+                        allSelectsFilled = false;
+                        break;
+                    }
+                }
+            }
+
+            if (setForm && allSelectsFilled) {
+                form.insert(new Element('input', {
+                    'type': 'hidden',
+                    'name': 'add_to_cart_form_data[]',
+                    'value': setForm.serialize()
+                }));
+            } else {
+                var listForms = $$('.course-list .add-to-cart-form-container form');
+                for (i = 0, ilen = listForms.length; i < ilen; i++) {
+                    allSelectsFilled = true;
+                    formSelects = listForms[i].select('select');
+                    for (j = 0, jlen = formSelects.length; j < jlen; j++) {
+                        if (formSelects[j].getValue() == '') {
+                            allSelectsFilled = false;
+                            break;
+                        }
+                    }
+                    if (allSelectsFilled) {
+                        form.insert(new Element('input', {
+                            'type': 'hidden',
+                            'name': 'add_to_cart_form_data[]',
+                            'value': listForms[i].serialize()
+                        }));
+                    }
+                }
+            }
+
+            $(document.body).insert(form);
+            form.submit();
+        });
+    });
+
+    function updateTopLinks() {
+        jQuery.ajax({
+            type: 'POST',
+            url: globalHeader.updateLinksUrl,
+            success: function (data, textStatus, jqXHR) {
+                if (data['status'] == 'success') {
+                    jQuery('div#mini-cart').html(data['cartHtml']);
+                    jQuery('div#mini-wishlist').html(data['wishlistHtml']);
+                    var el = jQuery('<div></div>');
+                    el.html(data['cartHtml']);
+                    jQuery('.mob-cart-hint').html(jQuery('.bubble', el).html());
+                    if (jQuery('.bubble', el).html()>0){
+                        jQuery('.mob-cart-hint').css('display','block');
+                    }else{
+                        jQuery('.mob-cart-hint').css('display','none');
+                    }
+                }
+            }
+        });
+    }
+    //]]>
+</script>

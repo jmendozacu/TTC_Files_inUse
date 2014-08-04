@@ -1,0 +1,220 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php
+    $session = Mage::getSingleton('customer/session');
+
+	$theme = $this->helper('ultimo');
+	$headerInnerBgColor		= $theme->getCfgDesign('header/inner_bg_color');
+	$navStretched			= $theme->getCfgDesign('nav/stretched');
+	$mainInnerBgColor		= $theme->getCfgDesign('main/inner_bg_color');
+
+	//Header settings
+	$headerCss = array();
+
+	if ($theme->isColor($headerInnerBgColor))
+	{
+		$headerCss[] = 'show-bg';
+	}
+	else
+	{
+		//If header has no color and menu is stretched, header is also stretched
+		if ($navStretched)
+		{
+			$headerCss[] = 'stretched';
+		}
+	}
+
+	//Menu settings
+	$navCss = array();
+
+	//Is menu stretched (full available width, margins are removed)
+	if ($navStretched)
+	{
+		$navCss[] = 'stretched';
+	}
+
+	//If header or menu have bg color, nav also has bg color
+	if ($theme->isColor($headerInnerBgColor))
+	{
+		$navCss[] = 'show-bg';
+	}
+	elseif ($theme->isColor($mainInnerBgColor))
+	{
+		$navCss[] = 'show-bg';
+	}
+?>
+<script type="text/javascript">
+    myDigitalLibraryURL = '<?php echo Mage::getUrl('digital-library/account'); ?>';
+</script>
+<div class="header-container" id="top">
+
+    <div class="header container<?php if($headerCss) echo " " . implode(" ", $headerCss); ?>">
+		<div class="grid-full">
+
+			<!-- <div class="header-top clearer">
+                <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left2')): ?>
+                    <div class="block_header_top_left2 item item-left"><?php echo $tmpHtml; ?></div>
+                <?php endif; ?>
+                <div class="item item-left hide-below-960">
+                    <p class="welcome-msg"><?php echo $this->getWelcome(); ?> <?php echo $this->getAdditionalHtml(); ?></p>
+                </div>
+
+                <?php if ($tmpHtml = $this->getChildHtml('block_header_top_right')): ?>
+                    <div class="block_header_top_right item item-right"><?php echo $tmpHtml; ?></div>
+                <?php endif; ?>
+                <?php echo $this->getChildHtml('currency'); ?>
+                <?php echo $this->getChildHtml('store_language'); ?>
+                <?php if ($tmpHtml = $this->getChildHtml('block_header_top_right2')): ?>
+                    <div class="block_header_top_right2 item item-right"><?php echo $tmpHtml; ?></div>
+                <?php endif; ?>
+            </div> -->
+            <?php echo $this->getChildHtml('topContainer'); ?>
+
+            <!-- end: header-top %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
+            <div class="header-main v-grid-container">
+                <div class="logo-wrapper grid12-4 v-grid">
+                <?php if ($this->getIsHomePage()):?>
+                    <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+                <?php else:?>
+                    <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getSkinUrl('images/logo.png') ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+                <?php endif?>
+                </div>
+
+                <!-- mobile version. hidden when not on mobile -->
+                <a href="" class="mobile-nav-trigger mobile-actions"></a>
+                <div class="logo-mobile">
+                    <?php if ($this->getIsHomePage()):?>
+                        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getSkinUrl('images/logo-mobile.png') ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+                    <?php else:?>
+                        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getSkinUrl('images/logo-mobile.png') ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+                    <?php endif?>
+                </div>
+                <div class="mobile-actions">
+                    <a href="" class="search-action"></a>
+                    <?php if ($session->isLoggedIn()): ?>
+                    <a href="" class="account-action-logged"></a>
+                    <?php else: ?>
+                    <a href="" class="account-action"></a>
+                    <?php endif; ?>
+                    <a href="/checkout/cart" class="cart-action"></a>
+                </div>
+
+
+                <div class="user-menu clearer v-grid">
+
+                    <div class="top-links show-separators">
+
+                        <?php echo $this->getChildHtml('top.links.cms');?>
+
+                        <?php echo $this->getChildHtml('top.links.cms.checkout');?>
+
+                        <?php echo $this->getChildHtml('priority.code.header');?>
+
+						<?php
+						if ($theme->getCfg('header/compare'))
+						{
+                        	$tmpHtml = $this->getChildHtml('compareMini');
+                        	if ($tmpHtml) echo $tmpHtml;
+						}
+                        ?>
+
+                        <?php
+                        //Additional custom Top Links
+                        if ($tmpHtml = $this->getChildHtml('block_header_top_links2'))
+                            echo $tmpHtml;
+
+                        //Default Magento top links (page.xml)
+                        if ($theme->getCfg('magento_blocks/top_links'))
+                            echo $this->getChildHtml('topLinks');
+
+                        //Custom top links - override Magento's default Top Links
+                        if ($tmpHtml = $this->getChildHtml('block_header_top_links'))
+                            echo $tmpHtml;
+                        ?>
+                    </div> <!-- end: top-links -->
+
+                    <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left')): ?>
+                        <div class="block_header_top_left item item-left clearer"><?php echo $tmpHtml; ?></div>
+                    <?php endif; ?>
+
+                    <div class="header-top-search-wrapper grid-full">
+                        <?php echo $this->getChildHtml('topSearch'); ?>
+                        <?php /*?><a class="advanced-search-link" href="<?php echo Mage::getURL(''); ?>catalogsearch/advanced/"><?php print $this->__('Advanced Search'); ?></a><?php */?>
+                    </div>
+
+                </div> <!-- end: user-menu -->
+
+            </div> <!-- end: header-main -->
+
+
+
+        </div> <!-- end: grid unit -->
+    </div> <!-- end: header -->
+
+		<div class="nav container clearer<?php if($navCss) echo " " . implode(" ", $navCss); ?>">
+            <div class="main-nav-wrapper">
+                <?php echo $this->getChildHtml('topMenu') ?>
+                <?php if (!$this->getData('isCheckOut')): ?>
+                    <?php if ($session->isLoggedIn()): ?>
+                        <?php echo Mage::helper('tgc_customer')->getLoggedInHeaderHtml(); ?>
+                    <?php else: ?>
+                        <?php echo Mage::helper('tgc_customer')->getLoggedOutHeaderHtml(); ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php echo $this->getChildHtml('cart_sidebar'); ?>
+                <?php echo $this->getChildHtml('wishlist_sidebar'); ?>
+                <?php if (!$this->getData('isCheckOut')): ?>
+                    <?php if ($session->isLoggedIn()): ?>
+                    <span href="<?php echo Mage::getUrl('digital-library/account'); ?>" class="my-digital-library text-header-nav-medium" >
+                        <a href="<?php echo Mage::getUrl('digital-library/account'); ?>" class="nav-text-link"><?php echo $this->__('My digital library'); ?></a>
+                    </span>
+                    <?php else: ?>
+                    <span href="javascript:void(0)" class="my-digital-library text-header-nav-medium my-digital-library-login-js" >
+                        <span class="nav-text-link"><?php echo $this->__('My digital library'); ?></span>
+                     </span>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php echo $this->getChildHtml('checkout_logos'); ?>
+            </div>
+		</div> <!-- end: nav -->
+
+    <div class="header-flyouts max-width">
+        <?php // echo $this->getChildHtml('customer_form_login');?>
+    </div>
+
+</div> <!-- end: header-container -->
+
+<!-- render login form outside header in order to push down main content when shown -->
+<?php if (!$this->getData('isCheckOut')): ?>
+    <?php if (!$session->isLoggedIn()): ?>
+        <?php echo $this->getChildHtml('header.login'); ?>
+    <?php endif; ?>
+<?php endif; ?>

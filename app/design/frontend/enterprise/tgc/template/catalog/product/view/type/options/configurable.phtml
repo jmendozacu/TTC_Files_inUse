@@ -1,0 +1,148 @@
+<?php
+/**
+ *
+ */
+?>
+
+<?php
+$_product    = $this->getProduct();
+$_attributes = Mage::helper('core')->decorateArray($this->getAllowAttributes());
+$_subtitleId  = $_product->getData('availability_of_streaming');
+switch ($_subtitleId) {
+    case 0: $_titleText = "Audio formats include Free Streaming";
+        break;
+    case 1: $_titleText = "Video formats include Free Streaming";
+        break;
+    case 2: $_titleText = "All formats include Free Streaming";
+        break;
+    case 3: $_titleText = "";
+        break;
+    default: $_titleText = "All formats include Free Streaming";
+}
+?>
+<?php if ($_product->isSaleable() && count($_attributes)):?>
+    <dl>
+
+    <?php foreach($_attributes as $_attribute): ?>
+
+        <?php if ($this->isMediaFormat($_attribute)): ?>
+            <dt>
+                <label class="with-icon"><?php echo $this->__('Choose a Format') ?><?php /*echo $_attribute->getLabel() */?></label>
+                <div class="choose-format-info-block-wrapper no-display">
+                    <div class="choose-format-info-block">
+                        <div class="block-title">Video or Audio?</div>
+                        <div class="block-data">
+                            While this set works well in both audio and video format, one or more of the courses in this set feature graphics to enhance your learning experience, including illustrations, images of people and event, and on-screen text.
+                        </div>
+                        <table class="info-table">
+                            <tr>
+                                <th width="40%" class="a-left big-font">Which Format Should I Choose?</th>
+                                <th width="15%">Video Download</th>
+                                <th width="15%">Audio Download</th>
+                                <th width="15%">DVD</th>
+                                <th width="15%">CD</th>
+                            </tr>
+                            <tr>
+                                <td class="a-left">Watch or listen immediately with FREE streaming</td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon">Available on most courses</div></td>
+                                <td><div class="arrow-icon"></div></td>
+                            </tr>
+                            <tr>
+                                <td class="a-left">Stream using apps on your iPad, iPhone, Android, or Kindle Fire</td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon">Available on most courses</div></td>
+                                <td><div class="arrow-icon"></div></td>
+                            </tr>
+                            <tr>
+                                <td class="a-left">Stream to your internet connected PC or laptop</td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon">Available on most courses</div></td>
+                                <td><div class="arrow-icon"></div></td>
+                            </tr>
+                            <tr>
+                                <td class="a-left">Download files for offline viewing or listening</td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="a-left">Receive DVDs or CDs for your library</td>
+                                <td></td>
+                                <td></td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon"></div></td>
+                            </tr>
+                            <tr>
+                                <td class="a-left">Play as many times as you want</td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon"></div></td>
+                                <td><div class="arrow-icon"></div></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="info-box"><?php echo $this->__($_titleText) ?></div>
+            </dt>
+            <dd<?php if ($_attribute->decoratedIsLast){?> class="last"<?php }?>>
+                <div class="input-box" style="display:none;">
+                    <select name="super_attribute[<?php echo $_attribute->getAttributeId() ?>]" id="attribute<?php echo $_attribute->getAttributeId() ?>" class="super-attribute-select"></select>
+                </div>
+                <div id="media-format-radio" class="choose-format-container"></div>
+            </dd>
+        <?php else: ?>
+            <dt><label class="required"><em>*</em><?php echo $_attribute->getLabel() ?></label></dt>
+            <dd<?php if ($_attribute->decoratedIsLast){?> class="last"<?php }?>>
+                <div class="input-box">
+                    <select name="super_attribute[<?php echo $_attribute->getAttributeId() ?>]" id="attribute<?php echo $_attribute->getAttributeId() ?>" class="required-entry super-attribute-select">
+                        <option><?php echo $this->__('Choose an Option...') ?></option>
+                    </select>
+                </div>
+            </dd>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    </dl>
+    <script type="text/javascript">
+        var spConfig = new Product.Config(<?php echo $this->getJsonConfig(); ?>);
+
+        jQuery(function($){
+            $(document).ready(function(){
+                $("#attribute<?php echo $_attribute->getAttributeId(); ?> option").each(function(i, e) {
+                    var formatBlock = $("<div class='format-block'></div>");
+                    if($(this).val() != '') {
+                        $("<input type='radio' name='media-format-radio' />")
+                            .attr('value', $(this).val())
+                            .attr('id', $(this).val())
+                            .attr('checked', i == 0)
+                            .on( 'click', function () {
+                                $('.product-options-bottom .add-to-cart-btn').removeClass('disabled').removeClass('added').html('<span><span>Add to cart</span></span>');
+                                $('.add-to-wishlist-btn').removeClass('disabled');
+                                $('.format-block').removeClass('active');
+                                $(this).parents('.format-block').addClass('active');
+                                $('#attribute<?php echo $_attribute->getAttributeId(); ?> option').removeAttr('selected');
+                                $('#attribute<?php echo $_attribute->getAttributeId(); ?> option').eq($(this).parents('.format-block').index()+1).attr('selected', 'selected');
+                            })
+                            .appendTo(formatBlock);
+                        $("<label for='" + $(this).val() + "'>" + $(this).html() + "</label>").appendTo(formatBlock);
+                        formatBlock.appendTo("#media-format-radio");
+                    }
+                });
+
+                $('.product-options label.with-icon').on(customClickEvent, function() {
+                    customTooltip.show($(this), $('.choose-format-info-block-wrapper'), 'bottom', 'no-padding', true)
+                });
+            })
+        });
+
+        <!-- Code for custom selects -->
+        jQuery(document).ready(function($) {
+            $('.super-attribute-select').coreUISelect();
+        });
+
+    </script>
+<?php endif;?>

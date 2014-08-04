@@ -1,0 +1,142 @@
+<?php
+/**
+ * Tgc Catalog
+ *
+ * @author      Guidance Magento SuperTeam <magento@guidance.com>
+ * @category    Tgc
+ * @package     Catalog
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/* @var $this Tgc_Catalog_Block_Product_View_Professor */
+/* @var $professor Tgc_Professors_Model_Professor */
+?>
+<?php
+$professors = $this->getProfessors();
+$curProfCount = 0;
+?>
+<div class="your-professor-container">
+    <div class="photo-block multiple"><!--multiple class for multiple professors tab-->
+        <?php if (count($professors) > 1) : ?>
+            <div class="multiple-photo-block-title"><?php echo $this->__('%s Professors', count($professors)) ?></div><!--This title for the Multiple Professor Tab-->
+
+            <ul class="photos-of-professors clearer" ><!--This title for the Multiple Professor Tab-->
+                <?php $a = 0 ?>
+                <?php foreach ($professors as $professor) : ?>
+                    <li class="<?php if (!$a++) echo 'active' ?>">
+                        <a rel="nofollow" href="javascript:void(0)"><img src="<?php echo $professor->getPhoto() ?>"/></a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+
+        <div class="big-photo">
+            <?php $a = 0;?>
+            <?php foreach ($professors as $professor) : ?>
+                <img class="<?php if (!$a++) echo 'active' ?>"
+                     src="<?php echo $professor->getPhoto()->resize(142) ?>"
+                     width="142"
+                     alt="<?php echo $this->escapeHtml($professor->getFirstName() . ' ' . $professor->getLastName()) ?>"/>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <?php $a = 0 ?>
+    <?php foreach ($professors as $professor) : ?>
+        <?php $fullName = "{$professor->getQual()} {$professor->getFirstName()} {$professor->getLastName()}" ?>
+        <div class="data-block  <?php if (!$a++) echo 'active' ?>" >
+            <div class="professor-name"><?php echo $this->escapeHtml($fullName) ?></div>
+            <div class="professor-post"><?php echo $this->escapeHtml($professor->getSchoolList()) ?></div>
+            <div class="professor-description">
+                 <?php echo $professor->getBio(); ?>
+            </div>
+            <a href="<?php echo $this->helper('profs')->getProfessorUrl($professor) ?>" class="view-more-button">
+                <?php echo $this->__('View More information About This Professor') ?>
+            </a>
+
+            <?php
+                $products = $professor->getProducts()
+                    ->addAttributeToSelect('image')
+                    ->addFieldToFilter('entity_id', array('neq' => $this->getProduct()->getId()))
+                    ->setPageSize(30);
+            ?>
+            <?php if (count($products)) : ?>
+                <div class="professor-upsell-itemslider-wrapper itemslider-wrapper">
+                    <div class="slider-title"><?php echo $this->__('Also By This Professor') ?></div>
+                    <div class="itemslider itemslider-horizontal">
+                        <ul class="slides products-grid">
+                            <?php foreach ($products as $product) : ?>
+                                <li class="item">
+                                    <div class="item-inner">
+                                        <a href="<?php echo $product->getProductUrl() ?>" class="product-image">
+                                            <img width="160" height="125" alt="upsell title"
+                                                 src="<?php echo Mage::helper('catalog/image')
+                                                                        ->init($product, 'image')
+                                                                        ->constrainOnly(true)
+                                                                        ->keepAspectRatio(true)
+                                                                        ->keepFrame(false)
+                                                                        ->resize(160, 125) ?>" />
+                                             <h3 class="product-name">
+                                                <?php echo $this->escapeHtml($product->getName()) ?>
+                                            </h3>
+                                        </a>
+                                    </div>
+                                </li>
+                            <?php endforeach ?>
+                        </ul> <!-- end: slides -->
+                    </div> <!-- end: itemslider -->
+                </div> <!-- end: itemslider-wrapper -->
+
+                <a href="<?php echo $this->helper('catalogsearch')->getResultUrl(str_replace(' ', '+', $fullName))?>"
+                   class="view-more-button">
+                   <?php echo $this->__('View All Courses By This Professor')?>
+               </a>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	jQuery(function($) {
+        startProfessorUpsellsSlider = function() {
+            setTimeout(function() {
+                $('.professor-upsell-itemslider-wrapper .itemslider').flexslider({
+                    namespace: "",
+                    animation: "slide",
+                    controlNav: false,
+                    animationLoop: false,
+                    itemWidth: 182,
+                    initDelay: 2500,
+                    slideshow: false,
+                    maxItems: 7,
+                    minItems: 1
+
+                });
+            }, 500);
+
+        };
+        var profPhotos = $('.your-professor-container .photos-of-professors li');
+        var profBigPhotos = $('.your-professor-container .big-photo img');
+        var profDatas = $('.your-professor-container .data-block');
+        $('.your-professor-container .photos-of-professors li').on(customClickEvent, function() {
+            var _this = $(this);
+
+            profPhotos.removeClass('active');
+            $('.your-professor-container .photos-of-professors').each(function() {
+                $(this).find('li').eq(_this.index()).addClass('active')
+            });
+
+            profBigPhotos.removeClass('active');
+            $('.your-professor-container .big-photo').each(function() {
+                $(this).find('img').eq(_this.index()).addClass('active');
+            });
+
+            profDatas.removeClass('active');
+            $('.your-professor-container').each(function() {
+                $(this).find('.data-block').eq(_this.index()).addClass('active');
+            });
+        });
+	});
+//]]>
+</script>

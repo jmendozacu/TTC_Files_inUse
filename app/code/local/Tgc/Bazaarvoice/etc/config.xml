@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Bazaarvoice
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Bazaarvoice
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Bazaarvoice>
+            <version>10</version>
+        </Tgc_Bazaarvoice>
+    </modules>
+    <global>
+        <helpers>
+            <tgc_bv>
+                <class>Tgc_Bazaarvoice_Helper</class>
+            </tgc_bv>
+            <bazaarvoice>
+                <rewrite>
+                    <data>Tgc_Bazaarvoice_Helper_Data</data>
+                </rewrite>
+                <class>Tgc_Bazaarvoice_Helper</class>
+            </bazaarvoice>
+        </helpers>
+        <blocks>
+            <tgc_bv>
+                <class>Tgc_Bazaarvoice_Block</class>
+            </tgc_bv>
+            <bazaarvoice>
+                <rewrite>
+                    <reviews>Tgc_Bazaarvoice_Block_Rewrite_Reviews</reviews>
+                </rewrite>
+            </bazaarvoice>
+        </blocks>
+        <models>
+            <tgc_bv>
+                <class>Tgc_Bazaarvoice_Model</class>
+                <resourceModel>tgc_bazaarvoice_resource</resourceModel>
+            </tgc_bv>
+            <dataflow>
+                <rewrite>
+                    <profile>Tgc_Bazaarvoice_Model_Profile</profile>
+                </rewrite>
+            </dataflow>
+            <tgc_bazaarvoice_resource>
+                <class>Tgc_Bazaarvoice_Model_Resource</class>
+            </tgc_bazaarvoice_resource>
+        </models>
+        <resources>
+            <tgc_bazaarvoice_setup>
+                <setup>
+                    <module>Tgc_Bazaarvoice</module>
+                    <class>Tgc_Bazaarvoice_Model_Resource_Setup</class>
+                </setup>
+            </tgc_bazaarvoice_setup>
+        </resources>
+    </global>
+    <crontab>
+        <jobs>
+            <bazaarvoice_rating_import>
+                <schedule>
+                    <cron_expr>30 3 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>tgc_bv/cron::importRatings</model>
+                </run>
+            </bazaarvoice_rating_import>
+            <bazaarvoice_product_feed>
+                <schedule>
+                    <cron_expr>0 1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>tgc_bv/exportProductFeed::exportDailyProductFeed</model>
+                </run>
+            </bazaarvoice_product_feed>
+        </jobs>
+    </crontab>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <tgc_bv before="Mage_Adminhtml_System_Convert_GuiController">Tgc_Bazaarvoice_Adminhtml</tgc_bv>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <frontend>
+        <translate>
+            <modules>
+                <Tgc_Bazaarvoice>
+                    <files>
+                        <default>Tgc_Bazaarvoice.csv</default>
+                    </files>
+                </Tgc_Bazaarvoice>
+            </modules>
+        </translate>
+        <routers>
+            <qa>
+                <use>standard</use>
+                <args>
+                    <module>Tgc_Bazaarvoice</module>
+                    <frontName>qa</frontName>
+                </args>
+            </qa>
+        </routers>
+        <secure_url>
+            <qa_customer>/qa/customer/</qa_customer>
+        </secure_url>
+    </frontend>
+    <default>
+        <bazaarvoice>
+            <conversations_api>
+                <api_key><![CDATA[cne92wy9sue3u8zpj85mua5k]]></api_key>
+            </conversations_api>
+            <tgc_config>
+                <product_identifier><![CDATA[course_id]]></product_identifier>
+            </tgc_config>
+            <general>
+                <EncodingKey><![CDATA[9a7EpasW]]></EncodingKey>
+            </general>
+            <cache_lifetime>86400</cache_lifetime>
+        </bazaarvoice>
+    </default>
+</config>

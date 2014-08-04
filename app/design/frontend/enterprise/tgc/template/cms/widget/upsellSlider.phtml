@@ -1,0 +1,111 @@
+<?php
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+$_productCollection = $this->getProductCollection();
+$_heroHelper = $this->helper('tgc_cms');
+?>
+<?php if ($this->shouldShowWidget() && $_productCollection && ($_collectionSize = $_productCollection->getSize())): ?>
+<?php
+    $professorHelper = $this->helper('profs')->loadProfessorsByProducts($_productCollection);
+    $theme        = $this->helper('ultimo');
+    $helpLabels   = $this->helper('ultimo/labels');
+    $helpTemplate = $this->helper('ultimo/template');
+    $helpImg      = $this->helper('infortis/image');
+    //Default image size
+    $imgWidth  = 160;
+    $imgHeight = 125;
+    //Aspect ratio settings
+    if ($theme->getCfg('category/aspect_ratio')) {
+        $imgHeight = 0; //Height will be computed automatically (based on width) to keep the aspect ratio
+    }
+    //Block parameters
+    $isResponsive = $this->getIsResponsive(); //is_responsive
+    $breakpoints  = $this->getBreakpoints(); //breakpoints
+    $showItems    = $this->getProductsCount(); //show_products
+    if (!$showItems) {
+        $showItems = 5; //IMPORTANT: set default number of visible products
+    }
+    //Timeout (if set: automatic slideshow)
+    $timeout = $this->getTimeout();
+    if ($timeout == "null") //Special value: no automatic slideshow
+    {
+        $timeout = 0;
+    } else {
+        $timeout = intval($timeout);
+        if (!$timeout) //Param not set or equals 0
+        {
+            $timeout = intval($theme->getCfg('product_slider/timeout'));
+        }
+    }
+    //Initial delay
+    $initDelay = intval($this->getInitDelay());
+    //Additional CSS classes
+    $sliderClasses = '';
+    if ($isResponsive) {
+        $sliderClasses .= ' itemslider-responsive';
+    }
+    ?>
+<h3 class="section-title padding-right"><?php echo $this->getTitle(); ?></h3>
+<div class="itemslider-wrapper upsell-itemslider-wrapper">
+    <div class="itemslider itemslider-horizontal<?php if ($sliderClasses) echo $sliderClasses; ?>">
+        <ul class="slides products-grid">
+            <?php $i = 1; foreach ($_productCollection->getItems() as $_product): ?>
+            <?php if ($i > $this->_getProductsLimit()) { break; } ?>
+            <?php if ($this->getShowOnsaleOnly() && !$_product->getOnSaleFlag()) { continue; } ?>
+            <?php $productUrl = $_product->getProductUrl() . '?' . http_build_query(array('pfm' => 'UpsellSlider', 'pos' => $i)); $i++; ?>
+            <li class="item drop-shadow tiny-shadow" style="width:160px;">
+                <div class="item-inner">
+                    <a href="<?php echo $productUrl; ?>"
+                       title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true); ?>">
+                        <span class="product-image"><img src="<?php echo $helpImg->getImg($_product, $imgWidth, $imgHeight, 'small_image'); ?>"
+                             alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true); ?>"/></span>
+                        <?php if ($theme->getCfg('category/alt_image')): ?>
+                        <?php echo $theme->getAltImgHtml($_product, $imgWidth, $imgHeight); ?>
+                        <?php endif; ?>
+                        <?php echo $helpLabels->getLabels($_product); //Product labels ?>
+                        <h3 class="product-name"><?php echo $_heroHelper->truncateTextByWords($this->htmlEscape($_product->getName()), 68, '...');?></h3>
+                        <?php //Professor name ?>
+                        <?php if ($professorName = $professorHelper->getProfessorNamesForProduct($_product)): ?>
+                        <span class="professor-name"><?php echo $professorName; ?></span>
+                        <?php endif; ?>
+
+                        <?php if (Mage::helper('tgc_bv')->isBvEnabled()): ?>
+                            <?php echo Mage::helper('bazaarvoice')->getInlineRatingForProduct($_product); ?>
+                        <?php endif; ?>
+                        <?php echo $this->getPriceHtml($_product, true, '-new') ?>
+                    </a>
+                </div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+        <!-- end: slides -->
+    </div>
+    <!-- end: itemslider -->
+</div> <!-- end: new-itemslider-wrapper -->
+<script type="text/javascript">
+    //<![CDATA[
+    jQuery(function ($) {
+        $('.upsell-itemslider-wrapper .itemslider').flexslider({
+            namespace:"",
+            animation:"slide",
+            controlNav:false,
+            animationLoop:false,
+            itemWidth:174,
+            touch:true,
+            scrollPerPage:true,
+            slideshow:false,
+            maxItems:3.7,
+            minItems:1
+        })
+    });
+    //]]>
+</script>
+<?php endif; ?>

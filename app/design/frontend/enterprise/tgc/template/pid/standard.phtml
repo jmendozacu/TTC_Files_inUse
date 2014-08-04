@@ -1,0 +1,6 @@
+<?php $pidMessage = $adcodeHelper->getAdCodeRedirectValue('pid'); ?>
+<?php if($pidMessage && !$adcodeHelper->isSpaceAd()): ?>
+    <div id="<?php echo $this->getElementClass() ?>">
+        <h3><?php echo $pidMessage; ?></h3>
+    </div>
+<?php endif ?>

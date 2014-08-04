@@ -1,0 +1,152 @@
+course_id,lecture_number,title,description,default_course_number,downloadfname,audioAvailable,audioduration,audiostreamid,audiodownloadFsize,videoavailable,videoduration,videodownloadFSizePC,videodownloadFSizeMac,videostreamid
+Expected Records,150,,,,,,,,,,,,,
+101,1,An Overview,An introduction to the subject of algebra and the variety of content and approaches offered to students in this unique course.,,,0,0,,0,0,0,0,0,
+101,2,The Evolution of Numbers,"Dr. Neagoy traces the development of numbers from the natural numbers through the integers, rationals, and irrationals and finally, to the real numbers.",,,0,0,,0,0,0,0,0,
+101,3,The Language of Algebra,Dr. Neagoy presents the essential components of the language of algebra and discusses operations on monomials and polynomials.,,,0,0,,0,0,0,0,0,
+101,4,Exploring Functions with the Aid of Graphing Calculators,"The various meanings of a variable depending on its placement in a formula, equation, identity, property, or function are examined.",,,0,0,,0,0,0,0,0,
+101,5,Linear Functions—Introductory Explorations,This lesson sets the stage for linear functions by exploring real-life situations that yield functions of the form f(x)=y=ax+b.,,,0,0,,0,0,0,0,0,
+101,6,Multiple Representations of Linear Functions,"This lesson explores linear functions through stories written in English words, equations written in algebraic symbols, input/output tables written in numbers, and graphs written in points.",,,0,0,,0,0,0,0,0,
+101,7,The Geometry of Linear Function Graphs,This lesson focuses on the graphical representation of linear functions. Students will examine the relationship between the values of the coefficients a and b in the equation f(x)=y=ax+b and the position of the line in the xy-plane.,,,0,0,,0,0,0,0,0,
+101,8,"Words, Equations, Numbers, and Graphs",The usual one-way method of teaching problem solving in algebra is reversed and invigorated as students move from a graph or a table to an equation and then to an appropriate problem situation.,,,0,0,,0,0,0,0,0,
+101,9,Problem Solving with Linear Equations,A discussion of the importance of problem-solving through algebra's history sets the stage for tackling some of today's real-world problems involving linear equations. Two methods of solving linear equations are highlighted: functional exploration and symbolic manipulation.,,,0,0,,0,0,0,0,0,
+101,10,Modeling Real-World Data with Linear Functions,"Students will learn how to construct a mathematical model and then use it to answer questions, make predictions, and guide decisions in many important real-life problems.",,,0,0,,0,0,0,0,0,
+101,11,Linear Functions and Geometry,We end the section on linear functions by connecting algebra with geometry. Two linear functions relating geometric magnitudes are discovered: The first relates the circumference to the diameter in any circle and the second relates the sum of the angles to the number of sides in any polygon.,,,0,0,,0,0,0,0,0,
+101,12,Quadratic Functions—Introductory Explorations I,A fascinating visual introduction to quadratic functions traces the evolution of these expressions from the ancient Greeks and Egyptians through Renaissance mathematicians to a famous 19th-century figure.,,,0,0,,0,0,0,0,0,
+101,13,Quadratic Functions—Introductory Explorations II,Continuing the evolution of quadratic functions from the ancient Greeks and Egyptians through Renaissance mathematicians to a famous 19th-century figure.,,,0,0,,0,0,0,0,0,
+101,14,The Geometry of Quadratic Function Graphs,"The lesson focuses on the graphical representation of quadratic functions. Students will examine the relationship between the values of the coefficients a, b, and c in the equation f(x)=y=ax^2+bx+c and the position and shape of the parabola in the xy-plane.",,,0,0,,0,0,0,0,0,
+101,15,"Words, Equations, Numbers, and Graphs",Dr. Neagoy shows how to derive a quadratic equation from an input/output table or from a graph. The method of finite differences is presented formally.,,,0,0,,0,0,0,0,0,
+101,16,Problem Solving with Quadratic Equations,Real-world concrete and abstract problems are tackled with quadratic equations. Students learn how quadratic equations can be solved via functional exploration rather than more advanced techniques taught in later algebra courses.,,,0,0,,0,0,0,0,0,
+101,17,Modeling Real-World Data with Quadratic Functions,"In this lesson we engage in mathematical modeling once again, but now the models are quadratic functions applicable to economics and physics.",,,0,0,,0,0,0,0,0,
+101,18,Polynomial Explorations (Degree Greater than Two),Two interesting explorations&mdash;a classic volume optimization problem and a colorful cube-counting problem&mdash;help introduce cubic functions (polynomial functions of degree three).,,,0,0,,0,0,0,0,0,
+101,19,Rational Functions—Introductory Explorations,The stage is set for rational functions by exploring real-world situations and the reciprocal function f(x)=1/x. The real-world exploration examines an interesting geometric relationship keeping the area of a plane figure constant while varying its perimeter.,,,0,0,,0,0,0,0,0,
+101,20,The Geometry of Rational Function Graphs,"The lesson explores the graphical representation of rational functions (f(x)=n(x)/d(x) does not = 0). Students will establish connections between the coefficients in the algebraic expression and the position and shape of the hyperbola in the xy-plane. The meanings of zeros, intercepts, and asymptotes are also discussed.",,,0,0,,0,0,0,0,0,
+101,21,Working with Rational Functions and Equations,"Rational expressions are applied to solving two concrete real-world problems. The first deals with the concepts of distance, average speed, and time; the second is an optimization problem dealing with surface area.",,,0,0,,0,0,0,0,0,
+101,22,Exponential Functions—Introductory Explorations,The mythical story behind the invention of chess and a mind-boggling paper-folding exercise help introduce the last family of functions to be visited in this course&mdash;exponential functions.,,,0,0,,0,0,0,0,0,
+101,23,The Geometry of Exponential Function Graphs,"This lesson explores the graphical representation of exponential functions (f(x)=b^x, b>0). Students learn to identify correspondences between the symbols in the algebraic expression and the shape and position of the graph in the xy-plane.",,,0,0,,0,0,0,0,0,
+101,24,Working with Exponential Functions and Equations,Mathematical modeling comes to good use again with exponential functions and their multiple representations as models in sports analysis and chemistry.,,,0,0,,0,0,0,0,0,
+101,25,Systems of Linear Functions and Equations,"Two approaches to solving systems of linear equations are explored: functional exploration (graph and input/output table) and symbol manipulation (substitution and elimination). We conclude with the three possible cases: consistent, inconsistent, and linearly dependent equations.",,,0,0,,0,0,0,0,0,
+101,26,Using Matrices to Solve Linear Systems,"Thanks to the power of mathematics technology, students can now use the powerful tool of matrix algebra to solve systems of <em>n</em> linear equations in <em>n</em> unknown.",,,0,0,,0,0,0,0,0,
+101,27,Systems of Functions and Equations,The concept of solving systems of functions/equations is extended to other combinations of functions including quadratic/linear and rational/linear.,,,0,0,,0,0,0,0,0,
+101,28,Systems of Inequalities,The meanings of one linear inequality in one unknown and one linear inequality in two unknowns are reviewed to lay a foundation for the meaning of two linear inequalities in two unknowns.,,,0,0,,0,0,0,0,0,
+101,29,Iterating Functions—Looking at Functions Recursively,This lesson introduces the concepts of recursion and iteration. A variety of everyday experiences involving recursion are discussed and previously learned functions are presented in a new light.,,,0,0,,0,0,0,0,0,
+101,30,Using Iteration as a Problem Solving Tool,The feature of iteration in technological tools such as graphing calculators and computers is examined at length. Dr. Neagoy concludes on an exciting note that motivates students to continue their algebraic explorations.,,,0,0,,0,0,0,0,0,
+102,1,Introduction,"Professor Sellers introduces the general topics and themes for the course, describing his approach and recommending a strategy for making the best use of the lessons and supplementary workbook. Warm up with some simple problems that demonstrate signed numbers and operations.",,,0,0,,0,0,0,0,0,
+102,2,Polynomial Arithmetic,"The order in which you do simple operations of arithmetic can make a big difference. Learn how to solve problems that combine adding, subtracting, multiplying, and dividing, as well as raising numbers to various powers. These same concepts also apply when you need to simplify algebraic expressions, making it critical to master them now.",,,0,0,,0,0,0,0,0,
+102,3,Factoring,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,4,Solving Linear Equations,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,5,Solving Linear Inequalities,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,6,"Correlation, Slope and Intercepts",NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,7,The Equation of a Line,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,8,Graphing Linear Equations,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,9,Graphs of Linear Inequalities,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,10,Solving Systems of Two Linear Equations,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,11,Solving Systems of Two Linear Equations Using Elimination,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,12,Solving Systems of Three Linear Equations and Systems of Linear Inequalities,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,13,Functions,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,14,Quadratic Functions,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,15,Solving Quadratic Functions,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,16,The Quadratic Formula,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,17,Imaginary Numbers,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,18,Quadratic and Rational Inequalities,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,19,Polynomial Division,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,20,Zeros of a Polynomial,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,21,Sketching Polynomials,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,22,Sketching Rational Functions,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,23,Square Roots and Cube Roots,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,24,Exponential Functions,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,25,Logarithmic Functions,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,26,Matrices and Determinants,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,27,Solving Systems of Equations Using Matrices,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,28,Recursive Functions,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,29,Sequences and Series,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+102,30,Introduction To Trigonometry,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+104,1,Introduction and a Review of Addition and Subtraction,It is important to know why things work; there is a reason for every rule.,,,0,0,,0,0,0,0,0,
+104,2,Multiplication and Division,Dr. Siegel demonstrates a remarkable way of multiplying without a calculator (and with no carrying during the multiplication process)!,,,0,0,,0,0,0,0,0,
+104,3,Long Division,Dr. Siegel uses a method that makes long division a breeze. Its strength is its simplicity.,,,0,0,,0,0,0,0,0,
+104,4,Introduction to Fractions,"We start this lecture with the simple question: What is a fraction? Next, we address equivalent fractions, reducing fractions, and simplifying fractions.",,,0,0,,0,0,0,0,0,
+104,5,Adding Fractions,Adding is only counting. Adding fractions is no different.,,,0,0,,0,0,0,0,0,
+104,6,Subtracting Fractions,"Subtraction is the opposite of addition. Just a few rules to remember, not much more.",,,0,0,,0,0,0,0,0,
+104,7,Multiplying Fractions,"Dr. Siegel starts with a quick review of multiplication, then moves into fractions. We'll look at canceling, multiplying mixed numbers, multiplying a fraction and a mixed number, multiplying a mixed number and a whole number, and multiplying more than two mixed numbers.",,,0,0,,0,0,0,0,0,
+104,8,"Dividing Fractions, Plus a Review of Fractions","Dr. Siegel focuses on the reciprocal, dividing fractions, dividing mixed numbers, and a review of fractions.",,,0,0,,0,0,0,0,0,
+104,9,Adding and Subtracting Decimals,"We start with a brief history of the creation of zero. Next, we move to decimal place values, comparing decimal fractions, adding decimals, subtracting decimals, and an application of decimal adding and subtracting&mdash;the check register.",,,0,0,,0,0,0,0,0,
+104,10,Multiplying and Dividing Decimals,It's no different from regular multiplication and division except for a few simple rules.,,,0,0,,0,0,0,0,0,
+104,11,Using the Calculator,"You might think this is a superfluous lesson, but there really are some things you should know about proper calculator use.",,,0,0,,0,0,0,0,0,
+104,12,"Fractions, Decimals, and Percents","Dr. Siegel explains changing a fraction to a decimal, terminating decimals, and repeating decimals. He also discusses percents and changing: a percent to a fraction, a percent to a decimal, a decimal to a percent, and a fraction to a percent.",,,0,0,,0,0,0,0,0,
+104,13,Percent Problems,"We'll look at the three basic structures of percent problems, as well as real-world problems, and consumer questions about percents.",,,0,0,,0,0,0,0,0,
+104,14,Ratios and Proportions,"Dr. Siegel makes understanding ratios, proportions, and percent problems simple in this lecture.",,,0,0,,0,0,0,0,0,
+104,15,Exponents and the Order of Operations,"We'll look at the meaning of exponents, the properties of exponents, and the order of operations, as well as the rationale for the rule.",,,0,0,,0,0,0,0,0,
+104,16,Adding and Subtracting Integers,"In this lecture Dr. Siegel explains negative numbers, adding integers, subtracting integers, and the order of operations of integers.",,,0,0,,0,0,0,0,0,
+104,17,"Multiplication and Division of Integers, and an Introduction to Square Roots","Dr. Siegel offers helpful hints on multiplication by using what we already know. Division is just as easy. He also addresses the order of operations with integers, the square root, and patterns with square roots.",,,0,0,,0,0,0,0,0,
+104,18,Negative and Fractional Powers,"Learn how to use division of numbers in exponential form to discover the meaning of a negative power. These same rules apply to fractional powers, negative fractional powers, and powers of negative numbers.",,,0,0,,0,0,0,0,0,
+104,19,Geometry I,"Dr. Siegel introduces geometry. He looks at basic geometric shapes, angles, types of quadrilaterals, and volume.",,,0,0,,0,0,0,0,0,
+104,20,Geometry II,"Continuing the first lesson, we next look at perimeter, triangles, circles, and three-dimensional shape.",,,0,0,,0,0,0,0,0,
+104,21,Graphing in the Coordinate Plane,"Dr. Siegel explains the rational for the coordinate plane, using ordered pairs, plotting points for equations, and using the plotting of points and a line in a real problem.",,,0,0,,0,0,0,0,0,
+104,22,Number Theory,"This lecture looks at prime numbers, prime factoring the greatest common factor, and the least common multiple.",,,0,0,,0,0,0,0,0,
+104,23,Number Patterns I,"In this lecture Dr. Siegel explains adding odd and even numbers, multiplying odd and even numbers, patterns of multiples, sequences, and patterns involving pairs of numbers.",,,0,0,,0,0,0,0,0,
+104,24,Number Patterns II,"We'll look at palindromes, patterns of non-palindrome numbers, black holes and subtraction, and the sum of the cubes of the digits of a number.",,,0,0,,0,0,0,0,0,
+104,25,Statistics,"What is statistics? We'll look at analyzing a data set, measures of tendency, measures of variation, and the analysis of data.",,,0,0,,0,0,0,0,0,
+104,26,Probability,"What is probability? The answer is found in the analysis of theoretical versus experimental probability, uses of probability, polls, and probability rules.",,,0,0,,0,0,0,0,0,
+104,27,Measurement,"Why do we need standard measurements? We'll look at the metric system, other special units of measure, and measuring rates.",,,0,0,,0,0,0,0,0,
+104,28,Problem-Solving Techniques,"Using a chart as a problem-solving tool, learn how to solve a problem by making the problem simpler. We look at expanding the limits of visualization and consider possible cases.",,,0,0,,0,0,0,0,0,
+104,29,Solving Simple Equations,"What are equations, and how are they solved?",,,0,0,,0,0,0,0,0,
+104,30,Introduction to Algebra I,"What is algebra? We'll look at the importance of algebra, a review of arithmetic, and finally some general things you should know.",,,0,0,,0,0,0,0,0,
+105,1,Fundamental Geometric Concepts," In this introductory lesson, we define point, line, and plane; use and understand the terms space, collinear, intersection, segment, and ray; learn terminology of various expressions relative to points, lines, and planes; and establish a system of linear measurement.",,TGC_105_Lect01_HighSchoolLevelGeometry,0,0,,0,1,1964,403.8,374,ZV105-L01
+105,2,Angles and Angle Measure,We explore the definition of an angle and learn its parts; establish a system of angle measurement; recognize and classify types of angles; and show angle relationships. ,,TGC_105_Lect02_HighSchoolLevelGeometry,0,0,,0,1,1863,366.2,346.5,ZV105-L02
+105,3,Inductive Reasoning and Deductive Reasoning,"We use inductive reasoning to discover mathematical relationships, recognize real-world applications of inductive reasoning, and understand conditional statements and deductive reasoning. ",,TGC_105_Lect03_HighSchoolLevelGeometry,0,0,,0,1,1935,376.6,366.3,ZV105-L03
+105,4,Preparing Logical Reasons for a Two-Column Proof,"We review properties of equality for real numbers; summarize and review postulates related to points, lines, planes, and angles; and introduce new theorems related to points, lines, planes, and angles.",,TGC_105_Lect04_HighSchoolLevelGeometry,0,0,,0,1,1848,371.9,352.7,ZV105-L04
+105,5,Planning Proofs in Geometry,We discuss the key elements of a two-column proof; learn how to draw and label a diagram for a proof; write a plan for the proof; use strategy to write a two-column proof; and write a two-column proof.,,TGC_105_Lect05_HighSchoolLevelGeometry,0,0,,0,1,1924,335.3,364.4,ZV105-L05
+105,6,Parallel Lines and Planes,"We identify parallel lines, skew lines, parallel planes, transversals, and the angles formed by them; and we state and apply postulates and theorems about angles formed when parallel lines are intersected by a transversal. ",,TGC_105_Lect06_HighSchoolLevelGeometry,0,0,,0,1,1847,335.3,350.7,ZV105-L06
+105,7,Triangles,"We classify triangles according to their sides and angles, and use theorems about the angles of a triangle.",,TGC_105_Lect07_HighSchoolLevelGeometry,0,0,,0,1,1926,338.2,368.5,ZV105-L07
+105,8,Polygons and Their Angles,We distinguish between convex polygons and concave polygons; name convex and regular polygons; and find measures of interior and exterior angles of convex polygons.,,TGC_105_Lect08_HighSchoolLevelGeometry,0,0,,0,1,1853,401.1,349.1,ZV105-L08
+105,9,Congruence of Triangles,"We identify congruent parts of congruent triangles; state and apply the SSS, SAS, and ASA postulates; and use those postulates to prove triangles congruent.",,TGC_105_Lect09_HighSchoolLevelGeometry,0,0,,0,1,1856,338.9,342.6,ZV105-L09
+105,10,Variations of Congruent Triangles,"We deduce that segments or angles are congruent by first proving two triangles congruent; use two congruent triangles to prove other, related facts; and prove two triangles congruent by first proving two other triangles congruent.",,TGC_105_Lect10_HighSchoolLevelGeometry,0,0,,0,1,1795,329.4,340.5,ZV105-L10
+105,11,More Theorems Related to Congruent Triangles,"We use the isosceles triangle theorem, its converse, and related theorems; and use the AAS theorem and right triangle theorems to prove triangles congruent.",,TGC_105_Lect11_HighSchoolLevelGeometry,0,0,,0,1,1877,367.6,354.4,ZV105-L11
+105,12,"Median, Altitudes, Perpendicular Bisectors, and Angle Bisectors","We discuss definitions of median, altitude, perpendicular bisector, angle bisector, and related terms; state and apply theorems related to them; and learn their points of concurrence. ",,TGC_105_Lect12_HighSchoolLevelGeometry,0,0,,0,1,1855,403.5,347.9,ZV105-L12
+105,13,Parallelograms,"We state and apply the definition of a parallelogram, state and apply theorems related to the properties of a parallelogram, and prove that certain quadrilaterals are parallelograms. ",,TGC_105_Lect13_HighSchoolLevelGeometry,0,0,,0,1,1882,364.5,359.1,ZV105-L13
+105,14,"Rectangles, Rhombuses, and Squares","We identify rectangles, rhombuses, and squares; and state and apply properties and theorems related to their properties.",,TGC_105_Lect14_HighSchoolLevelGeometry,0,0,,0,1,1883,362.8,360.2,ZV105-L14
+105,15,"Trapezoids, Isosceles Trapezoids, and Kites","We learn to identify trapezoids, isosceles trapezoids, and kites, and we state and apply properties and theorems related to them.",,TGC_105_Lect15_HighSchoolLevelGeometry,0,0,,0,1,1886,381.3,359.6,ZV105-L15
+105,16,Inequalities in Geometry,We review properties of inequality for real numbers and relate them to segments and angles; state and apply the inequality relations for one triangle and for two triangles.,,TGC_105_Lect16_HighSchoolLevelGeometry,0,0,,0,1,1873,460,352.2,ZV105-L16
+105,17,"Ratio, Proportion, and Similarity","In this lesson we explain how to express a ratio in its simplest form; identify, write, and solve proportions; use ratios and proportions to solve problems; express a given proportion in other equivalent forms; and apply the properties of similar polygons using ratios and proportions.",,TGC_105_Lect17_HighSchoolLevelGeometry,0,0,,0,1,1867,342.7,343,ZV105-L17
+105,18,Similar Triangles,"We state and apply the AA Similarity Postulate, the SAS Similarity Theorem, and the SSS Similarity Theorem. We learn to solve for unknown measurements using the new postulates and theorems related to similarity and to apply the Triangle Proportionality Theorem, the Triangle Angle-Bisector Theorem, and related theorems.",,TGC_105_Lect18_HighSchoolLevelGeometry,0,0,,0,1,1904,375.9,351.7,ZV105-L18
+105,19,Right Triangles and the Pythagorean Theorem,"We apply proportions and the concepts of proportionality in right triangles, use and apply the geometric mean between two values, state and apply the relationships that exist when the altitude of a triangle is drawn to the hypotenuse, state and apply the Pythagorean Theorem and its converse, and relate the Pythagorean Theorem to inequalities.",,TGC_105_Lect19_HighSchoolLevelGeometry,0,0,,0,1,1871,362.9,352.8,ZV105-L19
+105,20,Special Right Triangles,We explore how to apply relationships in a 45°-45°-90° right triangle and in a 30°-60°-90° right triangle and use those relationships in the development of the unit circle. ,,TGC_105_Lect20_HighSchoolLevelGeometry,0,0,,0,1,1815,314.7,346.6,ZV105-L20
+105,21,Right-Triangle Trigonometry,"We define and apply the tangent, sine, and cosine ratios for an acute angle and solve right-triangle problems using those ratios. ",,TGC_105_Lect21_HighSchoolLevelGeometry,0,0,,0,1,1886,423.6,353.7,ZV105-L21
+105,22,Applications of Trigonometry in Geometry,"We address how to select the correct trigonometric ratio to use in problem solving, and how to use trigonometry to solve real-life problems. ",,TGC_105_Lect22_HighSchoolLevelGeometry,0,0,,0,1,1891,362.2,354,ZV105-L22
+105,23,"Tangents, Arcs, and Chords of a Circle","We apply basic definitions and concepts related to circles, and state and apply properties and theorems regarding circles and their tangents, chords, central angles, and arcs. ",,TGC_105_Lect23_HighSchoolLevelGeometry,0,0,,0,1,1830,367.5,342.9,ZV105-L23
+105,24,Angles and Segments of a Circle,"We apply basic definitions and theorems related to inscribed angles; state and apply theorems involving angles with vertices not on the circle formed by tangents, chords, and secants; and state and apply theorems involving lengths of chords, secant segments, and tangent segments. ",,TGC_105_Lect24_HighSchoolLevelGeometry,0,0,,0,1,1794,335.5,342.3,ZV105-L24
+105,25,The Circle as a Whole and Its Parts,"We state and apply the formulas for the circumference and area of a circle, and for the arc lengths and the areas of sectors of a circle. ",,TGC_105_Lect25_HighSchoolLevelGeometry,0,0,,0,1,1832,377.4,342.7,ZV105-L25
+105,26,The Logic of Constructions through Applied Theorems (Part I),"In sample exercises, we review lessons and solve problems having to do with segments, angles, parallel and perpendicular lines, circles and arcs, and others.",,TGC_105_Lect26_HighSchoolLevelGeometry,0,0,,0,1,1778,331.6,336.6,ZV105-L26
+105,27,The Logic of Constructions through Applied Theorems (Part II),"Continuing sample exercises, we review lessons and solve problems having to do with triangles, isosceles triangles, proportions, hexagons, and others.",,TGC_105_Lect27_HighSchoolLevelGeometry,0,0,,0,1,1873,369.4,354.6,ZV105-L27
+105,28,Areas of Polygons,"We address the derivation of the area formulas and apply those formulas to find the areas of a rectangle, square, parallelogram, triangle, trapezoid, and regular polygon.",,TGC_105_Lect28_HighSchoolLevelGeometry,0,0,,0,1,1834,356.3,345.8,ZV105-L28
+105,29,"Prisms, Pyramids, and Polyhedra","We explore definitions of a polyhedron, prism, pyramid, and related terms; understand the logical derivation of area and volume formulas; and apply theorems to compute the lateral area, total area, and volume of prisms and pyramids.",,TGC_105_Lect29_HighSchoolLevelGeometry,0,0,,0,1,1918,375.1,363.5,ZV105-L29
+105,30,"Cylinders, Cones, and Spheres","We explain the definitions of cylinder, cone, and sphere; explain the logical derivation of area and volume formulas; and apply theorems to compute the lateral areas, total areas, and volumes of cylinders, cones, and spheres. ",,TGC_105_Lect30_HighSchoolLevelGeometry,0,0,,0,1,1838,368.4,344.4,ZV105-L30
+111,1,Introduction and Philosophy,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,2,Quantitative Reasoning in Life and Chemistry (Part I),NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,3,Quantitative Reasoning in Life and Chemistry (Part II),NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,4,Density,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,5,The SI (Metric) System of Measurement,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,6,Converting between Systems of Measurement,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,7,The Mole Concept: Preliminary Ideas,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,8,The Mole,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,9,Solving Mole Problems,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,10,Avogadro's Hypothesis and Molar Volume,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,11,Percent Composition and Empirical Formulas,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,12,Solving Empirical Formula Problems,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,13,Writing and Balancing Chemical Equations,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,14,An Introduction to Stoichiometry,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,15,Stoichiometry Problems,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,16,Advanced Stoichiometry,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,17,An Introduction to Molarity,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,18,Solving Molarity Problems,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,19,Additional Molarity Problems,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,20,Basic Concepts of Chemical Equilibrium (Part I),NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,21,Basic Concepts of Equilibrium (Part II),NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,22,Interpreting an Equilibrium Constant,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,23,Le Chatelier's Principle (Part I),NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,24,Le Chatelier's Principle (Part II),NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,25,An Introduction to Equilibrium Problems,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,26,The Self-Ionization of Water,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,27,Strong Acids and Bases (Part I),NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,28,Strong Acids and Bases (Part II),NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,29,Weak Acids and Bases,NO DESCRIPTION,,,0,0,,0,0,0,0,0,
+111,30,Solubility Equilibria,NO DESCRIPTION,,,0,0,,0,0,0,0,0,

@@ -1,0 +1,39 @@
+<?php
+$currentFormName = Tgc_Catalog_Helper_Freemarketinglecture::FORM_NOTSIGNEDIN_EXISTING_CUSTOMER;
+$shouldDisplayForm = $helperFreelectures->getFreelectureFormToDisplay() != $currentFormName ? ' style="display:none"' : ''
+?>
+
+<form method="post" id="free-lectures-form-validate-existingcustomer"
+      action="<?php echo Mage::getUrl('customer/account/freelecturePost') ?>" <?php echo $shouldDisplayForm ?>>
+    <h2>
+        Access Your FREE Courses Now! No purchase necessary.
+    </h2>
+    <?php if($helperFreelectures->getFlagNewCustomerAlreadyExists()): ?>
+        <div style="color: #FF0000;">There is already an account with the email address that you entered. If you have
+            already created an account on our site, please sign in here</div>
+    <?php endif; ?>
+    <div class="email-block">
+        <label>Email Address</label><input type="text" name="freelectures[email_address]"
+                                           class="input-text required-entry freelecture-email-valid"/>
+    </div>
+    <div class="passwordblock">
+        <label id="passwordlabel">Password</label><input type="password" name="freelectures[password]" id="freelecture-password"
+                                                         class="input-text freelecture-password-required validate-tgc-password"/>
+    </div>
+    <div  class="forgotpasswordblock"><a class="freelecture-forgotpassword" rel="nofollow" href="#"><?php echo $this->__('I forgot my password.'); ?></a></div>
+    <input type="hidden" id="should_log_customer_in" name="freelectures[should_log_customer_in]" value="true"/>
+    <input type="hidden" id="current_freelectures_form_existingcustomer" name="freelectures[current_freelectures_form]" value="<?php echo $currentFormName ?>" />
+
+    <div class="action freelectureRegisterButtons clearfix">
+        <a class="newcustomer" rel="nofollow" href="#"><?php echo $this->__('New Customer?'); ?></a>
+
+        <input id="submitbutton" type="submit" value="Sign In" class="button"/>
+    </div>
+</form>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var freeLecturesExistingCustomerForm = new VarienForm('free-lectures-form-validate-existingcustomer', true);
+
+    //]]>
+</script>

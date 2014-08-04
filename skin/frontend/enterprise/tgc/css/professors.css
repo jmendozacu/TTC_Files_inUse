@@ -1,0 +1,334 @@
+/* PROFESSORS */
+
+.profs-professor-view .main {
+    padding-top: 0;
+}
+.professor-event-type {
+    float: left;
+    margin-left: 10px;
+}
+
+.professor-event-type img {
+    height: 20px;
+    width: 20px;
+}
+
+.professor-bio-page {
+    padding: 27px 0 0;
+}
+
+.professor-bio-page .section-title {
+    color: #30424d;
+    font-size: 30px;
+    line-height: 30px;
+    padding-top: 0;
+}
+
+.professor-bio-page .professor-data-container {
+}
+
+.professor-bio-page .professor-data-container .left-part {
+    float: left;
+    margin-right: 35px;
+    width: 150px;
+}
+
+.professor-bio-page .professor-data-container .right-part {
+    overflow: hidden;
+}
+
+.professor-bio-page .professor-data-container .professor-photo-block {
+    margin-bottom: 14px;
+}
+.professor-bio-page .professor-data-container .professor-work-data .block-for-social-buttons {
+    display: block;
+}
+.professor-bio-page .professor-data-container .work-places-block {
+    color: #45555f;
+    font-size: 11px;
+    line-height: 12px;
+    padding-bottom: 9px;
+}
+
+.professor-bio-page .professor-data-container .work-places-block li {
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.professor-bio-page .professor-data-container .work-places-block li:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 25px;
+    margin-right: 2px;
+    width: 22px
+}
+
+.professor-bio-page .professor-data-container .work-places-block li.college:before {
+    background: url(/skin/frontend/enterprise/tgc/images/tgc/bio_page_sprite.png) no-repeat 2px 0;
+}
+
+.professor-bio-page .professor-data-container .work-places-block li.university:before {
+    background: url(/skin/frontend/enterprise/tgc/images/tgc/bio_page_sprite.png) no-repeat 0px -31px;;
+}
+
+.professor-bio-page .professor-data-container .work-places-block li div {
+    display: inline-block;
+    vertical-align: middle;
+    width: 75%;
+}
+
+.professor-bio-page .professor-data-container .left-part .block-for-social-buttons {
+    border-top: 1px dotted #b2b2b2;
+    float: none;
+    margin: 0;
+    padding-top: 20px;
+}
+.professor-bio-page .professor-data-container .left-part .buttons-list {
+    margin-left: 1px;
+}
+.professor-bio-page .block-for-social-buttons {
+    display: none;
+    float: right;
+    margin-right: 2px;
+}
+
+.professor-bio-page .professor-data-container .left-part .block-for-social-buttons .text-block {
+    color: #45555f;
+    display: block;
+    font: 12px 'proxima_nova_rgregular', sans-serif;
+    padding-bottom: 5px;
+}
+
+.professor-bio-page .block-for-social-buttons .text-block {
+    color: #45555f;
+    font: 14px/13px 'proxima_nova_rgregular', sans-serif;
+    padding-bottom: 3px;
+}
+
+.professor-bio-page .block-for-social-buttons .buttons-list .social-button {
+    height: 20px;
+    margin-right: 3px;
+    width: 20px;
+}
+
+.professor-bio-page .block-for-social-buttons .buttons-list .social-button.facebook {
+    background-position: 0 -69px;
+}
+
+.professor-bio-page .block-for-social-buttons .buttons-list .social-button.twitter {
+    background-position: -26px -69px;
+}
+
+.professor-bio-page .block-for-social-buttons .buttons-list .social-button.pinterest {
+    background-position: -51px -69px;
+}
+
+.professor-bio-page .block-for-social-buttons .buttons-list .social-button.youtube {
+    background-position: -76px -69px;
+}
+
+.professor-bio-page .block-for-social-buttons .buttons-list .social-button.email {
+    background-position: -102px -69px;
+    margin-right: 0;
+}
+
+.professor-bio-page .professor-data-container .professor-bio {
+    color: #45555f;
+    font: 400 13px/16px 'proxima_nova_rgregular', sans-serif;
+    padding-top: 2px;
+}
+
+.professor-bio-info {
+    margin-top: 20px;
+}
+
+.professor-bio-info a:hover {
+    text-decoration: underline;
+}
+
+.professor-bio-page .professor-data-container .professor-bio p {
+    padding-bottom: 10px;
+}
+
+.professor-bio-page .professor-data-container .professor-bio q {
+    color: #242d33;
+    display:inline-block;
+    font: italic 600 20px/32px'freighttext_prosemibold_italic', serif;
+    padding: 4px 10px 8px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.professor-bio-page .professor-data-container .professor-bio q:before {
+    display: inline-block;
+    content: "“";
+    font-size: 42px;
+    vertical-align: bottom;
+}
+
+.professor-bio-page .professor-data-container .professor-bio q:after {
+    display: inline-block;
+    content: "”";
+    font-size: 42px;
+    vertical-align: bottom;
+    position: absolute;
+    bottom: -5px;
+}
+
+.professor-bio-page .professor-sub-data-container {
+    padding-top: 17px;
+}
+
+.professor-bio-page .professor-sub-data-container .left-part {
+    float: left;
+    width: 17%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.professor-bio-page .professor-sub-data-container .right-part {
+    float: right;
+    width: 80.5%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.professor-bio-page .professor-sub-data-container .section-title {
+    color: #494c4f;
+    font-size: 24px;
+    line-height: 20px;
+    padding: 0;
+}
+
+.professor-bio-page .professor-sub-data-container .data-block {
+    margin-bottom: 41px;
+}
+
+.professor-bio-page .professor-sub-data-container .data-block .title {
+    border-bottom: 1px solid #d9dbdc;
+    color: #494c4f;
+    font: 500 18px/18px 'freighttext_promedium', serif;
+    padding-bottom: 5px;
+}
+
+.professor-bio-page .professor-sub-data-container q {
+    color: #30424d;
+    display: inline-block;
+    font-family: 'freighttext_prosemibold_italic', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 15px!important;
+}
+
+.professor-bio-page .professor-sub-data-container q:before {
+    display: inline-block;
+    content: "“";
+    clear: both;
+    font-size: 28px;
+    vertical-align: bottom;
+}
+
+.professor-bio-page .professor-sub-data-container q:after {
+    display: inline-block;
+    content: "”";
+    clear: both;
+    font-size: 28px;
+    vertical-align: bottom;
+}
+
+.professor-bio-page .professor-sub-data-container .testimonials-list:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.professor-bio-page .professor-sub-data-container .testimonials-list > li {
+    border-bottom: 1px solid #eaeaeb;
+    margin-bottom: 8px;
+    padding: 25px 0 25px 9px;
+}
+
+.professor-bio-page .professor-sub-data-container .testimonials-list li > div {
+    color: #494c4f;
+    display: block;
+    font-family: 'freighttext_probook_italic', serif;
+    font-weight: 400;
+    font-size: 15px;
+    padding-top: 7px;
+    text-align: right;
+}
+
+.professor-bio-page .professor-sub-data-container .testimonials-list li > div:before {
+    background: #494c4f;
+    content: '';
+    display: inline-block;
+    position: relative;
+    height: 1px;
+    right: 5px;
+    top: -1px;
+    vertical-align: middle;
+    width: 15px;
+}
+
+.professor-bio-page .professor-sub-data-container .event-container {}
+
+.professor-bio-page .professor-sub-data-container .event-container .release-block {
+    border-bottom: 1px dotted #aaaaaa;
+    margin-bottom: 5px;
+    padding: 11px 0 10px;
+}
+
+.professor-bio-page .professor-sub-data-container .event-container .release-block .name {
+    background: #30424d;
+    color: #fff;
+    display: inline-block;
+    padding: 1px 10px;
+    position: relative;
+    text-transform: uppercase;
+    float: left;
+}
+
+.professor-bio-page .professor-sub-data-container .event-container .release-block .name.book:after {
+    background: url(/skin/frontend/enterprise/tgc/images/tgc/bio_page_sprite.png) no-repeat 0 -65px;
+    display: inline-block;
+    content: '';
+    float: right;
+    position: absolute;
+    right: -28px;
+    top: 0;
+    height: 20px;
+    width: 20px;
+}
+
+.professor-bio-page .professor-sub-data-container .event-container .event-block {
+    border-bottom: 1px solid #d9dbdc;
+    padding-bottom: 5px;
+}
+
+.professor-bio-page .professor-sub-data-container .event-container .event-block .event-title {
+    color: #494c4f;
+    font: 600 14px/15px 'proxima_nova_ltsemibold', sans-serif;
+    padding: 3px 6px;
+}
+
+.professor-bio-page .professor-sub-data-container .event-container .event-block .availability-block {
+    color: #91908f;
+    font: 400 13px/14px 'proxima_nova_altRgIt', sans-serif;
+    padding: 7px 6px;
+}
+
+.professor-bio-page .professor-sub-data-container .event-container .event-block .description {
+    color: #45555f;
+    font: 13px/16px 'proxima_nova_rgregular', sans-serif;
+    padding: 4px 3px;
+}
+
+.professor-bio-page .professor-sub-data-container .event-container .event-block .description a {
+    display: inline-block;
+}

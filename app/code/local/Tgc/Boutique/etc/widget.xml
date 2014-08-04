@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Boutique
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Boutique
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<widgets>
+    <boutique_product_slider type="tgc_boutique/product_slider" translate="name description" module="tgc_boutique">
+        <name>Boutique Product Slider</name>
+        <description>Creates a product slider</description>
+        <parameters>
+            <title translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Slider Title</label>
+                <type>text</type>
+            </title>
+            <category translate="label">
+                <visible>1</visible>
+                <required>0</required>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>tgc_boutique/adminhtml_catalog_category_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>10</sort_order>
+            </category>
+            <product_ids translate="label">
+                <visible>1</visible>
+                <required>0</required>
+                <label>Products</label>
+                <type>label</type>
+                <helper_block>
+                    <type>tgc_boutique/adminhtml_catalog_product_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Products...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>20</sort_order>
+            </product_ids>
+            <products_count>
+                <required>1</required>
+                <visible>1</visible>
+                <value>30</value>
+                <label>Max Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+            <percent_off translate="label">
+                <visible>1</visible>
+                <required>0</required>
+                <label>Percent Off</label>
+                <description>Will show all products with a minimum of x percentage discount</description>
+                <type>text</type>
+            </percent_off>
+            <price_below translate="label">
+                <visible>1</visible>
+                <required>0</required>
+                <label>Price Below</label>
+                <description>Will show all products with a price lower than x</description>
+                <type>text</type>
+            </price_below>
+        </parameters>
+    </boutique_product_slider>
+    <boutique_product_list type="tgc_boutique/product_list" translate="name description" module="tgc_boutique">
+        <name>Boutique Product List</name>
+        <description>Creates a product list</description>
+        <parameters>
+            <category translate="label">
+                <visible>1</visible>
+                <required>0</required>
+                <label>Category</label>
+                <type>label</type>
+                <helper_block>
+                    <type>tgc_boutique/adminhtml_catalog_category_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Category...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>10</sort_order>
+            </category>
+            <product_ids translate="label">
+                <visible>1</visible>
+                <required>0</required>
+                <label>Products</label>
+                <type>label</type>
+                <helper_block>
+                    <type>tgc_boutique/adminhtml_catalog_product_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Products...</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>20</sort_order>
+            </product_ids>
+            <products_count>
+                <required>1</required>
+                <visible>1</visible>
+                <value>30</value>
+                <label>Max Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+            <percent_off translate="label">
+                <visible>1</visible>
+                <required>0</required>
+                <label>Percent Off</label>
+                <description>Will show all products with a minimum of x percentage discount</description>
+                <type>text</type>
+            </percent_off>
+            <price_below translate="label">
+                <visible>1</visible>
+                <required>0</required>
+                <label>Price Below</label>
+                <description>Will show all products with a price lower than x</description>
+                <type>text</type>
+            </price_below>
+            <mode>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Initial Display</label>
+                <type>select</type>
+                <value>grid</value>
+                <values>
+                    <default translate="label">
+                        <value>grid</value>
+                        <label>Grid View</label>
+                    </default>
+                    <list translate="label">
+                        <value>list</value>
+                        <label>List View</label>
+                    </list>
+                </values>
+            </mode>
+        </parameters>
+    </boutique_product_list>
+    <boutique_hero_carousel type="tgc_boutique/boutiqueHeroCarousel" module="tgc_boutique">
+        <name>Boutique Hero Carousel</name>
+        <description type="desc">Adds Boutique Hero Carousel Widget</description>
+        <parameters>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+        </parameters>
+    </boutique_hero_carousel>
+</widgets>

@@ -1,0 +1,42 @@
+<?php
+/**
+ * Digital Library Account
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Professor Events Template
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+$professor = $this->getParentBlock()->getParentBlock()->getProfessor();
+$events_helper = Mage::helper('tgc_events');
+$limit = 5; //Grab max 5 events
+$event_desc_limit = 110; // Truncate event description after 110 characters
+$events_by_professor = $events_helper->getEventsByProfessor($professor->getId(), $limit);
+?>
+<?php if($events_by_professor->getSize()):?>
+<div class="data-block events">
+    <div class="title">Events</div>
+
+    <?php foreach($events_by_professor as $event): ?>
+        <?php   $event_type = Mage::getModel('tgc_events/types')->load($event->getEventType());
+                $type_name = $event_type->getType();
+                $type_icon = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$event_type->getTypeIcon();
+        ?>
+        <div class="event-container">
+        <div class="release-block clearfix">
+            <div class="name"><?php echo $type_name?></div>
+            <div class="professor-event-type"><img src="<?php echo $type_icon ?>"/></div>
+        </div>
+        <div class="event-block">
+            <div class="event-title"><?php echo $event->getEventTitle() ?></div>
+            <div class="availability-block"><?php echo $event->getEventDateLocationDescription()?></div>
+            <div class="description">
+                <?php echo strlen($event->getEventContent()) <= $event_desc_limit ? $event->getEventContent() : substr($event->getEventContent(), 0, $event_desc_limit).'...' ?>
+                <a href="<?php echo Mage::getBaseUrl().'event/'.$event->getEventUrlPrefix()?>">Read on &#187;</a>
+            </div>
+        </div>
+    </div>
+    <?php endforeach;?>
+</div>
+<?php endif;?>
+

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * DataMart integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DataMart
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Datamart>
+            <version>20</version>
+        </Tgc_Datamart>
+    </modules>
+    <global>
+        <blocks>
+            <tgc_datamart>
+                <class>Tgc_Datamart_Block</class>
+            </tgc_datamart>
+        </blocks>
+        <helpers>
+            <tgc_datamart>
+                <class>Tgc_Datamart_Helper</class>
+            </tgc_datamart>
+        </helpers>
+        <models>
+            <tgc_datamart>
+                <class>Tgc_Datamart_Model</class>
+                <resourceModel>tgc_datamart_resource</resourceModel>
+            </tgc_datamart>
+            <importexport>
+                <rewrite>
+                    <import>Tgc_Datamart_Model_Import</import>
+                </rewrite>
+            </importexport>
+            <tgc_datamart_resource>
+                <class>Tgc_Datamart_Model_Resource</class>
+                <entities>
+                    <emailLanding>
+                        <table>tgc_datamart_email_landing</table>
+                    </emailLanding>
+                    <emailLanding_design>
+                        <table>tgc_datamart_email_landing_design</table>
+                    </emailLanding_design>
+                    <customerUpsell>
+                        <table>tgc_datamart_customer_upsell</table>
+                    </customerUpsell>
+                    <anonymousUpsell>
+                        <table>tgc_datamart_anonymous_upsell</table>
+                    </anonymousUpsell>
+                    <adcode>
+                        <!-- deprecated -->
+                        <table>tgc_adcode</table>
+                    </adcode>
+                    <landing_banner>
+                        <table>tgc_datamart_landing_banner</table>
+                    </landing_banner>
+                    <landing_banner_adcode>
+                        <table>tgc_datamart_landing_banner_adcode</table>
+                    </landing_banner_adcode>
+                    <landing_media_code>
+                        <table>tgc_datamart_landing_media_code</table>
+                    </landing_media_code>
+                    <landing_media_code_alias>
+                        <table>tgc_datamart_landing_media_code_alias</table>
+                    </landing_media_code_alias>
+                </entities>
+            </tgc_datamart_resource>
+        </models>
+        <resources>
+            <datamart_setup>
+                <setup>
+                    <module>Tgc_Datamart</module>
+                    <class>Tgc_Datamart_Model_Resource_Setup</class>
+                </setup>
+            </datamart_setup>
+        </resources>
+        <importexport>
+            <import_entities>
+                <email_landing translate="label">
+                    <model_token>tgc_datamart/import_entity_emailLanding</model_token>
+                    <label>Email Landing Pages</label>
+                </email_landing>
+                <customer_upsell translate="label">
+                    <model_token>tgc_datamart/import_entity_customerUpsell</model_token>
+                    <label>Customer Upsells</label>
+                </customer_upsell>
+                <anonymous_upsell translate="label">
+                    <model_token>tgc_datamart/import_entity_anonymousUpsell</model_token>
+                    <label>Anonymous Upsells</label>
+                </anonymous_upsell>
+                <customer_segment translate="label">
+                    <model_token>tgc_datamart/import_entity_customerSegment</model_token>
+                    <label>Customer Segments</label>
+                </customer_segment>
+            </import_entities>
+        </importexport>
+
+        <events>
+            <sales_quote_item_qty_set_after>
+                <observers>
+                    <tgc_datamart_force_buffet_quote_item_qty>
+                        <class>tgc_datamart/observer</class>
+                        <method>forceBuffetQuoteItemQty</method>
+                    </tgc_datamart_force_buffet_quote_item_qty>
+                </observers>
+            </sales_quote_item_qty_set_after>
+        </events>
+    </global>
+    <frontend>
+        <routers>
+            <tgc>
+                <use>standard</use>
+                <args>
+                    <module>Tgc_Datamart</module>
+                    <frontName>tgc</frontName>
+                </args>
+            </tgc>
+        </routers>
+        <layout>
+            <updates>
+                <tgc_datamart>
+                    <file>datamart.xml</file>
+                </tgc_datamart>
+            </updates>
+        </layout>
+
+        <events>
+            <sales_quote_add_item>
+                <observers>
+                    <tgc_datamart_flag_buffet_quote_item>
+                        <class>tgc_datamart/observer</class>
+                        <method>flagBuffetQuoteItem</method>
+                    </tgc_datamart_flag_buffet_quote_item>
+                </observers>
+            </sales_quote_add_item>
+
+            <sales_quote_product_add_after>
+                <observers>
+                    <tgc_datamart_forbid_buffet_product_quote_duplicates>
+                        <class>tgc_datamart/observer</class>
+                        <method>forbidBuffetProductDuplicatesInQuote</method>
+                    </tgc_datamart_forbid_buffet_product_quote_duplicates>
+                </observers>
+            </sales_quote_product_add_after>
+
+            <salesrule_validator_process>
+                <observers>
+                    <tgc_datamart_forbid_sales_rule_discount_on_buffet_quote_item>
+                        <class>tgc_datamart/observer</class>
+                        <method>forbidSalesRuleDiscountOnBuffetQuoteItem</method>
+                    </tgc_datamart_forbid_sales_rule_discount_on_buffet_quote_item>
+                </observers>
+            </salesrule_validator_process>
+        </events>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <tgc_datamart before="Mage_ImportExport_Adminhtml_ImportController">Tgc_Datamart_Adminhtml</tgc_datamart>
+                    </modules>
+                </args>
+            </adminhtml>
+            <email_landing>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_Datamart</module>
+                    <frontName>datamart_emailLanding</frontName>
+                </args>
+            </email_landing>
+            <customer_upsell>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_Datamart</module>
+                    <frontName>datamart_customerUpsell</frontName>
+                </args>
+            </customer_upsell>
+            <anonymous_upsell>
+                <use>admin</use>
+                <args>
+                    <module>Tgc_Datamart</module>
+                    <frontName>datamart_anonymousUpsell</frontName>
+                </args>
+            </anonymous_upsell>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <tgc_datamart>
+                    <file>datamart.xml</file>
+                </tgc_datamart>
+            </updates>
+        </layout>
+        <events>
+            <anonymous_upsell_save_after>
+                <observers>
+                    <invalidate_cache_after_save_anonymous_upsell>
+                        <type>singleton</type>
+                        <class>tgc_datamart/observer</class>
+                        <method>invalidateBlockCache</method>
+                    </invalidate_cache_after_save_anonymous_upsell>
+                </observers>
+            </anonymous_upsell_save_after>
+            <customer_upsell_save_after>
+                <observers>
+                    <invalidate_cache_after_save_customer_upsell>
+                        <type>singleton</type>
+                        <class>tgc_datamart/observer</class>
+                        <method>invalidateBlockCache</method>
+                    </invalidate_cache_after_save_customer_upsell>
+                </observers>
+            </customer_upsell_save_after>
+        </events>
+    </adminhtml>
+    <default>
+        <datamart>
+            <buffet_landing>
+                <title><![CDATA[Special Offer]]></title>
+                <footer><![CDATA[buffet-footer]]></footer>
+            </buffet_landing>
+            <email_landing>
+                <title><![CDATA[Special Offer]]></title>
+            </email_landing>
+            <radio_landing>
+                <title><![CDATA[Special Offer]]></title>
+                <header><![CDATA[radio-banner]]></header>
+                <footer><![CDATA[radio-footer]]></footer>
+            </radio_landing>
+        </datamart>
+    </default>
+
+    <mana_core>
+        <page_types>
+            <email_landing>
+                <helper>tgc_datamart/mana_core_pageType_landing_email</helper>
+                <seo_helper>tgc_datamart/mana_seo_pageType_landing_email</seo_helper>
+            </email_landing>
+        </page_types>
+    </mana_core>
+</config>

@@ -1,0 +1,41 @@
+<div class="priority_mini f-right">
+    <div class="tooltip tooltiphover f-right">
+        <a rel="nofollow" href="javascript:void(0)" class="icon-info js-action-icon"></a>
+        <div class="tooltip-text tooltip-balloon tooltip-right">
+            <a class="close-balloon" href="#">x</a>
+            <div class="tooltip-text-desc">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('priority_code')->toHtml() ?>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:void(0)" rel="nofollow" class="f-right icon-right-link js-action-link priority-code-empty"><?php echo $this->__('Have a Priority Code?')?></a>
+    <span class="priority-code-applied"><?php echo $this->__('Priority Code')?>: <span class="p-number"></span> <?php echo $this->__('applied')?>. <a rel="nofollow" href="javascript:void(0)" class="icon-right-link js-action-link"><?php echo $this->__('Apply new code?')?></a></span>
+    <div class="tooltip-balloon tooltip-center priority-code-form tooltip-text">
+        <a href="#" class="close-balloon">x</a>
+        <h4><?php echo $this->__('Priority Code')?></h4>
+        <form id="priority-code" method="post" action="<?php echo Mage::helper('tgc_price')->getPriceUpdateUrl(); ?>">
+            <input type="text" class="reset-value box-sizing-mixin input-text required-entry" id="priority-code-value" name="<?php echo Tgc_Price_Helper_Data::AD_CODE_PARAM; ?>" value="" placeholder="<?php echo $this->__('Enter Priority Code')?>" />
+            <div class="input-error-msg">Please enter a valid code</div>
+            <button class="button small" type="submit" value=""><span><span><?php echo $this->__('Apply')?></span></span></button>
+        </form>
+        <script type="text/javascript">
+            //<![CDATA[
+            var priorityCodeForm = new VarienForm('priority-code');
+            priorityCodeForm.submit = function () {
+                return VarienForm.prototype.submit.bind(priorityCodeForm)();
+            }
+            //]]>
+        </script>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var globalHeader = {
+        priorityCodeSubmitUrl: '<?php echo Mage::getUrl('price/adcode/update'); ?>',
+        appliedPriorityCode:   '<?php echo Mage::helper('tgc_price')->getAppliedPriorityCode(); ?>',
+        logoutUrl:             '<?php echo Mage::helper('customer')->getLogoutUrl(); ?>',
+        homepageUrl:           '<?php echo Mage::getUrl(); ?>',
+        updateLinksUrl:        '<?php echo Mage::getUrl('customer/account/updateLinks'); ?>',
+        isLoggedIn:            '<?php echo Mage::helper('customer')->isLoggedIn() ?>'
+    }
+</script>

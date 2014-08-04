@@ -1,0 +1,91 @@
+<?php
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** @var $this Tgc_Cms_Block_HeroCarousel */
+?>
+<?php
+$collection = $this->getCollection();
+$processor = Mage::helper('cms')->getPageTemplateProcessor();
+?>
+<?php if ($this->shouldShowWidget() && $collection && ($collection->getSize())): ?>
+    <div id="home-hero-slider-tab">
+        <?php $iterator = 0; ?>
+        <?php foreach ($collection as $item): ?>
+            <?php $iterator++; ?>
+            <div id="pane-<?php echo $iterator; ?>">
+                <div class="tab-desktop">
+                    <?php echo $processor->filter($item->getDescription()); ?>
+                </div>
+                <div class="tab-mobile">
+                    <?php echo $processor->filter($item->getMobileDescription()); ?>
+                </div>
+                <?php if ($processor->filter($item->getUkDetails())) :?>
+                    <div class="more-details-link tool-tip-link">
+                        <?php echo $this->__('View Details'); ?>
+                    </div>
+                    <div class="tool-tip details-tool-tip" style="display: none;">
+                        <div class="detales-container">
+                            <?php echo $processor->filter($item->getUkDetails()); ?>
+                            <a href="#" class="btn-remove">Close</a>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+        <?php $iterator = 0; ?>
+        <ul>
+            <?php foreach ($collection as $item): ?>
+                <?php $iterator++; ?>
+                <li>
+                    <a href="#pane-<?php echo $iterator; ?>">
+                        <strong><?php echo $item->getTabTitle(); ?></strong><?php echo $item->getTabDescription(); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        jQuery(function ($) {
+            $("#home-hero-slider-tab").sliderTabs({
+                tabHeight: 80,
+                position: "bottom",
+                tabArrowWidth: 0,
+                indicators: true/*,
+                 autoplay: 8000*/
+            });
+        });
+
+        <?php $tabWidth = (100 / count($collection)); ?>
+        jQuery(document).ready(function() {
+            jQuery('#home-hero-slider-tab .ui-slider-tabs-list li').css('max-width', 'inherit');
+            jQuery('#home-hero-slider-tab .ui-slider-tabs-list li').each(function() {
+                jQuery(this).css('width', '<?php echo $tabWidth . '%'; ?>');
+            });
+        });
+
+        (function ($) {
+            $(document).ready(function () {
+                $('.tool-tip-link').on('click', function (e) {
+                    $(this).next('.tool-tip').show();
+                });
+
+                var closeBtn = $('.tool-tip .btn-remove');
+                closeBtn.on('click', function (e) {
+                    e.preventDefault();
+                    console.log('hi');
+                    $(this).parents('.tool-tip').hide();
+                });
+            });
+        })(jQuery);
+        //]]>
+    </script>
+<?php endif; ?>

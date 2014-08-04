@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Tgc_Setup>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Guidance_Setup/>
+                <Tgc_Price/>
+                <Mage_Catalog/>
+                <Mage_CatalogSearch/>
+            </depends>
+        </Tgc_Setup>
+    </modules>
+</config>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <adminhtml_adcoderedirectlist_index>
+        <reference name="content">
+            <block type="adcoderouter/adminhtml_adcoderedirectlist" name="adcoderedirectlist.container" />
+        </reference>
+    </adminhtml_adcoderedirectlist_index>
+    <adminhtml_adcoderedirectlist_edit>
+        <update handle="adminhtml_jsfiles_needed_wysiwyg" />
+        <update handle="adminhtml_jsfiles_needed_adcoderedirects" />
+
+        <reference name="content">
+            <block type="adcoderouter/adminhtml_adcoderedirectlist_edit" name="adcoderedirectlist.container" />
+        </reference>
+    </adminhtml_adcoderedirectlist_edit>
+    <adminhtml_adcoderedirectlist_new>
+        <update handle="adminhtml_jsfiles_needed_wysiwyg" />
+        <update handle="adminhtml_jsfiles_needed_adcoderedirects" />
+
+        <reference name="content">
+            <block type="adcoderouter/adminhtml_adcoderedirectlist_edit" name="adcoderedirectlist.container" />
+        </reference>
+    </adminhtml_adcoderedirectlist_new>
+
+    <adminhtml_jsfiles_needed_adcoderedirects>
+        <reference name="head">
+            <action method="addCss"><stylesheet>formsandgrids.css</stylesheet></action>
+            <action method="addJs"><file>jquery/jquery-1.9.1.min.js</file></action>
+            <action method="addJs"><file>jquery/jquery.noconflict.js</file></action>
+            <action method="addItem"><type>skin_js</type><name>js/adCodeFormValidation.js</name></action>
+        </reference>
+    </adminhtml_jsfiles_needed_adcoderedirects>
+
+    <adminhtml_jsfiles_needed_wysiwyg>
+        <reference name="head">
+            <action method="setCanLoadExtJs"><flag>1</flag></action>
+            <action method="setCanLoadTinyMce"><flag>1</flag></action>
+            <action method="addJs"><script>mage/adminhtml/variables.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
+            <action method="addJs"><script>lib/flex.js</script></action>
+            <action method="addJs"><script>lib/FABridge.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+            <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
+            <action method="addJs"><script>prototype/window.js</script></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+            <action method="addItem"><type>js_css</type><name>prototype/windows/themes/magento.css</name></action>
+            <action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name><params/></action>
+            <action method="addItem"><type>js</type><name>tiny_mce/tiny_mce.js</name><params/></action>
+         </reference>
+    </adminhtml_jsfiles_needed_wysiwyg>
+</layout>

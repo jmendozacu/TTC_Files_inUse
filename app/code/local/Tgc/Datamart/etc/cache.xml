@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * DataMart integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DataMart
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <placeholders>
+        <tgc_datamart_product_widget_upsell>
+            <block>tgc_datamart/product_widget_upsell</block>
+            <placeholder>DATAMART_UPSELL</placeholder>
+            <container>Tgc_Datamart_Model_Container_Upsell</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_datamart_product_widget_upsell>
+        <tgc_datamart_product_widget_slider>
+            <block>tgc_datamart/product_widget_slider</block>
+            <placeholder>DATAMART_SLIDER</placeholder>
+            <container>Tgc_Datamart_Model_Container_Slider</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_datamart_product_widget_slider>
+    </placeholders>
+</config>

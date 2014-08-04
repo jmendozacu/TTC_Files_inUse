@@ -1,0 +1,5 @@
+catalog_code,sku,price,currency,shipping_price,allow_coupons
+Expected Records,3,,,
+32848,DV1012,3987.999999.99,GBP,9.99,1
+32848,DV1012,2150,USD,10.888,0
+32848,DV1012,97.123,AUD,6.8,

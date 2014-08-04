@@ -1,0 +1,33 @@
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
+
+<div class="page-title">
+    <h1><?php echo $this->__( Mage::getStoreConfig('rocketweb_podcast/settings/page_title') ) ?></h1>
+    <a href="<?php echo Mage::getBaseUrl() . Mage::helper('podcast')->getRoute() . DS . 'rss' ?>" class="link-rss"><?php echo $this->__('Subscribe to podcast') ?></a>
+</div>
+
+<?php $podcasts = $this->getCollection(); ?>
+
+<?php if(count($podcasts)): ?>
+    <?php foreach( $podcasts as $podcast) : ?>
+        <div class="podcastWrapper">
+            <div class="podcastTitle">
+                <h2><a href="<?php echo Mage::getBaseUrl() . Mage::helper('podcast')->getRoute().'/'.Mage::helper('podcast')->encodeUrl($podcast->getTitle(),$podcast->getPodcastId())?>"><?php echo $podcast->getTitle();?></a></h2>
+                <h3><?php echo $podcast->getCreatedTime(); ?></h3>
+            </div>
+            <div class="podcastAuthor">
+                <?php echo $podcast->getAuthorName() ?>
+                (<a href="mailto:<?php echo $podcast->getAuthorEmail() ?>"><?php echo $podcast->getAuthorEmail() ?></a>)
+            </div>
+            <div class="podcastContent">
+                <?php echo $podcast->getShortContent(); ?>
+                <audio src="<?php echo Mage::helper('podcast')->getPodcastDirectoryUrl() . $podcast->getFileName() ?>" preload="none" />
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
+<?php echo $this->getPagerHtml(); ?>

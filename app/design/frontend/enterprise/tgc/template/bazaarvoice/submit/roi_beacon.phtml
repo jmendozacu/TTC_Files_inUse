@@ -1,0 +1,7 @@
+<?php if ($this->getIsEnabled()):?>
+    <script type="text/javascript">
+        if (typeof $BV != 'undefined' && typeof $BV.SI != 'undefined') {
+            $BV.SI.trackTransactionPageView(<?php echo $this->getOrderDetails(); ?>);
+        }
+    </script>
+<?php endif;?>

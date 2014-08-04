@@ -1,0 +1,50 @@
+In order to access StrongMail UI for API request and to login to website use the following
+
+https://67.129.116.186/sm/login.jsp
+
+Organization:-TTC
+Login Name :- MagentoMailUser
+Password:- teachco
+
+For Magento Testing Purpose- created all necessary stuffs needed in advance and can be used for testing Prospect Validation email.
+
+1.) Created Datasource -"ProspectValidationForMagento"
+
+2.) Created Target -"ProspectValidationForMagento" and assigned datasource "ProspectValidationForMagento" to it
+
+3.) Created Template - "Prospect_Confirmation_ForMagento", Templateid-79000
+
+4.) Created Transactional mailing -  "ProspectValidationForMagentoTesting" - TransactionalMailingid - 374000
+      Also Assigned target "ProspectValidationForMagento" and Assigned Template "Prospect_Confirmation_ForMagento" to the transactional mailing
+
+5.)Create new user - MagentoMailUser password :teachco
+
+6.)Created new role with restricted permission(no delete allowed)- "MagentoUserRole"
+    MagentoMailUser is part of MagentoUserRole
+
+Using all the above:
+Token can created by similar code ( as shown below)
+
+Shared ns As String = "http://www.strongmail.com/services/2009/03/02/schema"
+    Shared url As String = "https://67.129.116.186/sm/services/mailing/2009/03/02"
+
+Private Shared Function createService() As MailingService
+        ' Create service and set endpoint
+        Dim svc As New MailingService()
+        svc.Url = url
+        Console.WriteLine("Endpoint: " + svc.Url)
+
+        ' Ignore Certificate by trusting all certificate
+        System.Net.ServicePointManager.CertificatePolicy = New TrustAllCertificatePolicy()
+
+        ' Create security tokens for SOAP header
+        Dim userToken As New UsernameToken("MagentoMailUser", "teachco", PasswordOption.SendPlainText)
+        Dim requestContext As SoapContext = svc.RequestSoapContext
+        requestContext.Security.Tokens.Add(userToken)
+
+        ' Use filter to set organization token and get rid of timestamp since it does not work with Java server.
+        Dim myfilter As New MailingServiceOutFilter("TTC", ns)
+        svc.Pipeline.OutputFilters.Insert(0, myfilter)
+
+        Return svc
+    End Function

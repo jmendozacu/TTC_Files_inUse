@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/**
+ * Omniture
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Omniture
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<layout version="0.1.0">
+
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>omniture/mbox.js</script></action>
+        </reference>
+        <reference name="after_body_start">
+            <block type="core/template" name="omniture.js" template="omniture/js.phtml"/>
+        </reference>
+    </default>
+
+    <checkout_onepage_success>
+        <reference name="after_body_start">
+            <remove name="omniture.js"/>
+        </reference>
+        <reference name="before_body_end">
+            <block type="tgc_omniture/checkout_success" name="omniture.checkout.success" template="omniture/checkout/success.phtml"/>
+        </reference>
+    </checkout_onepage_success>
+
+</layout>

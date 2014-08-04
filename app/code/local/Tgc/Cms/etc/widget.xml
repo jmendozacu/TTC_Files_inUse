@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<widgets>
+    <categoryHeroCarousel type="tgc_cms/categoryHeroCarousel" module="tgc_cms">
+        <name>Category Hero Carousel</name>
+        <description type="desc">Adds Category Hero Carousel Widget</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+        </parameters>
+    </categoryHeroCarousel>
+    <heroCarousel type="tgc_cms/heroCarousel" translate="name description" module="tgc_cms">
+        <name>Homepage Hero Carousel</name>
+        <description>Homepage Hero Carousel Widget</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+        </parameters>
+    </heroCarousel>
+    <homepageCategory type="tgc_cms/homepageCategory" translate="name description" module="tgc_cms">
+        <name>Homepage Category</name>
+        <description>Homepage Category Carousel</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <title>
+                <label>Title</label>
+                <description>The title for this block</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>Categories</value>
+            </title>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+        </parameters>
+    </homepageCategory>
+    <partners type="tgc_cms/partners" translate="name description" module="tgc_cms">
+        <name>Partners</name>
+        <description>Homepage Partners (Who We Work With) Widget</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <title>
+                <label>Title</label>
+                <description>The title for this block</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>Who We Work With</value>
+            </title>
+            <description>
+                <label>Description</label>
+                <description>The description text for this block</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</value>
+            </description>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+            <use_sort_order>
+                <label>Use Sort Order</label>
+                <description>If set to No, random selection will be made</description>
+                <visible>1</visible>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </use_sort_order>
+        </parameters>
+    </partners>
+    <quotes type="tgc_cms/quotes" translate="name description" module="tgc_cms">
+        <name>Quotes</name>
+        <description>Homepage Quotes (What people are saying) Widget</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <title>
+                <label>Title</label>
+                <description>The title for this block</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>What People Are Saying</value>
+            </title>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+            <use_sort_order>
+                <label>Use Sort Order</label>
+                <description>If set to No, random selection will be made</description>
+                <visible>1</visible>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </use_sort_order>
+        </parameters>
+    </quotes>
+    <bestSellers type="tgc_cms/bestSellers" translate="name description" module="tgc_cms">
+        <name>Best Sellers</name>
+        <description>Best Sellers Widget</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <title>
+                <label>Title</label>
+                <description>The title for this block</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>Best Sellers</value>
+            </title>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+            <products_count>
+                <required>1</required>
+                <visible>1</visible>
+                <value>10</value>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+        </parameters>
+    </bestSellers>
+    <newProducts type="tgc_cms/newProducts" translate="name description" module="tgc_cms">
+        <name>New Products Slider</name>
+        <description>New Products Slider Widget</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <title>
+                <label>Title</label>
+                <description>The title for this block</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>New Releases</value>
+            </title>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+            <products_count>
+                <required>1</required>
+                <visible>1</visible>
+                <value>10</value>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+        </parameters>
+    </newProducts>
+    <recently_shopped type="tgc_cms/recentlyShopped" translate="name description" module="tgc_cms">
+        <name>Recently Shopped Products</name>
+        <description>List of Products Recently Viewed</description>
+        <parameters>
+            <title>
+                <label>Title</label>
+                <description>The title for this block</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>Recently Shopped</value>
+            </title>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+            <show_bestsellers>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Show Bestsellers Slider instead if there are no Recently Shopped Products</label>
+                <type>select</type>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </show_bestsellers>
+            <products_count>
+                <required>1</required>
+                <visible>1</visible>
+                <value>10</value>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+            <min_products_count>
+                <required>1</required>
+                <visible>1</visible>
+                <value>4</value>
+                <label>Min product count to display slider</label>
+                <type>text</type>
+            </min_products_count>
+        </parameters>
+    </recently_shopped>
+</widgets>

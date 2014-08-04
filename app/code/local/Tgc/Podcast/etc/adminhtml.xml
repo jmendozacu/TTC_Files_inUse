@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Podcast
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Podcast
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+	<menu>
+		<cms>
+			<children>
+				<rocketweb_podcast translate="title" module="cms">
+					<title>Podcast</title>
+					<children>
+						<tgc_podcast_new translate="title" module="cms">
+							<title>Add Podcast</title>
+							<sort_order>1</sort_order>
+							<action>podcasts_admin/adminhtml_podcast/new</action>
+						</tgc_podcast_new>
+						<tgc_podcast_manage translate="title" module="events">
+							<title>Manage Podcasts</title>
+							<sort_order>2</sort_order>
+							<action>podcasts_admin/adminhtml_podcast/index</action>
+						</tgc_podcast_manage>
+						<tgc_podcast_config translate="title" module="events">
+							<title>Configuration</title>
+							<sort_order>3</sort_order>
+							<action>adminhtml/system_config/edit/section/rocketweb_podcast</action>
+						</tgc_podcast_config>
+					</children>
+				</rocketweb_podcast>
+			</children>
+		</cms>
+	</menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <rocketweb_podcast translate="title">
+                                <title>Podcast</title>
+                                <sort_order>40</sort_order>
+                                <children>
+                                    <tgc_podcast_new module="events">
+                                        <title>Add Events</title>
+                                        <sort_order>1</sort_order>
+                                    </tgc_podcast_new>
+                                    <tgc_podcast_manage module="events">
+                                        <title>Manage Events</title>
+                                        <sort_order>2</sort_order>
+                                    </tgc_podcast_manage>
+                                    <tgc_podcast_config translate="title">
+                                        <title>Configuration</title>
+                                        <sort_order>3</sort_order>
+                                    </tgc_podcast_config>
+                                </children>
+                            </rocketweb_podcast>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

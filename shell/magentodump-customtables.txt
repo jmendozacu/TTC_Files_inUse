@@ -1,0 +1,8 @@
+digital_library_access_rights
+digital_library_cross_platform_resume
+digital_library_purchase_history
+mage_customerport
+tgc_checkout_cart_migrate
+tgc_dax_email_unsubscribe
+tgc_payment_profile_final
+tgc_payment_profile_import

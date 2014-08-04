@@ -1,0 +1,101 @@
+-- File source: bucket.guidance.com/data-migration/UTF8/CoursesPurchasedInitial.csv
+
+Overview:
+
+
+   * Estimate of Total import time: 27 minutes
+
+--
+-- Launch Day Script for Customer Purchase History
+--
+-- Connect to VPN
+-- cd ~/sites/guidance/thegreatcourses
+-- sudo ./customroutes.sh
+
+-- Upload file to db server and move into position
+scp coursespurchased20140428.zip clohm@db01.tgc.stage.guidance.com:~
+ssh clohm@db01.tgc.stage.guidance.com
+(optionally) sudo apt-get install dos2unix
+(optionally) sudo apt-get install unzip
+mkdir /tmp/tgc-imports
+cp ~/coursespurchased20140428.zip /tmp/tgc-imports
+chmod 777 /tmp/tgc-imports/coursespurchased20140428.zip
+unzip /tmp/tgc-imports/coursespurchased20140428.zip
+
+-- Convert line-endings
+dos2unix /tmp/tgc-imports/CoursesPurchased20140428.csv
+
+-- Check for BOM. If BOM is present you'll see: 00000000  ef bb bf ...
+hd -n 3 /tmp/tgc-imports/CoursesPurchased20140428.csv
+
+-- Remove BOM
+tail -c +4 /tmp/tgc-imports/CoursesPurchased20140428.csv > /tmp/tgc-imports/CoursesPurchased20140428-nobom.csv
+
+-- Check for BOM. If BOM is present you'll see: 00000000  ef bb bf ...
+hd -n 3 /tmp/tgc-imports/CoursesPurchased20140428-nobom.csv
+
+-- Check for extra blank rows at the end of the file/table
+tail -10 /tmp/tgc-imports/CoursesPurchased20140428-nobom.csv
+
+-- Remove 3 extra data lines from file
+sudo head -n -3 CoursesPurchased20140428-nobom.csv > CoursesPurchased20140428-nobom2.csv
+sudo mv CoursesPurchased20140428-nobom2.csv CoursesPurchased20140428-nobom.csv
+
+-- Remove unique and foreign keys prior to load
+sudo su - root
+mysql
+show databases;
+use database magento;
+alter table `digital_library_purchase_history` drop key `UNQ_DIGITAL_LIBRARY_PURCHASE_HISTORY_DAX_CUSTOMER_ID_PRODUCT_ID`;
+alter table `digital_library_purchase_history` drop foreign key `FK_A8C72819E97CEB07BB569F8727AB338D`;
+alter table `digital_library_purchase_history` drop foreign key `FK_DIGITAL_LIBRARY_PURCHASE_HISTORY_PRD_ID_CAT_PRD_ENTT_ENTT_ID`;
+
+-- Alter table to add new column to hold course_id
+alter table `digital_library_purchase_history` add column `course_id` varchar(20) null;
+
+-- Load data
+load data infile '/tmp/tgc-imports/CoursesPurchased20140428-nobom.csv' into table `digital_library_purchase_history`
+fields terminated by ',' lines terminated by '\n' ignore 2 lines
+(dax_customer_id, course_id);
+
+RUN TIME on Stage: 169 secs
+
+-- Check for extra blank rows at the end of the file/table
+select * from `digital_library_purchase_history` where product_id = 0;
+
+-- Remove all dax_customer_ids that have no match in customer_entity, approx 3.5 million
+delete dph from `digital_library_purchase_history` dph
+left join `customer_entity` ce on dph.`dax_customer_id` = ce.`dax_customer_id`
+where ce.`dax_customer_id` is NULL;
+
+RUN TIME: 95 secs on Stage
+
+-- Update product id using course_id
+update `digital_library_purchase_history` dph, `catalog_product_entity` cpe set
+dph.product_id = cpe.entity_id
+where dph.course_id = cpe.sku;
+
+RUN TIME: 244 secs on Stage
+
+-- Remove all product_ids that did not match, approx 133 thousand
+delete from `digital_library_purchase_history` where product_id = 0;
+
+RUN TIME: 3 secs on Stage
+
+-- Remove course_id column from table
+alter table `digital_library_purchase_history` drop column course_id;
+
+RUN TIME:
+
+-- Reinstate unique and foreign keys
+alter table `digital_library_purchase_history` add UNIQUE KEY `UNQ_DIGITAL_LIBRARY_PURCHASE_HISTORY_DAX_CUSTOMER_ID_PRODUCT_ID` (`dax_customer_id`,`product_id`);
+
+RUN TIME: 102 secs on Stage
+
+alter table `digital_library_purchase_history` add CONSTRAINT `FK_DIGITAL_LIBRARY_PURCHASE_HISTORY_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+RUN TIME: 213 secs on Stage
+
+alter table `digital_library_purchase_history` add CONSTRAINT `FK_A8C72819E97CEB07BB569F8727AB338D` FOREIGN KEY (`dax_customer_id`) REFERENCES `customer_entity` (`dax_customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+RUN TIME: 220 secs on Stage

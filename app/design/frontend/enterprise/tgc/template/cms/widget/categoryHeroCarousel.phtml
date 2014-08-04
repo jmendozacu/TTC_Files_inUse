@@ -1,0 +1,103 @@
+<?php
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_Cms_Block_HeroCarousel */
+?>
+<?php
+$helper     = $this->helper('tgc_cms');
+$imageUrl   = $this->getCategoryImage();
+$color      = $this->getCategoryColor();
+$collection = $this->getCollection();
+$processor  = Mage::helper('cms')->getPageTemplateProcessor();
+?>
+<?php if ($this->shouldShowWidget() && $collection && ($collection->getSize())): ?>
+    <div id="category-hero-slider-tab" class="category-hero-module">
+        <?php $iterator = 0; ?>
+        <?php foreach ($collection as $item): ?>
+            <?php $iterator++; ?>
+            <div id="pane-<?php echo $iterator; ?>" style="<?php if ($imageUrl): ?>background: url(<?php echo $imageUrl; ?>);<?php elseif ($color): ?>background-color: #<?php echo $imageUrl; ?>;<?php endif; ?>">
+                <div class="tab-desktop" style="height: 100%;">
+                    <?php echo $processor->filter($item->getDescription()); ?>
+                </div>
+            </div>
+        <?php endforeach; ?>
+        <?php $iterator = 0; ?>
+        <ul class="clearer">
+            <?php foreach ($collection as $item): ?>
+                <?php $iterator++; ?>
+                <li>
+                    <a href="#pane-<?php echo $iterator; ?>">
+                        <strong><?php echo $helper->truncateTextByWords($item->getTabTitle(), $this::HERO_HEADLINE_MAX_LENGTH); ?></strong><?php echo $helper->truncateTextByWords($item->getTabDescription(), $this::HERO_TAB_MAX_LENGTH); ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        //<![CDATA[
+        <?php $tabWidth = (100 / $collection->getSize()); ?>
+        jQuery(function($) {
+            $.fn.swipeTabs = function(config) {
+
+                config = config || {};
+
+                return this.each(function() {
+
+                    var slider;
+                    slider = $(this).sliderTabs(config);
+
+                    slider.swipe({
+                        allowPageScroll: 'vertical',
+                        threshold:  100,
+                        swipeLeft: function(event, direction, distance, duration, fingerCount) {
+                            slider.data('sliderTabs').next();
+                        },
+                        swipeRight: function() {
+                            slider.data('sliderTabs').prev();
+                        }
+                    });
+
+                });
+
+            };
+
+            if ( isTouchable !== true ) {
+                $("#category-hero-slider-tab").sliderTabs({
+                    tabHeight: 'auto',
+                    position: "bottom",
+                    tabArrowWidth: 0,
+                    transition: 'fade',
+                    transitionSpeed: 500,
+                    mousewheel: false
+                });
+
+            } else {
+                $("#category-hero-slider-tab").swipeTabs({
+                    tabHeight: 'auto',
+                    position: "bottom",
+                    tabArrowWidth: 0,
+                    indicators: true,
+                    transitionSpeed: 500,
+                    mousewheel: false
+                });
+            }
+            $(document).ready(function() {
+                $('#category-hero-slider-tab .ui-slider-tabs-list li').css({'width' : '<?php echo $tabWidth . '%'; ?>', 'max-width' : 'inherit'});
+                $('#category-hero-slider-tab .ui-slider-tabs-list li a').css({'min-height': '82px', 'height' : $('#category-hero-slider-tab .ui-slider-tabs-list').height()});
+                $('#category-hero-slider-tab .ui-slider-tabs-list li a').on(customClickEvent, function (e) {
+                    e.preventDefault();
+                });
+            });
+        });
+        //]]>
+
+    </script>
+<?php endif; ?>

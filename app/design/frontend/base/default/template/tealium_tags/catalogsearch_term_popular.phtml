@@ -1,0 +1,32 @@
+<?php
+
+$helper = Mage::helper('tealium_tags');
+$store = Mage::app()->getStore();
+
+if (!$helper->isEnabled($store)) {
+    return; // not enabled, no javascript inserted
+}
+
+$terms = array();
+
+if( sizeof($this->getTerms()) > 0 ) {
+    foreach ($this->getTerms() as $_term) {
+        $terms[] = $_term->getName();
+    }
+} else {
+    $terms[] = "no-terms";
+}
+?>
+
+<!-- Tealium Popular Search terms page javascript -->
+<script type="text/javascript">
+    var utag_data={
+        site_region: "<?php echo Mage::app()->getLocale()->getLocaleCode(); ?>",
+        site_currency: "<?php echo $store->getCurrentCurrencyCode(); ?>",
+        page_name: "<?php echo htmlspecialchars($this->getLayout()->getBlock('head')->getTitle(), ENT_QUOTES); ?>",
+        page_type: "popular search terms",
+        search_keyword: "<?php echo implode(',', $terms) ?>",
+        user_id: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_USER_ID; ?>'),
+        is_logged_in: Mage.Cookies.get('<?php echo Tgc_CookieNinja_Model_Ninja::COOKIE_LOGGED_IN; ?>')
+    };
+</script>

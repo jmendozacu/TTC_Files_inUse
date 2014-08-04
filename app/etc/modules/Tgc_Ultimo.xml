@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Tgc Ultimo module.
+ * The module extends Ultimo's features
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_Tgc_Ultimo
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Ultimo>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Infortis_Ultimo/>
+                <Tgc_ManaPro/>
+            </depends>
+        </Tgc_Ultimo>
+    </modules>
+</config>

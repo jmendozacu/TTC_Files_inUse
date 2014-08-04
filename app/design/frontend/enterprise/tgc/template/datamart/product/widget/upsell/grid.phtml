@@ -1,0 +1,52 @@
+<?php
+/**
+ * DataMart integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DataMart
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+?>
+<?php
+/** $this Tgc_Datamart_Block_Product_Widget_Upsell */
+?>
+<?php if (($_products = $this->getProductCollection()) && count($_products) > 0): ?>
+<div class="widget widget-upsell-products">
+    <div class="widget-title">
+        <h2><?php echo $this->__('Just for You') ?></h2>
+    </div>
+    <div class="widget-products">
+        <?php $_columnCount = $this->getColumnCount(); ?>
+        <ul class="products-grid">
+        <?php $i = 0; foreach ($_products->getItems() as $_product): ?>
+            <?php if ($i >= $this->_getProductsLimit()) { break; } ?>
+            <?php if ($this->getShowOnsaleOnly() && !$_product->getOnSaleFlag()) { continue; } ?>
+            <?php $professorHelper = $this->helper('profs')->loadProfessorsByProducts($_products); ?>
+            <?php $productUrl = $_product->getProductUrl() . '?' . http_build_query(array('pfm' => 'UpsellGrid', 'pos' => ($i + 1))); ?>
+            <?php $i++; ?>
+            <li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?> drop-shadow tiny-shadow" style="<?php if($i > $_columnCount): ?>display:none;<?php endif; ?>">
+                <div class="item-inner">
+                    <a href="<?php echo $productUrl; ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>">
+                        <span class="product-image">
+                            <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(320,250) ?>" alt="<?php echo $this->stripTags($_product->getName(), null, true) ?>" />
+                        </span>
+                        <h2 class="product-name">
+                            <?php echo $this->helper('catalog/output')->productAttribute($_product, $_product->getName() , 'name') ?>
+                        </h2>
+                        <?php //Professor name ?>
+                        <?php if ($professorName = $professorHelper->getProfessorNamesForProduct($_product)): ?>
+                        <span class="professor-name"><?php echo $professorName; ?></span>
+                        <?php endif; ?>
+                        <?php if (Mage::helper('tgc_bv')->isBvEnabled()): ?>
+                            <?php echo Mage::helper('bazaarvoice')->getInlineRatingForProduct($_product); ?>
+                        <?php endif; ?>
+                        <?php echo $this->getPriceHtml($_product, true, '-widget-upsell-grid') ?>
+                    </a>
+                </div>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</div>
+<?php endif; ?>

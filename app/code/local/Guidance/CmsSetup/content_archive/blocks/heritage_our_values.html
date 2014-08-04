@@ -1,0 +1,67 @@
+id:     heritage_our_values
+title:  Our Values
+status: enabled
+stores: default,uk_en, au_en
+---
+
+<div class="our_values_block">
+    <div class="values_block_content">
+        <ul>
+            <li class="our_values_title">Our Values</li>
+            <li class="value_list_item">
+                <a href="javascript:void(0)">Improvement »</a>
+                <div class="hidden_cont improvement">
+                    <p>There’s always a better way to do things, which is why we constantly seek to improve our
+                        products and our way of doing business.</p>
+                    <div class="right_arrow"></div>
+                </div>
+            </li>
+            <li class="value_list_item">
+                <a href="javascript:void(0)">Dedication »</a>
+                <div class="hidden_cont dedication">
+                    <p>We work tirelessly to make sure that every Great Course is the most engaging intellectual
+                        adventure it can be.</p>
+                    <div class="right_arrow"></div>
+                </div>
+            </li>
+            <li class="value_list_item">
+                <a href="javascript:void(0)">Scholarship »</a>
+                <div class="hidden_cont scholarship">
+                    <p>We take an academically rigorous approach to the search for truth, meaningful ideas, and
+                        fascinating insights rooted in the latest research.</p>
+                    <div class="right_arrow"></div>
+                </div>
+            </li>
+            <li class="value_list_item">
+                <a href="javascript:void(0)">Relationships »</a>
+                <div class="hidden_cont relationships">
+                    <p>We pride ourselves on fostering an open environment where new ideas can flow freely and
+                        collaboration is encouraged.</p>
+                    <div class="right_arrow"></div>
+                </div>
+            </li>
+            <li class="value_list_item">
+                <a href="javascript:void(0)">Curiosity »</a>
+                <div class="hidden_cont curiosity">
+                    <p>We’re just as insatiable for knowledge as the lifelong learners we serve.</p>
+                    <div class="right_arrow"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(function($) {
+        $('li.value_list_item').bind('touchstart mouseover', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $(this).addClass('hover');
+        });
+        $('li.value_list_item').bind('touchend mouseout', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            $(this).removeClass('hover');
+        });
+    });
+</script>

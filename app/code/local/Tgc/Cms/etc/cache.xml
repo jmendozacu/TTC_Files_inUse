@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Cms additions
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Cms
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <placeholders>
+        <tgc_cms_homepage_herocarousel>
+            <block>tgc_cms/heroCarousel</block>
+            <placeholder>HOMEPAGE_HEROCAROUSEL</placeholder>
+            <container>Tgc_Cms_Model_Container_HeroCarousel</container>
+            <cache_lifetime>0</cache_lifetime>
+        </tgc_cms_homepage_herocarousel>
+        <tgc_cms_category_herocarousel>
+            <block>tgc_cms/categoryHeroCarousel</block>
+            <placeholder>CATEGORY_HEROCAROUSEL</placeholder>
+            <container>Tgc_Cms_Model_Container_CategoryHeroCarousel</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_cms_category_herocarousel>
+        <tgc_cms_new_products>
+            <block>tgc_cms/newProducts</block>
+            <placeholder>NEW_PRODUCTS_WIDGET</placeholder>
+            <container>Tgc_Cms_Model_Container_NewProducts</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_cms_new_products>
+        <tgc_cms_best_sellers>
+            <block>tgc_cms/bestSellers</block>
+            <placeholder>BESTSELLERS_WIDGET</placeholder>
+            <container>Tgc_Cms_Model_Container_BestSellers</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_cms_best_sellers>
+        <tgc_cms_recently_shopped>
+            <block>tgc_cms/recentlyShopped</block>
+            <placeholder>RECENTLY_SHOPPED</placeholder>
+            <container>Tgc_Cms_Model_Container_RecentlyShopped</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_cms_recently_shopped>
+        <tgc_cms_partners>
+            <block>tgc_cms/partners</block>
+            <placeholder>PARTNERS_WIDGET</placeholder>
+            <container>Tgc_Cms_Model_Container_Partners</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_cms_partners>
+        <tgc_cms_homepage_category>
+            <block>tgc_cms/homepageCategory</block>
+            <placeholder>HOMEPAGE_CATEGORY</placeholder>
+            <container>Tgc_Cms_Model_Container_HomepageCategory</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_cms_homepage_category>
+        <tgc_cms_quotes>
+            <block>tgc_cms/quotes</block>
+            <placeholder>QUOTES_WIDGET</placeholder>
+            <container>Tgc_Cms_Model_Container_Quotes</container>
+            <cache_lifetime>86400</cache_lifetime>
+        </tgc_cms_quotes>
+    </placeholders>
+</config>

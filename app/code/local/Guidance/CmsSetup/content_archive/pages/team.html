@@ -1,0 +1,32 @@
+ID:                 about-us/team
+Status:             published
+Title:              Our Team
+Layout:             one_column_about
+Stores:             default,uk_en, au_en
+---
+
+<div class="left_sidebar grid12-3">
+    {{block type="cms/block" block_id="about_us_menu" name="about.menu"}}
+</div>
+
+<div class="about grid12-9">
+    <div class="about_container">
+        <div class="left_border">
+            <div class="about_content">
+                <span class="page-active">active-team</span>
+                <span class="mod_page_active">mob-team</span>
+                <div class="main_content ourpages">
+                    <p>At The Great Courses, we love coming to work every day knowing we have the opportunity to learn
+                        something new and share that learning with the world. We invite you to meet some of The Great
+                        Courses team.</p>
+                    <div class="team_slider">
+                        {{block type="cms/block" block_id="our_team_video_slider" name="ourteam.videoslider"}}
+                    </div>
+                    <div class="our_leadership">
+                        {{block type="cms/block" block_id="our_leadership" name="ourleadership.block"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

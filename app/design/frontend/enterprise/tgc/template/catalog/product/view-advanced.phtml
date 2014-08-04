@@ -1,0 +1,343 @@
+<?php
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php
+	$_helper = $this->helper('catalog/output');
+	$_product = $this->getProduct();
+	$theme = $this->helper('ultimo');
+
+	$productName = $_helper->productAttribute($_product, $_product->getName(), 'name');
+	$productUrl = $_helper->productAttribute($_product, $_product->getProductUrl(), 'product_url');
+	$productImage = $_product->getImageUrl();
+?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div class="grid-full top-share">
+
+	<a class="print-link" href="javascript:window.print();"><?php echo $this->__('Print') ?></a>
+
+	<?php if ($this->canEmailToFriend()): ?>
+    	<a class="feature feature-icon-hover first v-centered-content" href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>" title="<?php echo $this->__('Email to a Friend') ?>">
+			<span class="v-center">
+				<span class="icon i-recommend-bw icon-color-productview"></span>
+			</span>
+			<span class="v-center"><?php echo $this->__('Email to a Friend') ?></span>
+		</a>
+	<?php endif; ?>
+
+	<div class="share-social">
+		<a class="feature feature-icon-hover feature-icon-share first v-centered-content" rel="nofollow" href="javascript:void(0)" title="<?php echo $this->__('Share') ?>">
+			<span class="v-center">
+				<span class="icon i-recommend-bw icon-color-productview"></span>
+			</span>
+			<span class="v-center"><?php echo $this->__('Share') ?></span>
+		</a>
+		<ul class="share-list" style="display:none;">
+			<li>
+				<a href="javascript:popWin('https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode($productUrl); ?>&t=<?php echo urlencode($productName); ?>', 'facebook', 'width=640,height=480,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes');" title="<?php echo $this->__('Share on Facebook') ?>"><?php echo $this->__('Facebook') ?></a>
+			</li>
+			<li>
+				<a href="javascript:popWin('http://twitter.com/home/?status=<?php echo urlencode($productName . ' (' . $productUrl . ')'); ?>', 'twitter', 'width=640,height=480,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes');" title="<?php echo $this->__('Tweet') ?>"><?php echo $this->__('Twitter') ?></a>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			jQuery(document).ready(function (){
+				jQuery(".share-social a.feature-icon-share").click(function (){
+					jQuery(".share-social .share-list").slideToggle();
+				});
+			});
+		</script>
+	</div>
+</div>
+
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view nested-container advanced-layout">
+
+	<div class="product-title grid-full">
+		<div class="product-name grid12-8">
+	        <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+	    </div>
+	    <div class="product-reviews grid12-4 hide-640">
+	        <?php echo $this->getReviewsSummaryHtml($_product, false, true); //reviews ?>
+	    </div>
+	</div>
+
+	<div class="grid-full show-640">
+		<div class="product-reviews grid12-6">
+	        <?php echo $this->getReviewsSummaryHtml($_product, false, true); //reviews ?>
+	    </div>
+		<div class="product-type-data grid12-6"><?php echo $this->getChildHtml('product_type_data'); ?></div>
+	</div>
+
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+
+    	<?php
+			//Product collaterals
+			$section = array();
+
+			//Related products. $section['related'] is set only if related products (or replacement) exist
+			$replaceRelated = $theme->getCfg('product_page/replace_related');
+			if ($replaceRelated == 1) //don't replace with static block
+			{
+				if ($tmpHtml = trim($this->getChildHtml('catalog.product.related')))
+					$section['related'] = $tmpHtml;
+				//$section['related'] = trim($this->getChildHtml('catalog.product.related'));
+			}
+			elseif ($replaceRelated == 2) //if related is empty, replace with static block
+			{
+				if ($tmpHtml = trim($this->getChildHtml('catalog.product.related')))
+					$section['related'] = $tmpHtml;
+				else //related empty
+					if ($tmpHtml = $this->getChildHtml('block_product_replace_related'))
+						$section['related'] = '<div class="block_product_replace_related">'. $tmpHtml .'</div>';
+			}
+			elseif ($replaceRelated == 3) //replace with static block
+			{
+				if ($tmpHtml = $this->getChildHtml('block_product_replace_related'))
+					$section['related'] = '<div class="block_product_replace_related">'. $tmpHtml .'</div>';
+			}
+
+			//Up-sell products. $section['upsell'] is set only if up-sell products (or replacement) exist
+			$replaceUpsell = $theme->getCfg('product_page/replace_upsell');
+			if ($replaceUpsell == 1) //don't replace with static block
+			{
+				if ($tmpHtml = trim($this->getChildHtml('upsell_products')))
+					$section['upsell'] = $tmpHtml;
+				//$section['upsell'] = $this->getChildHtml('upsell_products');
+			}
+			elseif ($replaceUpsell == 2) //if upsell is empty, replace with static block
+			{
+				if ($tmpHtml = trim($this->getChildHtml('upsell_products')))
+					$section['upsell'] = $tmpHtml;
+				else //upsell empty
+					if ($tmpHtml = $this->getChildHtml('block_product_replace_upsell'))
+						$section['upsell'] = '<div class="block_product_replace_upsell">'. $tmpHtml .'</div>';
+			}
+			elseif ($replaceUpsell == 3) //replace with static block
+			{
+				if ($tmpHtml = $this->getChildHtml('block_product_replace_upsell'))
+					$section['upsell'] = '<div class="block_product_replace_upsell">'. $tmpHtml .'</div>';
+			}
+
+
+
+			//Assign related products to selected position
+			if (isset($section['related']))
+			{
+				$relatedPosition = $theme->getCfg('product_page/related_position');
+				//TODO:remove: $relatedPosition = 11;
+				switch ($relatedPosition)
+				{
+					case 10:
+						$p['secondaryCol'][0] = $section['related'];
+						break;
+					case 11:
+						$p['secondaryCol'][1] = $section['related'];
+						break;
+					case 20:
+						$p['collatSecondaryCol'] = $section['related'];
+						break;
+				}
+			}
+
+
+
+			//Width (in grid units) of product page sections
+			$imgColUnits					= $theme->getCfg('product_page/image_column');
+			$primaryColUnits				= $theme->getCfg('product_page/primary_column');
+			$secondaryColUnits				= $theme->getCfg('product_page/secondary_column');
+			$collatPrimaryColUnits			= $imgColUnits + $primaryColUnits;
+			$collatSecondaryColUnits		= $secondaryColUnits;
+			if (empty($secondaryColUnits))
+			{
+				$primaryColUnits			+= 12 - ($imgColUnits + $primaryColUnits);
+				$collatPrimaryColUnits		= 9;
+				$collatSecondaryColUnits	= 3;
+			}
+
+			//
+			if (!isset($section['related']))
+			{
+				$collatPrimaryColUnits		= 12;
+				$collatSecondaryColUnits	= 0;
+			}
+
+			//Grid classes
+			$imgColGridClass				= 'grid12-' . $imgColUnits;
+			$primaryColGridClass			= 'grid12-' . $primaryColUnits;
+			$secondaryColGridClass			= 'grid12-' . $secondaryColUnits;
+			$collatPrimaryColGridClass		= 'grid12-' . $collatPrimaryColUnits;
+			$collatSecondaryColGridClass	= 'grid12-' . $collatSecondaryColUnits;
+			if (empty($secondaryColUnits))
+			{
+				$secondaryColGridClass	= '';
+			}
+		?>
+
+        <div class="product-img-column grid12-8">
+            <?php echo $this->getChildHtml('media_advanced') ?>
+            <?php //Product labels
+				//echo $this->helper('ultimo/labels')->getLabels($_product);
+			?>
+			<div class="hide-1024">
+            	<?php echo $this->getChildHtml('price_breaks') ?>
+            </div>
+        </div>
+
+        <div class="product-shop grid12-4">
+
+            <?php echo $this->getChildHtml('alert_urls'); //alerts ?>
+
+            <div class="product-type-data hide-640"><?php echo $this->getChildHtml('product_type_data'); ?></div>
+
+            <?php if ($extrahint_html = $this->getChildHtml('extrahint')): //qty increments ?>
+                <div class="extrahint-wrapper"><?php echo $extrahint_html; ?></div>
+            <?php endif; ?>
+
+            <?php if ($_product->isSaleable() && !$this->hasOptions()): ?>
+	            <div class="box-qty">
+					<div class="add-to-cart v-centered-content">
+						<?php if(!$_product->isGrouped()): ?>
+							<div class="qty-wrapper v-center">
+								<label for="qty"><?php echo $this->__('QTY:') ?></label>
+								<input type="text" name="qty" id="qty" maxlength="12" value="<?php echo $this->getProductDefaultQty() * 1 ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+							</div>
+						<?php endif; ?>
+					</div>
+
+		            <div class="product-type-data hide-640"><?php echo $this->getChildHtml('product_type_data'); ?></div>
+		            <?php echo $this->getTierPriceHtml(); //tier prices ?>
+	            </div>
+            <?php endif; ?>
+
+            <?php if (!$this->hasOptions()): //add to cart when no options ?>
+                <?php if($_product->isSaleable()): ?>
+                    <div class="add-to-box">
+                        <?php echo $this->getChildHtml('addtocart') ?>
+                    </div>
+                <?php endif; ?>
+                <?php echo $this->getChildHtml('extra_buttons') ?>
+            <?php endif; ?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+				<?php if ($container2_html = $this->getChildChildHtml('container2', '', true, true)): ?>
+	        		<div class="box-additional <?php echo $collatPrimaryColGridClass; ?>">
+						<div class="container2-wrapper"><?php echo $container2_html; ?></div>
+					</div>
+	        	<?php endif; ?>
+	        <?php endif; ?>
+
+            <?php if ($addtoLinksHtml = $this->getChildHtml('addto')): //compare, wishlist, to friend ?>
+		        <div class="action-box clearer">
+					<?php echo $addtoLinksHtml; ?>
+				</div>
+		    <?php endif; ?>
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                <?php if ($container1_html = $this->getChildChildHtml('container1', '', true, true)): ?>
+                    <div class="container1-wrapper"><?php echo $container1_html; ?></div>
+                <?php endif; ?>
+            <?php endif;?>
+
+            <?php echo $this->getChildHtml('other'); ?>
+
+            <?php if ($tmpHtml = $this->getChildHtml('block_product_primary_bottom')): ?>
+            	<div class="feature-wrapper top-border block_product_primary_bottom"><?php echo $tmpHtml; ?></div>
+            <?php endif; ?>
+
+            <?php if ($tmpHtml = $this->getChildHtml('product_primary_bottom_placeholder')): //Placeholder for extensions ?>
+            	<div class="feature-wrapper top-border"><?php echo $tmpHtml; ?></div>
+            <?php endif; ?>
+
+            <p class="delivery-time"><em><?php echo $this->__('Estimated Delivery Time: 4-6 Weeks'); ?></em></p>
+
+            <div class="hide-768">
+            	<?php echo $this->getChildHtml('price_breaks') ?>
+            </div>
+
+        </div> <!-- end: product-shop -->
+
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                   form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url){
+            if(this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+    //]]>
+    </script>
+
+	<div class="box-additional box-tabs <?php echo $collatPrimaryColGridClass; ?>">
+    	<?php $info_tabs_html = trim($this->getChildHtml('info_tabs'));
+			if ($info_tabs_html) echo $info_tabs_html; ?>
+
+		<?php //Open the "Reviews" tab, when "X Review(s)" or "Be the first to review this product" links are clicked ?>
+		<script type="text/javascript">
+		//<![CDATA[
+			/*jQuery(function($){$("#goto-reviews, #goto-reviews-form").click(function(){if($("#product-tabs").hasClass("accor")){$("#product-tabs .tabs-panels").data("tabs").click($(".tabs-panels .acctab").index($("#acctab-tabreviews")))}else{$("#product-tabs .tabs").data("tabs").click($("#tab-tabreviews").index())}})});*/
+		//]]>
+		</script>
+
+        <?php echo $this->getChildHtml('product_additional_data') ?>
+	</div> <!-- end: box-tabs -->
+
+
+
+    <?php if (isset($p['collatSecondaryCol'])): ?>
+		<div class="box-additional box-sidebar custom-sidebar-right <?php echo $collatSecondaryColGridClass; ?>">
+			<div class="inner"><?php echo $p['collatSecondaryCol']; ?></div>
+		</div>
+	<?php endif; ?>
+
+    <?php if (isset($section['upsell'])): ?>
+    	<div class="box-additional box-up-sell <?php echo $collatPrimaryColGridClass; ?>"><?php echo $section['upsell']; ?></div>
+    <?php endif; ?>
+
+</div> <!-- end: product-view -->

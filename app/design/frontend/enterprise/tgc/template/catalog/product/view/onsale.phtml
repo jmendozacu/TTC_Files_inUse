@@ -1,0 +1,28 @@
+<?php
+/**
+ * Tgc Onsale block for configurable product
+ *
+ * @author      Guidance Magento SuperTeam <magento@guidance.com>
+ * @category    Tgc
+ * @package     Catalog
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+$product = Mage::registry('product');
+$percentage = 0;
+if ($product instanceof Mage_Catalog_Model_Product) {
+    $final = $product->getFinalPrice();
+    $msrp = $product->getMsrp();
+    if ($msrp > $final) {
+        $percentage = (1 - ($final/$msrp)) * 100;
+        $percentage = round($percentage);
+    }
+}
+?>
+<?php if ($percentage > 0): ?>
+    <div class="onsale-container">
+        <span class="onsale"><?php echo $this->__('ON SALE') ?></span>
+        -
+        <span class="sale-percent"><?php echo $percentage ?>%</span>
+        <?php echo $this->__('Off for a limited time') ?>
+    </div>
+<?php endif; ?>

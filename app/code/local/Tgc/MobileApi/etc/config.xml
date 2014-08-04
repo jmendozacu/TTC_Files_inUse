@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <modules>
+        <Tgc_MobileApi>
+            <version>1</version>
+        </Tgc_MobileApi>
+    </modules>
+    <global>
+        <models>
+            <mapi>
+                <class>Tgc_MobileApi_Model</class>
+            </mapi>
+        </models>
+        <helpers>
+            <mapi>
+                <class>Tgc_MobileApi_Helper</class>
+            </mapi>
+        </helpers>
+        <resources>
+            <mapi_setup>
+                <setup>
+                    <module>Tgc_MobileApi</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </mapi_setup>
+        </resources>
+    </global>
+</config>

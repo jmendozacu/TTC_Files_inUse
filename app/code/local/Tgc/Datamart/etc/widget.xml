@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * DataMart integration
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     DataMart
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<widgets>
+    <upsell type="tgc_datamart/product_widget_upsell" translate="name description" module="tgc_datamart">
+        <name>Upsell Products Vertical List</name>
+        <description>DataMart product recommendations</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <products_count translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value>10</value>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>2</value>
+                <values>
+                    <default translate="label">
+                        <value>2</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>0</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>1</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+            <show_onsale_only>
+                <label><![CDATA[Show "On Sale" Items Only]]></label>
+                <visible>1</visible>
+                <type>select</type>
+                <value>0</value>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </show_onsale_only>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </upsell>
+    <upsellSlider type="tgc_datamart/product_widget_slider" translate="name description" module="tgc_datamart">
+        <name>Just for You Upsell Slider</name>
+        <description>DataMart product recommendations slider widget</description>
+        <is_email_compatible>1</is_email_compatible>
+        <parameters>
+            <title>
+                <label>Title</label>
+                <description>The title for this block</description>
+                <visible>1</visible>
+                <type>text</type>
+                <value>Just For You</value>
+            </title>
+            <products_count translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value>10</value>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+            <show_onsale_only>
+                <label><![CDATA[Show "On Sale" Items Only]]></label>
+                <visible>1</visible>
+                <type>select</type>
+                <value>0</value>
+                <source_model>adminhtml/system_config_source_yesno</source_model>
+            </show_onsale_only>
+            <display_type>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display to Customer Type</label>
+                <type>select</type>
+                <value>both</value>
+                <values>
+                    <default translate="label">
+                        <value>both</value>
+                        <label>All Customers</label>
+                    </default>
+                    <guest translate="label">
+                        <value>guest</value>
+                        <label>Guests (and Prospects) Only</label>
+                    </guest>
+                    <user translate="label">
+                        <value>user</value>
+                        <label>Logged in (non-Prospect) Users Only</label>
+                    </user>
+                </values>
+            </display_type>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+        </parameters>
+    </upsellSlider>
+</widgets>

@@ -1,0 +1,184 @@
+<?php
+/**
+ * Product view template for Gift Card product
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php
+$_helper = $this->helper('catalog/output');
+$_product = $this->getProduct();
+$giftCards = Mage::getModel('catalog/product')->getCollection()->addFieldToFilter('type_id', array('eq' => 'giftcard'))->addAttributeToSelect('*');
+?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<h1 class="product-name gift-certificates-title">
+    <?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+</h1>
+<div class="gift-card-hero">
+    <?php echo $this->getChildHtml('giftCertificateHero') ?>
+</div>
+<div class="gift-certificates-container clearfix">
+    <div class="type-delivered-buttons">
+        <h3><?php echo $this->__('How Would You Like Your Gift Delivered?') ?></h3>
+        <a class="button by-email" rel="nofollow" href="javascript:void(0);"><?php echo $this->__('By email') ?></a>
+        <a class="button by-postal" rel="nofollow" href="javascript:void(0);"><?php echo $this->__('By postal mail') ?></a>
+    </div>
+    <?php foreach ($giftCards as $_product): ?>
+        <?php parent::unsProduct(); parent::setProduct($_product); ?>
+        <?php Mage::unregister('current_product'); Mage::register('current_product', $_product, true); ?>
+        <?php $giftcardType = $_product->getGiftcardType() == 0 ?  'virtual' :  'physical'; ?>
+        <div class="grid12-8<?php echo $giftcardType == 'virtual' ?  '' : ' hide'; ?>">
+            <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" class="gift-card-form"
+                  id="product_addtocart_form_<?php echo $giftcardType; ?>" enctype="multipart/form-data"
+                  data-id="<?php echo $_product->getId(); ?>" data-sku="<?php echo $_product->getSku(); ?>" data-format="<?php echo $giftcardType; ?>">
+                <?php echo $this->getBlockHtml('formkey') ?>
+                <div class="no-display">
+                    <input type="hidden" name="product" value="<?php echo $_product->getId() ?>"/>
+                    <input type="hidden" name="course_id" value="<?php echo $_product->getCourseId() ?>"/>
+                    <input type="hidden" name="product_sku" value="<?php echo $_product->getSku() ?>"/>
+                    <input type="hidden" name="related_product" id="related-products-field" value=""/>
+                </div>
+                <?php echo $this->getChildHtml('product_type_data', false) ?>
+                <div class="product-shop">
+                    <?php if ($_product->isSaleable()): ?>
+                        <div class="add-to-box">
+                            <button type="button" title="<?php $this->__('Add to Cart'); ?>" class="button btn-cart v-center" onclick="productAddToCartForm_<?php echo $giftcardType; ?>.submit(this)"><span><span><?php echo $this->__('Add to Cart'); ?></span></span></button>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </form>
+            <script type="text/javascript">
+                //<![CDATA[
+                jQuery('a.button.by-email').on('click', function(e) {
+                    e.preventDefault();
+                    jQuery('form#product_addtocart_form_virtual').closest('div.grid12-8').removeClass('hide').addClass('show');
+                    jQuery('form#product_addtocart_form_physical').closest('div.grid12-8').removeClass('show').addClass('hide');
+                });
+
+                jQuery('a.button.by-postal').on('click', function(e) {
+                    e.preventDefault();
+                    jQuery('form#product_addtocart_form_virtual').closest('div.grid12-8').removeClass('show').addClass('hide');
+                    jQuery('form#product_addtocart_form_physical').closest('div.grid12-8').removeClass('hide').addClass('show');
+                });
+
+                jQuery('#giftcard_amount_input_physical, #giftcard_amount_input_virtual').on('change', function() {
+                    jQuery('#giftcard_amount_input_physical, #giftcard_amount_input_virtual').val(jQuery(this).val());
+                });
+
+                jQuery('#giftcard_amount_physical, #giftcard_amount_virtual').on('change', function() {
+                    jQuery('#giftcard_amount_physical, #giftcard_amount_virtual').val(jQuery(this).val());
+                });
+
+                jQuery('#giftcard_sender_name_physical, #giftcard_sender_name_virtual').on('change', function() {
+                    jQuery('#giftcard_sender_name_physical, #giftcard_sender_name_virtual').val(jQuery(this).val());
+                });
+
+                jQuery('#giftcard_sender_email_physical, #giftcard_sender_email_virtual').on('change', function() {
+                    jQuery('#giftcard_sender_email_physical, #giftcard_sender_email_virtual').val(jQuery(this).val());
+                });
+
+                jQuery('#giftcard_recipient_name_physical, #giftcard_recipient_name_virtual').on('change', function() {
+                    jQuery('#giftcard_recipient_name_physical, #giftcard_recipient_name_virtual').val(jQuery(this).val());
+                });
+
+                jQuery('#giftcard_message_physical, #giftcard_message_virtual').on('change', function() {
+                    jQuery('#giftcard_message_physical, #giftcard_message_virtual').val(jQuery(this).val());
+                });
+
+                var productAddToCartForm_<?php echo $giftcardType; ?> = new VarienForm('product_addtocart_form_<?php echo $giftcardType; ?>');
+                productAddToCartForm_<?php echo $giftcardType; ?>.submit = function (button, url) {
+                    if (this.validator.validate()) {
+                        var form = this.form;
+                        var oldUrl = form.action;
+                        if (url) {
+                            form.action = url;
+                        }
+                        try {
+                            new Ajax.Request(form.action,
+                            {
+                                method: 'post',
+                                parameters: $(form.id).serialize(true),
+                                onSuccess: function (transport) {
+                                    Element.hide('formLoader');
+                                    $(document.body).scrollTo();
+                                    var response = transport.responseText;
+                                    var data = response.evalJSON();
+                                    $H(data).each(function (dataSet) {
+                                        if (dataSet.key === "messages") {
+                                            $('messages_product_view').update(dataSet.value);
+                                            $('messages_product_view').down('.success-msg').insert('<a class="close-button" rel="nofollow" href="javascript:void(0)">Close</a>').observe('click', function() {
+                                                this.up('.messages').hide();
+                                            })
+                                        } else if (dataSet.key === "minicart") {
+                                            updateTopLinks();
+                                        }
+                                    });
+                                    if (typeof window.tgc_tealiumObj == "object" && typeof window.tgc_tealiumObj.addToCartEventLink == "function") {
+                                        var media_format = jQuery(form).attr('data-format');
+                                        var product_id = jQuery(form).attr('data-id');
+                                        var product_sku = jQuery(form).attr('data-sku');
+                                        var price = jQuery(form).find('select.giftcard-amount-entry option:selected').val();
+                                        if (window.tgc_tealiumObj.addToCartEventLink(media_format, product_id, product_sku, price)) {
+                                            window.location.reload(true);
+                                        }
+                                    } else {
+                                        window.location.reload(true);
+                                    }
+                                }
+                            });
+                        } catch (e) {
+                        }
+                        this.form.action = oldUrl;
+                        if (e) {
+                            throw e;
+                        }
+
+                        if (button && button != 'undefined') {
+                            button.disabled = true;
+                        }
+                    }
+                }.bind(productAddToCartForm_<?php echo $giftcardType; ?>);
+
+                productAddToCartForm_<?php echo $giftcardType; ?>.submitLight = function (button, url) {
+                    if (this.validator) {
+                        var nv = Validation.methods;
+                        delete Validation.methods['required-entry'];
+                        delete Validation.methods['validate-one-required'];
+                        delete Validation.methods['validate-one-required-by-name'];
+                        if (this.validator.validate()) {
+                            if (url) {
+                                this.form.action = url;
+                            }
+                            this.form.submit();
+                        }
+                        Object.extend(Validation.methods, nv);
+                    }
+                }.bind(productAddToCartForm_<?php echo $giftcardType; ?>);
+
+                function updateTopLinks() {
+                    jQuery.ajax({
+                        type: 'POST',
+                        url: globalHeader.updateLinksUrl,
+                        success: function(data, textStatus, jqXHR) {
+                            if (data['status'] == 'success') {
+                                jQuery('div#mini-cart').html(data['cartHtml']);
+                                jQuery('div#mini-wishlist').html(data['wishlistHtml']);
+                            }
+                        }
+                    });
+                }
+            </script>
+        </div>
+    <?php endforeach; ?>
+    <span id="formLoader" style="display: none">
+        <?php echo $this->__('Adding Gift Card to Cart...'); ?>
+    </span>
+    <div class="gift-certificate-faqs gray-block-with-border grid12-4">
+        <h3><?php echo $this->__('Gift Certificate FAQs') ?></h3>
+        <?php echo $this->getChildHtml('giftCertificateFaqs') ?>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<?php
+/**
+ * User: mhidalgo
+ * Date: 25/02/14
+ * Time: 09:10
+ */
+/** @var $this Tgc_Checkout_Block_Cart_Totals_Shipping */
+
+if (Mage::app()->getRequest()->getControllerName() != "onepage"){
+    $shippingRates = $this->getShippingRatesByCountryCode();
+    $internationalShippingRates = $this->getInternationalShippingRates();
+    $title = $this->getTitle();
+?>
+<div class="tooltip tooltip-shipping-rates">
+    <a class="js-action-icon view-shipping-rates-action"><?php echo $this->__("View Shipping Rates") ?></a>
+    <div class="tooltip-text tooltip-balloon">
+        <a rel="nofollow" href="#" class="close-balloon">x</a>
+        <h4><?php echo $this->__("Shipping rates") ?></h4>
+        <div class="tooltip-text-desc">
+        <p><?php echo $this->__("Your shipping rate is listed on the checkout page and is based on your merchandise total and the country to which your order is shipping.") ?></p>
+        <p><?php echo $this->__("To determine the shipping rate for your order, see the charts bellow") ?></p>
+
+        <table id="tooltip-shipping-rates">
+            <tr class="table-sub-title">
+                <td colspan="4"><strong><?php echo $title . " " .$this->__("Shipping Rates:") ?></strong></td>
+            </tr>
+            <?php if (count($shippingRates)) { ?>
+                <tr>
+                    <td colspan="2"><strong><?php echo $this->__("Merchandise Total") ?></strong></td>
+                    <td colspan="2" class="td-right"><strong><?php echo $this->__("Shipping Rate") ?></strong></td>
+                </tr>
+                <?php foreach ($shippingRates as $rate) { ?>
+                    <tr>
+                        <td colspan="2"><?php echo sprintf("$%s %s",
+                                number_format($rate->getPriceFromValue(),2),
+                                ($rate->getPriceToValue()<90000) ?
+                                    "- $".number_format($rate->getPriceToValue(),2) :
+                                    "or more"
+                            ); ?>
+                        </td>
+                        <td colspan="2" class="td-right"><?php echo sprintf("$%s",number_format($rate->getPrice(),2)); ?></td>
+                    </tr>
+                <?php } ?>
+            <?php } ?>
+            <?php if (Mage::app()->getWebsite()->getName() == "US") { ?>
+                <tr class="table-sub-title">
+                    <td colspan="4"><strong><?php echo $this->__("International Shipping Rates:") ?></strong></td>
+                </tr>
+                <tr>
+                    <td><strong><?php echo $this->__("Merchandise Total") ?></strong></td>
+                    <td class="td-center"><strong><?php echo $this->__("Canada & Mexico") ?></strong></td>
+                    <td class="td-center"><strong><?php echo $this->__("Europe & Far East") ?></strong></td>
+                    <td class="td-center"><strong><?php echo $this->__("Other") ?></strong></td>
+                </tr>
+                <?php
+                $maxFirstColumn = 0;
+                $maxSecondColumn = 0;
+                $maxThirdColumn = 0;
+                $firstColumn = "";
+                $secondColumn = "";
+                $thirdColumn = "";
+                foreach ($internationalShippingRates as $internationalShippingRate) {
+                    $priceTo = (float)$internationalShippingRate->getPriceToValue();
+                    $priceFrom = (float)$internationalShippingRate->getPriceFromValue();
+                    $price = (float)$internationalShippingRate->getPrice();
+
+                    if ($maxFirstColumn && $maxSecondColumn && $maxThirdColumn) { // Three columns max were set.
+
+                        if ($maxFirstColumn == $priceTo) {
+                            $firstColumn .= '<td class="td-center">$'.intval($price,2).'</td>';
+                        } elseif ($maxSecondColumn == $priceTo) {
+                            $secondColumn .= '<td class="td-center">$'.intval($price,2).'</td>';
+                        } elseif ($maxThirdColumn == $priceTo) {
+                            $thirdColumn .= '<td class="td-center">$'.$price.'</td>';
+                        }
+
+                    } elseif ($maxFirstColumn && $maxSecondColumn) { // First and Second max were set.
+
+                        if ($maxFirstColumn == $priceTo) {
+                            $firstColumn .= '<td class="td-center">$'.intval($price,2).'</td>';
+                        } elseif ($maxSecondColumn == $priceTo) {
+                            $secondColumn .= '<td class="td-center">$'.intval($price,2).'</td>';
+                        } elseif (intval(round($maxSecondColumn),4) == $priceFrom) {
+                            $thirdColumn .= '<td>$'.intval(round($maxSecondColumn),2).' or more</td>';
+                            $thirdColumn .= '<td class="td-center">$'.intval($price,2).'</td>';
+                            $maxThirdColumn = $priceTo;
+                        }
+
+                    } elseif ($maxFirstColumn) { // Only First max was set.
+
+                        if ($maxFirstColumn == $priceTo) {
+                            $firstColumn .= '<td class="td-center">$'.intval($price,2).'</td>';
+                        } elseif (intval(round($maxFirstColumn),4) == $priceFrom) {
+                            $secondColumn .= '<td>$'.intval(round($maxFirstColumn),2).' - $'.intval($priceTo,2).'</td>';
+                            $secondColumn .= '<td class="td-center">$'.intval($price,2).'</td>';
+                            $maxSecondColumn = $priceTo;
+                        }
+
+                    } else { // Any max was set.
+
+                        $firstColumn .= '<td>Under $'.intval(round($priceTo),2).'</td>';
+                        $maxFirstColumn = $priceTo;
+                        $firstColumn .= '<td class="td-center">$'.intval($price,2).'</td>';
+
+                    }
+                } ?>
+                <tr>
+                    <?php echo $firstColumn; ?>
+                </tr>
+                <tr>
+                    <?php echo $secondColumn; ?>
+                </tr>
+                <tr>
+                    <?php echo $thirdColumn; ?>
+                </tr>
+            <?php } ?>
+        </table>
+        </div>
+    </div>
+</div>
+<?php } ?>

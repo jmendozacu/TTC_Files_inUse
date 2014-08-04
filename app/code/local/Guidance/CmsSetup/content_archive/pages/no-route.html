@@ -1,0 +1,25 @@
+ID:                 no-route
+Status:             published
+Title:              404 Not Found 1
+Layout:             one_column
+Stores:             default,uk_en, au_en
+Layout Update:      <xml><remove name="header"/><remove name="footer"/></xml>
+---
+<div class="simple-header">
+    <div class="logo-wrapper">
+        <a href="{{store url="/"}}" title="Magento Commerce" class="logo"><strong>Magento Commerce</strong><img src="{{skin url='images/logo.png'}}" alt="Magento Commerce"></a>
+    </div>
+</div>
+<div class="noroute-page-content">
+    <h1>Ooops.</h1>
+    <h3>Somewhere along your journey, the road broke away!</h3>
+    <div>We can't find the page you requested.</div>
+    <div class="block-404"></div>
+    <div class="search-block clearer">
+        <div class="label">Search for it!</div>
+        {{block type="core/template" name="top.search" as="topSearch"  template="catalogsearch/form.mini.phtml"}}
+    </div>
+    <div class="slider-block">
+        {{block type="tgc_cms/homepageCategory" name="noroute.category" as="norouteCategory"  title="Browse our content areas" template="cms/widget/norouteCategory.phtml"}}
+    </div>
+</div>

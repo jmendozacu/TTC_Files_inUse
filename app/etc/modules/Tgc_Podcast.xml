@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--
+/**
+ * Podcast
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Podcast
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_Podcast>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <RocketWeb_Podcast/>
+            </depends>
+        </Tgc_Podcast>
+    </modules>
+</config>

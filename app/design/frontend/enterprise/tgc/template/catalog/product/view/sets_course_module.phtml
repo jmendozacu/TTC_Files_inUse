@@ -1,0 +1,213 @@
+<?php
+/**
+ * Tgc Catalog
+ *
+ * @author      Guidance Magento SuperTeam <magento@guidance.com>
+ * @category    Tgc
+ * @package     Catalog
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+/* @var $this Tgc_Catalog_Block_Set */
+?>
+<?php
+    $outHelp = $this->helper('catalog/output');
+    $catHelp = $this->helper('tgc_catalog');
+    $imageHelper = $this->helper('catalog/image');
+    $product = $this->getProduct();
+    $helper = $this->helper('tgc_catalog');
+    $lectures = $this->helper('lectures')->getLecturesForProduct($product);
+    $brightcoveVideoBlock = $this->getLayout()->getBlock('tgc_productgallery.sets.video.brightcove');
+    $courses = $this->getCourses();
+?>
+<h1 class="hide-for-mobile">This <span class="sub-num"><?php echo count($courses); ?></span>-Course Set Includes:</h1>
+<div class="course-wrapper">
+    <ul class="course-list">
+        <?php $i = 0; ?>
+        <?php foreach ($courses as $course) :
+                  $i++;
+                  $lectures = $course->getLectures();
+                  $lectures->setOrder('lecture_number', Varien_Data_Collection::SORT_ORDER_ASC);
+                  $professors = (array)$catHelp->getProfessors($course); ?>
+
+        <li class="course-item">
+            <span class="course-quant show-for-mobile"><?php echo $this->__('Course %d of %d', $i, count($courses)) ?></span>
+            <div class="course-block">
+                <div class="course-promo-video grid12-4">
+                    <img src="<?php echo $imageHelper->init($course, 'image')->resize(530, 400); ?>" alt="<?php echo $this->escapeHtml($course->getName()) ?>" />
+                </div>
+                <?php if ($brightcoveVideoBlock): ?>
+                    <?php echo $brightcoveVideoBlock->setProduct($course)->toHtml(); ?>
+                <?php endif; ?>
+                <div class="course-content grid12-8">
+                    <div class="set-course-title">
+                        <span class="course-quant hide-for-mobile"><?php echo $this->__('Course %d of %d', $i, count($courses)) ?></span>
+                        <span class="hide-for-mobile">&nbsp;|&nbsp;</span>
+                        <span class="course-title"><a href="<?php echo $course->getProductUrl(); ?>" title="<?php echo $this->stripTags($course->getName(), null, true)?>"><?php echo $outHelp->productAttribute($course, $course->getName(), 'name') ?></a></span>
+                    </div>
+                    <?php if ($professors) : ?>
+                    <div class="professor-info">
+                        <?php if (count($professors) > 1): ?>
+                        <p class="prof"><?php echo $this->__('Taught By Multiple Professors'); ?></p>
+                        <?php else: ?>
+                        <p class="prof"><?php echo isset($professors[0]['name']) ? $professors[0]['name'] : ''; ?></p>
+                        <p class="prof_title"><?php echo isset($professors[0]['teaching']) ? $professors[0]['teaching'] : ''; ?> </p>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif;?>
+                    <div class="course_overview">
+                        <?php echo $outHelp->productAttribute($course, $course->getShortDescription(), 'short_description'); ?>
+                    </div>
+                </div>
+            </div>
+            <?php if (count($lectures)) : ?>
+            <div class="view-lecture-list"><?php echo $this->__('View Lecture List (%d)', count($lectures)) ?></div>
+            <div class="hide-lecture-list" style="display: none;"><?php echo $this->__('Hide Lecture List (%d)', count($lectures))?></div>
+            <div class="course-lecture-block">
+                <div class="lectures-container clearfix sets">
+                    <div class="lectures-container-title hide-for-mobile">
+                        <?php echo count($lectures) ?> Lectures
+                        <span>&nbsp;|&nbsp;</span>
+                        <span class="course-title"><?php echo $this->escapeHtml($outHelp->productAttribute($product, $product->getName(), 'name')) ?></span>
+                    </div>
+                    <div class="lectures-container-title show-for-mobile">
+                        <a class="close-button show-for-mobile" href="javascript:void(0)"></a>
+                        <?php echo $this->__('Lecture Titles') ?> (<?php echo count($lectures) ?>)
+                    </div>
+                    <ul class="lectures-list">
+                        <?php $li = $lectures->getIterator() ?>
+                        <?php for ($j = 0, $lecture = reset($li); $j < count($li) / 2; $j++, $lecture = next($li)) : ?>
+                            <li>
+                                <?php if (is_null($lecture->getDefaultCourseNumber())) { ?>
+                                    <div class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                                    <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                                    <div class="lecture-description-block right">
+                                        <?php echo $this->escapeHtml($lecture->getDescription()) ?>
+                                    </div>
+                                <?php } else { ?>
+                                    <a href="<?php echo Mage::helper('tgc_catalog')->getProductUrlFromCourseId($lecture->getDefaultCourseNumber()); ?>">
+                                        <div
+                                            class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                                        <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                                        <div class="lecture-description-block right">
+                                            <?php echo $this->escapeHtml($lecture->getDescription()) ?>
+                                        </div>
+                                    </a>
+                                <?php } ?>
+                            </li>
+                        <?php endfor; ?>
+                    </ul>
+                    <ul class="lectures-list">
+                        <?php for (; $lecture; $lecture = next($li)) : ?>
+                            <li>
+                                <?php if (is_null($lecture->getDefaultCourseNumber())) { ?>
+                                    <div class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                                    <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                                    <div class="lecture-description-block left">
+                                        <?php echo $this->escapeHtml($lecture->getDescription()) ?>
+                                    </div>
+                                <?php } else { ?>
+                                    <a href="<?php echo Mage::helper('tgc_catalog')->getProductUrlFromCourseId($lecture->getDefaultCourseNumber()); ?>">
+                                        <div
+                                            class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                                        <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                                        <div class="lecture-description-block left">
+                                            <?php echo $this->escapeHtml($lecture->getDescription()) ?>
+                                        </div>
+                                    </a>
+                                <?php } ?>
+                            </li>
+                        <?php endfor; ?>
+                    </ul>
+                </div>
+            </div>
+            <?php endif;?>
+        </li>
+        <?php endforeach; // foreach ($courses as $course)?>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    /*Code for showing more information about course*/
+    var viewMoreBtn = jQuery('.view-lecture-list'),
+        hideMoreBtn = jQuery('.hide-lecture-list'),
+        closeBtn = jQuery('.course-lecture-block').find('.close-button'),
+        lectureDesc = jQuery('.lectures-list li'),
+        customClickEvent,
+        customMousedownEvent;
+
+    if( (jQuery(window).width()<768 && navigator.userAgent.match(/Android/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/webOS/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/iPhone/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/iPad/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/iPod/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/BlackBerry/i)) ||
+        (jQuery(window).width()<768 && navigator.userAgent.match(/Windows Phone/i))
+        ) {
+        customClickEvent = 'touchend';
+        customMousedownEvent = 'touchstart';
+    } else {
+        customClickEvent = 'click';
+        customMousedownEvent = 'mousedown';
+    }
+
+    if( (jQuery(window).width()>768)) {
+        viewMoreBtn.each(function () {
+            jQuery(this).on('click', function () {
+                jQuery(this).parent('.course-item').find('.course-lecture-block').addClass('show').slideDown(500, function(){
+                    jQuery(this).parent('.course-item').find(viewMoreBtn).hide();
+                    jQuery(this).parent('.course-item').find(hideMoreBtn).show();
+                });
+            });
+        });
+        hideMoreBtn.each(function () {
+            jQuery(this).on('click', function () {
+                jQuery(this).parent('.course-item').find('.course-lecture-block').removeClass('show').slideUp(500, function(){
+                    jQuery(this).parent('.course-item').find(viewMoreBtn).show();
+                    jQuery(this).parent('.course-item').find(hideMoreBtn).hide();
+                });
+            });
+        });
+    }
+    else {
+        viewMoreBtn.each(function () {
+            jQuery(this).on('click', function () {
+                jQuery(this).parent('.course-item').find('.course-lecture-block').animate(
+                    {left: 0},
+                    300,
+                    function(){
+                    jQuery(this).parent('.course-item').find(viewMoreBtn).hide();
+                    jQuery(this).parent('.course-item').find(hideMoreBtn).show();
+                });
+                jQuery('#mobile-nav-header').css('z-index', '0');
+                jQuery('.footer-container').hide();
+
+            });
+        });
+        closeBtn.each(function () {
+            jQuery(this).on('click', function () {
+                jQuery(this).parents('.course-item').find('.course-lecture-block').animate(
+                    {left: '-100%'},
+                    300,
+                    function(){
+                        jQuery(this).parent('.course-item').find(viewMoreBtn).show();
+                        jQuery(this).parent('.course-item').find(hideMoreBtn).hide();
+                });
+                jQuery('#mobile-nav-header').css('z-index', '1000000');
+                jQuery('.footer-container').show();
+            });
+        });
+
+        lectureDesc.each(function () {
+            jQuery(this).on('click', function () {
+                if(!jQuery(this).hasClass('active')) {
+                    lectureDesc.removeClass('active');
+                    jQuery(this).addClass('active');
+                } else {
+                    jQuery(this).removeClass('active');
+                }
+            });
+        });
+
+    }
+
+</script>

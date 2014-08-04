@@ -1,0 +1,67 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: aborria
+ * Date: 13/02/14
+ * Time: 17:02
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<div class="partner_page">
+    <div class="partner_content">
+        <div class="partner_products">
+            <table>
+                <colgroup>
+                    <col width="1"/>
+                    <col/>
+                </colgroup>
+                <?php for ($i = 1; $i <= 3; $i++): ?>
+                    <tr>
+                        <td>
+                            <div class="pp_image_cont">
+                                <img src="<?php echo $this->getSkinUrl('images/partners/national-geographic/partner_product.png') ?>"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="pp_info_container">
+                                <div class="clearfix">
+                                    <div class="pp_information">
+                                        <h3><?php echo $this->__('Fundamentals of Photography'); ?></h3>
+                                        <span><?php echo $this->__('Joel Sartore'); ?></span>
+                                    </div>
+                                    <div class="pp_price_rank">
+                                        <div class="recomendation_stars">
+                                            <img src="<?php echo $this->getSkinUrl('images/yellow_star.png') ?>"/>
+                                            <img src="<?php echo $this->getSkinUrl('images/yellow_star.png') ?>"/>
+                                            <img src="<?php echo $this->getSkinUrl('images/yellow_star.png') ?>"/>
+                                            <img src="<?php echo $this->getSkinUrl('images/yellow_star.png') ?>"/>
+                                            <img src="<?php echo $this->getSkinUrl('images/gray_star.png') ?>"/>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="price-box">
+                                            <p class="old-price">
+                                                <span class="price-label">Price:</span>
+                                                <span class="price" id="old-price-269">$75.00</span>
+                                            </p>
+
+                                            <p class="special-price">
+                                                <span class="price-label">Special Price</span>
+                                                <span class="price" id="product-price-269">$60.00</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pp_description">
+                                    <?php echo $this->__('Take beautiful and inspiring photos by learning to “see” like a professional photographer. Taught by an award-winning National Geographic photographer, Fundamentals of Photography is a thorough and easy-to-follow guide that presents tips and techniques guaranteed to improve your photography skills.'); ?>
+                                </p>
+                                <button type="submit" name="" value="" title="<?php echo $this->__('Learn More'); ?>" class="button"><span><span><?php echo $this->__('Learn More'); ?></span></span></button>
+                            </div>
+                        </td>
+                    </tr>
+                <?php endfor; ?>
+            </table>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

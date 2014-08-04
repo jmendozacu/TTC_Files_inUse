@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Guidance Magento Team <magento@guidance.com>
+  - Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+  -->
+
+<config>
+    <menu>
+        <cms>
+            <children>
+                <professors translate="title" module="profs">
+                    <title>Professors</title>
+                    <action>adminhtml/professor</action>
+                    <sort_order>50</sort_order>
+                </professors>
+                <institution translate="title" module="profs">
+                    <title>Institutions</title>
+                    <action>adminhtml/institution</action>
+                    <sort_order>60</sort_order>
+                </institution>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <cms>
+                        <children>
+                            <professors>
+                                <title>Manage Professors</title>
+                                <sort_order>110</sort_order>
+                            </professors>
+                            <institution>
+                                <title>Manage Institutions</title>
+                                <sort_order>120</sort_order>
+                            </institution>
+                        </children>
+                    </cms>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

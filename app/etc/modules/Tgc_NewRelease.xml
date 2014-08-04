@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * New Releases page module's config
+ *
+ * @author      Guidance Magento Team <magento@guidance.com>
+ * @category    Tgc
+ * @package     Tgc_Tgc_NewRelease
+ * @copyright   Copyright (c) 2013 Guidance Solutions (http://www.guidance.com)
+ */
+-->
+<config>
+    <modules>
+        <Tgc_NewRelease>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Enterprise_Search/>
+                <Tgc_Solr/>
+                <Tgc_Catalog/>
+                <Mana_Filters/>
+            </depends>
+        </Tgc_NewRelease>
+    </modules>
+</config>

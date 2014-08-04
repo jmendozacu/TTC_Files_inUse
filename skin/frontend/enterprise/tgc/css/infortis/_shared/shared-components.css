@@ -1,0 +1,1051 @@
+/*** BEGINS generic-cck.css ***/
+
+/**
+ * Theme Content Construction Kit
+ */
+/* Layout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* Vertically centered content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.v-centered-content {
+    display:table;
+}
+.v-centered-content .v-center {
+    display:table-cell;
+    vertical-align:middle;
+}
+
+
+/* Heading of a content section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.section-title { clear:both; margin:0; display:block; }
+.section-title.padding-right { padding-right:80px !important; }
+
+/* Horizontal line */
+.section-line {
+    clear:both;
+    display:block;
+    font-size:0;
+    line-height:0;
+    height:0;
+    margin:0 0 10px;
+    padding:10px 0 0;
+    background:none;
+    border-bottom:1px solid #e5e5e5;
+    text-indent:-9999em;
+    overflow:hidden;
+}
+
+
+/* Custom sidebars
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.custom-sidebar-right { float:right !important; }
+.custom-sidebar-right .inner {
+    padding-left:10px;
+    border-left:1px solid #e5e5e5;
+}
+
+.custom-sidebar-left { float:left !important; }
+.custom-sidebar-left .inner {
+    padding-right:10px;
+    border-right:1px solid #e5e5e5;
+}
+
+
+
+/* Vertical links %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+.links > li,
+.links > li > a { line-height:3em; } /* line-height:36px; */ /*2.6666em = 32px;*/
+.links > li > a { padding:0 0.5833em; } /* padding:0 7px; */
+.links > li.label { padding-right:0.5833em; } /* 7px */
+
+/* Basic links, no separators
+-------------------------------------------------------------- */
+.links > li { float:left; }
+.links > li > a { display:block; }
+
+/* Links with separators (at the right side)
+-------------------------------------------------------------- */
+.show-separators .links > li { margin-left:-1px; }
+.show-separators .links > li > a {
+    background-image:url(../../../images/img/link-separator.png);
+    background-position:right center;
+    background-repeat:no-repeat;
+}
+.show-separators .links > li.last > a { background-image:none; }
+.show-separators .links > li.hide-separator > a { background-image:none; }
+.show-separators .links > li.separator-left > a { background-position:left center; }
+
+/* Links with separators (at the left side)
+-------------------------------------------------------------- */
+.show-separators-left .links > li { margin-left:-1px; }
+.show-separators-left .links > li > a {
+    background-image:url(../../../images/img/link-separator.png);
+    background-position:left center;
+    background-repeat:no-repeat;
+}
+.show-separators-left .links > li.first > a { background-image:none; }
+.show-separators-left .links > li.hide-separator > a { background-image:none; }
+.show-separators-left .links > li.separator-right > a { background-position:right center; }
+
+
+
+
+/* Misc %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* Link with an arrow */
+a.go {
+    background:url(../../../images/infortis/_shared/cck/bullet.png) 97% 50% no-repeat;
+    padding-right:17px;
+    display:inline !important;
+}
+/*** ENDS generic-cck.css ***/
+
+/*** BEGINS accordion.css **/
+/*
+ * Accordions and collapsible blocks
+ */
+
+
+
+/* Accordion  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+.accordion {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+.accordion ul {
+    float:left;
+    display:block;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+.accordion li {
+    float:left;
+    display:block;
+    width:100% !important;
+    padding:0 !important;
+    margin:0;
+    list-style-type:none;
+    cursor:pointer;
+    position:relative;
+}
+
+.accordion li a {
+    display:block;
+    padding:15px 10px;
+    font-size:1.3333em; /*16px*/
+    line-height:1.125em; /*18px*/
+}
+.accordion li li a { padding-left:20px; }
+.accordion li li li a { padding-left:40px; }
+.accordion li li li li a { padding-left:60px; }
+
+/* Space for openner if item has children.
+   Space has to be a few pixels wider than openner */
+.accordion li.parent > a { padding-right:54px; }
+
+/* Opener
+-------------------------------------------------------------- */
+.accordion .opener {
+    position:absolute;
+    right:0;
+    top:0;
+    display:block;
+    cursor:pointer;
+
+    width:49px;
+    height:49px;
+    background: url(../../../images/infortis/ultra-megamenu/opener.png) center center no-repeat;
+}
+.accordion .opener:hover {
+    background-color:rgba(0,0,0, 0.05);
+}
+
+/* Active */
+.accordion li.active > .opener {
+    background-image:url(../../../images/infortis/ultra-megamenu/opener-active.png);
+}
+
+
+/* Accordion - Style 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+/* Padding
+-------------------------------------------------------------- */
+.accordion-style1 li a { padding:5px 10px; }
+.accordion-style1 li li a { padding-left:20px; }
+.accordion-style1 li li li a { padding-left:35px; }
+.accordion-style1 li li li li a { padding-left:50px; }
+
+/* Space for openner if item has children.
+   Space has to be a few pixels wider than openner */
+.accordion-style1 li.parent > a { padding-right:33px; }
+
+/* Misc
+-------------------------------------------------------------- */
+.accordion-style1 li a {
+    border-bottom-color:#eee;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+    font-size:1em; /*12px*/
+    line-height:1.5em; /*18px*/
+}
+.accordion-style1 li a:hover {
+    background-color:rgba(0,0,0, 0.03);
+}
+
+/* Opener
+-------------------------------------------------------------- */
+.accordion-style1 .opener {
+    width:28px;
+    height:28px;
+    /*background-image:url(../../../images/infortis/ultra-megamenu/opener-small.png);*/
+    background-color:rgba(0,0,0, 0.03);
+}
+.accordion-style1 .opener:hover { background-color:rgba(0,0,0, 0.10); }
+
+/* Active */
+.accordion-style1 li.active > .opener {
+    /*background-image:url(../../../images/infortis/ultra-megamenu/opener-small-active.png);*/
+}
+
+
+
+/* Collapsible %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+.collapsible { position:relative; }
+.collapsible .block-title {
+    padding-top:8px;
+    padding-right:35px; /* Space for opener */
+    padding-bottom:8px;
+    border-bottom:1px solid #f2f2f2;
+    border-color:rgba(0,0,0, 0.05);
+    margin-bottom:0.625em; /*10px*/
+
+    font-size:1.3333em; /*16px*/
+    line-height:1.25em; /*20px*/
+    font-weight:normal;
+}
+
+.collapsible .block-content,
+.collapsible .block-content > * {
+    margin-top:0; /* Prevent animation jumping */
+}
+
+/* Opener
+-------------------------------------------------------------- */
+.collapsible .opener {
+    position:absolute;
+    right:0;
+    top:2px;
+    display:block;
+    cursor:pointer;
+
+    width:30px;
+    height:30px;
+    background-color:#f2f2f2; /*IE*/
+    background-color:rgba(0,0,0, 0.05);
+    background-image:url(../../../images/infortis/ultra-megamenu/opener.png);
+    background-position:center center;
+    background-repeat:no-repeat;
+    /*border-radius:50%;*/
+}
+.collapsible .opener:hover {
+    background-color:#e5e5e5; /*IE*/
+    background-color:rgba(0,0,0, 0.1);
+}
+.collapsible.active .opener {
+    background-image:url(../../../images/infortis/ultra-megamenu/opener-active.png);
+}
+/** ENDS accordion.css **/
+
+/** BEGINS dropdown.css **/
+/**
+ * Drop-down
+ */
+
+
+
+/* Dropdown box %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+.dropdown { position:relative; }
+.dropdown:hover { z-index:4000; }
+
+/* Dropdown toggle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.dropdown-toggle {
+    display:block;
+}
+
+/* Inside Dropdown-toggle
+-------------------------------------------------------------- */
+.dropdown-toggle * { display:inline-block; }
+.dropdown-toggle .label { padding-right:2px; }
+.dropdown-toggle .dropdown-icon {
+    width:18px;
+    text-indent:-9999px;
+    background-position:0 50%;
+    background-repeat:no-repeat;
+}
+.dropdown-toggle .img-caret {
+    background:url(../../../images/infortis/_shared/dropdown/arrow-dropdown.png) 100% 50% no-repeat;
+    width:10px;
+    text-indent:-9999px;
+}
+
+/* Predefined icons
+-------------------------------------------------------------- */
+.dropdown-toggle .icon.first { margin-left:-5px; }
+.dropdown-toggle .icon.close-to-text { margin-right:-8px; }
+
+/* Fix positioning of icon */
+.dropdown-toggle .icon { padding:0; width:36px; height:36px; }
+
+
+/* Cover 'dropdown-toggle' (and 'dropdown-menu' shadow) with additional inner div
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.dropdown-toggle.cover > div {
+    cursor: pointer;
+    margin: 0px;
+    padding: 0 10px 0 13px;
+}
+.open > .dropdown-toggle.cover > div { background-color: #30424D; }
+/*.dropdown:hover .dropdown-toggle.cover > div,*/
+.open > .dropdown-toggle.cover > div,
+.wishlist-index-index #mini-wishlist .dropdown-toggle > div,
+.checkout-cart-index #mini-cart .dropdown-toggle > div {
+    z-index:4001;
+    position:relative;
+    background: no-repeat scroll 94% 9px #151e23;
+    box-shadow: 0 2px 5px #000000 inset;
+    -webkit-box-shadow: 0 2px 5px #000000 inset;
+    moz-box-shadow: 0 2px 5px #000000 inset;
+}
+
+
+/* Dropdown menu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.dropdown-menu {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    z-index:4000;
+    padding:20px;
+    min-width:130px;
+    line-height:1.5em;
+    text-align:left;
+
+    list-style:none;
+    background-color:#fff;
+}
+.dropdown-menu.left-hand {
+    left:auto;
+    right:0;
+}
+
+/* When dropdown menu is an unordered list
+-------------------------------------------------------------- */
+/* Everything is inline-block, except links */
+.dropdown-menu > li * { display:inline-block; }
+.dropdown-menu > li > a { display:block; }
+
+.dropdown-menu > li { white-space:nowrap; }
+.dropdown-menu > li .label { margin-right:8px; }
+.dropdown-menu .dropdown-icon {
+    width:18px;
+    text-indent:-9999px;
+    background-position:0 50%;
+    background-repeat:no-repeat;
+}
+
+/** ENDS dropdown.css **/
+
+/** BEGINS generic-nav.css **/
+/**
+ * Generic interface elements
+ */
+
+
+
+/* Simple directional arrows
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+.gen-direction-arrows1 a.previous,
+.gen-direction-arrows1 a.next {
+    display:block;
+    width:30px;
+    height:30px;
+    background-image:url(../../../images/infortis/_shared/slider-arrows.png);
+    background-repeat:no-repeat;
+    background-color:#e5e5e5;
+    transition:			background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -moz-transition:	background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -webkit-transition:	background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -o-transition:		background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+}
+
+.gen-direction-arrows1 a.previous { background-position:-10px -10px; }
+.gen-direction-arrows1 a.previous:hover { background-position:-10px -60px; background-color:#333; }
+
+.gen-direction-arrows1 a.next { background-position:-60px -10px; }
+.gen-direction-arrows1 a.next:hover { background-position:-60px -60px; background-color:#333; }
+
+
+/* Generic arrows 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+/* Default style: small, outside the slider
+-------------------------------------------------------------- */
+.direction-nav li { float:left; list-style: none; }
+ul.direction-nav a {
+    display:block;
+    width:45px;
+    height:286px;
+    background: transparent url(../../../images/tgc/sprite.png) no-repeat;
+    cursor:pointer;
+    text-decoration:none;
+    text-indent:-999px;
+    color: transparent;
+    text-indent: -99999px;
+}
+
+ul.direction-nav a:hover,
+ul.direction-nav a,
+ul.direction-nav a.disabled:hover{ background-color: transparent; color: transparent; }
+.direction-nav a.disabled { opacity:0.4; filter:alpha(opacity=40); cursor:default; }
+
+.direction-nav .prev { background:url(../../../images/tgc/left-carousel-shelf.png); position: absolute; left: -19px; top: 10px;  z-index: 10; }
+.itemslider-wrapper ul.direction-nav .prev.disabled,
+.itemslider-wrapper ul.direction-nav .next.disabled { background: url(../../../images/tgc/sprite.png); height: 25px; width: 17px; margin-top: 116px; top: 0;}
+.itemslider-wrapper ul.direction-nav .prev.disabled { background-position:0 -185px; /* Same as default */ }
+
+.direction-nav .next { background:url(../../../images/tgc/right-carousel-shelf.png); position: absolute; top: 10px; right: -19px; z-index: 10; }
+
+.itemslider-wrapper ul.direction-nav .next.disabled { background-position:-21px -185px; }
+
+/* Positioning:
+-------------------------------------------------------------- */
+.gen-slider-arrows1-pos-top-right .direction-nav {  }
+.gen-slider-arrows1-pos-top-left .direction-nav { position:absolute; top:-40px; left:0; }
+
+
+/* Generic arrows 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+/* Default style: large, on slider, split
+-------------------------------------------------------------- */
+.gen-slider-arrows2 .direction-nav { height:0; }
+.gen-slider-arrows2 .direction-nav a {
+    position:absolute;
+    display:block;
+    width:50px;
+    height:50px;
+    background-image:url(../../../images/infortis/_shared/slider-arrows.png);
+    background-repeat:no-repeat;
+    background-color:#fff;
+    cursor:pointer;
+    text-decoration:none;
+    text-indent:-999px;
+    overflow:hidden;
+    transition:			opacity 600ms ease-in-out, background-color 150ms ease-in-out, background-position 300ms ease-in-out;
+    -moz-transition:	opacity 600ms ease-in-out, background-color 150ms ease-in-out, background-position 300ms ease-in-out;
+    -webkit-transition:	opacity 600ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -o-transition:		opacity 600ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+.gen-slider-arrows2:hover .direction-nav a { opacity:1; filter:alpha(opacity=100); }
+.gen-slider-arrows2:hover .direction-nav a.disabled { opacity:0.4; filter:alpha(opacity=40); }
+
+.gen-slider-arrows2 .direction-nav a:hover { background-color:#333; }
+.gen-slider-arrows2 .direction-nav a.disabled { cursor:default; }
+.gen-slider-arrows2 .direction-nav a.disabled:hover { background-color:#fff; /* Must be the same as default color */ }
+
+.gen-slider-arrows2 .direction-nav .prev { background-position:0 0; left:1.5%; top:45%; }
+.gen-slider-arrows2 .direction-nav .prev:hover { background-position:0 -50px; }
+.gen-slider-arrows2 .direction-nav .prev.disabled:hover { background-position:0 0; }
+
+.gen-slider-arrows2 .direction-nav .next { background-position:-50px 0; right:1.5%; top:45%; }
+.gen-slider-arrows2 .direction-nav .next:hover { background-position:-50px -50px; }
+.gen-slider-arrows2 .direction-nav .next.disabled:hover { background-position:-50px 0; /* Same as default */ }
+
+
+/* Default style: at the left and the right side of the slider
+-------------------------------------------------------------- */
+.gen-slider-arrows3 .direction-nav a {
+    position:absolute;
+    display:block;
+    width:30px;
+    height:30px;
+    margin: 0px!important;
+    background-image:url(../../../images/infortis/_shared/slider-arrows.png)!important;
+    background-repeat:no-repeat;
+    background-color:#fff;
+    cursor:pointer;
+    text-decoration:none;
+    text-indent:-999px;
+    overflow:hidden;
+    /*transition:			opacity 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -moz-transition:	opacity 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -webkit-transition:	opacity 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -o-transition:		opacity 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;*/
+}
+
+/*.gen-slider-arrows3 .direction-nav a:hover { background-color:#333; }*/
+.gen-slider-arrows3 .direction-nav a.disabled { opacity:0.4; filter:alpha(opacity=40); cursor:default; }
+.gen-slider-arrows3 .direction-nav a.disabled:hover { background-color:#fff; /* Must be the same as default color */ }
+
+.gen-slider-arrows3 .direction-nav .prev { background-position:-15px -168px; top:35px; left:-32px; }
+.gen-slider-arrows3 .direction-nav .prev:hover { background-position:-15px -168px; background-color: transparent }
+.gen-slider-arrows3 .direction-nav .prev.disabled { background-position:-15px -123px; /* Same as default */ }
+
+.gen-slider-arrows3 .direction-nav .next { background-position:-56px -168px; background-color: transparent; top:35px; right:-32px; }
+.gen-slider-arrows3 .direction-nav .next:hover { background-position:-56px -168px;  background-color: transparent;}
+.gen-slider-arrows3 .direction-nav .next.disabled { background-position:-56px -123px; /* Same as default */ }
+
+
+/* Style: long (high) buttons
+-------------------------------------------------------------- */
+.gen-slider-arrows3-style1 .direction-nav a { height:75px; }
+.gen-slider-arrows3-style1 .direction-nav .prev { background-position:-10px 13px; top:0; left:-32px; }
+.gen-slider-arrows3-style1 .direction-nav .prev:hover { background-position:-10px -37px; }
+.gen-slider-arrows3-style1 .direction-nav .prev.disabled:hover { background-position:-10px 13px; /* Same as default */ }
+
+.gen-slider-arrows3-style1 .direction-nav .next { background-position:-60px 13px; top:0; right:-32px; }
+.gen-slider-arrows3-style1 .direction-nav .next:hover { background-position:-60px -37px; }
+.gen-slider-arrows3-style1 .direction-nav .next.disabled:hover { background-position:-60px 13px; /* Same as default */ }
+
+
+/* Generic pager
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+/* Default style:
+-------------------------------------------------------------- */
+.gen-slider-pager1 .control-nav { text-align:center; }
+.gen-slider-pager1 .control-nav li { float:left; margin-left:3px; }
+.gen-slider-pager1 .control-nav li:first-child { margin-left:0; }
+
+.gen-slider-pager1 .control-nav a {
+    display:block;
+    width:20px;
+    height:20px;
+    background-image:url(../../../images/infortis/_shared/pager.png);
+    background-repeat:no-repeat;
+    background-color:transparen;
+    cursor:pointer;
+    text-decoration:none;
+    text-indent:-999px;
+    overflow:hidden;
+}
+.gen-slider-pager1 .control-nav a:hover { background-position:0 -60px; }
+.gen-slider-pager1 .control-nav a.active { background-position:0 -30px; cursor:default; }
+
+/* Style: small
+-------------------------------------------------------------- */
+.gen-slider-pager1-style1 .control-nav li { margin-left:0; }
+.gen-slider-pager1-style1 .control-nav a { background-image:url(../../../images/infortis/_shared/pager-small.png); }
+
+
+/* Positioning:
+-------------------------------------------------------------- */
+.gen-slider-pager1-pos-bottom-right .control-nav { position:absolute; bottom:4.4526%; right:1.5%; }
+.gen-slider-pager1-pos-bottom-left .control-nav { position:absolute; bottom:4.4526%; left:1.5%; }
+
+/* Additional pager positioning for slider-arrows1 */
+.gen-slider-arrows1-pos-top-right-pager .control-nav { position:absolute; top:-33px; right:71px; }
+
+/** ENDS generic-nav.css **/
+
+/** BEGINS icons.css **/
+/**
+ * Icons and "feature" box
+ */
+
+
+
+/* Icon %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+div.icon, /*backward compatibility*/
+span.icon {
+    background-color:#999;
+    background-position:0 0;
+    background-repeat:no-repeat;
+    border-radius:50%;
+
+    display:inline-block;
+    width:30px;
+    height:30px;
+    padding:3px;
+}
+div.icon.large, /*backward compatibility*/
+span.icon.large {
+    width:50px;
+    height:50px;
+    padding:5px;
+}
+
+/* Hover */
+.icon-hover:hover /* Info: was more specific: span.icon-hover:hover */
+{
+    background-color:#333;
+}
+
+/* Utility classes
+-------------------------------------------------------------- */
+/* Icon without background color */
+.icon.no-bg-color { background-color:transparent; }
+
+/* Auto-size */
+.icon.auto-size { width:auto; max-width:none; height:auto; max-height:none; }
+
+/* Not rounded */
+.icon-wrapper-square span.icon,
+.icon.square { border-radius:0; }
+
+
+
+/* Feature - box with icons, images, text etc. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+/* Basic styles */
+.feature { margin:10px 0; }
+.feature:after { display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+.feature.first { margin-top:0; }
+.feature.last { margin-bottom:0; }
+
+/* With top/bottom border line */
+.feature.top-border { border-top:1px solid #f5f5f5; padding-top:10px; }
+.feature.bottom-border { border-bottom:1px solid #f5f5f5; padding-bottom:10px; }
+
+/* Wrapper with top/bottom line
+-------------------------------------------------------------- */
+.feature-wrapper.top-border {
+    border-top:1px solid #f5f5f5;
+    margin-top:20px;
+    padding-top:20px;
+}
+.feature-wrapper.bottom-border {
+    border-bottom:1px solid #f5f5f5;
+    margin-bottom:20px;
+    padding-bottom:20px;
+}
+
+
+/* Feature headings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.feature .heading {
+    font-size:1.3333em; /*16px*/
+    line-height:1.25em; /*20px*/
+    margin-bottom:0.625em; /*10px*/
+    font-weight:normal;
+}
+.feature .above-heading {
+    margin:0 0 5px;
+    font-size:11px;
+    line-height:1.4545em; /*16px*/
+    text-transform:uppercase;
+    color:#888;
+}
+.feature .below-heading {
+    font-size:1em;
+    font-style:italic;
+    line-height:1.3333em; /*16px*/
+    color:#888;
+}
+
+
+/* Feature icons
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.feature .icon { float:left; }
+
+/* Feature icons vertically centered */
+.feature.v-centered-content .v-center .icon {
+    margin:0 5px 0 0;
+}
+
+/* Feature icons styles: */
+
+/* Default icon
+-------------------------------------------------------------- */
+.feature .icon { margin:0 15px 10px 0; max-width:30px; max-height:30px; }
+.feature span.icon { padding:3px; }
+
+/* Small icon
+-------------------------------------------------------------- */
+.feature.small .icon { margin:0 10px 10px 0; max-width:18px; max-height:18px; }
+.feature.small span.icon { padding:0; }
+
+/* Small icon: icons with predefined background image */
+.feature.small span.icon.list1 {
+    background-image:url(../../../images/infortis/_shared/cck/list/list1.png);
+    width:18px; height:18px;
+}
+.feature.small span.icon.list2 {
+    background-image:url(../../../images/infortis/_shared/cck/list/list2.png);
+    width:18px; height:18px;
+}
+
+/* Large icon
+-------------------------------------------------------------- */
+.feature.large .icon { margin:0 15px 10px 0; max-width:50px; max-height:50px; }
+.feature.large span.icon { padding:5px; }
+
+
+/* Indented feature
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.feature.indent .icon { margin-bottom:0; }
+
+/* Default
+-------------------------------------------------------------- */
+.feature.indent { padding-left:51px; }
+.feature.indent .icon { margin-left:-51px; }
+
+/* Small
+-------------------------------------------------------------- */
+.feature.small.indent { padding-left:28px; }
+.feature.small.indent .icon { margin-left:-28px; }
+
+/* Large
+-------------------------------------------------------------- */
+.feature.large.indent { padding-left:75px; }
+.feature.large.indent .icon { margin-left:-75px; }
+
+
+
+/* Transitions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
+
+span.icon-hover,
+.feature-icon-hover span.icon
+{
+    transition:			color 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -moz-transition:	color 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -webkit-transition:	color 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+    -o-transition:		color 300ms ease-in-out, background-color 300ms ease-in-out, background-position 300ms ease-in-out;
+}
+/** ENDS icons.css **/
+
+/** BEGINS itemgrid.css **/
+/**
+ * Itemgrid
+ */
+
+
+
+.itemgrid .item {
+    float:left;
+    padding-left:1%;
+    padding-right:1%;
+}
+
+
+/* Itemgrid: different numbers of columns
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+/* Clear every first item in each row (row: group of n items) */
+
+/* Item grid: 1 column */
+.itemgrid-1col .item { width:98%; }
+
+/* Item grid: 2 columns */
+.itemgrid-2col .item { width:48%; }
+.itemgrid-2col .item:nth-child(2n+1) { clear:left; }
+
+/* Item grid: 3 columns */
+.itemgrid-3col .item { width:31.333%; } /*max-width:233px;*/
+.itemgrid-3col .item:nth-child(3n+1) { clear:left; }
+
+/* Item grid: 4 columns */
+.itemgrid-4col .item { width:23%; } /*max-width:175px;*/
+.itemgrid-4col .item:nth-child(4n+1) { clear:left; }
+.itemgrid-4col .item.dop { width:48%; }
+
+/* Item grid: 5 columns */
+.itemgrid-5col .item { width:18%; } /*max-width:140px;*/
+.itemgrid-5col .item:nth-child(5n+1) { clear:left; }
+.itemgrid-5col .item.dop { width:38%; }
+
+/* Item grid: 6 columns */
+.itemgrid-6col .item { width:14.66%; } /*max-width:116px;*/ /*TODO: was: 14.667%*/
+.itemgrid-6col .item:nth-child(6n+1) { clear:left; }
+.itemgrid-6col .item.dop { width:29.32%; }
+
+/* Item grid: 7 columns */
+.itemgrid-7col .item { width:12.286%; }
+.itemgrid-7col .item:nth-child(7n+1) { clear:left; }
+
+/** ENDS itemgrid.css **/
+
+/** BEGINS itemslider.css **/
+/**
+ * Itemslider
+ */
+
+
+
+/* Necessary styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.itemslider {margin: 0; padding: 0;}
+.itemslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.itemslider .slides img {max-width: 100%; display: block;}
+.pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.itemslider .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .itemslider .slides {display: block; }
+* html .itemslider .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .itemslider .slides > li:first-child {display: block;}
+
+
+/* Itemslider styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+/* Itemslider wrapper and navigation container */
+.itemslider-wrapper{ position: relative; max-width: 900px; margin: auto; }
+.itemslider-wrapper .nav-wrapper { position: absolute; top: 37%; width: 100%; }
+
+/* Style: default
+-------------------------------------------------------------- */
+.itemslider { margin:0 auto; position:relative; zoom:1; }
+.itemslider-wrapper,
+.itemslider-wrapper .itemslider,
+.itemslider-wrapper .viewport,
+.itemslider .slides,
+.itemslider .slides > li{
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.itemslider .slides,
+.itemslider-wrapper .viewport {
+    -webkit-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.itemslider .slides {
+    position: relative;
+    /*transition-timing-function: cubic-bezier(.17,.8,.02,.95);
+    -moz-transition-timing-function: cubic-bezier(.17,.8,.02,.95); *//* Firefox 4 *//*
+    -webkit-transition-timing-function: cubic-bezier(.17,.8,.02,.95); *//* Safari and Chrome *//*
+    -o-transition-timing-function: cubic-bezier(.17,.8,.02,.95);*/
+}
+.itemslider .slides .product-image img { margin:0 auto; /* To center image which has "display:block" */ }
+
+/* Style: horizontal
+-------------------------------------------------------------- */
+.itemslider-horizontal { margin:0 auto; }
+.itemslider-horizontal .slides > li {
+    max-width: 160px!important;
+    padding: 20px 10px;
+}
+
+.itemslider-horizontal .slides > li a {
+    float: none;
+    display: block;
+}
+
+.itemslider-horizontal .slides > li a:hover {
+    text-decoration: none;
+}
+
+/* Itemslider mode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+/* Quantized number of visible items
+-------------------------------------------------------------- */
+.itemslider-x			{ max-width:940px; }
+.itemslider-x.count-1	{ max-width:188px; } /*1*/
+.itemslider-x.count-2	{ max-width:376px; } /*2*/
+.itemslider-x.count-3	{ max-width:564px; } /*3*/
+.itemslider-x.count-4	{ max-width:752px; } /*4*/
+.itemslider-x.count-5	{ max-width:940px; } /*5*/
+.itemslider-x.count-6	{ max-width:1128px; } /*6*/
+.itemslider-x.count-7	{ max-width:1316px; } /*7*/
+.itemslider-x.count-8	{ max-width:1504px; } /*8*/
+
+/* If slider is inside columns */
+
+/* Inside main column in 2-col layout */
+.in-col2 .itemslider-x .slides > li { width:155px !important; }
+.in-col2 .itemslider-x { max-width:700px; } /*4*/
+
+/* Inside main column in 3-col layout */
+.in-col3 .itemslider-x .slides > li { width:134px !important; }
+.in-col3 .itemslider-x { max-width:462px; } /*3*/
+
+/* In sidebar */
+.in-sidebar .itemslider-x .slides > li { width:168px !important; }
+.in-sidebar .itemslider-x { max-width:188px; } /*1*/
+
+
+/* Direction navigation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.itemslider .direction-nav { height:0; text-align:center; }
+
+
+/* Utility classes
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.itemslider.hide-direction-nav .direction-nav { display:none; }
+.itemslider.hide-control-nav .control-nav { display:none; }
+
+/** ENDS itemslider.css **/
+
+/** BEGINS tabs.css **/
+/**
+ * Generic tabs
+ */
+
+
+
+/* Basic styles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+
+/* Tabs
+-------------------------------------------------------------- */
+/* Total height of the tab bar should be the same as in block titles */
+.gen-tabs .tabs li { float:left; margin:0; }
+.gen-tabs .tabs a {
+    display:block;
+    padding:0 10px;
+    text-decoration:none;
+    outline:none;
+}
+
+/* Tab panels
+-------------------------------------------------------------- */
+.gen-tabs .tabs-panels { padding:15px 0; }
+
+/* Accordion
+-------------------------------------------------------------- */
+.gen-tabs .acctab {
+    display:none;
+    padding:0 0.5em;
+    margin-bottom:1px;
+    font-weight:normal;
+}
+.gen-tabs .acctab:hover { cursor:pointer; }
+
+/* Accordion mode enabled */
+.gen-tabs.accor .tabs { display:none; }
+.gen-tabs.accor .acctab { display:block; }
+.gen-tabs.accor .tabs-panels { padding-top:0; }
+.gen-tabs.accor .tabs-panels .panel { display:none; margin:0 0 10px; padding:20px; }
+
+
+/* Default skin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.gen-tabs .tabs a {
+    color:#333;
+    background-color:#eee;
+    line-height:3em;
+}
+.gen-tabs .tabs a:hover,
+.gen-tabs .tabs a:focus   { background-color:#e5e5e5; }
+.gen-tabs .tabs a.current { background-color:#ddd; }
+
+/* Accordion
+-------------------------------------------------------------- */
+.gen-tabs .acctab {
+    font-size:1.5em;
+    line-height:2.7777em;
+    background-color:#f5f5f5;
+    color:#333;
+}
+.gen-tabs .acctab:hover,
+.gen-tabs .acctab:focus,
+.gen-tabs .acctab.current { background-color:#e5e5e5; }
+.gen-tabs.accor .tabs-panels .panel { border-bottom:1px solid #e5e5e5; }
+
+
+/* Tabs - skin 1: with thin borders
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.gen-tabs-style1 .tabs a {
+    font-size:1.3333em;
+    color:#333;
+    background-color:#eee;
+    border:1px solid transparent;
+    border-bottom:none;
+}
+.gen-tabs-style1 .tabs a:hover,
+.gen-tabs-style1 .tabs a:focus   { background-color:#e5e5e5; border-color:#e5e5e5; }
+.gen-tabs-style1 .tabs a.current {
+    background-color:#fff;
+    border-color:#e5e5e5;
+    border-bottom:1px solid transparent;
+    margin-bottom:-1px;
+
+    /* Make a little bit higher thatn other tabs */
+    padding-top:4px;
+    margin-top:-4px;
+}
+.gen-tabs-style1 .tabs-panels { border-top:1px solid #e5e5e5; }
+.gen-tabs-style1.accor .tabs-panels { border-top:none; }
+
+
+/* Tabs - skin 2: with shadow
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+*/
+.gen-tabs-style2 .tabs a { font-size:1.3333em; }
+.gen-tabs-style2 .tabs a.current {
+    box-shadow:0 0 10px rgba(0,0,0, 0.15);
+    position:relative;
+    z-index:1;
+
+    /* Make a little bit higher thatn other tabs */
+    padding-top:4px;
+    margin-top:-4px;
+}
+.gen-tabs-style2 .tabs-panels {
+    background-color:#fff;
+    position:relative;
+    z-index:2;
+}
+/** ENDS tabs.css **/
+

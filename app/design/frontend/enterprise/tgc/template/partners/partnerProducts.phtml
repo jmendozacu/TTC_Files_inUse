@@ -1,0 +1,60 @@
+<?php
+/**
+ * User: mhidalgo
+ * Date: 22/04/14
+ * Time: 11:02
+ */
+/** @var $this Tgc_Cms_Block_Partners_Products */
+
+/** @var $collection Mage_Catalog_Model_Resource_Product_Collection */
+$collection = $this->getProductCollection();
+$partner = $this->getPartner();
+$_heroHelper = $this->helper('tgc_cms');
+
+/** @var $helpImg Infortis_Infortis_Helper_Image */
+$helpImg = $this->helper('infortis/image');
+$_helper = $this->helper('catalog/output');
+$professorHelper = $this->helper('profs')->loadProfessorsByProducts($collection);
+
+$last = count($collection);
+?>
+<div class="partner_page partner_page_<?php echo str_replace(' ','-',$partner->getAltText()) ?>">
+    <div class="partner_content">
+        <div class="partner_products">
+            <h2><?php $this->__('Explore the Courses') ?></h2>
+
+            <?php foreach ($collection as $product): ?>
+                <?php $last--; ?>
+                <div class="product-item">
+                    <div class="pp_image_cont grid12-3">
+                        <a href="<?php echo $product->getUrlModel()->getUrl($product, array('_ignore_category' => true)) ?>" title="<?php echo $this->stripTags($this->getImageLabel($product, 'thumbnail'), null, true) ?>">
+                            <img src="<?php echo $helpImg->getImg($product, 220, 320, 'thumbnail'); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($product, 'thumbnail'), null, true) ?>" />
+                        </a>
+                    </div>
+                    <div class="pp_info_container grid12-9">
+                        <div class="product-name-price">
+                            <div class="pp_information grid12-7">
+                                <h3><a href="<?php echo $product->getUrlModel()->getUrl($product, array('_ignore_category' => true)) ?>"><?php echo $product->getName() ?></a></h3>
+                                <?php //Professor name ?>
+                                <?php if ($professorName = $professorHelper->getProfessorNamesForProduct($product)): ?>
+                                <span class="professor-name"><?php echo $professorName; ?></span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="pp_price_rank grid12-5">
+                                <div class="rating-box">
+                                    <div class="rating" style="width: 80%;">Rating</div>
+                                </div>
+                                <?php echo $this->getPriceHtml($product); ?>
+                            </div>
+                        </div>
+                        <div class="pp_description"><?php echo $_heroHelper->truncateTextByWords($_helper->productAttribute($product, $product->getShortDescription(), 'short_description'), 360, '...');?></div>
+                        <a class="button" href="<?php echo $product->getUrlModel()->getUrl($product, array('_ignore_category' => true)) ?>">Learn More</a>
+                    </div>
+                </div>
+                <?php if ($last): ?>
+                    <hr/>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>

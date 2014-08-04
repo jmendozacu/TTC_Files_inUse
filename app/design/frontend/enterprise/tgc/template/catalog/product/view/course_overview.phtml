@@ -1,0 +1,138 @@
+<?php
+/**
+ * Tgc Catalog
+ *
+ * @author      Guidance Magento SuperTeam <magento@guidance.com>
+ * @category    Tgc
+ * @package     Catalog
+ * @copyright   Copyright (c) 2014 Guidance Solutions (http://www.guidance.com)
+ */
+/* @var $this Mage_Catalog_Block_Product_View_Description */
+?>
+<?php
+$product = $this->getProduct();
+$helper = $this->helper('tgc_catalog');
+$lectures = $this->helper('lectures')->getLecturesForProduct($product);
+$productDescription = $this->helper('catalog/output')->productAttribute($product, $product->getDescription(), 'description');
+$numberOfCharactersInProductDescription = Mage::getStoreConfig('catalog/product_detail_page/max_characters_description')
+    ? Mage::getStoreConfig('catalog/product_detail_page/max_characters_description') : 645;
+$needToTruncate = $helper->isNeedToAdvancedTruncate($productDescription, $numberOfCharactersInProductDescription);
+$attribute = Mage::getModel('eav/config')->getAttribute('catalog_product', 'collection');
+$attributeSource = $attribute->getSource();
+$yesOptionId = $attributeSource->getOptionId('Yes');
+?>
+
+<div class="course-overview-container">
+    <h3 class="section-title">
+        <?php if($product->getData('collection') == $yesOptionId) : ?>
+            <?php echo $this->__('Collection Overview'); ?>
+        <?php else : ?>
+            <?php echo $this->__('About This Course'); ?>
+        <?php endif; ?>
+    </h3>
+
+    <div class="course-counters">
+        <span><?php echo count($lectures); ?> <?php echo $this->__('lectures'); ?></span>
+        <span>&nbsp;|&nbsp;</span>
+        <span><?php echo $this->__('%d minutes per lecture', $lectures->getAverageDuration() / 60) ?></span>
+    </div>
+
+    <div id="course-description-truncated" class="course-description">
+        <?php if ($needToTruncate) { ?>
+            <?php echo $helper->advancedTruncate($productDescription, $numberOfCharactersInProductDescription, ''); ?>
+            <div class="view-more-button with-arrow"><?php echo $this->__('View More'); ?></div>
+        <?php } else { ?>
+            <?php echo $productDescription ?>
+        <?php } ?>
+    </div>
+
+    <?php if ($needToTruncate) { ?>
+        <div id="course-description" class="course-description rest">
+            <?php echo $productDescription; ?>
+            <div class="view-more-button with-arrow rest"><?php echo $this->__('View Less'); ?></div>
+        </div>
+    <?php } ?>
+
+    <div class="lectures-container clearfix">
+        <div class="lectures-container-title"><?php echo $this->__('%d Lectures', count($lectures)) ?></div>
+        <ul class="lectures-list">
+            <?php $li = $lectures->getIterator() ?>
+            <?php for ($i = 0, $lecture = reset($li); $i < count($li) / 2; $i++, $lecture = next($li)) : ?>
+                <li>
+                    <?php if (is_null($lecture->getDefaultCourseNumber())) { ?>
+                        <div class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                        <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                        <div class="lecture-description-block right">
+                            <?php echo $lecture->getDescription() ?>
+                        </div>
+                    <?php } else { ?>
+                        <div class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                        <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                        <div class="lecture-description-block right">
+                            <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                            <div class="from-course-block">
+                                <span><?php echo $this->__('From: ') ; ?></span>
+                                <a href="<?php echo Mage::helper('tgc_catalog')->getProductUrlFromCourseId($lecture->getDefaultCourseNumber()); ?>">
+                                   <?php echo Mage::helper('tgc_catalog')->getProductNameFromCourseId($lecture->getDefaultCourseNumber()); ?>
+                                </a>
+                            </div>
+                            <?php echo $lecture->getDescription() ?>
+                        </div>
+                    <?php } ?>
+                </li>
+            <?php endfor; ?>
+        </ul>
+        <ul class="lectures-list">
+            <?php for (; $lecture; $lecture = next($li)) : ?>
+                <li>
+                    <?php if (is_null($lecture->getDefaultCourseNumber())) { ?>
+                        <div class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                        <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                        <div class="lecture-description-block left">
+                            <?php echo $lecture->getDescription() ?>
+                        </div>
+                    <?php } else { ?>
+                        <div class="lecture-counter"><?php echo $this->escapeHtml($lecture->getLectureNumber()) ?></div>
+                        <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                        <div class="lecture-description-block left">
+                            <div class="lecture-title"><?php echo $this->escapeHtml($lecture->getTitle()) ?></div>
+                            <div class="from-course-block">
+                                <span><?php echo $this->__('From: ') ; ?></span>
+                                <a href="<?php echo Mage::helper('tgc_catalog')->getProductUrlFromCourseId($lecture->getDefaultCourseNumber()); ?>">
+                                   <?php echo Mage::helper('tgc_catalog')->getProductNameFromCourseId($lecture->getDefaultCourseNumber()); ?>
+                                </a>
+                            </div>
+                            <?php echo $lecture->getDescription() ?>
+                        </div>
+                    <?php } ?>
+                </li>
+            <?php endfor; ?>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    /*Code for showing more information about course*/
+    var viewMoreBtn = jQuery('.course-overview-container .view-more-button');
+
+    viewMoreBtn.on(customClickEvent, function () {
+
+        if (jQuery(this).hasClass('rest')) {
+            jQuery(document).scrollTop( jQuery("#product-tabs").offset().top );
+            jQuery('#course-description-truncated').show();
+            jQuery('#course-description').hide();
+            mobileTabPanelScroll.scrollTo(0, 0);
+        } else {
+        	jQuery('#course-description-truncated').hide();
+            jQuery('#course-description').show();
+        }
+    })
+
+    jQuery(function($) {
+        $('.lectures-list li').on('touchend mouseover', function(e) {
+            $('.lectures-list > li').removeClass('hover');
+            e.stopPropagation();
+            $(this).addClass('hover');
+        });
+    });
+
+</script>
